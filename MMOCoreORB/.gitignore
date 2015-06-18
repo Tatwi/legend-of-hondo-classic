@@ -1,4 +1,5 @@
 autom4te.cache
+autom4te.cache/*
 config.h.in
 config.h.in~
 configure
@@ -8,6 +9,7 @@ Makefile.in
 aclocal.m4
 bin/conf/rev.txt
 build/*
+build/
 src/Makefile.in
 src/client/Makefile.in
 src/client/aclocal.m4
@@ -16,4 +18,8 @@ src/client/configure
 src/client/build/*
 INSTALL
 .settings/*
+.externalToolBuilders/*
+doc/*
+*Make*
+
 
