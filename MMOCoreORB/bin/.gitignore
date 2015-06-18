@@ -1,2 +1,6 @@
 core3
 core3client
+*core3*
+databases/
+log/
+terrain/
