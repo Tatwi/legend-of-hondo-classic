@@ -92,14 +92,14 @@ ZonesEnabled = {
 	--"cinco_city_test_m5",
 	--"corellia",
 	--"creature_test",
-	--"dantooine",
-	--"dathomir",
+	"dantooine",
+	"dathomir",
 	--"dungeon1",
-	--"endor",
+	"endor",
 	--"endor_asommers",
 	--"floratest",
 	--"godclient_test",
-	--"lok",
+	"lok",
 	--"naboo",
 	--"otoh_gunga",
 	--"rivertest",
@@ -134,10 +134,11 @@ ZonesEnabled = {
 
 
 -- directory of tres with live.cfg
-TrePath = "/home/swgemu/Desktop/SWGEmu"
+TrePath = "/home/swgemu/workspace/TRE"
 
 TreFiles = {
 	"default_patch.tre",
+	"loh_001.tre",
 	"patch_sku1_14_00.tre",
 	"patch_14_00.tre",
 	"patch_sku1_13_00.tre",

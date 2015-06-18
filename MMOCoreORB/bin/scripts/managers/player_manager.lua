@@ -45,23 +45,23 @@
 -----------------------------------
 
 --Blue frog / GM buff values
-performanceBuff = 1000
-medicalBuff = 1900
+performanceBuff = 400 -- Secondary (Divided by 4 for regen - Constitution, Quickness, Willpower)
+medicalBuff = 1250 -- Primary (Health/Action/Mind)
 performanceDuration = 7200 -- in seconds
 medicalDuration = 7200 -- in seconds
 
 --Sets the experience multiplier while grouped
-groupExpMultiplier = 1.2
+groupExpMultiplier = 1.0
 
 --Sets a global experience multiplier
-globalExpMultiplier = 1.0
+globalExpMultiplier = 3.0
 
 --Sets the base number of control devices of each type that a player can have in their datapad at once
 --For creature pets, A Creature Handler will have the base number + their stored pets skill mod as limit
-baseStoredCreaturePets = 2
+baseStoredCreaturePets = 5
 baseStoredFactionPets = 3
 baseStoredDroids = 5
-baseStoredVehicles = 3
+baseStoredVehicles = 5
 baseStoredShips = 3
 
 -----------------------------------
@@ -106,7 +106,7 @@ veteranRewards = {
 	{templateFile = "object/tangible/veteran_reward/frn_tech_console_sectional_d.iff", milestone=360, oneTime=false, description="@veteran_new:techconsole_d"},
 	{templateFile = "object/tangible/veteran_reward/frn_vet_jabba_toy.iff", milestone=360, oneTime=false, description="@veteran_new:mini_jabba"},
 	{templateFile = "object/tangible/veteran_reward/frn_vet_stormtrooper_toy.iff", milestone=360, oneTime=false, description="@veteran_new:mini_stormtrooper"},
-	{templateFile = "object/tangible/veteran_reward/antidecay.iff", milestone=360, oneTime=true, description="@veteran_new:antidecay"},
+	--{templateFile = "object/tangible/veteran_reward/antidecay.iff", milestone=360, oneTime=true, description="@veteran_new:antidecay"},
 	
 	-- 450 Day Rewards
 	{templateFile = "object/tangible/camp/camp_spit_s2.iff", milestone=450, oneTime=false, description="Camp Center (Small)"},
