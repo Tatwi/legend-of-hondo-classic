@@ -743,14 +743,14 @@ bool PlanetManagerImplementation::isInObjectsNoBuildZone(float x, float y, float
 				Vector3 objWorldPos = obj->getWorldPosition();
 
 				if (objWorldPos.squaredDistanceTo(targetPos) < radius * radius) {
-					return true;
+					return false; // LoH Mod
 				}
 			}
 
 			// Check if it's within a structure's footprint
 			if (objectTemplate->isSharedStructureObjectTemplate()) {
 				if (StructureManager::instance()->isInStructureFootprint(cast<StructureObject*>(obj), x, y, extraMargin)) {
-					return true;
+					return false; // LoH Mod
 				}
 			}
 		}
@@ -804,12 +804,12 @@ bool PlanetManagerImplementation::isBuildingPermittedAt(float x, float y, SceneO
 		return false;
 
 	zone->getInRangeActiveAreas(x, y, &activeAreas, true);
-
+/* LoH Mod
 	for (int i = 0; i < activeAreas.size(); ++i) {
 		ActiveArea* area = activeAreas.get(i);
 
 		if (area->isNoBuildArea()) {
-			return false;
+			return false; // LoH Mod
 		}
 	}
 
@@ -817,12 +817,13 @@ bool PlanetManagerImplementation::isBuildingPermittedAt(float x, float y, SceneO
 		return false;
 	}
 
+	if (isInRangeWithPoi(x, y, 150))
+		return false;
+*/
+
 	if (isInWater(x, y)) {
 		return false;
 	}
-
-	if (isInRangeWithPoi(x, y, 150))
-		return false;
 
 	return true;
 }

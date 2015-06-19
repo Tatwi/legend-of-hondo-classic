@@ -278,7 +278,7 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 			BoundaryRectangle rect(xx0, yy0, xx1, yy1);
 
 			//info("existing footprint xx0:" + String::valueOf(xx0) + " yy0:" + String::valueOf(yy0) + " xx1:" + String::valueOf(xx1) + " yy1:" + String::valueOf(yy1), true);
-
+		/* LoH Mod
 			// check 4 points of the current rect
 			if (rect.containsPoint(x0, y0)
 					|| rect.containsPoint(x0, y1)
@@ -302,7 +302,7 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 				creature->sendSystemMessage("@player_structure:no_room"); //there is no room to place the structure here.
 
 				return 1;
-			}
+			} */
 		}
 	}
 
