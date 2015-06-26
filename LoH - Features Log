@@ -70,15 +70,10 @@ scripts/managers/planet_manager.lua
 
 Power/Maint/Housing Adjustments
 = = = = = = = = = = = = = = = = = 
+scripts/object/installation/[GENERATORS/HARVESTERS]
 
-scripts/object/structure/[GENERATORS/HARVESTERS]
-- - - - - - -
 - Increased Min/Max BER on all harvesters and (less so) generators
 - Increased max possible hopper size for harvesters (but not generators).
-
-scripts/object/tangible/deed/generator_deed/[GENERATORS]
-scripts/object/tangible/deed/harvester_deed/[HARVESTERS]
-- - - - - - -
 - Reduced power and maint costs harvesters.
 - Reduced maint cost on factories and houses/guild halls.
 - Left the factory power cost normal, as it only drains when running and a single player doesn't need thousands of blah instantly.
@@ -107,6 +102,15 @@ src/server/zone/objects/scene/SceneObjectImplementation.cpp
 - - - - - - -
 - Allowed items placed inside structures to be rotated on all three axis
 
+
+
+
+
+
+
+________________________________________________________
+--- P L A N E D ---
+========================================================
 
 
 
@@ -165,6 +169,8 @@ src/server/zone/managers/sui/SuiManager.cpp
 - - - - - - -
 - Disabled wound healing using the Buff Terminal and Character Builder Terminal (blue frog). 
 - People can heal wounds with the dirt cheap Medic skills rather than the Buff Terminal!
+- Retained the Mind wound Battle Fatigue healing option.
+
 
 scripts/object/tangible/medicine/crafted/medpack_enhance_action_c.lua
 scripts/object/tangible/medicine/crafted/medpack_enhance_action_d.lua
@@ -191,6 +197,8 @@ scripts/object/tangible/medicine/crafted/medpack_enhance_strength_c.lua
 scripts/object/tangible/medicine/crafted/medpack_enhance_strength_d.lua
 - Reduced top end buffs to encourage "active healing".
 - A (100), B (200), C (300), D (400)
+
+
 
 
 
@@ -264,21 +272,6 @@ scripts/screenplays/hondo/merchants/crazy_larry.lua
 
 
 
-PATCH: Mind Wound Healing
-= = = = = = = = = = = = = = = = =
-scripts/object/tangible/beta/beta_terminal_wound.lua
-src/server/zone/managers/sui/SuiManager.cpp
-- - - - - - -
-- Added mind wound healing the Battle Fatigue healing option.
-
-
-
-
-PATCH: Disabled Yavin4 and enabled Lok for story reasons.
-
-
-
-
 Travel System
 = = = = = = = = = = = = = = = = = 
 scripts/screenplays/hondo/travel/*
@@ -304,10 +297,6 @@ scripts/screenplays/hondo/travel/galactic_travel_from_theed.lua
 
 
 
-
-________________________________________________________
---- P L A N E D ---
-========================================================
 
 
 Scout and Ranger
