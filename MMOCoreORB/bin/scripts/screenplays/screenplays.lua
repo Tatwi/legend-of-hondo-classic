@@ -365,3 +365,9 @@ includeFile("space/space_chassis_dealer_conv_handler.lua")
 -- Record Keepers
 includeFile("record_keepers/record_keepers.lua")
 
+
+-- Legend of Hondo ----------------
+
+-- Buff Terminals
+includeFile("hondo/buff_terminals.lua")
+
