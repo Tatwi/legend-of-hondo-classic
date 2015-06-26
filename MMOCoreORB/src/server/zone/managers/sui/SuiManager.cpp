@@ -398,12 +398,15 @@ void SuiManager::handleCharacterBuilderSelectItem(CreatureObject* player, SuiBox
 			} else if (templatePath == "cleanse_character") {
 
 				if (!player->isInCombat()) {
-					player->sendSystemMessage("You have been cleansed from the signs of previous battles.");
-
+					player->sendSystemMessage("You feel rested, your mind at ease, as though all your mind wounds and battle fatigue just drifted away...");
+					/* Legend of Hondo Mod - Heal only Mind, Focus, Willpower, and Battle Fatigue
 					for (int i = 0; i < 9; ++i) {
 						player->setWounds(i, 0);
-					}
-
+					}*/
+					player->setWounds(6, 0);
+					player->setWounds(7, 0);
+					player->setWounds(8, 0);
+					
 					player->setShockWounds(0);
 				} else {
 					player->sendSystemMessage("Not within combat.");

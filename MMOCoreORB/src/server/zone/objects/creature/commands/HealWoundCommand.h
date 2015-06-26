@@ -66,7 +66,7 @@ public:
 
 		CreatureObject* player = cast<CreatureObject*>(creature);
 
-		int amount = (int)round((float)power * 2.5f);
+		int amount = (int)round((float)power * 2.5f); // Default 2.5f
 
 		if (amount <= 0)
 			return;
@@ -345,8 +345,10 @@ public:
 		Locker locker(woundPack);
 		woundPack->decreaseUseCount();
 
-		if (creatureTarget != creature && !creatureTarget->isPet())
-			awardXp(creature, "medical", woundHealed); //No experience for healing yourself or pets.
+		//if (creatureTarget != creature && !creatureTarget->isPet())
+		// Legend of Hondo - grant XP for healing self and pet!
+			
+		awardXp(creature, "medical", woundHealed); 
 
 		doAnimations(creature, creatureTarget);
 

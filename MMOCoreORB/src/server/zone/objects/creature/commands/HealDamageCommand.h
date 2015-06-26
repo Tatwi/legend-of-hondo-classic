@@ -230,9 +230,10 @@ public:
 		if (!creature->isPlayerCreature())
 			return;
 
+
 		CreatureObject* player = cast<CreatureObject*>(creature);
 
-		int amount = (int)round((float)power * 0.25f);
+		int amount = (int)round((float)power * 0.25f); // Default 0.25f
 
 		if (amount <= 0)
 			return;
@@ -260,8 +261,10 @@ public:
 
 			sendHealMessage(creature, targetCreature, healthHealed, actionHealed);
 
-			if (targetCreature != creature && !targetCreature->isPet())
-				awardXp(creature, "medical", (healthHealed + actionHealed)); //No experience for healing yourself or pets.
+			//if (targetCreature != creature && !targetCreature->isPet())
+			// Legend of Hondo - grant XP for healing self and pet!
+			
+			awardXp(creature, "medical", (healthHealed + actionHealed)); 
 
 			checkForTef(creature, targetCreature);
 		}
@@ -409,8 +412,10 @@ public:
 		Locker locker(stimPack);
 		stimPack->decreaseUseCount();
 
-		if (targetCreature != creature && !targetCreature->isPet())
-			awardXp(creature, "medical", (healthHealed + actionHealed)); //No experience for healing yourself.
+		//if (targetCreature != creature && !targetCreature->isPet())
+		// Legend of Hondo - grant XP for healing self and pet!
+			
+		awardXp(creature, "medical", (healthHealed + actionHealed)); 
 
 		if (targetCreature != creature)
 			clocker.release();
