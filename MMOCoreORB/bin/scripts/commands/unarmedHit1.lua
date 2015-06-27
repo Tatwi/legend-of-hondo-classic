@@ -46,7 +46,7 @@ UnarmedHit1Command = {
 
 	damageMultiplier = 2.0,
 	speedMultiplier = 1.5,
-	accuracyBonus = 15,
+	accuracyBonus = 50,
 	
 	healthCostMultiplier = 1.0,
 	actionCostMultiplier = 1.0,

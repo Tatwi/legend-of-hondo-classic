@@ -44,12 +44,12 @@
 ActionShot1Command = {
 	name = "actionshot1",
 
-	damageMultiplier = 1.0,
-	speedMultiplier = 1.5,
-	healthCostMultiplier = 1.75,
-	actionCostMultiplier = 1.25,
+	damageMultiplier = 2,
+	speedMultiplier = 1,
+	healthCostMultiplier = 0.5,
+	actionCostMultiplier = 0.75,
 	mindCostMultiplier = 0.5,
-	accuracyBonus = 25,
+	accuracyBonus = 50,
 
 	poolsToDamage = ACTION_ATTRIBUTE,
 

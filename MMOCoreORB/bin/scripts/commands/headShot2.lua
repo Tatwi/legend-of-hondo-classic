@@ -44,14 +44,14 @@
 HeadShot2Command = {
         name = "headshot2",
 
-	damageMultiplier = 2.50,
-	speedMultiplier = 1.5,
+	damageMultiplier = 3,
+	speedMultiplier = 1,
 	healthCostMultiplier = 0.5,
-	actionCostMultiplier = 0.5,
-	mindCostMultiplier = 1.5,
-	accuracyBonus = 5,
+	actionCostMultiplier = 1,
+	mindCostMultiplier = 0.5,
+	accuracyBonus = 50,
 
-	poolsToDamage = MIND_ATTRIBUTE,
+	poolsToDamage = HEALTH_ATTRIBUTE,
 
 	animationCRC = hashCode("fire_1_special_single_medium_face"),
 

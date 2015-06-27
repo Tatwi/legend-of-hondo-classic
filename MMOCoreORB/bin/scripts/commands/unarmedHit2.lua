@@ -49,7 +49,7 @@ UnarmedHit2Command = {
 	healthCostMultiplier = 1.5,
 	actionCostMultiplier = 1.5,
 	mindCostMultiplier = 1.5,
-        accuracyBonus = 15,
+        accuracyBonus = 50,
 
 	animationCRC = hashCode("combo_3a_light"),
 

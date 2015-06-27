@@ -49,7 +49,7 @@ PolearmHit2Command = {
 	healthCostMultiplier = 1.5,
 	actionCostMultiplier = 1.0,
 	mindCostMultiplier = 1.0,
-	accuracyBonus = 10,
+	accuracyBonus = 50,
 
 	stateEffects = {
 	  StateEffect( 
