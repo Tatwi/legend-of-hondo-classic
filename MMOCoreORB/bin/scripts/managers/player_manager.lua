@@ -47,6 +47,8 @@
 --Blue frog / GM buff values
 performanceBuff = 400 -- Secondary (Divided by 4 for regen - Constitution, Quickness, Willpower)
 medicalBuff = 800 -- Primary (Health/Action/Mind)
+performanceDuration = 7200 -- in seconds
+medicalDuration = 7200 -- in seconds
 
 --Sets the experience multiplier while grouped
 groupExpMultiplier = 1.0
