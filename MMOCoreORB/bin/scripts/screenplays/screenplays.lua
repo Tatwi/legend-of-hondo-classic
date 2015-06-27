@@ -376,3 +376,10 @@ includeFile("hondo/merchants/starter_gear.lua")
 includeFile("hondo/merchants/starter_weapons.lua")
 includeFile("hondo/merchants/crazy_larry.lua")
 
+-- Travel
+includeFile("hondo/travel/onak_from_mos_espa.lua")
+includeFile("hondo/travel/onak_to_mos_espa.lua")
+includeFile("hondo/travel/planetary_travel_dantooine.lua")
+includeFile("hondo/travel/planetary_travel_dathomir.lua")
+includeFile("hondo/travel/planetary_travel_endor.lua")
+includeFile("hondo/travel/planetary_travel_tatooine.lua")

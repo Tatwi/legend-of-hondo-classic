@@ -263,14 +263,6 @@ scripts/mobile/conversations/hondo/merchants/crazy_larry_conv.lua
 
 
 
-________________________________________________________
---- P L A N E D ---
-========================================================
-
-
-
-
-
 Travel System
 = = = = = = = = = = = = = = = = = 
 scripts/screenplays/hondo/travel/*
@@ -293,6 +285,7 @@ scripts/screenplays/hondo/travel/galactic_travel_from_theed.lua
 - - - - - - -
 - Disable Ticket Terminals, Ticket Droids, and replaced NPC shuttles with a static model.
 - Tatooine starport shuttles remain disabled so as to no overlap with the Onak, which is parked in Mos Espa.
+
 
 
 
@@ -325,14 +318,34 @@ scripts/mobile/corellia/murra.lua
 
 src/server/zone/objects/creature/events/MilkCreatureTask.h
 - - - - - - -
-- Milking Success  
+- XP on Milking Success  
 - Tested Milkable Creature Types: Bageraset, Humbaba, Paralope, Sharnaff(2), Piket, Thune, Bolma, Brackaset, Bolle Bol, 
 Bantha, Gurnaset, Snorbal, Falumpaset, Fambaa(7), Gualama, Ikopi, Kaduu, Murra, Kahmurra, Cu Pa, Eopie, Ronto(3),
 Tybis, Lesser Plains Bol, Bordok.
 
-src/server/zone/objects/area/CampSiteActiveAreaImplementation.cpp
+scripts/object/building/poi/scout_camp_s0.lua
+scripts/object/building/poi/scout_camp_s1.lua
+scripts/object/building/poi/scout_camp_s2.lua
+scripts/object/building/poi/scout_camp_s3.lua
+scripts/object/building/poi/scout_camp_s4.lua
+scripts/object/building/poi/scout_camp_s5.lua
 - - - - - - -
-- Camps grant XP when abandonded. Grants the XP even when client loses connection to the server! 
+- Added some items to camps.
+- Basic Camp: Explorer Mission Terminal
+- Multiperson: Destroy/Deliver Mission Terminal
+- Improved: Bounty Hunter Mission Terminal
+- High Quality: Rebel and Imperial Mission Terminals
+- Field Base Kit: Bank and Insurance Terminals
+- High Tech Field Base Kit: Bank, Insurance, and Buff Terminals
+ 
+
+
+
+________________________________________________________
+--- P L A N E D ---
+========================================================
+
+
 
 
 
