@@ -337,7 +337,56 @@ scripts/object/building/poi/scout_camp_s5.lua
 - High Quality: Rebel and Imperial Mission Terminals
 - Field Base Kit: Bank and Insurance Terminals
 - High Tech Field Base Kit: Bank, Insurance, and Buff Terminals
- 
+
+scripts/mobile/spawn/hunting_mission/corellia_hunting_missions.lua
+scripts/mobile/spawn/hunting_mission/dantooine_hunting_missions.lua
+scripts/mobile/spawn/hunting_mission/dathomir_hunting_missions.lua
+scripts/mobile/spawn/hunting_mission/endor_hunting_missions.lua
+scripts/mobile/spawn/hunting_mission/lok_hunting_missions.lua
+scripts/mobile/spawn/hunting_mission/naboo_hunting_missions.lua
+scripts/mobile/spawn/hunting_mission/rori_hunting_missions.lua
+scripts/mobile/spawn/hunting_mission/talus_hunting_missions.lua
+scripts/mobile/spawn/hunting_mission/tatooine_hunting_missions.lua
+scripts/mobile/spawn/hunting_mission/yavin4_hunting_missions.lua
+scripts/mobile/spawn/serverobjects.lua
+- - - - - - -
+- Added new Hunting Mission Spawn Groups (as there weren't any appropriate groups already)
+- When I went to add Wilderness Survival XP to these missions, I discovered that they were not implimented correctly. Apart
+from the generally poor way SOE made these missions, SWGEmu seems to have based the potential targets off any 
+possible MOB spawn on any planet, which is incorrect (and in some cases, out-right broken as it includes faction NPC, some 
+of which don't even spawn). Consiquently, I went ahead and solved this problem by creating new spawn groups for each 
+planet that consist of only valid animal type creatures. Most (if not all) non-quest, non-dungeon animals that can spawn on 
+a planet are available.
+
+src/server/zone/managers/mission/MissionManagerImplementation.cpp
+- - - - - - -
+- Completely changed how the available creature types are determined.
+- All available creature types are displayed in the mission terminal, regardless of player level and group size. Just because you take the mission, doesn't mean you'll actually find those creatures! :)
+- Adjusted the mission credit payout method to more appropriately match the difficulty of the mission. Reward range is approx 450cr to 25,000cr. Creature Knowledge skill grants a bonus!
+- Difficulty level displayed is now the average level of the target creatures (rather than the not very helpful 1, 2, or 3 that used to be displayed).
+- Removed the roleplay from the mission descriptions server side, for clarity and to fix SOE typos without requiring a client update.
+- Titles for Hunting Missions on the terminals show the target creature name rather than the roleplay name. [Animal]: a humbaba 
+
+src/server/zone/objects/mission/HuntingMissionObjectiveImplementation.cpp
+- - - - - - -
+- Granted Wilderness Survival XP upon completion.
+- XP granted is based upon your Foraging skill and the credit payout, so SEAs can be used for bonus XP!
+
+src/server/zone/objects/mission/MissionObject.idl
+src/server/zone/objects/mission/MissionObjectImplementation.cpp
+src/server/zone/objects/mission/HuntingMissionObjectiveImplementation.cpp
+src/server/zone/packets/mission/MissionObjectDeltaMessage3.h
+- - - - - - -
+- Mission description, when viewed in the datapad, now shows how many kills are remaining.
+- Unfortunately, the text is loaded from the client side files by default each time you log in, but it gets updated again once you kill one of the mission creatures.
+- Titles for Hunting Missions on the terminals show the target creature name rather than the roleplay name. [Kill 15]: a humbaba
+
+src/server/zone/managers/mission/MissionManagerImplementation.cpp
+- - - - - - -
+- Titles for Destroy Missions on the terminals show the target creature name rather than the roleplay name. [Difficulty 9]: humbaba lair 
+
+
+
 
 
 
@@ -427,55 +476,6 @@ scripts/loot/items/geonosian_lab/kliknik_reinforced_chitin_armor_segment.lua
 
 
 
-
-Hunting and Destroy Missions
-= = = = = = = = = = = = = = = = = 
-scripts/mobile/spawn/hunting_mission/corellia_hunting_missions.lua
-scripts/mobile/spawn/hunting_mission/dantooine_hunting_missions.lua
-scripts/mobile/spawn/hunting_mission/dathomir_hunting_missions.lua
-scripts/mobile/spawn/hunting_mission/endor_hunting_missions.lua
-scripts/mobile/spawn/hunting_mission/lok_hunting_missions.lua
-scripts/mobile/spawn/hunting_mission/naboo_hunting_missions.lua
-scripts/mobile/spawn/hunting_mission/rori_hunting_missions.lua
-scripts/mobile/spawn/hunting_mission/talus_hunting_missions.lua
-scripts/mobile/spawn/hunting_mission/tatooine_hunting_missions.lua
-scripts/mobile/spawn/hunting_mission/yavin4_hunting_missions.lua
-scripts/mobile/spawn/serverobjects.lua
-- - - - - - -
-- Added new Hunting Mission Spawn Groups (as there weren't any appropriate groups already)
-- When I went to add Wilderness Survival XP to these missions, I discovered that they were not implimented correctly. Apart
-from the generally poor way SOE made these missions, SWGEmu seems to have based the potential targets off any 
-possible MOB spawn on any planet, which is incorrect (and in some cases, out-right broken as it includes faction NPC, some 
-of which don't even spawn). Consiquently, I went ahead and solved this problem by creating new spawn groups for each 
-planet that consist of only valid animal type creatures. Most (if not all) non-quest, non-dungeon animals that can spawn on 
-a planet are available.
-
-src/server/zone/managers/mission/MissionManagerImplementation.cpp
-- - - - - - -
-- Completely changed how the available creature types are determined.
-- All available creature types are displayed in the mission terminal, regardless of player level and group size. Just because you take the mission, doesn't mean you'll actually find those creatures! :)
-- Adjusted the mission credit payout method to more appropriately match the difficulty of the mission. Reward range is approx 450cr to 25,000cr. Creature Knowledge skill grants a bonus!
-- Difficulty level displayed is now the average level of the target creatures (rather than the not very helpful 1, 2, or 3 that used to be displayed).
-- Removed the roleplay from the mission descriptions server side, for clarity and to fix SOE typos without requiring a client update.
-- Titles for Hunting Missions on the terminals show the target creature name rather than the roleplay name. [Animal]: a humbaba 
-
-src/server/zone/objects/mission/HuntingMissionObjectiveImplementation.cpp
-- - - - - - -
-- Granted Wilderness Survival XP upon completion.
-- XP granted is based upon your Foraging skill and the credit payout, so SEAs can be used for bonus XP!
-
-src/server/zone/objects/mission/MissionObject.idl
-src/server/zone/objects/mission/MissionObjectImplementation.cpp
-src/server/zone/objects/mission/HuntingMissionObjectiveImplementation.cpp
-src/server/zone/packets/mission/MissionObjectDeltaMessage3.h
-- - - - - - -
-- Mission description, when viewed in the datapad, now shows how many kills are remaining.
-- Unfortunately, the text is loaded from the client side files by default each time you log in, but it gets updated again once you kill one of the mission creatures.
-- Titles for Hunting Missions on the terminals show the target creature name rather than the roleplay name. [Kill 15]: a humbaba
-
-src/server/zone/managers/mission/MissionManagerImplementation.cpp
-- - - - - - -
-- Titles for Destroy Missions on the terminals show the target creature name rather than the roleplay name. [Difficulty 9]: humbaba lair 
 
 
 
