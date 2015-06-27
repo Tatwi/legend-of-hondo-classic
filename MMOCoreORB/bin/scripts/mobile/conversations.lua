@@ -144,3 +144,11 @@ includeFile("conversations/record_keepers/record_keeper_rebel_conv.lua")
 
 -- Personality Conversations
 includeFile("conversations/pet/pets_conv.lua")
+
+
+-- Legend of Hondo -----------------
+
+-- Merchants
+includeFile("conversations/hondo/merchants/starter_gear_conv.lua")
+includeFile("conversations/hondo/merchants/starter_weapons_conv.lua")
+includeFile("conversations/hondo/merchants/crazy_larry_conv.lua")
