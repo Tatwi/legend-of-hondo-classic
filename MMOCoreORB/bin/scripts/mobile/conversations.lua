@@ -152,3 +152,13 @@ includeFile("conversations/pet/pets_conv.lua")
 includeFile("conversations/hondo/merchants/starter_gear_conv.lua")
 includeFile("conversations/hondo/merchants/starter_weapons_conv.lua")
 includeFile("conversations/hondo/merchants/crazy_larry_conv.lua")
+
+-- Travel
+includeFile("conversations/hondo/travel/wolten_kinhara_from_espa_conv.lua")
+includeFile("conversations/hondo/travel/wolten_kinhara_dant_pirate_conv.lua")
+includeFile("conversations/hondo/travel/j4mr_to_espa_conv.lua")
+includeFile("conversations/hondo/travel/j4mr_lok_conv.lua")
+includeFile("conversations/hondo/travel/dantooine_shuttle_conv.lua")
+includeFile("conversations/hondo/travel/dathomir_shuttle_conv.lua")
+includeFile("conversations/hondo/travel/endor_shuttle_conv.lua")
+includeFile("conversations/hondo/travel/tatooine_shuttle_conv.lua")

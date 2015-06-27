@@ -701,8 +701,27 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 		missionType = "_npc";
 	else
 		missionType = "_creature";
-
-	mission->setMissionTitle("mission/mission_destroy_neutral" + messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "t");
+	
+	
+	// Get lair name and remove what we don't want
+	String titleAsCreatureName = lairTemplateObject->getName().replaceAll("_", " ");
+	titleAsCreatureName = titleAsCreatureName.replaceAll("^" + player->getZone()->getZoneName(), " ");
+	titleAsCreatureName = titleAsCreatureName.replaceAll("small", "");
+	titleAsCreatureName = titleAsCreatureName.replaceAll("medium", "");
+	titleAsCreatureName = titleAsCreatureName.replaceAll("large", "");
+	titleAsCreatureName = titleAsCreatureName.replaceAll("neutral", "");
+	titleAsCreatureName = titleAsCreatureName.replaceAll("click", "lair");
+	titleAsCreatureName = titleAsCreatureName.replaceAll("01", "");
+	titleAsCreatureName = titleAsCreatureName.replaceAll("02", "");
+	titleAsCreatureName = titleAsCreatureName.replaceAll("boss", "");
+	// Add a space in front if there isn't one
+	if (!titleAsCreatureName.beginsWith(" ")){
+		Logger::console.info("titleAsCreatureName didn't start with a space", true); // Debug
+		titleAsCreatureName = "  " + titleAsCreatureName;
+	}
+	// Set mission title as the creature difficulty and name rather than the roleplay data
+	mission->setMissionTitleAsCreatureName("Difficulty " + String::valueOf(diffDisplay), titleAsCreatureName, true);
+	//mission->setMissionTitle("mission/mission_destroy_neutral" + messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "t");
 	mission->setMissionDescription("mission/mission_destroy_neutral" +  messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "d");
 
 	switch (faction) {
@@ -1356,24 +1375,56 @@ void MissionManagerImplementation::randomizeGenericHuntingMission(CreatureObject
 	mission->setMissionTargetName(creatureTemplate->getObjectName());
 	mission->setTargetTemplate(sharedTemplate);
 
-	//50% easy missions, 33% medium missions, 17% hard missions.
+	int numAnimals = 0;
+	
+	// 33% chance to list either an easy, medium, or hard mission
 	int difficulty = System::random(5) + 1;
 	String diffString;
-	if (difficulty <= 3) {
+	if (difficulty <= 2) {
 		difficulty = 1;
 		diffString = "easy";
-	} else if (difficulty <= 5) {
+		numAnimals = 15;
+	} else if (difficulty <= 4) {
 		difficulty = 2;
 		diffString = "medium";
+		numAnimals = 30;
 	} else {
 		difficulty = 3;
 		diffString = "hard";
+		numAnimals = 45;
 	}
 
-	int baseReward = 100 + difficulty * (200 + randomLairSpawn->getMinDifficulty());
-	mission->setRewardCredits(baseReward + System::random(100));
-	mission->setMissionDifficulty(difficulty);
-	mission->setMissionTitle("mission/mission_npc_hunting_neutral_" + diffString, "m" + String::valueOf(randTexts) + "t");
+	int avgDifficulty = (randomLairSpawn->getMinDifficulty() + randomLairSpawn->getMaxDifficulty()) / 2;
+	
+	// Up to 25% payout bonus for Creature Knowledge skill level
+	float creatureKnowledge = player->getSkillMod("creature_knowledge") / 500 + 1;
+	
+	// Throttle payout for easy animals
+	float payThrottle = 1;
+	if (avgDifficulty <= 10){
+		creatureKnowledge = 1;
+		payThrottle = 3;
+	}
+	// Bonus payout for hard animals
+	if (avgDifficulty > 60){
+		creatureKnowledge *= 1.25;
+		payThrottle = 0.8; // divide by decimal results in bigger number
+	}
+	
+	int baseReward = (avgDifficulty + numAnimals / payThrottle) * (75 + System::random(25)) * creatureKnowledge;
+	        
+	if (baseReward > 25000)
+		baseReward = 24000 + System::random(1000); // Cap payout at 25,000cr
+	
+	// Reward range is approx 450cr to 25,000cr 
+	
+	mission->setRewardCredits(baseReward);
+	mission->setMissionDifficulty(difficulty, avgDifficulty, 2, true);
+	
+	// Remove underscore from name
+	String titleAsCreatureName = mobileName.replaceAll("_", " ");
+	
+	mission->setMissionTitleAsCreatureName("Kill " + String::valueOf(numAnimals), " " + titleAsCreatureName, true);
 	mission->setMissionDescription("mission/mission_npc_hunting_neutral_" + diffString, "m" + String::valueOf(randTexts) + "o");
 
 	mission->setTypeCRC(MissionObject::HUNTING);
@@ -1572,8 +1623,9 @@ LairSpawn* MissionManagerImplementation::getRandomLairSpawn(CreatureObject* play
 
 	Vector<Reference<LairSpawn*> >* availableLairList = NULL;
 
-	if (type == MissionObject::DESTROY) {
-		String missionGroup;
+	String missionGroup; // Legend of Hondo needs this declared here
+
+	if (type == MissionObject::DESTROY) {		
 
 		if (faction == MissionObject::FACTIONNEUTRAL) {
 			missionGroup = zone->getZoneName() + "_destroy_missions";
@@ -1606,30 +1658,42 @@ LairSpawn* MissionManagerImplementation::getRandomLairSpawn(CreatureObject* play
 		availableLairList = destroyMissionGroup->getSpawnList();
 
 	} else if (type == MissionObject::HUNTING) {
-		CreatureManager* creatureManager = zone->getCreatureManager();
-		Vector<ManagedReference<SpawnArea* > >* worldAreas = creatureManager->getWorldSpawnAreas();
-
-		ManagedReference<SpawnArea*> spawnArea;
-
-		if (worldAreas == NULL || worldAreas->size() == 0) {
+		/* The possible targets for "Explorer Missions" are now pulled from their own spawn groups, as all
+		other spawn groups contained NPCs or other inappropriate mobs. One group per planet. Terminals
+		have been added to all planets. For the sake of simplicity, I did this using the same process/code as 
+		"Destroy Missions". */
+		
+		missionGroup = zone->getZoneName() + "_hunting_missions";
+		//Logger::console.info("Mission Group: " + missionGroup, true); // Debug
+		SpawnGroup* destroyMissionGroup = CreatureTemplateManager::instance()->getDestroyMissionGroup(missionGroup.hashCode());
+		
+		if (destroyMissionGroup == NULL) {
+			Logger::console.info("destroyMissionGroup was NULL", true); // Debug
 			return NULL;
 		}
 
-		int rand = System::random(worldAreas->size() - 1);
-
-		spawnArea = worldAreas->get(rand);
-
-		if (spawnArea == NULL) {
+		availableLairList = destroyMissionGroup->getSpawnList();
+		
+		if (availableLairList == NULL || availableLairList->size() == 0) {
+			Logger::console.info("availableLairList was NULL or availableLairList size was 0", true); // Debug
 			return NULL;
 		}
-
-		SpawnGroup* spawnGroup = spawnArea->getSpawnGroup();
-
-		if (spawnGroup == NULL) {
-			return NULL;
+		
+		// Pick a lair spawn as the target animal type, without regard for player or group level.
+		bool foundLair = false;
+		int counter = availableLairList->size();
+		LairSpawn* lairSpawn = NULL;
+		
+		while (counter > 0 && !foundLair) {
+		LairSpawn* randomLairSpawn = availableLairList->get(System::random(availableLairList->size() - 1));
+		if (randomLairSpawn != NULL) {
+			lairSpawn = randomLairSpawn;
+			foundLair = true;
 		}
-
-		availableLairList = spawnGroup->getSpawnList();
+		--counter;
+		}
+		
+		return lairSpawn; // return here, because the rest of the function is for other mission types.
 	}
 
 	if (availableLairList == NULL || availableLairList->size() == 0) {

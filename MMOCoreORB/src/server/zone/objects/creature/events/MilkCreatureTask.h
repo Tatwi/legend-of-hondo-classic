@@ -130,6 +130,23 @@ public:
 		resourceManager->harvestResourceToPlayer(player, resourceSpawn, quantityExtracted);
 
 		updateMilkState(CreatureManager::ALREADYMILKED);
+		
+		// Grant XP
+		ZoneServer* zoneServer = player->getZoneServer();
+		PlayerManager* playerManager = zoneServer->getPlayerManager();
+		CreatureTemplate* creatureTemplate = creature->getCreatureTemplate();
+		
+		int xp = player->getSkillMod("foraging");
+		if (xp > 125)
+			xp = 125; // Cap SEA usage at +25
+		
+		if (creatureTemplate != NULL)
+			xp += 5 * creatureTemplate->getLevel();
+		else
+			xp += 5 * creature->getLevel();
+		
+		playerManager->awardExperience(player, "camp", xp);
+		
 	}
 
 	void updateMilkState(const short milkState) {

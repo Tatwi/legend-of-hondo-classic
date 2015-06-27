@@ -896,8 +896,13 @@ void CreatureManagerImplementation::harvest(Creature* creature, CreatureObject* 
 		player->sendSystemMessage("Tried to harvest something this creature didn't have, please report this error");
 		return;
 	}
-	int quantityExtracted = int(quantity * float(player->getSkillMod("creature_harvesting") / 100.0f));
-	quantityExtracted = MAX(quantityExtracted, 3);
+	
+	// Make the worst possible amount 30.
+	quantity = MAX(quantity, 30);
+	
+	float harvestSkill = player->getSkillMod("creature_harvesting");
+	
+	int quantityExtracted = int(quantity * harvestSkill / 100);
 
 	ManagedReference<ResourceSpawn*> resourceSpawn = resourceManager->getCurrentSpawn(restype, player->getZone()->getZoneName());
 
@@ -926,10 +931,24 @@ void CreatureManagerImplementation::harvest(Creature* creature, CreatureObject* 
 
 	float modifier = 1;
 	int baseAmount = quantityExtracted;
+	
+	String skillNovice = "outdoors_ranger_novice";
+	String skillMaster = "outdoors_ranger_master";
 
 	if (player->isGrouped()) {
+		// Apply group bonus and see if anyone else in the group is a Ranger
 		modifier = player->getGroup()->getGroupHarvestModifier(player);
-
+		// See if I am a Ranger, because the above function fails to check this and I don't know why.
+		if(modifier < 1.3f && player->hasSkill(skillNovice)) {
+			modifier = 1.3f; // Novice, only if there isn't a master in the group
+		}
+		if(player->hasSkill(skillMaster)){
+			modifier = 1.4f; // Master
+		}
+		// Apply bonus. 
+		// 1.2 for generally being grouped, always generated in getGroupHarvestModifier(player);
+		// 1.3 for personally being or being with a Novice Ranger
+		// 1.4 for personally being or being with a Master Ranger
 		quantityExtracted = (int)(quantityExtracted * modifier);
 	}
 
