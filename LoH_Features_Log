@@ -390,17 +390,9 @@ src/server/zone/managers/mission/MissionManagerImplementation.cpp
 
 
 
-________________________________________________________
---- P L A N E D ---
-========================================================
 
-
-
-
-
-
-Weapons and Components
-= = = = = = = = = = = = = = = = =
+Weapons, Armor, and Components
+= = = = = = = = = = = = = = = = = 
 scripts/object/weapon/melee/polearm/lance_staff_wood_s1.lua
 scripts/object/weapon/melee/polearm/lance_staff_metal.lua
 scripts/object/weapon/melee/axe/axe_heavy_duty.lua
@@ -414,41 +406,64 @@ scripts/object/weapon/ranged/rifle/rifle_cdef.lua
 - This always bugged me about the starter weapons - a perfectly crafted one was still not as good as a free one! Why even have them? lol... Now, that they can be better than the free ones there is a point to making them.
 
 
-
-
-
-Armor and Components
-= = = = = = = = = = = = = = = = = 
-scripts/object/tangible/wearables/armor/ithorian_sentinel/ith_armor_s03_boots.lua
-scripts/object/tangible/wearables/armor/ithorian_sentinel/ith_armor_s03_chest_plate.lua
-scripts/object/tangible/wearables/armor/ithorian_sentinel/ith_armor_s03_gloves.lua
-scripts/object/tangible/wearables/armor/ithorian_sentinel/ith_armor_s03_helmet.lua
-scripts/object/tangible/wearables/armor/ithorian_sentinel/ith_armor_s03_leggings.lua
-scripts/object/tangible/wearables/armor/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_bracer_l.lua
-scripts/object/tangible/wearables/armor/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_bracer_r.lua
-scripts/object/tangible/wearables/armor/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_chest_plate.lua
-scripts/object/tangible/wearables/armor/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_leggings.lua
-scripts/object/tangible/wearables/armor/zam/armor_zam_wesell_boots.lua
-scripts/object/tangible/wearables/armor/zam/armor_zam_wesell_chest_plate.lua
-scripts/object/tangible/wearables/armor/zam/armor_zam_wesell_gloves.lua
-scripts/object/tangible/wearables/armor/zam/armor_zam_wesell_helmet.lua
-scripts/object/tangible/wearables/armor/zam/armor_zam_wesell_pants.lua
+scripts/object/tangible/wearables/armor/[ARMORSET]
 - - - - - - -
-- Set the default values to 15 Kinetic / 15 Energy / 5 Acid / 10,000 Condition for all so that these can be used as starter armor.
+- Changed the default values so the sets can be sold by NPCs as basic armor sets.
+- Crafted armor will cover all stats except stun and lightsaber, with some stats being special resists on some armor types. 
+- Stun and Lightsaber are the only vulnerabilities (for sake of ease).
+- Max condition ranges between 30k - 45k
+- Bone/Mabari/IthDefender/KashBlack: 24 Kin, 24 Eng, 12 Ele, 4 Acid / 40H, 20A, 20M
+- Tantel/Ubese/: 20 Kin, 40 Eng, 4 Ele, 12 Acid / 40H, 20A, 20M
+- Chitin/Marauder: 40 Kin, 20 Eng, 12 Ele, 4 Acid / 40H, 20A, 20M
+- Comp/Marine/Stormtrooper/IthGuard/KashCer: 50 All / 50H, 30A, 30M
+- BH/Mando/RIS/IthSent/KashHunt: 55 All / 35H, 35A, 35M
+
+scripts/object/tangible/component/armor/armor_layer_acid.lua
+scripts/object/tangible/component/armor/armor_layer_blast.lua
+scripts/object/tangible/component/armor/armor_layer_cold.lua
+scripts/object/tangible/component/armor/armor_layer_electrical.lua
+scripts/object/tangible/component/armor/armor_layer_energy.lua
+scripts/object/tangible/component/armor/armor_layer_heat.lua
+scripts/object/tangible/component/armor/armor_layer_kinetic.lua
+scripts/object/tangible/component/armor/armor_layer_ris.lua
+scripts/object/tangible/component/armor/armor_layer_stun.lua
+- - - - - - -
+- Reduced the highest possible encumberance values from 20 to 8.
+- Secondary stat buffs are lower and encumberance values on crafted armor can easily make a piece useless.
+
+scripts/object/tangible/component/armor/armor_segment_bone.lua
+scripts/object/tangible/component/armor/armor_segment_bone_advanced.lua
+scripts/object/tangible/component/armor/armor_segment_chitin.lua
+scripts/object/tangible/component/armor/armor_segment_chitin_advanced.lua
+scripts/object/tangible/component/armor/armor_segment_composite.lua
+scripts/object/tangible/component/armor/armor_segment_composite_advanced.lua
+scripts/object/tangible/component/armor/armor_segment_kashyyykian_black_mtn.lua
+scripts/object/tangible/component/armor/armor_segment_kashyyykian_black_mtn_advanced.lua
+scripts/object/tangible/component/armor/armor_segment_kashyyykian_ceremonial.lua
+scripts/object/tangible/component/armor/armor_segment_kashyyykian_ceremonial_advanced.lua
+scripts/object/tangible/component/armor/armor_segment_kashyyykian_hunting.lua
+scripts/object/tangible/component/armor/armor_segment_kashyyykian_hunting_advanced.lua
+scripts/object/tangible/component/armor/armor_segment_padded.lua
+scripts/object/tangible/component/armor/armor_segment_padded_advanced.lua
+scripts/object/tangible/component/armor/armor_segment_ris.lua
+scripts/object/tangible/component/armor/armor_segment_ris_acklay.lua
+scripts/object/tangible/component/armor/armor_segment_ubese.lua
+scripts/object/tangible/component/armor/armor_segment_ubese_advanced.lua
+- - - - - - -
+- Reduced the highest possible encumberance values.
+- Increased the condition and effectiveness on advanced segments
+- These crafted segments added too much encumberance. 
+
 
 scripts/object/tangible/wearables/armor/bone/[ARMORPIECE]
-- - - - - - -
-- Bone Armor now also has base Kinetic and Acid protection, allowing for useful armor to made without a factory (particularly with looted segments/parts).
-
 scripts/object/tangible/wearables/armor/zam/[ARMORPIECE]
 - - - - - - -
-- Mabari Armor now also has base Kinetic and Acid protection, allowing for useful armor to made without a factory (particularly with looted segments/parts).
-- Brought the min base effectiveness up from 1 to 10 and the max base effectiveness up from 20 to 25. This makes the Kinetic better than the Starter Armor and also gives it a bit of a boost over Bone Armor.
+- Brought the min base effectiveness up from 1 to 10 and the max base effectiveness up from 20 to 30. 
 
 scripts/loot/items/creature/[Armor Components].lua
 - - - - - - -
 - Revamped the following looted armor components so that they're genuinely useful.
-- Reduced Encumberance values where they were too high to make the components worth using.
+- Reduced Encumberance values.
 - Brackaset Plates: Acid, Blast, Cold, Heat with a bonus to Blast. Small HAM bonus possible.
 - Famba Plates: Acid, Blast, Cold, Heat with a bonus to Cold. Small HAM bonus possible.
 - Sharnaff Plates: Acid, Blast, Cold, Heat with a bonus to Heat. Small HAM bonus possible.
@@ -473,8 +488,75 @@ scripts/loot/items/geonosian_lab/kliknik_reinforced_chitin_armor_segment.lua
 - Voritor Segment: Increase max stack size to 20.
 - Kimogila Segment: Upgraded Voritor scale with better stats, bonus Integrity, and Acid protection. Kimo's have the best Acid resit.
 
+scripts/mobile/tatooine/ronto.lua
+scripts/mobile/dantooine/piket.lua
+scripts/mobile/dantooine/piket_longhorn_female.lua
+scripts/mobile/dantooine/piket_walker.lua
+scripts/mobile/endor/merek_assassin.lua
+scripts/mobile/endor/merek_cavern_creeper.lua
+scripts/mobile/endor/merek_deaths_head.lua
+scripts/mobile/endor/merek_harvester.lua
+scripts/mobile/dathomir/malkloc.lua
+scripts/mobile/dathomir/malkloc_bull.lua
+scripts/mobile/dathomir/malkloc_plainswalker.lua
+scripts/mobile/lok/vesp.lua
+scripts/mobile/lok/vesp_hunter.lua
+scripts/mobile/lok/vesp_scavenger.lua
+scripts/mobile/tatooine/dune_lizard.lua
+- - - - - - -
+- Spread the looted parts to more creatures. 
+- Note that some creatures are not available, due to their planets being disabled. I plan to add those creatures in a future update.
+- Sharnaff: Ronto (Tatooine), Piket (Dantooine)
+- Kliknik (common loot): Merek (Endor)
+- Famba: Malklok (Dathomir)
+- Voritor: Dragonet (Tatooine), Vesp (Lok)
+
+scripts/object/draft_schematic/armor/[Various Files]
+scripts/object/draft_schematic/clothing/[Various Armor Related Files]
+scripts/object/draft_schematic/munitions/[Various Files]
+scripts/object/draft_schematic/weapon/[Various Files]
+- - - - - - -
+- Removed requirement for overly specific named resources.
+- Some planets are not available and some requirements were too specific for a single player game.
 
 
+________________________________________________________
+--- P L A N E D ---
+========================================================
+
+
+Crafting Loot, XP and Timings 
+= = = = = = = = = = = = = = = = = 
+src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.cpp
+	Line 1187
+- - - - - - -
+- Changed the Practice Mode XP bonus when crafting from 5% to 250%.
+
+src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.cpp
+- - - - - - -
+- Granted a chance to win a piece of loot (Junk to good quality SEAs) while crafting using practice mode.
+- Loot chance is based upon item complexity, tool quality (not station), and assembly skill (appropriate to the item being made).
+- Loot quality is based upon the quality of the item created and assembly skill.
+- The idea here is two fold, to remove resources from the game and to give non-combat folks a chance at getting skill enhancing attachments. It's a new crafting mini-game!
+
+scripts/object/draft_schematic/bio_engineer/dna_template/dna_template_generic.lua
+- - - - - - -
+- Increased XP granted to 896 from 50. 
+- 510,000 Crafting XP required for the profession. 
+- 170,000 DNA Samping XP required = roughly 380 DNA samples.
+- Therefore, 76 crafts in practice mode at 896 XP each (before bonuses) will grant enough XP to level the profession using all the DNA collected to level the DNA Sampling line.
+- So, if you practice mode every sample you collect, due to the 250% practice mode and the 3x XP rate, you'll have a nice shortcut to leveling.
+
+Crafting Tool and Factory Timing Changes
+- - - - - - -
+- 
+
+
+
+Also TODO
+- - - - - - -
+- Added a chance for bonus XP on assembly amazing success and critical failure.
+- Added a chance for loot when on an amazing success when experimenting.
 
 
 
@@ -512,36 +594,6 @@ Also TODO
 
 
 
-Crafting: Loot and XP 
-= = = = = = = = = = = = = = = = = 
-src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.cpp
-	Line 1187
-- - - - - - -
-- Changed the Practice Mode XP bonus when crafting from 5% to 250%.
-
-src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.cpp
-- - - - - - -
-- Granted a chance to win a piece of loot (Junk to good quality SEAs) while crafting using practice mode.
-- Loot chance is based upon item complexity, tool quality (not station), and assembly skill (appropriate to the item being made).
-- Loot quality is based upon the quality of the item created and assembly skill.
-- The idea here is two fold, to remove resources from the game and to give non-combat folks a chance at getting skill enhancing attachments. It's a new crafting mini-game!
-
-scripts/object/draft_schematic/bio_engineer/dna_template/dna_template_generic.lua
-- - - - - - -
-- Increased XP granted to 896 from 50. 
-- 510,000 Crafting XP required for the profession. 
-- 170,000 DNA Samping XP required = roughly 380 DNA samples.
-- Therefore, 76 crafts in practice mode at 896 XP each (before bonuses) will grant enough XP to level the profession using all the DNA collected to level the DNA Sampling line.
-- So, if you practice mode every sample you collect, due to the 250% practice mode and the 3x XP rate, you'll have a nice shortcut to leveling.
-
-Crafting Tool and Factory Timing Changes
-- - - - - - -
-- I decided against doing these again, as I feel they remove content from the player; In a single player environment where there is no need to mass produce items and the tool wait time can be partly overcome by making one's self more tools.
-
-Also TODO
-- - - - - - -
-- Added a chance for bonus XP on assembly amazing success and critical failure.
-- Added a chance for loot when on an amazing success when experimenting.
 
 
 

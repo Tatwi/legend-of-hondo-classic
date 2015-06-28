@@ -88,24 +88,24 @@ object_tangible_wearables_armor_bone_armor_smc_s01_bicep_l = object_tangible_wea
 				"object/mobile/vendor/zabrak_male.iff" },
 	
 	-- kineticeffectiveness, energyeffectiveness, electricaleffectiveness, stuneffectiveness, blasteffectiveness, heateffectiveness, coldeffectiveness, acideffectiveness, restraineffectiveness
-	vulnerability = KINETIC + BLAST + STUN + HEAT + COLD + ACID + LIGHTSABER,
+	vulnerability = STUN + LIGHTSABER,
 
 	-- These are default Blue Frog stats
-	healthEncumbrance = 6,
-	actionEncumbrance = 15,
-	mindEncumbrance = 4,
+	healthEncumbrance = 40,
+	actionEncumbrance = 20,
+	mindEncumbrance = 20,
 
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,
 
-	kinetic = 0,
-	energy = 20,
-	electricity = 10,
+	kinetic = 24,
+	energy = 24,
+	electricity = 12,
 	stun = 0,
 	blast = 0,
 	heat = 0,
 	cold = 0,
-	acid = 0,
+	acid = 4,
 	lightSaber = 0
 }
 

@@ -65,7 +65,7 @@ object_draft_schematic_weapon_component_blaster_rifle_barrel_advanced = object_d
    ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
    ingredientTitleNames = {"emitter_nozzle", "actuating_blaster_module", "barrel_to_receiver_coupling", "prismatic_crystal", "barrel_shroud"},
    ingredientSlotType = {0, 0, 0, 0, 0},
-   resourceTypes = {"steel_rhodium", "steel_duralloy", "steel_duranium", "armophous_ryll", "metal"},
+   resourceTypes = {"steel_rhodium", "steel_duralloy", "steel_duranium", "gemstone_armophous", "metal"},
    resourceQuantities = {40, 19, 17, 8, 9},
    contribution = {100, 100, 100, 100, 100},
 

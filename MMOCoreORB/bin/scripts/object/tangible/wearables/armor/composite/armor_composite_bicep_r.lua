@@ -96,9 +96,9 @@ object_tangible_wearables_armor_composite_armor_composite_bicep_r = object_tangi
 	specialResists = ELECTRICITY,
 
 	-- These are default Blue Frog stats
-	healthEncumbrance = 80,
-	actionEncumbrance = 80,
-	mindEncumbrance = 80,
+	healthEncumbrance = 50,
+	actionEncumbrance = 30,
+	mindEncumbrance = 30,
 
 	maxCondition = 30000,
 
@@ -107,8 +107,8 @@ object_tangible_wearables_armor_composite_armor_composite_bicep_r = object_tangi
 
 	kinetic = 50,
 	energy = 50,
-	electricity = 75,
-	stun = 15,
+	electricity = 50,
+	stun = 50,
 	blast = 50,
 	heat = 50,
 	cold = 50,

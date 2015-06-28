@@ -28,7 +28,14 @@ merek_cavern_creeper = Creature:new {
 	templates = {"object/mobile/merek_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/merek_hue.iff",
 	scale = 0.95,
-	lootGroups = {},
+	lootGroups = {
+	 {
+	        groups = {
+				{group = "kliknik_common", chance = 10000000}
+			},
+			lootChance = 1540000
+		}
+	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {

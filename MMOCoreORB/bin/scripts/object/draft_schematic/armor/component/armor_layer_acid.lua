@@ -65,7 +65,7 @@ object_draft_schematic_armor_component_armor_layer_acid = object_draft_schematic
    ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
    ingredientTitleNames = {"armor_layer_frame", "defensive_layer_microlattice", "chemical_neutralization_medium"},
    ingredientSlotType = {0, 0, 0},
-   resourceTypes = {"metal_nonferrous", "gemstone_crystalline", "gas_reactive_skevon"},
+   resourceTypes = {"metal_nonferrous", "gemstone_crystalline", "gas_reactive"},
    resourceQuantities = {20, 10, 14},
    contribution = {100, 100, 100},
 

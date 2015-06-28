@@ -27,7 +27,14 @@ malkloc_bull = Creature:new {
 
 	templates = {"object/mobile/malkloc_bull.iff"},
 	scale = 1.05,
-	lootGroups = {},
+	lootGroups = {
+	 {
+	        groups = {
+				{group = "fambaa_common", chance = 10000000}
+			},
+			lootChance = 1680000
+		}
+	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

@@ -28,7 +28,14 @@ vesp_hunter = Creature:new {
 	templates = {"object/mobile/vesp.iff"},
 	controlDeviceTemplate = "object/intangible/pet/vesp_hue.iff",
 	scale = 1.05,
-	lootGroups = {},
+	lootGroups = {
+		{
+			groups = {
+				{group = "voritor_lizard_common", chance = 10000000}
+			},
+			lootChance = 1440000
+		}
+	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {

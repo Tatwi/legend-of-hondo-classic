@@ -27,7 +27,14 @@ merek_harvester = Creature:new {
 
 	templates = {"object/mobile/merek_hue.iff"},
 	scale = 1.2,
-	lootGroups = {},
+	lootGroups = {
+	 {
+	        groups = {
+				{group = "kliknik_common", chance = 10000000}
+			},
+			lootChance = 1540000
+		}
+	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

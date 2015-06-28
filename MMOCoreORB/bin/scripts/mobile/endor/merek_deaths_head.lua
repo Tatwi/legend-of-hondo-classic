@@ -28,7 +28,14 @@ merek_deaths_head = Creature:new {
 	templates = {"object/mobile/merek_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/merek_hue.iff",
 	scale = 1.3,
-	lootGroups = {},
+	lootGroups = {
+	 {
+	        groups = {
+				{group = "kliknik_common", chance = 10000000}
+			},
+			lootChance = 1540000
+		}
+	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

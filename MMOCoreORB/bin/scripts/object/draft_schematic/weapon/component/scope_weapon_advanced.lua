@@ -65,7 +65,7 @@ object_draft_schematic_weapon_component_scope_weapon_advanced = object_draft_sch
    ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
    ingredientTitleNames = {"scope_shell", "shock_proofing_and_gasket_seals", "scope_bracket", "light_accumulators", "targeting_aid_circuitry"},
    ingredientSlotType = {0, 0, 0, 0, 0},
-   resourceTypes = {"aluminum_chromium", "petrochem_inert_polymer", "aluminum_chromium", "crystalline_green_diamond", "copper"},
+   resourceTypes = {"aluminum_chromium", "petrochem_inert_polymer", "aluminum_chromium", "gemstone", "copper"},
    resourceQuantities = {18, 10, 5, 6, 3},
    contribution = {100, 100, 100, 100, 100},
 
