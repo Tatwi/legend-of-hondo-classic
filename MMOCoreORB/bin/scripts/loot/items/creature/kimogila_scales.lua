@@ -20,7 +20,7 @@ kimogila_scales = {
 		{"useCount",3,20,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("kimogila_scales", kimogila_scales)

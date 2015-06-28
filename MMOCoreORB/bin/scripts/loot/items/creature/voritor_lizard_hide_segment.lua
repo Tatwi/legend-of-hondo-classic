@@ -15,7 +15,7 @@ voritor_lizard_hide_segment = {
 		{"useCount",1,20,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("voritor_lizard_hide_segment", voritor_lizard_hide_segment)

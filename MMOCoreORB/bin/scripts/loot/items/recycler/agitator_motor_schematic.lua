@@ -6,7 +6,7 @@ agitator_motor_schematic = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 3,	junkMaxValue = 8,
 }
 
 addLootItemTemplate("agitator_motor_schematic", agitator_motor_schematic)

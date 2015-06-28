@@ -8,7 +8,7 @@ foraged_wild_snaff = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 1,	junkMaxValue = 3,
 }
 
 addLootItemTemplate("foraged_wild_snaff", foraged_wild_snaff)

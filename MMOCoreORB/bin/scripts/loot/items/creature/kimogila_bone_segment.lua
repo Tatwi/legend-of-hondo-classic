@@ -19,7 +19,7 @@ kimogila_bone_segment = {
 		{"useCount",1,12,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("kimogila_bone_segment", kimogila_bone_segment)

@@ -11,7 +11,7 @@ krayt_dragon_tissue_uncommon = {
 		{"useCount",1,13,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("krayt_dragon_tissue_uncommon", krayt_dragon_tissue_uncommon)

@@ -12,7 +12,7 @@ rancor_bile = {
 		{"useCount",1,5,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("rancor_bile", rancor_bile)

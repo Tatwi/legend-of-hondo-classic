@@ -6,7 +6,7 @@ skill_buff_heavy_weapon_accuracy = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 1,	junkMaxValue = 5,
 }
 
 addLootItemTemplate("skill_buff_heavy_weapon_accuracy", skill_buff_heavy_weapon_accuracy)

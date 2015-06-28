@@ -11,7 +11,7 @@ peko_albatross_feather = {
 		{"useCount",1,5,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("peko_albatross_feather", peko_albatross_feather)

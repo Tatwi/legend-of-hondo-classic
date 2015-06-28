@@ -5,7 +5,7 @@ RIS_diagram = {
 	directObjectTemplate = "object/tangible/painting/painting_armor_blueprint.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 2,	junkMaxValue = 12,
 }
 
 addLootItemTemplate("RIS_diagram", RIS_diagram)

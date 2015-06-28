@@ -20,6 +20,6 @@ fambaa_plates = {
 		{"useCount",1,10,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 addLootItemTemplate("fambaa_plates", fambaa_plates)

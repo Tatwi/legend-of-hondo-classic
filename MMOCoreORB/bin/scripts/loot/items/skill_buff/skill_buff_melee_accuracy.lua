@@ -6,7 +6,7 @@ skill_buff_melee_accuracy = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 1,	junkMaxValue = 5,
 }
 
 addLootItemTemplate("skill_buff_melee_accuracy", skill_buff_melee_accuracy)

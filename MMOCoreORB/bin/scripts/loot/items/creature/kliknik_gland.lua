@@ -12,7 +12,7 @@ kliknik_gland = {
 		{"useCount",1,11,0}
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("kliknik_gland", kliknik_gland)

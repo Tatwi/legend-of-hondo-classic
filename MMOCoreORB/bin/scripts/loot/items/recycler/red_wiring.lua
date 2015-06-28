@@ -6,7 +6,7 @@ red_wiring = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 3,	junkMaxValue = 8,
 }
 
 addLootItemTemplate("red_wiring", red_wiring)

@@ -8,7 +8,7 @@ foraged_berries = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 1,	junkMaxValue = 3,
 }
 
 addLootItemTemplate("foraged_berries", foraged_berries)

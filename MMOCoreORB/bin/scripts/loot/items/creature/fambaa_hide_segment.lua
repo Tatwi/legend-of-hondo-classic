@@ -21,7 +21,7 @@ fambaa_hide_segment = {
 		{"useCount",1,10,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("fambaa_hide_segment", fambaa_hide_segment)

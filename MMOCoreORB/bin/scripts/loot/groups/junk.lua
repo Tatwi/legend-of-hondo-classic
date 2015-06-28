@@ -37,6 +37,9 @@ junk = {
 		{itemTemplate = "worklight", weight = 300000},
 		{groupTemplate = "coa_encoded_disk_fragments", weight = 80000},
 		{groupTemplate = "data_storage_unit_parts", weight = 920000},
+		-- Legend of Hondo customization
+		{itemTemplate = "attachment_armor", weight = 300000},
+		{itemTemplate = "attachment_clothing", weight = 300000},
 	}
 }
 

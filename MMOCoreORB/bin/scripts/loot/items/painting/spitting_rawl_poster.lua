@@ -5,7 +5,7 @@ spitting_rawl_poster = {
 	directObjectTemplate = "object/tangible/painting/painting_teras_kasi.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 2,	junkMaxValue = 12,
 }
 
 addLootItemTemplate("spitting_rawl_poster", spitting_rawl_poster)

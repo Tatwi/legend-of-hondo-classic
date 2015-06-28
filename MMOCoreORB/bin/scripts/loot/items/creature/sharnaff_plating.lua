@@ -21,7 +21,7 @@ sharnaff_plating = {
 		{"useCount",1,10,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("sharnaff_plating", sharnaff_plating)

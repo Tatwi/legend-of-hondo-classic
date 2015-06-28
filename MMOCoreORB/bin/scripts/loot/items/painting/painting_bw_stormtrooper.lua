@@ -6,7 +6,7 @@ painting_bw_stormtrooper = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 2,	junkMaxValue = 12,
 }
 
 addLootItemTemplate("painting_bw_stormtrooper", painting_bw_stormtrooper)

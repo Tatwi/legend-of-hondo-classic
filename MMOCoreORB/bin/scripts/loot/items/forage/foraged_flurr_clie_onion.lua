@@ -8,7 +8,7 @@ foraged_flurr_clie_onion = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 1,	junkMaxValue = 3,
 }
 
 addLootItemTemplate("foraged_flurr_clie_onion", foraged_flurr_clie_onion)

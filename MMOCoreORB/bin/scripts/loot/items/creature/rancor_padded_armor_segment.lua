@@ -21,7 +21,7 @@ rancor_padded_armor_segment = {
 		{"useCount",1,10,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("rancor_padded_armor_segment", rancor_padded_armor_segment)
