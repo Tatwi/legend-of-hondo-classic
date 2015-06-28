@@ -6,7 +6,7 @@ skill_buff_melee_defense = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 1,	junkMaxValue = 5,
 }
 
 addLootItemTemplate("skill_buff_melee_defense", skill_buff_melee_defense)

@@ -8,7 +8,7 @@ foraged_sample_moths = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 1,	junkMaxValue = 3,
 }
 
 addLootItemTemplate("foraged_sample_moths", foraged_sample_moths)

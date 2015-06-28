@@ -563,26 +563,45 @@ ________________________________________________________
 
 Loot, Junk, and Junk Dealers
 = = = = = = = = = = = = = = = = = 
+- The general idea with these changes is that with only one player, there isn't any division of labor at all - if the one player doesn't loot it, it doesn't exist! Normally, many players are out there collecting loot and then selling it to other players. Without the combined efforts brought by many players, the default loot system was broken. 
+- I've tried to make it such that one person can go about their play and actually have a real chance to earn what they need themselves. However, the amount of time required is still so collossal for a single player that I will later add in an NPC merchant system to augment the lack of players selling, at the very least, basic items.
+
+optional/bin/scripts/managers/loot_manager.lua
+- - - - - - -
+- Increased the chance of getting a exceptional and legendary item.
+- Increased the stat bonus to exceptional and legendary items.
+- Increased the chance to find an SEA.
+- Made both SEA types have the same full array of stat possibilities.
+
+find . -name "*.lua" -print0 | xargs -0 sed -i -e 's/customizationValues = {}/customizationValues = {},\r\tjunkDealerTypeNeeded = JUNKGENERIC,\r\tjunkMinValue = 7,\r\tjunkMaxValue = 60,/g'
+
 scripts/loot/items/attachment_armor.lua
 scripts/loot/items/attachment_clothing.lua
-scripts/loot/items/skill_buff/*.lua
-scripts/loot/items/painting/painting_[NAME]_wanted.lua
-scripts/loot/items/loot_schematic/*.lua
 scripts/loot/items/creature/*.lua
+scripts/loot/items/forage/*.lua
+scripts/loot/items/loot_schematic/*.lua
+scripts/loot/items/painting/*.lua
+scripts/loot/items/recycler/*.lua
+scripts/loot/items/skill_buff/*.lua
 - - - - - - -
-- Junk Dealers will purchase SEAs, Looted Skill Buffs, Wanted Posters, Creature Segments/Plates, and Loot Schematics.
+- Junk Dealers, in this single player game, are a primary source of income. They are the ONLY people can sell anything to! 
+- Junk Dealers will now purchase the items listed above, as well as some other misc items.
 
 scripts/loot/groups/junk.lua
 - - - - - - -
-- Any NPC that can drop junk now has a chance to drop an SEA instead.
+- Anything that can drop junk now has a chance to drop an SEA instead.
+- SEA quality is based on the creature level, so this is self balancing.
+
+find . -name "*.lua" -print0 | xargs -0 sed -i -e 's/lootGroups = {},/lootGroups = {\r\t\t{\r\t\t\tgroups = {\r\t\t\t\t{group = "junk", chance = 7000000},\r\t\t\t\t{group = "wearables_common", chance = 3000000},\r\t\t\t\t},\r\t\t\tlootChance = 3000000\r\t\t}\r\t},/g'
 
 scripts/mobile/[PLANET]/[ANIMAL].lua
 - - - - - - -
-- All wild and lair spawned animals have the chance to drop junk, clothing, and SEAs.
+- All wild and lair spawned animals have the chance to drop junk (including SEAs), clothing, and weapons (in that order).
+- With the exception anything that aleady had a loot table.
 
-Also TODO
+src/server/zone/objects/resource/ResourceManager.idl
 - - - - - - -
-- Reduce the Crate of Free Resource to 500 units.
+- Reduced the Crate of Free Resource to 500 units.
 - Add it to the junk loot group with the same chance as an SEA.
 - Add it to high end mob and loot container loot groups with a good chance to drop.
 - Add it to the loot while crafting loot group.

@@ -14,7 +14,7 @@ voritor_lizard_scales = {
 		{"useCount",1,20,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("voritor_lizard_scales", voritor_lizard_scales)

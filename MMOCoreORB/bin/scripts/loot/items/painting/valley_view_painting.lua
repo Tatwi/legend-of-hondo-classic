@@ -5,7 +5,7 @@ valley_view_painting = {
 	directObjectTemplate = "object/tangible/painting/painting_valley_view.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 2,	junkMaxValue = 12,
 }
 
 addLootItemTemplate("valley_view_painting", valley_view_painting)

@@ -11,7 +11,7 @@ giant_dune_kimogila_scale = {
 		{"armor_special_effectiveness",0,0,0,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("giant_dune_kimogila_scale", giant_dune_kimogila_scale)

@@ -6,7 +6,7 @@ feed_tube = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 3,	junkMaxValue = 8,
 }
 
 addLootItemTemplate("feed_tube", feed_tube)

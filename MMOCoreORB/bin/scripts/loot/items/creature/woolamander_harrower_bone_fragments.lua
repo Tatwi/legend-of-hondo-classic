@@ -11,7 +11,7 @@ woolamander_harrower_bone_fragments = {
 		{"useCount",1,5,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("woolamander_harrower_bone_fragments", woolamander_harrower_bone_fragments)

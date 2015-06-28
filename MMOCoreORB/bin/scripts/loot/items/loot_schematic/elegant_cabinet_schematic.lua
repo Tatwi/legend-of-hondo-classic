@@ -6,7 +6,7 @@ elegant_cabinet_schematic = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 2,	junkMaxValue = 12,
 }
 
 addLootItemTemplate("elegant_cabinet_schematic", elegant_cabinet_schematic)

@@ -19,7 +19,7 @@ krayt_dragon_pearl_premium = {
 		{"quality",5,5,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 7,	junkMaxValue = 60,
 }
 
 addLootItemTemplate("krayt_dragon_pearl_premium", krayt_dragon_pearl_premium)

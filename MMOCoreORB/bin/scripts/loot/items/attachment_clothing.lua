@@ -8,7 +8,10 @@ attachment_clothing = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},
+	junkDealerTypeNeeded = JUNKGENERIC,
+	junkMinValue = 10,
+	junkMaxValue = 100,
 }
 
 addLootItemTemplate("attachment_clothing", attachment_clothing)

@@ -12,7 +12,7 @@ foraged_stimpack = {
 	      {"hitpoints",1000,1000,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 1,	junkMaxValue = 3,
 }
 
 addLootItemTemplate("foraged_stimpack", foraged_stimpack)
