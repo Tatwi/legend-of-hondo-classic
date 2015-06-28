@@ -429,7 +429,10 @@ bool FactoryObjectImplementation::startFactory() {
 			return false;
 	}
 
-	timer = ((int)schematic->getComplexity()) * 2;
+	// Legend of Hondo Customization
+	timer = ((int)schematic->getComplexity()) / 4; // Originally * 2
+	if (timer < 1)
+		timer = 1; // prevent negative run time
 
 	if(!populateSchematicBlueprint(schematic))
 		return false;

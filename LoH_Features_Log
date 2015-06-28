@@ -520,43 +520,41 @@ scripts/object/draft_schematic/weapon/[Various Files]
 - Some planets are not available and some requirements were too specific for a single player game.
 
 
-________________________________________________________
---- P L A N E D ---
-========================================================
 
 
-Crafting Loot, XP and Timings 
+
+Crafting Loot, XP, and Timings 
 = = = = = = = = = = = = = = = = = 
 src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.cpp
-	Line 1187
 - - - - - - -
-- Changed the Practice Mode XP bonus when crafting from 5% to 250%.
-
-src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.cpp
-- - - - - - -
+- Changed the Practice Mode XP bonus when crafting from 5% to 75%.
+- Removed crafting tool timer (1 second per item). 
 - Granted a chance to win a piece of loot (Junk to good quality SEAs) while crafting using practice mode.
 - Loot chance is based upon item complexity, tool quality (not station), and assembly skill (appropriate to the item being made).
 - Loot quality is based upon the quality of the item created and assembly skill.
-- The idea here is two fold, to remove resources from the game and to give non-combat folks a chance at getting skill enhancing attachments. It's a new crafting mini-game!
+
+MMOCoreORB/src/server/zone/objects/installation/factory/FactoryObjectImplementation.cpp
+- - - - - - -
+- Significantly reduced factory run times, but still based upon item complexity. Min of 1 second per item. 
+
+/home/swgemu/workspace/MMOCoreORB/src/server/zone/objects/factorycrate/FactoryCrate.idl
+- - - - - - -
+- Increase max factory crate size to 1,000.
 
 scripts/object/draft_schematic/bio_engineer/dna_template/dna_template_generic.lua
 - - - - - - -
-- Increased XP granted to 896 from 50. 
+- Increased XP granted to 1250 from 50. 
 - 510,000 Crafting XP required for the profession. 
 - 170,000 DNA Samping XP required = roughly 380 DNA samples.
-- Therefore, 76 crafts in practice mode at 896 XP each (before bonuses) will grant enough XP to level the profession using all the DNA collected to level the DNA Sampling line.
-- So, if you practice mode every sample you collect, due to the 250% practice mode and the 3x XP rate, you'll have a nice shortcut to leveling.
-
-Crafting Tool and Factory Timing Changes
-- - - - - - -
-- 
+- Therefore, 78 crafts in practice mode at 896 XP each (before bonuses) will grant enough XP to level the profession using all the DNA collected to level the DNA Sampling line.
 
 
 
-Also TODO
-- - - - - - -
-- Added a chance for bonus XP on assembly amazing success and critical failure.
-- Added a chance for loot when on an amazing success when experimenting.
+
+
+________________________________________________________
+--- P L A N E D ---
+========================================================
 
 
 
