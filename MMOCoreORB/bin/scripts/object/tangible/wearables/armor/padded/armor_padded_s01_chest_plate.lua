@@ -91,6 +91,9 @@ object_tangible_wearables_armor_padded_armor_padded_s01_chest_plate = object_tan
 	vulnerability = HEAT + ACID + STUN + LIGHTSABER,
 
 	-- These are default Blue Frog stats
+
+	 maxCondition = 30000,
+
 	healthEncumbrance = 1,
 	actionEncumbrance = 1,
 	mindEncumbrance = 1,

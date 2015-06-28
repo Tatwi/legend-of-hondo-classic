@@ -28,7 +28,14 @@ ronto = Creature:new {
 
 	templates = {"object/mobile/ronto.iff"},
 	controlDeviceTemplate = "object/intangible/pet/ronto_hue.iff",
-	lootGroups = {},
+	lootGroups = {
+		{
+			groups = {
+				{group = "sharnaff_common", chance = 10000000}
+			},
+			lootChance = 1620000
+		}
+	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

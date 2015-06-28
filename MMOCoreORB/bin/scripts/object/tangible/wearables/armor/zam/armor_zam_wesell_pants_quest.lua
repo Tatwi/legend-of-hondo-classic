@@ -88,26 +88,29 @@ object_tangible_wearables_armor_zam_armor_zam_wesell_pants_quest = object_tangib
 				"object/mobile/vendor/zabrak_male.iff" },
 	
 	-- Damage types in WeaponObject
-	vulnerability = ACID + ENERGY + STUN + LIGHTSABER,
+	vulnerability = STUN + LIGHTSABER,
 
 	-- These are default Blue Frog stats
-	healthEncumbrance = 18,
-	actionEncumbrance = 24,
-	mindEncumbrance = 5,
+
+	 maxCondition = 30000,
+
+	healthEncumbrance = 40,
+	actionEncumbrance = 20,
+	mindEncumbrance = 20,
 
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,
 
 	maxCondition = 15000,
 
-	kinetic = 10,
-	energy = 0,
-	electricity = 10,
+	kinetic = 24,
+	energy = 24,
+	electricity = 12,
 	stun = 0,
-	blast = 5,
-	heat = 20,
-	cold = 10,
-	acid = 0,
+	blast = 0,
+	heat = 0,
+	cold = 0,
+	acid = 4,
 	lightSaber = 0
 }
 

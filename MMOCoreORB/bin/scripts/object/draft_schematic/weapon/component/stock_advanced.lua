@@ -65,7 +65,7 @@ object_draft_schematic_weapon_component_stock_advanced = object_draft_schematic_
    ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
    ingredientTitleNames = {"stock_unit", "butt_cap_and_receiver_attachment_point"},
    ingredientSlotType = {0, 0},
-   resourceTypes = {"wood_deciduous_corellia", "aluminum_linksteel"},
+   resourceTypes = {"wood", "aluminum_linksteel"},
    resourceQuantities = {28, 8},
    contribution = {100, 100},
 

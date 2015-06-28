@@ -65,7 +65,7 @@ object_draft_schematic_armor_armor_segment_kashyyykian_black_mtn_advanced = obje
    ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
    ingredientTitleNames = {"armor_segment_kashyyykian_black_mtn", "armor_layer_track", "segment_mounting_tabs", "defensive_layer", "defensive_layer_2", "segment_enhancement"},
    ingredientSlotType = {0, 0, 0, 3, 3, 3},
-   resourceTypes = {"hide_leathery_dantooine", "softwood_conifer_endor", "wood_deciduous_yavin4", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff"},
+   resourceTypes = {"hide_leathery_dantooine", "softwood", "wood", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_armor_layer.iff", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff"},
    resourceQuantities = {16, 8, 25, 1, 1, 1},
    contribution = {100, 100, 100, 100, 100, 100},
 

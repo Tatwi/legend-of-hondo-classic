@@ -50,24 +50,27 @@ object_tangible_wearables_armor_ithorian_guardian_ith_armor_s02_bracer_l = objec
 				"object/mobile/vendor/ithorian_male.iff" },
 
 	-- Damage types in WeaponObject
-	vulnerability = ACID + STUN + LIGHTSABER,
+	vulnerability = STUN + LIGHTSABER,
 
 	-- These are default Blue Frog stats
-	healthEncumbrance = 1,
-	actionEncumbrance = 1,
-	mindEncumbrance = 1,
+
+	 maxCondition = 30000,
+
+	healthEncumbrance = 50,
+	actionEncumbrance = 30,
+	mindEncumbrance = 30,
 
 	-- LIGHT, MEDIUM, HEAVY
 	rating = LIGHT,
 
-	kinetic = 15,
-	energy = 15,
-	electricity = 15,
-	stun = 15,
-	blast = 15,
-	heat = 15,
-	cold = 15,
-	acid = 15,
+	kinetic = 50,
+	energy = 50,
+	electricity = 50,
+	stun = 50,
+	blast = 50,
+	heat = 50,
+	cold = 50,
+	acid = 50,
 	lightSaber = 0,
 
 	numberExperimentalProperties = {1, 1, 1, 2, 2, 2, 2, 2, 2, 1, 1, 2, 1},

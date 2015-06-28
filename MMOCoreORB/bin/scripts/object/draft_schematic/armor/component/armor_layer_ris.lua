@@ -65,7 +65,7 @@ object_draft_schematic_armor_component_armor_layer_ris = object_draft_schematic_
    ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
    ingredientTitleNames = {"armor_layer_frame", "defensive_layer_microlattice", "blast_harmonics_absorbtion_medium", "reinforcement_matrix"},
    ingredientSlotType = {0, 0, 0, 1},
-   resourceTypes = {"copper_polysteel", "crystalline_laboi_mineral_crystal", "ore_intrusive_oridium", "object/tangible/component/armor/shared_feather_peko_albatross.iff"},
+   resourceTypes = {"copper_polysteel", "gemstone_crystalline", "ore_intrusive", "object/tangible/component/armor/shared_feather_peko_albatross.iff"},
    resourceQuantities = {135, 85, 100, 1},
    contribution = {100, 100, 100, 100},
 

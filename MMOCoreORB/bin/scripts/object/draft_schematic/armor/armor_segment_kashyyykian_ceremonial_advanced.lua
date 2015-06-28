@@ -65,7 +65,7 @@ object_draft_schematic_armor_armor_segment_kashyyykian_ceremonial_advanced = obj
    ingredientTemplateNames = {"craft_armor_ingredients_n", "craft_armor_ingredients_n", "craft_armor_ingredients_n"},
    ingredientTitleNames = {"armor_segment_ceremonial", "segment_mounting_tabs", "segment_enhancement"},
    ingredientSlotType = {0, 0, 3},
-   resourceTypes = {"hide_leathery_yavin4", "wood_deciduous_endor", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff"},
+   resourceTypes = {"hide_leathery", "softwood_evergreen", "object/tangible/component/armor/shared_base_armor_segment_enhancement.iff"},
    resourceQuantities = {8, 25, 1},
    contribution = {100, 100, 100},
 

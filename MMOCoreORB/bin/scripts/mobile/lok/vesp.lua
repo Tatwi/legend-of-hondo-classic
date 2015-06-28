@@ -26,7 +26,14 @@ vesp = Creature:new {
 	diet = CARNIVORE,
 
 	templates = {"object/mobile/vesp.iff"},
-	lootGroups = {},
+	lootGroups = {
+		{
+			groups = {
+				{group = "voritor_lizard_common", chance = 10000000}
+			},
+			lootChance = 1440000
+		}
+	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

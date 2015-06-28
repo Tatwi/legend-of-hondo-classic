@@ -28,7 +28,14 @@ piket_longhorn = Creature:new {
 	templates = {"object/mobile/piket_longhorn.iff"},
 	controlDeviceTemplate = "object/intangible/pet/piket_hue.iff",
 	scale = 1.1,
-	lootGroups = {},
+	lootGroups = {
+		{
+			groups = {
+				{group = "sharnaff_common", chance = 10000000}
+			},
+			lootChance = 1620000
+		}
+	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
