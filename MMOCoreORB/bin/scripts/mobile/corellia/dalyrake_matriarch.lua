@@ -27,7 +27,7 @@ dalyrake_matriarch = Creature:new {
 
 	templates = {"object/mobile/dalyrake_matriarch.iff"},
 	scale = 1.2,
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {"creature_spit_small_red"},
 	conversationTemplate = "",
 	attacks = {

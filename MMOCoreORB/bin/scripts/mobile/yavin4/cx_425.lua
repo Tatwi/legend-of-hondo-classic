@@ -27,7 +27,7 @@ cx_425 = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_cx_425.iff"},
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

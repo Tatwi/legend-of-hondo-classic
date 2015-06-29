@@ -27,7 +27,7 @@ whisper_bird_male = Creature:new {
 
 	templates = {"object/mobile/whisper_bird.iff"},
 	scale = 1.05,
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

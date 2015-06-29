@@ -28,7 +28,7 @@ hostile_thune_mother = Creature:new {
 
 	templates = {"object/mobile/thune_hue.iff"},
 	scale = 1.05,
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

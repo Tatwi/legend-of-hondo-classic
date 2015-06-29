@@ -27,7 +27,7 @@ nightspider_aggressor = Creature:new {
 
 	templates = {"object/mobile/nightspider_aggressor.iff"},
 	scale = 0.55,
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

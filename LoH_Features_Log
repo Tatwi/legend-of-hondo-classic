@@ -552,14 +552,6 @@ scripts/object/draft_schematic/bio_engineer/dna_template/dna_template_generic.lu
 
 
 
-________________________________________________________
---- P L A N E D ---
-========================================================
-
-
-
-
-
 
 Loot, Junk, and Junk Dealers
 = = = = = = = = = = = = = = = = = 
@@ -607,6 +599,27 @@ scripts/mobile/[PLANET]/[CREATURE].lua
 - - - - - - -
 - All wild and lair spawned creatures have the chance to drop junk (including SEAs), clothing, and weapons (in that order).
 - With the exception anything that aleady had a loot table.
+- Included planets that aren't in use at the moment, as I will later add many of their creatures to the planets are in use.
+
+
+
+
+
+________________________________________________________
+--- P L A N E D ---
+========================================================
+
+
+
+
+NPC Merchants
+= = = = = = = = = = = = = = = = = 
+- These help fill in the gaps left by the lack of other players looting and selling "stuff".
+- Create a better framework for selling items. 
+- NPCs will have friends/foes, using the various factions.
+- Player relation to the NPC will factor in the price and availability of items. 
+- Loot from Geonosian Lab, Imperial/Rebel themeparks, and other unavailable content will be for sale. 
+- These merchants are a primary credit sink and accessing them is part of the story/activity driven content.
 
 
 

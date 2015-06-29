@@ -27,7 +27,7 @@ pugoriss = Creature:new {
 
 	templates = {"object/mobile/pugoriss.iff"},
 	controlDeviceTemplate = "object/intangible/pet/pugoriss_hue.iff",
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
