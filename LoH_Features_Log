@@ -605,10 +605,19 @@ scripts/mobile/[PLANET]/[CREATURE].lua
 
 
 
+Skill Terminal
+= = = = = = = = = = = = = = = = = 
+- Give free profession training for Dancer, Entertainer, Image Designer, Merchant, Musician, Politician.
+- None of these professions are worth/possible leveling in a single player environment.
+- Also added learning of all languages as well.
+- Located in the Mos Espa cantina.
+
+
+
+
 ________________________________________________________
 --- P L A N E D ---
 ========================================================
-
 
 
 

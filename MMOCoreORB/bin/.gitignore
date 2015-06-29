@@ -4,3 +4,4 @@ core3client
 databases/
 log/
 terrain/
+scripts/managers/resource_manager_spawns.lua
