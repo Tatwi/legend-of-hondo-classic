@@ -27,7 +27,7 @@ shaki_hamachil = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_shaki_hamachil.iff"},
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

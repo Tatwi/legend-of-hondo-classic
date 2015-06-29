@@ -28,7 +28,7 @@ injured_purbole = Creature:new {
 	templates = {"object/mobile/purbole.iff"},
 	controlDeviceTemplate = "object/intangible/pet/purbole_hue.iff",
 	scale = 0.9,
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

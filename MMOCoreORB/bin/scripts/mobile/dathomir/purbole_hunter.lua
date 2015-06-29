@@ -28,7 +28,7 @@ purbole_hunter = Creature:new {
 	templates = {"object/mobile/purbole_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/purbole_hue.iff",
 	scale = 1.1,
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

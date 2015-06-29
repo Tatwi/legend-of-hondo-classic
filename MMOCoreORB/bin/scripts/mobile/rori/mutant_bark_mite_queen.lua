@@ -27,7 +27,7 @@ mutant_bark_mite_queen = Creature:new {
 
 	templates = {"object/mobile/bark_mite_burrower_queen.iff"},
 	scale = 3,
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

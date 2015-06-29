@@ -27,7 +27,7 @@ thune_herd_leader = Creature:new {
 
 	templates = {"object/mobile/thune_herd_leader.iff"},
 	scale = 1.15,
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

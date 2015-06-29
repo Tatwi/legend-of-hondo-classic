@@ -27,7 +27,7 @@ skreeg_infant = Creature:new {
 
 	templates = {"object/mobile/skreeg_infant.iff"},
 	scale = 0.6,
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

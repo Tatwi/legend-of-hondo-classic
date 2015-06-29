@@ -27,7 +27,7 @@ pouncing_jax = Creature:new {
 
 	templates = {"object/mobile/bearded_jax.iff"},
 	controlDeviceTemplate = "object/intangible/pet/bearded_jax_hue.iff",
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

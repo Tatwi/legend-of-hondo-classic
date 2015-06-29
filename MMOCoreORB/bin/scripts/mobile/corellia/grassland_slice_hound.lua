@@ -28,7 +28,7 @@ grassland_slice_hound = Creature:new {
 	templates = {"object/mobile/female_grassland_slice_hound.iff"},
 	controlDeviceTemplate = "object/intangible/pet/corellian_slice_hound_hue.iff",
 	scale = 1.15,
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

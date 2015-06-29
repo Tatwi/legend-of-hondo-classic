@@ -27,7 +27,7 @@ queen_kylantha_throne = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_naboo_queen_kylantha_01.iff"},
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

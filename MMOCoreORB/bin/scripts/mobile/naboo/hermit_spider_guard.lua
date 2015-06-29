@@ -27,7 +27,7 @@ hermit_spider_guard = Creature:new {
 
 	templates = {"object/mobile/hermit_spider_hue.iff"},
 	scale = 1.2,
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

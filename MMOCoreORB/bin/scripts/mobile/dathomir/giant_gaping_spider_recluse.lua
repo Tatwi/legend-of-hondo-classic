@@ -27,7 +27,7 @@ giant_gaping_spider_recluse = Creature:new {
 
 	templates = {"object/mobile/gaping_spider_recluse.iff"},
 	scale = 1.75,
-	lootGroups = {},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
 	weapons = {"creature_spit_small_toxicgreen"},
 	conversationTemplate = "",
 	attacks = {
