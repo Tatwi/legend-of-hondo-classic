@@ -1096,3 +1096,13 @@ includeFile("items/wearables/wookiee/wke_skirt_s01.lua")
 includeFile("items/wearables/wookiee/wke_skirt_s02.lua")
 includeFile("items/wearables/wookiee/wke_skirt_s03.lua")
 includeFile("items/wearables/wookiee/wke_skirt_s04.lua")
+
+-- Hondo folder
+includeFile("items/hondo/fiberplast_panel.lua")
+includeFile("items/hondo/padding_segment.lua")
+includeFile("items/hondo/reinforced_fiber_panels.lua")
+includeFile("items/hondo/synthetic_cloth.lua")
+includeFile("items/hondo/trim.lua")
+includeFile("items/hondo/shoe_sole.lua")
+includeFile("items/hondo/jewelry_setting.lua")
+includeFile("items/hondo/resource_deed.lua")

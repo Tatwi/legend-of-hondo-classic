@@ -6,7 +6,10 @@ paint_cartridge = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},
+	junkDealerTypeNeeded = JUNKGENERIC,
+	junkMinValue = 5,
+	junkMaxValue = 40
 }
 
 addLootItemTemplate("paint_cartridge", paint_cartridge)

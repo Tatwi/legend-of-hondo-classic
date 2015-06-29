@@ -573,8 +573,6 @@ optional/bin/scripts/managers/loot_manager.lua
 - Increased the chance to find an SEA.
 - Made both SEA types have the same full array of stat possibilities.
 
-find . -name "*.lua" -print0 | xargs -0 sed -i -e 's/customizationValues = {}/customizationValues = {},\r\tjunkDealerTypeNeeded = JUNKGENERIC,\r\tjunkMinValue = 7,\r\tjunkMaxValue = 60,/g'
-
 scripts/loot/items/attachment_armor.lua
 scripts/loot/items/attachment_clothing.lua
 scripts/loot/items/creature/*.lua
@@ -585,27 +583,32 @@ scripts/loot/items/recycler/*.lua
 scripts/loot/items/skill_buff/*.lua
 - - - - - - -
 - Junk Dealers, in this single player game, are a primary source of income. They are the ONLY people can sell anything to! 
-- Junk Dealers will now purchase the items listed above, as well as some other misc items.
+- Junk Dealers will now purchase the items listed above, as well as other misc items.
+
+src/server/zone/objects/resource/ResourceManager.idl
+- - - - - - -
+- Reduced the Crate of Free Resource to 500 units.
 
 scripts/loot/groups/junk.lua
 - - - - - - -
 - Anything that can drop junk now has a chance to drop an SEA instead.
 - SEA quality is based on the creature level, so this is self balancing.
+- Can also drop Crate of Free Resources (Resource Deed)
 
-find . -name "*.lua" -print0 | xargs -0 sed -i -e 's/lootGroups = {},/lootGroups = {\r\t\t{\r\t\t\tgroups = {\r\t\t\t\t{group = "junk", chance = 7000000},\r\t\t\t\t{group = "wearables_common", chance = 3000000},\r\t\t\t\t},\r\t\t\tlootChance = 3000000\r\t\t}\r\t},/g'
-
-scripts/mobile/[PLANET]/[ANIMAL].lua
+scripts/loot/groups/tailor_components.lua
 - - - - - - -
-- All wild and lair spawned animals have the chance to drop junk (including SEAs), clothing, and weapons (in that order).
+- Added most crafted Tailor components. Note they do not have a junk dealer value.
+
+scripts/loot/items/hondo/
+- - - - - - -
+- My custom loot items are in here.
+
+scripts/mobile/[PLANET]/[CREATURE].lua
+- - - - - - -
+- All wild and lair spawned creatures have the chance to drop junk (including SEAs), clothing, and weapons (in that order).
 - With the exception anything that aleady had a loot table.
 
-src/server/zone/objects/resource/ResourceManager.idl
-- - - - - - -
-- Reduced the Crate of Free Resource to 500 units.
-- Add it to the junk loot group with the same chance as an SEA.
-- Add it to high end mob and loot container loot groups with a good chance to drop.
-- Add it to the loot while crafting loot group.
-- This THE solution to the issue of not being able harvest specific resources from the disabled planets. I was going to add a resource broker NPC, but this is a better solution, because it encourages people to get out there and play the game AND it was far less complicated to program. Many thanks to Kinshi for the suggestion!
+
 
 
 

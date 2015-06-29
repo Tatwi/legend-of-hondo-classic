@@ -9,7 +9,10 @@ crystalline_clothing_treatment = {
 		{"useCount",1,6,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},
+	junkDealerTypeNeeded = JUNKGENERIC,
+	junkMinValue = 5,
+	junkMaxValue = 40
 }
 
 addLootItemTemplate("crystalline_clothing_treatment", crystalline_clothing_treatment)
