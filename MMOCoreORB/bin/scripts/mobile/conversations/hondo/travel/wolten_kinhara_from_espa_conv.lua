@@ -27,10 +27,11 @@ woltenkinharafromespa_template:addScreen(woltenkinharafromespa_first_screen);
 woltenkinharafromespa_public_transit = ConvoScreen:new {
 	id = "public_transit",
 	leftDialog = "",
-	customDialogText = "We've been over this... Use the public shuttle system, it's WAY cheaper!",
+	customDialogText = "We've been over this... You have your own figher ship to fly or you can use the public shuttle system. Either of those are WAY cheaper than flying the Onak everywhere. Open up your datapad to access your ship or head to a shuttle port to use public transit.",
   	stopConversation = "false",
   	options = { 
-  		{"Do they go to other planets?", "just_local"},
+		{"Since when have I had my own fighter?", "awesome"},
+  		{"Does public transit go to other planets?", "just_local"},
   		{"I like you, Wolten. Thanks.", "byebye"}
   	}
 }
@@ -47,6 +48,18 @@ woltenkinharafromespa_just_local = ConvoScreen:new {
   	}
 }
 woltenkinharafromespa_template:addScreen(woltenkinharafromespa_just_local);
+
+
+woltenkinharafromespa_awesome = ConvoScreen:new {
+	id = "awesome",
+	leftDialog = "",
+	customDialogText = "Since you won that small fleet of them from the Hutts when we smuggled that spice shipment to Nar Shadaa. We sure proved it wasn't impossible to slip that spice right through the Imperial blockade! I don't think Meera the Hutt will be making any bets against us any time soon. Would be nice to get some more work though...",
+  	stopConversation = "false",
+  	options = { 
+  		{"Yeah, we're awesome! I just love hearing you tell that story.", "byebye"}
+  	}
+}
+woltenkinharafromespa_template:addScreen(woltenkinharafromespa_awesome);
 
 
 woltenkinharafromespa_byebye = ConvoScreen:new {

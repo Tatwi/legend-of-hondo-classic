@@ -478,13 +478,13 @@ bool PlayerCreationManager::createCharacter(MessageCallback* data) {
 				int accountPermissionLevel = playerAccount->getAdminLevel();
 				String accountName = playerAccount->getUsername();
 
-				if(accountPermissionLevel > 0 && (accountPermissionLevel == 9 || accountPermissionLevel == 10 || accountPermissionLevel == 12 || accountPermissionLevel == 15)) {
+//				if(accountPermissionLevel > 0 && (accountPermissionLevel == 9 || accountPermissionLevel == 10 || accountPermissionLevel == 12 || accountPermissionLevel == 15)) {
 					playerManager->updatePermissionLevel(playerCreature, accountPermissionLevel);
 
-					/*
-					Reference<ShipControlDevice*> shipControlDevice = zoneServer->createObject(STRING_HASHCODE("object/intangible/ship/sorosuub_space_yacht_pcd.iff"), 1).castTo<ShipControlDevice*>();
+					
+					Reference<ShipControlDevice*> shipControlDevice = zoneServer->createObject(STRING_HASHCODE("object/intangible/ship/basic_hutt_light_pcd.iff"), 1).castTo<ShipControlDevice*>();
 					//ShipObject* ship = (ShipObject*) server->createObject(STRING_HASHCODE("object/ship/player/player_sorosuub_space_yacht.iff"), 1);
-					Reference<ShipObject*> ship = zoneServer->createObject(STRING_HASHCODE("object/ship/player/player_basic_tiefighter.iff"), 1).castTo<ShipObject*>();
+					Reference<ShipObject*> ship = zoneServer->createObject(STRING_HASHCODE("object/ship/player/player_basic_hutt_light.iff"), 1).castTo<ShipObject*>();
 
 					shipControlDevice->setControlledObject(ship);
 
@@ -501,10 +501,10 @@ bool PlayerCreationManager::createCharacter(MessageCallback* data) {
 						shipControlDevice->destroyObjectFromDatabase(true);
 						error("could not get datapad from player");
 					}
-					*/
-				}
+					
+//				}
 
-				if (accountPermissionLevel < 9) {
+/*				if (accountPermissionLevel < 9) {
 					try {
 						StringBuffer query;
 						//query << "SELECT UNIX_TIMESTAMP(creation_date) FROM characters c WHERE galaxy_id = " << zoneServer.get()->getGalaxyID() << " AND account_id = " << client->getAccountID() << " ORDER BY creation_date desc;";
@@ -552,7 +552,7 @@ bool PlayerCreationManager::createCharacter(MessageCallback* data) {
 						lastCreatedCharacter.put(accID, Time());
 					}
 				}
-
+*/
 			} catch (Exception& e) {
 				error(e.getMessage());
 			}
@@ -642,7 +642,7 @@ bool PlayerCreationManager::createCharacter(MessageCallback* data) {
 
 	ManagedReference<SuiMessageBox*> box = new SuiMessageBox(playerCreature, SuiWindowType::NONE);
 	box->setPromptTitle("PLEASE NOTE");
-	box->setPromptText("You are limited to creating one character every 24 hours. Attempting to create another character or deleting your character before the 24 hour timer expires will reset the timer.");
+	box->setPromptText("Legend of Hondo is awesome. Feel free to create the rest of your crew whenever you feel like it, pirate. You can have up to 10 crew members total. Check your Datapad for information on your personal fighter ship and see Wolten Kinhara in Mos Espa Starport for travel that requires hyperspace.");
 
 	ghost->addSuiBox(box);
 	playerCreature->sendMessage(box->generateMessage());
