@@ -607,10 +607,26 @@ scripts/mobile/[PLANET]/[CREATURE].lua
 
 Skill Terminal
 = = = = = = = = = = = = = = = = = 
+scripts/object/tangible/beta/beta_terminal_xp.lua
 - Give free profession training for Dancer, Entertainer, Image Designer, Merchant, Musician, Politician.
 - None of these professions are worth/possible leveling in a single player environment.
 - Also added learning of all languages as well.
 - Located in the Mos Espa cantina.
+
+
+
+
+
+Simple Flight and 24 Hour Limit
+= = = = = = = = = = = = = = = = = 
+src/server/zone/managers/player/creation/PlayerCreationManager.cpp
+- Add a basic Scyk ship to the datapad of new players. Can be used to fly around on the planets. This feature is rough around the edges, but still cool!
+- Removed the 1 character creation per 24 hour limit, because it sucked in general and was plain broken due to the server not being on all the time.
+- Customized the welcome message pop-up for Legend of Hondo.
+
+scripts/mobile/conversations/hondo/travel/wolten_kinhara_from_espa_conv.lua
+- Updated conversation with some information (and story) about the fighter ship.
+
 
 
 
