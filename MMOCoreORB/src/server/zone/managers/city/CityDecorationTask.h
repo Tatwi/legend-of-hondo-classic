@@ -48,19 +48,19 @@ public:
 		Locker _lock(mayor);
 
 		ManagedReference<CityRegion*> city = mayor->getCityRegion();
-
+/*
 		if(city == NULL) {
 			mayor->sendSystemMessage("@player_structure:cant_place_civic"); //This structure must be placed within the borders of the city in which you are mayor.
 			return;
 		}
-
+*/
 		CityManager* cityManager = mayor->getZoneServer()->getCityManager();
-
+/*
 		if(!city->isMayor(mayor->getObjectID())) {
 			mayor->sendSystemMessage("@player_structure:cant_place_civic"); //This structure must be placed within the borders of the city in which you are mayor.
 			return;
 		}
-
+*/
 		PlayerObject* mayorGhost = mayor->getPlayerObject().get();
 		if (mayorGhost == NULL) {
 			return;
@@ -83,7 +83,7 @@ public:
 			return;
 
 		Reference<SceneObject*> objTooClose = zone->getPlanetManager()->findObjectTooCloseToDecoration(mayor->getPositionX(), mayor->getPositionY(), obj->getObjectTemplate()->getNoBuildRadius());
-
+/*
 		if (objTooClose != NULL && !obj->isCityStreetLamp()) {
 			StringIdChatParameter msg;
 			msg.setStringId("@city/city:deco_too_close"); //"You can't place a decoration here, it would be too close to structure %TO.");
@@ -101,7 +101,7 @@ public:
 			mayor->sendSystemMessage(msg); //"The city treasury must have %DI credits in order to perform that action.");
 			return;
 		}
-
+*/
 		Locker tlock(obj, mayor);
 
 		if(!obj->isASubChildOf(mayor)) {
