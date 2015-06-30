@@ -608,6 +608,7 @@ scripts/mobile/[PLANET]/[CREATURE].lua
 Skill Terminal
 = = = = = = = = = = = = = = = = = 
 scripts/object/tangible/beta/beta_terminal_xp.lua
+- - - - - - -
 - Give free profession training for Dancer, Entertainer, Image Designer, Merchant, Musician, Politician.
 - None of these professions are worth/possible leveling in a single player environment.
 - Also added learning of all languages as well.
@@ -620,14 +621,37 @@ scripts/object/tangible/beta/beta_terminal_xp.lua
 Simple Flight and 24 Hour Limit
 = = = = = = = = = = = = = = = = = 
 src/server/zone/managers/player/creation/PlayerCreationManager.cpp
+- - - - - - -
 - Add a basic Scyk ship to the datapad of new players. Can be used to fly around on the planets. This feature is rough around the edges, but still cool!
 - Removed the 1 character creation per 24 hour limit, because it sucked in general and was plain broken due to the server not being on all the time.
 - Customized the welcome message pop-up for Legend of Hondo.
 
 scripts/mobile/conversations/hondo/travel/wolten_kinhara_from_espa_conv.lua
+- - - - - - -
 - Updated conversation with some information (and story) about the fighter ship.
 
 
+
+
+
+City and Building Permssions
+= = = = = = = = = = = = = = = = = 
+*WARNING* NOT A MULTIPLAYER FRIENDLY UPDATE!!
+- Keep in mind this project is unforgivingly designed to cater to a single player (me!). As such, some updates will break multiplayer play. This is one of those updates. You've been warned. :)
+- Previous changes were to this regard were too tame for a single player game.
+
+src/server/zone/managers/city/CityDecorationTask.h
+src/server/zone/managers/city/CityManagerImplementation.cpp
+src/server/zone/managers/structure/StructureManager.cpp
+src/server/zone/objects/creature/commands/PlaceStructureCommand.h
+src/server/zone/objects/creature/commands/PlaceStructureModeCommand.h
+- - - - - - -
+- Removed many checks and limitations when placing buildings in cities, to allow any player to place buildings and decorations.
+- Can place objects "too close" to each other, including overlapping. Player must use caution when placing objects!
+- Can place up to 30 decorations in an NPC city.
+- Can place any building, city decoration item, and city decoration deed in an NPC city.
+- Can place any building on any planet where building is permitted (Dantooine and Tatooine).
+- Politician profession skills are still required, but they are available on the XP terminal in the Mos Espa cantina.
 
 
 
@@ -637,7 +661,7 @@ ________________________________________________________
 
 
 
-NPC Merchants
+NPC Merchants and Living World
 = = = = = = = = = = = = = = = = = 
 - These help fill in the gaps left by the lack of other players looting and selling "stuff".
 - Create a better framework for selling items. 
@@ -645,17 +669,6 @@ NPC Merchants
 - Player relation to the NPC will factor in the price and availability of items. 
 - Loot from Geonosian Lab, Imperial/Rebel themeparks, and other unavailable content will be for sale. 
 - These merchants are a primary credit sink and accessing them is part of the story/activity driven content.
-
-
-
-
-
-
-
-
-
-
-
-
+- Will include various quests/missions, stories, etc. Perhaps even new locations!
 
 

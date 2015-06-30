@@ -212,6 +212,7 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 	Reference<SharedStructureObjectTemplate*> serverTemplate =
 			dynamic_cast<SharedStructureObjectTemplate*>(templateManager->getTemplate(serverTemplatePath.hashCode()));
 
+/* Legend of Hondo
 	//Check to see if this zone allows this structure.
 	if (serverTemplate == NULL || !serverTemplate->isAllowedZone(zone->getZoneName())) {
 		creature->sendSystemMessage("@player_structure:wrong_planet"); //That deed cannot be used on this planet.
@@ -239,7 +240,7 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 		if (city != NULL)
 			break;
 	}
-
+*/
 	SortedVector<ManagedReference<QuadTreeEntry*> > inRangeObjects;
 	zone->getInRangeObjects(x, y, 128, &inRangeObjects, true);
 
@@ -305,7 +306,7 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 			} */
 		}
 	}
-
+/*
 	int rankRequired = serverTemplate->getCityRankRequired();
 
 	if (city == NULL && rankRequired > 0) {
@@ -338,7 +339,7 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 			return 1;
 		}
 	}
-
+*/
 	Locker _lock(deed, creature);
 
 
