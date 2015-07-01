@@ -222,18 +222,18 @@ int SpawnAreaImplementation::tryToSpawn(SceneObject* object) {
 	// Prevent way, WAY too many mob groups from spawning too close to (or on top of...) each other. 
 	SortedVector<ManagedReference<QuadTreeEntry* > > nearbyObjects;
 	zone->getInRangeObjects(randomPosition.getX(), randomPosition.getY(), 128, &nearbyObjects, true);
-	int chanceToOverlap = System::random(5);
+	int chanceToOverlap = System::random(20);
 	
 	for(int i = 0; i < nearbyObjects.size(); ++i) {
 		SceneObject* scno = cast<SceneObject*>(nearbyObjects.get(i).get());	
 		if (!scno->isPlayerCreature()){	// Ignore the player, just look for anything else.
-			if (chanceToOverlap == 1){
-				// Don't do anything
+			if (chanceToOverlap == 1 && nearbyObjects.size() < 30){
+				// Random 1 in 20 chance to let a lair spawn even though it's too close, unless there are already 30 objects nearby.
+				Logger::console.info("Spawner rolled a 1! Allowing a spawn closer than 128m...", true);
 			}
-			else if(scno != NULL && nearbyObjects.size() < 20) {
-				// Random 1 in 5 chance to let a lair spawn even though it's too close, provided there aren't already more than 20 objects within range.
-				//Logger::console.info("Tried to spawn a lair, theater, or mob group too close to something else!", true);
-				return 4;
+			else if(scno != NULL) {
+				// Bail - already too many objects around here!
+				return 10;
 			}	
 		}
 	}
