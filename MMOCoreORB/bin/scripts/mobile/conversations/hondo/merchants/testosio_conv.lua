@@ -23,15 +23,15 @@ testosio_start = ConvoScreen:new {
 testosio_template:addScreen(testosio_start);
 
 
-testosio_ohmy = ConvoScreen:new {
-  id = "ohmy",
+testosio_bye = ConvoScreen:new {
+  id = "bye",
   leftDialog = "",
-  customDialogText = "Oh, my!",
+  customDialogText = "So long...",
   stopConversation = "true",
   options = {
   }
 }
-testosio_template:addScreen(testosio_ohmy);
+testosio_template:addScreen(testosio_bye);
 
 
 testosio_yes = ConvoScreen:new {
@@ -59,8 +59,9 @@ testosio_get_lost = ConvoScreen:new {
   id = "get_lost",
   leftDialog = "",
   customDialogText = "You've got some nerve showing your face around here!",
-  stopConversation = "true",
-  options = { 
+  stopConversation = "false",
+  options = {
+	{"Fine! I'll just take my business elsewhere!", "nope"}
   }
 }
 testosio_template:addScreen(testosio_get_lost);
@@ -69,9 +70,10 @@ testosio_template:addScreen(testosio_get_lost);
 testosio_faction_too_low = ConvoScreen:new {
   id = "faction_too_low",
   leftDialog = "",
-  customDialogText = "Sorry, but you'll have to work a little harder before I will do business with you.",
-  stopConversation = "true",
-  options = { 
+  customDialogText = "Sorry, but I don't trust you enough to do business with you.",
+  stopConversation = "false",
+  options = {
+	{"I get that. I really do... Bye", "bye"}
   }
 }
 testosio_template:addScreen(testosio_faction_too_low);

@@ -15,8 +15,9 @@ TestosioSP = ScreenPlay:new {
 		-- Set to -1 to make NPC refuse to talk if player has 2+ faction with his enemy.
 		-- NIL faction values mean player always accepted, no discount, no sircharge.
 		-- priceAdjust applies discounts and sircharges on a sliding scale.
-		{name="jabba", npcStanding=300, priceAdjust=25}, 
-		{name="thug", npcStanding=-1000, priceAdjust=50} 
+		{name="jabba", npcStanding=300, priceAdjust=25}, -- Friend
+		{name="rebel", npcStanding=0, priceAdjust=10}, -- Friend
+		{name="thug", npcStanding=-1000, priceAdjust=50}  -- Enemy
 	},
 	goods = {
 		{optName="survey_mineral", cost=5, itemName="Mineral Survey Tool", item="object/tangible/survey_tool/survey_tool_mineral.iff"}, 
@@ -37,31 +38,34 @@ end
 
 -- Purchasing Functions
 
-function TestosioSP:refuseService(conversingPlayer)
-	print ("I hate this function!")
-	return ObjectManager.withCreatureAndPlayerObject(conversingPlayer, function(player, playerObject)
+function TestosioSP:firstToUpper(str)
+	-- Convert word to Word
+    return (str:gsub("^%l", string.upper))
+end
 
-	-- Check NPC/Player relations
-	for lc = 1, table.getn(TestosioSP.relations) , 1 do
-		print (TestosioSP.relations[lc].name)
-	
-		playerStanding = playerObject:getFactionStanding(TestosioSP.relations[lc].name)
-		
-		print ("Player standing is .... " .. playerStanding)
-		
-		if (playerStanding < TestosioSP.relations[lc].npcStanding) then
-			-- Not friendly enough for service
-			creatureObject:sendSystemMessage("Try earning some more " .. TestosioSP.relations[lc].name " faction before visiting this Merchant again. One good way to earn faction with a group is to complete missions for them. Another way to gain a group's favour, generally speaking, is to fight their enemies. You can check your standing on the Factions tab of the Character Screen.")
-			return true
+function TestosioSP:refuseService(conversingPlayer)
+	return ObjectManager.withCreatureAndPlayerObject(conversingPlayer, function(creatureObject, playerObject)
+		-- Check NPC/Player relations
+		local breaker = "false"
+		for lc = 1, table.getn(TestosioSP.relations) , 1 do
+			local playerStanding = playerObject:getFactionStanding(TestosioSP.relations[lc].name)
+			
+			if (playerStanding < TestosioSP.relations[lc].npcStanding) then
+				creatureObject:sendSystemMessage("Hint: Increase your " .. TestosioSP:firstToUpper(TestosioSP.relations[lc].name) .. " faction and speak with the NPC again.")
+				breaker = "true"
+				return 2 -- Not friendly enough for service
+			elseif (TestosioSP.relations[lc].npcStanding < 0 and (TestosioSP.relations[lc].npcStanding + playerStanding) > 0) then
+				creatureObject:sendSystemMessage("Hint: Decrease your " .. TestosioSP:firstToUpper(TestosioSP.relations[lc].name) .. " faction and speak with the NPC again.")
+				breaker = "true"
+				return 1 -- Too friendly with my enemy for service
+			end	
+			
+			if (breaker == "true") then 
+				break
+			end
 		end
-		
-		if (self.relations[lc].npcStanding < 0 and (TestosioSP.relations[lc].npcStanding + playerStanding) > 0) then
-			-- Too friendly with my enemy for service
-			return true
-		end	
-	end
-	 return false -- Will talk to player
-	 end)
+		return 0 -- Will talk to player
+	end)
 end
 
 
@@ -105,10 +109,13 @@ function testosio_convo_handler:getNextConversationScreen(conversationTemplate, 
 		
 		local insufficientFunds = "false"
 		
+		-- See if NPC will talk to player
+		local canTalk = TestosioSP:refuseService(conversingPlayer)
+		
 		if ( lastConversationScreen == nil ) then
-			if (TestosioSP:refuseService(conversingPlayer) == 1) then
+			if (canTalk == 1) then
 				nextConversationScreen = conversation:getScreen("get_lost")
-			elseif (TestosioSP:refuseService(conversingPlayer) == 2) then
+			elseif (canTalk == 2) then
 				nextConversationScreen = conversation:getScreen("faction_too_low")
 			else 
 				nextConversationScreen = conversation:getInitialScreen()
@@ -121,9 +128,8 @@ function testosio_convo_handler:getNextConversationScreen(conversationTemplate, 
 			-- Sell Item
 			for lc = 1, table.getn(TestosioSP.goods) , 1 do
 				if (optionLink == TestosioSP.goods[lc].optName) then 
-					merchantSystem:processSale(creature, pInventory, TestosioSP.goods[lc].cost, TestosioSP.goods[lc].item)
-					--creature:subtractCashCredits(TestosioSP.goods[lc].cost)
-					--local pItem = giveItem(pInventory, TestosioSP.goods[lc].item, -1)
+					creature:subtractCashCredits(TestosioSP.goods[lc].cost)
+					local pItem = giveItem(pInventory, TestosioSP.goods[lc].item, -1)
 				end
 			end
 			
