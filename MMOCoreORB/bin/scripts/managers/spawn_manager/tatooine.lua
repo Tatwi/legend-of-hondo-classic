@@ -580,7 +580,7 @@ tatooine_static_spawns = {
 	{"junk_nado",60,4.4,-0.5,1.3,-133,1255997, "", "Nado","stationary",JUNKGENERIC,JUNKCONVNADOWATTOS},
 	{"junk_sneg",60,-1.63376,7.01,7.35289,203.569,1076943, "calm", "Sneg the Hand","stationary",JUNKWEAPONS,JUNKCONVSNEGVALARIAN},
 	{"junk_nathan",60,3817.7,16.2,2340.5,0,0, "calm", "Nathan Blyskipper (a Junk Dealer)","stationary",JUNKJAWA,JUNKCONVNATHANTAIKE},
-	{"junk_sheani",0,-5429.2,8.5,2705,40,0, "", "Sheani Lake", "stationary",JUNKCLOTHESANDJEWELLERY+JUNKARMOUR,JUNKCONVSHEANILAKE},
+	{"junk_sheani",0,-5294.3,8.5,2705,40,0, "", "Sheani Lake", "stationary",JUNKCLOTHESANDJEWELLERY+JUNKARMOUR,JUNKCONVSHEANILAKE},
 	{"junk_lila",0,65.2,52,-5375.2,89,0, "", "Lila Rawlkiss", "stationary",JUNKWEAPONS,JUNKCONVLILABORVO},
 	{"keanna_likyna",60,-18.8886,3.22324,20.608,214.006,926480, "neutral", "Keanna Li`kyna","stationary"},
 	{"kiosait_eetwaka",60,-3.78237,2.27819,-25.8455,324.158,926475, "neutral", "Kiosait Eetwaka","stationary"},
