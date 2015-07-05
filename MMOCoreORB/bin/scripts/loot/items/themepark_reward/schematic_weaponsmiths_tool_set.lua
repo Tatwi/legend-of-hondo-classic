@@ -8,7 +8,7 @@ schematic_weaponsmiths_tool_set = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("schematic_weaponsmiths_tool_set", schematic_weaponsmiths_tool_set)

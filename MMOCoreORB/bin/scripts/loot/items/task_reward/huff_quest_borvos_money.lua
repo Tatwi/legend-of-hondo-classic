@@ -5,7 +5,7 @@ huff_quest_borvos_money = {
 	directObjectTemplate = "object/tangible/loot/quest/huff_quest_borvos_money.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 
 	}

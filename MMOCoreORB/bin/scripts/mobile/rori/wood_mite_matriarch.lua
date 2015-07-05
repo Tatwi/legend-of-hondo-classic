@@ -27,7 +27,7 @@ wood_mite_matriarch = Creature:new {
 
 	templates = {"object/mobile/wood_mite_matriarch.iff"},
 	scale = 1.1,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

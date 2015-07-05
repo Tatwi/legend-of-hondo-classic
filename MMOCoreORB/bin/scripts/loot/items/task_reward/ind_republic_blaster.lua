@@ -5,7 +5,7 @@ ind_republic_blaster = {
 	directObjectTemplate = "object/weapon/ranged/pistol/pistol_republic_blaster.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 
 	},

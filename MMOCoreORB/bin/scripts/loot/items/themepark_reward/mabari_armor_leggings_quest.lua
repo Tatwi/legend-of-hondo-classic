@@ -16,7 +16,7 @@ mabari_armor_leggings_quest = {
 		{"armor_mind_encumbrance",5,5,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 		{"dizzy_defense",5},
 		{"ranged_defense",3}

@@ -9,7 +9,7 @@ b_wing_pilot_survival_suit = {
 	},
 	skillMods = {{"rifle_hit_while_moving", 5}, {"slope_move", 5}},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("b_wing_pilot_survival_suit", b_wing_pilot_survival_suit)

@@ -751,7 +751,7 @@ void CraftingSessionImplementation::initialAssembly(int clientCounter) {
 	// Set Crafter name and generate serial number
 	String name = crafter->getFirstName();
 	prototype->setCraftersName(name);
-
+	
 	String serial = craftingManager.get()->generateSerial();
 	prototype->setSerialNumber(serial);
 
@@ -780,6 +780,13 @@ void CraftingSessionImplementation::initialAssembly(int clientCounter) {
 	}
 
 	prototype->setComplexity(manufactureSchematic->getComplexity());
+	
+	
+	// Hondo - Add Junk Dealer value to the item
+	prototype->setJunkDealerNeeded(1); // JUNKGENERIC 
+	float fJunkValue = experimentationPointsTotal+System::random(3*manufactureSchematic->getComplexity()+1);
+	prototype->setJunkValue((int)(fJunkValue));
+
 
 	// Start DMSCO3 ***********************************************************
 	// Sends the updated values to the crafting screen

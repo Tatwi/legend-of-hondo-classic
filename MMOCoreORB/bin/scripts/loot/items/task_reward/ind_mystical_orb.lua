@@ -5,7 +5,7 @@ ind_mystical_orb = {
 	directObjectTemplate = "object/tangible/loot/misc/mystical_orb.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 
 	}

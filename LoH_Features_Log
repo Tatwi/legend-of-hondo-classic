@@ -655,6 +655,42 @@ src/server/zone/objects/creature/commands/PlaceStructureModeCommand.h
 
 
 
+
+
+Junk Dealers: Super Deluxe!
+= = = = = = = = = = = = = = = = = 
+scripts/loot/[MISC FILES]
+- - - - - - -
+- Corrected loot weighting values on junk loot and tailor part groups. 
+- Added new loot group for recycler parts. 
+- Made "Junk" into the Super Deluxe general loot group for all occassions! Taking a page from other single player games, the idea here is give the player a wide variety of loot to use or sell, considerng they can't buy any from the nonexistent other players. 
+- Added some cheap furniture and 3 otherwise unobtainable small plants to the junk group.
+- Added junk seller prices to sore more items that did not have them, including quest and themepark rewards.
+
+scripts/mobile/[PLANET]/[CREATURE].lua
+- - - - - - -
+- Corrected loot weighting on all mobile/[PLANETNAME] mobs.
+- Any creature that did not already drop loot will now have a 25% chance to drop loot from the Super Deluxe Junk group.
+
+scripts/managers/spawn_manager/tatooine.lua
+- - - - - - -
+- In a previous fix, I added:
+- Clothing/Armor Junk Dealer, Imperial Oasis, Tatooine
+- Weapon Junk Dealer, Anchorhead, Tatooine
+
+src/server/zone/objects/creature/junkdealer/JunkdealerCreatureImplementation.cpp
+src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.cpp
+- - - - - - -
+- Junk Dealers (Generic type) will purchase player crafted items.
+- Will buy factory crated items only after they are taken out of the crate.
+- Value based upon player skill. final item complexity, and "real world" luck. 
+- As with loot, the junk value is set when the item is created and is unknown/invisible to the player until they sell the item.
+- Factory crate items all have the same junk value.
+
+
+
+
+
 ________________________________________________________
 --- P L A N E D ---
 ========================================================

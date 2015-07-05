@@ -16,7 +16,7 @@ mabari_armor_helmet_quest = {
 		{"armor_mind_encumbrance",54,54,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 		{"blind_defense",5},
 		{"ranged_defense",3}

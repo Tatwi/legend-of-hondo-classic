@@ -5,7 +5,7 @@ huff_quest_tusken_king_rifle = {
 	directObjectTemplate = "object/tangible/loot/quest/rifle_quest_tusken.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 
 	}

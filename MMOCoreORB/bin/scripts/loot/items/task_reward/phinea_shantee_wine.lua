@@ -5,7 +5,7 @@ phinea_shantee_wine = {
 	directObjectTemplate = "object/tangible/food/crafted/drink_veronian_berry_wine.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 
 	}

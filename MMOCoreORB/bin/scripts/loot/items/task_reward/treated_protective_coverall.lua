@@ -6,7 +6,7 @@ treated_protective_coverall = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {{"resistance_disease", 25}}
 }
 
