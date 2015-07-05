@@ -759,10 +759,11 @@ void JunkdealerCreatureImplementation::createSellJunkLootSelection(CreatureObjec
 	}
 
 }
+
+// Legend of Hondo removed && lootItem->getCraftersName().isEmpty() == true from below to allow crafted items to be sold
 bool JunkdealerCreatureImplementation::canInventoryItemBeSoldAsJunk(TangibleObject* lootItem,int dealerType){
 	return( (lootItem->getJunkDealerNeeded() & dealerType) == lootItem->getJunkDealerNeeded() || (lootItem->getJunkDealerNeeded() & dealerType) == dealerType )
-			&& lootItem->getJunkDealerNeeded() > 0
-			&& lootItem->getCraftersName().isEmpty() == true
+			&& lootItem->getJunkDealerNeeded() > 0		
 			&& lootItem->isBroken()==false
 			&& lootItem->isSliced() == false
 			&& lootItem->isNoTrade() == false

@@ -15,7 +15,7 @@ armor_marauder_chest_plate = {
 		{"armor_mind_encumbrance",10,10,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {}
 }
 

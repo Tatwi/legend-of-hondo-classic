@@ -9,7 +9,7 @@ fiberplast_panel = {
 		{"useCount",4,20,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 3,	junkMaxValue = 25,
 }
 
 addLootItemTemplate("fiberplast_panel", fiberplast_panel)

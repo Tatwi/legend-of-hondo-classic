@@ -6,7 +6,7 @@ palowick_painting_quest_01 = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("palowick_painting_quest_01", palowick_painting_quest_01)

@@ -16,7 +16,7 @@ bile_soaked_rancor_tooth = {
 		{"useCount",2,10,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("bile_soaked_rancor_tooth", bile_soaked_rancor_tooth)

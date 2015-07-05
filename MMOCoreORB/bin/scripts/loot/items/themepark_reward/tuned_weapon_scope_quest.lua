@@ -15,7 +15,7 @@ tuned_weapon_scope_quest = {
 		{"hitpoints",0,0,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("tuned_weapon_scope_quest", tuned_weapon_scope_quest)

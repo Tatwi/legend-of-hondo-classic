@@ -25,7 +25,7 @@ insurgent = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/space_imperial_tier4_corellia_nin_gursawe.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
 	weapons = {"pirate_weapons_heavy"},
 	attacks = merge(brawlermaster,marksmanmaster)
 }

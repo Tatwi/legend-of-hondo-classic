@@ -8,7 +8,7 @@ lightweight_backpack_schematic = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("lightweight_backpack_schematic", lightweight_backpack_schematic)
