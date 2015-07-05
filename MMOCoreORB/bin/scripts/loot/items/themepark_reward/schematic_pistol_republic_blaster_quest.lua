@@ -9,7 +9,7 @@ schematic_pistol_republic_blaster_quest = {
 		{"",0,0,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("schematic_pistol_republic_blaster_quest", schematic_pistol_republic_blaster_quest)

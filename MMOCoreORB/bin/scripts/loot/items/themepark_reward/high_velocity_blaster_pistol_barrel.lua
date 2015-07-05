@@ -16,7 +16,7 @@ high_velocity_blaster_pistol_barrel = {
 		{"useCount",2,10,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("high_velocity_blaster_pistol_barrel", high_velocity_blaster_pistol_barrel)

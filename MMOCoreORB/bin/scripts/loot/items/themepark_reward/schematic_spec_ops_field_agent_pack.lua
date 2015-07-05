@@ -8,7 +8,7 @@ schematic_spec_ops_field_agent_pack = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("schematic_spec_ops_field_agent_pack", schematic_spec_ops_field_agent_pack)

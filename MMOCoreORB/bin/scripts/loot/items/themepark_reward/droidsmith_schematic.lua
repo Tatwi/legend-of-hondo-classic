@@ -8,7 +8,7 @@ droidsmith_schematic = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("droidsmith_schematic", droidsmith_schematic)

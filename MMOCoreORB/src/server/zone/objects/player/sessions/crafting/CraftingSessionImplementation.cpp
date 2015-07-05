@@ -751,7 +751,7 @@ void CraftingSessionImplementation::initialAssembly(int clientCounter) {
 	// Set Crafter name and generate serial number
 	String name = crafter->getFirstName();
 	prototype->setCraftersName(name);
-
+	
 	String serial = craftingManager.get()->generateSerial();
 	prototype->setSerialNumber(serial);
 
@@ -780,6 +780,13 @@ void CraftingSessionImplementation::initialAssembly(int clientCounter) {
 	}
 
 	prototype->setComplexity(manufactureSchematic->getComplexity());
+	
+	
+	// Hondo - Add Junk Dealer value to the item
+	prototype->setJunkDealerNeeded(1); // JUNKGENERIC 
+	float fJunkValue = experimentationPointsTotal+System::random(3*manufactureSchematic->getComplexity()+1);
+	prototype->setJunkValue((int)(fJunkValue));
+
 
 	// Start DMSCO3 ***********************************************************
 	// Sends the updated values to the crafting screen
@@ -1207,7 +1214,7 @@ void CraftingSessionImplementation::createPrototype(int clientCounter, bool crea
 	ManagedReference<CreatureObject*> crafter = this->crafter.get();
 	ManagedReference<ManufactureSchematic*> manufactureSchematic = this->manufactureSchematic.get();
 
-	int grantLootChance = 0; // Legend of Hondo Customization
+	int grantLootChance = 1; // Legend of Hondo Customization
 	
 	if (manufactureSchematic == NULL) {
 		sendSlotMessage(clientCounter, IngredientSlot::NOSCHEMATIC);
@@ -1229,7 +1236,10 @@ void CraftingSessionImplementation::createPrototype(int clientCounter, bool crea
 
 		String xpType = manufactureSchematic->getDraftSchematic()->getXpType();
 		int xp = manufactureSchematic->getDraftSchematic()->getXpAmount();
-
+		
+		if (xp < 250)
+			xp = System::random(100) + 250; // Easy way to set min XP amount
+		
 		if (createItem) {
 
 			startCreationTasks(1, false); // 1 Second tool countdown to make sure it works with the client.
@@ -1239,7 +1249,7 @@ void CraftingSessionImplementation::createPrototype(int clientCounter, bool crea
 			// This is for practicing
 			startCreationTasks(1, true); // 1 Second tool countdown to make sure it works with the client.
 			xp *= 1.75f; // Default 1.05f for 5%
-			grantLootChance = 1; // Legend of Hondo Customization
+			//grantLootChance = 1; // Legend of Hondo Customization
 		}
 
 		Reference<PlayerManager*> playerManager = crafter->getZoneServer()->getPlayerManager();

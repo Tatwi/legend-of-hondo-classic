@@ -16,7 +16,7 @@ mabari_armor_chest_plate_quest = {
 		{"armor_mind_encumbrance",23,23,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 		{"stun_defense",5},
 		{"ranged_defense",3}

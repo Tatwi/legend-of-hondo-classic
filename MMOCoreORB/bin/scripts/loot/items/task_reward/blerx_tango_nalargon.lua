@@ -5,7 +5,7 @@ blerx_tango_nalargon = {
 	directObjectTemplate = "object/tangible/instrument/nalargon.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 
 	}

@@ -28,7 +28,7 @@ armodragon = Creature:new {
 	templates = {"object/mobile/dune_lizard.iff"},
 	controlDeviceTemplate = "object/intangible/pet/dune_lizard_hue.iff",
 	scale = 1.3,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {

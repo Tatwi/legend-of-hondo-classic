@@ -14,7 +14,7 @@ weapon_scope_quest = {
 		{"useCount",2,10,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("weapon_scope_quest", weapon_scope_quest)

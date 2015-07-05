@@ -12,7 +12,7 @@ atat_helmet = {
 	         {"armor_mind_encumbrance",0,0,0,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("atat_helmet", atat_helmet)

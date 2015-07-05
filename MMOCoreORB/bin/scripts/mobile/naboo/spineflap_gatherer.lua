@@ -28,7 +28,7 @@ spineflap_gatherer = Creature:new {
 	templates = {"object/mobile/capper_spineflap_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/capper_spineflap_hue.iff",
 	scale = 1.05,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

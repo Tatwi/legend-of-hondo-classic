@@ -5,3 +5,4 @@ databases/
 log/
 terrain/
 scripts/managers/resource_manager_spawns.lua
+conf/config.lua

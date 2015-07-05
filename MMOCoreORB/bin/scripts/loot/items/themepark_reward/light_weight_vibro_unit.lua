@@ -17,7 +17,7 @@ light_weight_vibro_unit = {
 		{"useCount",2,10,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("light_weight_vibro_unit", light_weight_vibro_unit)

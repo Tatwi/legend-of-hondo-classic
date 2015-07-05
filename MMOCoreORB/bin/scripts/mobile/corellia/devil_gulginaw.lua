@@ -28,7 +28,7 @@ devil_gulginaw = Creature:new {
 	templates = {"object/mobile/devil_gulginaw.iff"},
 	controlDeviceTemplate = "object/intangible/pet/gulginaw_hue.iff",
 	scale = 1.15,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
 	weapons = {"creature_spit_small_red"},
 	conversationTemplate = "",
 	attacks = {

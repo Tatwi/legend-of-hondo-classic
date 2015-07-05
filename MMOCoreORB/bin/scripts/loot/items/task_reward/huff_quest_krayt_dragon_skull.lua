@@ -5,7 +5,7 @@ huff_quest_krayt_dragon_skull = {
 	directObjectTemplate = "object/tangible/loot/quest/frn_quest_krayt_skull_01.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 
 	}

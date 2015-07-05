@@ -8,7 +8,7 @@ rebel_signet_ring = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {{"camouflage", 3}}
 }
 

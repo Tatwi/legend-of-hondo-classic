@@ -8,7 +8,7 @@ atat_suit = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {{"slope_move", 5}}
 }
 

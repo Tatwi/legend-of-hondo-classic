@@ -9,7 +9,7 @@ shoe_sole = {
 		{"useCount",4,20,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 3,	junkMaxValue = 25,
 }
 
 addLootItemTemplate("shoe_sole", shoe_sole)

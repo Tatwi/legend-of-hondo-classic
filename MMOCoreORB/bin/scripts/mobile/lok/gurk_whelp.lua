@@ -27,7 +27,7 @@ gurk_whelp = Creature:new {
 
 	templates = {"object/mobile/gurk_whelp.iff"},
 	scale = 0.8,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

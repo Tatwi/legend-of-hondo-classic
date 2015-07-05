@@ -5,7 +5,7 @@ bren_kingal_eopie_cream_pie = {
 	directObjectTemplate = "object/tangible/mission/quest_item/bren_kingal_q4_reward.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 
 	}

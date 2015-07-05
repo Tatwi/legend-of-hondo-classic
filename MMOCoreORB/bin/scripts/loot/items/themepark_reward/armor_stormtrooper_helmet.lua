@@ -14,7 +14,7 @@ armor_stormtrooper_helmet = {
 	        {"armor_mind_encumbrance",225,225,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {{"blind_defense", 5}, {"melee_defense", 3}}
 }
 

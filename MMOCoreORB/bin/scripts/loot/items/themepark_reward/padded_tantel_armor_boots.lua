@@ -14,7 +14,7 @@ padded_tantel_armor_boots = {
 		{"armor_mind_encumbrance",0,0,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 		{"melee_defense",3},
 		{"resistance_poison",3}
