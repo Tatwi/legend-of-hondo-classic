@@ -5,7 +5,7 @@ om_aynat_corellian_ale = {
 	directObjectTemplate = "object/tangible/food/crafted/drink_corellian_ale.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {}
 }
 

@@ -8,7 +8,7 @@ kitster_banai_anakin_droid_brain = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 
 	}

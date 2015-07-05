@@ -18,7 +18,7 @@ weapon_stock_quest = {
 		{"hitpoints",0,0,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("weapon_stock_quest", weapon_stock_quest)

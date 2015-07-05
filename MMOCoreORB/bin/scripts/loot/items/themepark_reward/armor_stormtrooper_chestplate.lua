@@ -14,7 +14,7 @@ armor_stormtrooper_chestplate = {
 	        {"armor_mind_encumbrance",19,19,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {{"stun_defense", 5}, {"melee_defense", 3}}
 }
 

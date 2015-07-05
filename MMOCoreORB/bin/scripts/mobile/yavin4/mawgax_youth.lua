@@ -27,7 +27,7 @@ mawgax_youth = Creature:new {
 
 	templates = {"object/mobile/mawgax_youth.iff"},
 	scale = 0.75,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 7000000},				{group = "wearables_common", chance = 3000000},				{group = "weapons_all", chance = 1000000},			},		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

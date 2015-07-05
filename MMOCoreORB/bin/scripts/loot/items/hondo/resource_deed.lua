@@ -8,7 +8,7 @@ resource_deed = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 3,	junkMaxValue = 25,,
 	junkDealerTypeNeeded = JUNKGENERIC,
 	junkMinValue = 100,
 	junkMaxValue = 600

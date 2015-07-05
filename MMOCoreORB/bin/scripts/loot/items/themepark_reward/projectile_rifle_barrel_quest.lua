@@ -15,7 +15,7 @@ projectile_rifle_barrel_quest = {
 		{"hitpoints",0,0,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("projectile_rifle_barrel_quest", projectile_rifle_barrel_quest)

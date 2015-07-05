@@ -8,7 +8,7 @@ enhanced_carbine_schematic = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("enhanced_carbine_schematic", enhanced_carbine_schematic)

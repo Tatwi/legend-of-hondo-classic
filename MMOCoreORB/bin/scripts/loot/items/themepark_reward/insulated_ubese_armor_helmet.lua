@@ -15,7 +15,7 @@ insulated_ubese_armor_helmet = {
 		{"armor_mind_encumbrance",180,180,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 		{"blind_defense",5},
 		{"resistance_fire",5}

@@ -320,3 +320,6 @@ includeFile("groups/wearables/wearables_common.lua")
 includeFile("groups/wearables/wearables_rare.lua")
 includeFile("groups/wearables/wearables_scarce.lua")
 includeFile("groups/wearables/wearables_uncommon.lua")
+
+-- Legend of Hondo 
+includeFile("groups/hondo/recycler_parts.lua")

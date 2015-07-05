@@ -17,7 +17,7 @@ projectile_pistol_barrel_quest = {
 		{"useCount",2,10,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("projectile_pistol_barrel_quest", projectile_pistol_barrel_quest)

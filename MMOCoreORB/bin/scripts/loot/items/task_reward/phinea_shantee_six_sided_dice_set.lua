@@ -5,7 +5,7 @@ phinea_shantee_six_sided_dice_set = {
 	directObjectTemplate = "object/tangible/dice/eqp_six_sided_dice_set.iff",
 	craftingValues = {},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 
 	}

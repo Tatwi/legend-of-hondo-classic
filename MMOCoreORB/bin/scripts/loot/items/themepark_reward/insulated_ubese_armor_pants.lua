@@ -15,7 +15,7 @@ insulated_ubese_armor_pants = {
 		{"armor_mind_encumbrance",15,15,0},
 	},
 	customizationStringNames = {},
-	customizationValues = {},
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 	skillMods = {
 		{"dizzy_defense",5},
 		{"resistance_fire",5}

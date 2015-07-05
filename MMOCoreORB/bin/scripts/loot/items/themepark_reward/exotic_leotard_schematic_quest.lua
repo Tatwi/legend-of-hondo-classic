@@ -6,7 +6,7 @@ exotic_leotard_schematic_quest = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("exotic_leotard_schematic_quest", exotic_leotard_schematic_quest)

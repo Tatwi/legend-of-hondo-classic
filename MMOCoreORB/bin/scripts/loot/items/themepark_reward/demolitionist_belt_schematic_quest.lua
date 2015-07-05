@@ -6,7 +6,7 @@ demolitionist_belt_schematic_quest = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("demolitionist_belt_schematic_quest", demolitionist_belt_schematic_quest)

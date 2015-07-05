@@ -6,7 +6,7 @@ schematic_crafters_apron = {
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {}
+	customizationValues = {},	junkDealerTypeNeeded = JUNKGENERIC,	junkMinValue = 50,	junkMaxValue = 500,
 }
 
 addLootItemTemplate("schematic_crafters_apron", schematic_crafters_apron)
