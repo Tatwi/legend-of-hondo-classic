@@ -26,7 +26,7 @@ quest_crowd_pleaser_theater_manager = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_entertainer_trainer_twk_female_01.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

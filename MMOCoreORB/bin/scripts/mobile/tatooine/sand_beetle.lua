@@ -28,7 +28,7 @@ sand_beetle = Creature:new {
 	templates = {"object/mobile/giant_sand_beetle.iff"},
 	controlDeviceTemplate = "object/intangible/pet/rock_mite_hue.iff",
 	scale = 1.25,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

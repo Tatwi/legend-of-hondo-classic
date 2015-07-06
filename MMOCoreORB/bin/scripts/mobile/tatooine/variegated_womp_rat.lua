@@ -28,7 +28,7 @@ variegated_womp_rat = Creature:new {
 	templates = {"object/mobile/variegated_womp_rat.iff"},
 	controlDeviceTemplate = "object/intangible/pet/womp_rat_hue.iff",
 	scale = 1.05,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

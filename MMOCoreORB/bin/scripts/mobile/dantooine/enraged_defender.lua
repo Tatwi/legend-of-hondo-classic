@@ -28,7 +28,7 @@ enraged_defender = Creature:new {
 	templates = {"object/mobile/piket_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/piket_hue.iff",
 	scale = 1.2,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

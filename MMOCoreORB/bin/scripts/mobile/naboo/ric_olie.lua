@@ -27,7 +27,7 @@ ric_olie = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_capt_ric_olie.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

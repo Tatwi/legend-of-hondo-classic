@@ -28,7 +28,7 @@ squill = Creature:new {
 	templates = {"object/mobile/squill.iff"},
 	controlDeviceTemplate = "object/intangible/pet/squill_hue.iff",
 	scale = 0.95,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

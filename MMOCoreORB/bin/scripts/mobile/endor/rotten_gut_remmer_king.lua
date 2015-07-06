@@ -27,7 +27,7 @@ rotten_gut_remmer_king = Creature:new {
 
 	templates = {"object/mobile/rotten_gut_remmer_king.iff"},
 	scale = 1.25,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

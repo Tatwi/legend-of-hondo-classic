@@ -27,7 +27,7 @@ fynock = Creature:new {
 
 	templates = {"object/mobile/fynock.iff"},
 	controlDeviceTemplate = "object/intangible/pet/fynock_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

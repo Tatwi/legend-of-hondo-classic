@@ -27,7 +27,7 @@ gamorrean_guard = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/gamorrean.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"pirate_weapons_light"},
 	conversationTemplate = "",
 	attacks = merge(brawlernovice,marksmannovice)

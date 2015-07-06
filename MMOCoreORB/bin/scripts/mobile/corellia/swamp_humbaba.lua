@@ -28,7 +28,7 @@ swamp_humbaba = Creature:new {
 
 	templates = {"object/mobile/savage_humbaba.iff"},
 	scale = 1.1,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

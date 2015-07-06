@@ -25,7 +25,7 @@ j1_po = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/3po_protocol_droid_silver.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	attacks = {},
 	conversationTemplate = "",

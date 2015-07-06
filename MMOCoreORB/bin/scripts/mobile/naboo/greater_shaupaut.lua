@@ -28,7 +28,7 @@ greater_shaupaut = Creature:new {
 	templates = {"object/mobile/greater_shaupaut.iff"},
 	controlDeviceTemplate = "object/intangible/pet/shaupaut_hue.iff",
 	scale = 1.4,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

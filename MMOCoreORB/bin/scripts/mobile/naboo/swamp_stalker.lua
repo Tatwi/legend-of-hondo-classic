@@ -28,7 +28,7 @@ swamp_stalker = Creature:new {
 	templates = {"object/mobile/male_swamp_tusk_cat.iff", "object/mobile/female_swamp_tusk_cat.iff"},
 	controlDeviceTemplate = "object/intangible/pet/tusk_cat_hue.iff",
 	scale = 1.25,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

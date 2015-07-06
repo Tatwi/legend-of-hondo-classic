@@ -27,7 +27,7 @@ quich_marae = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/junk_quich.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

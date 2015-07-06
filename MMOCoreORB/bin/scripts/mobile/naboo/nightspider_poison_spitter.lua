@@ -27,7 +27,7 @@ nightspider_poison_spitter = Creature:new {
 
 	templates = {"object/mobile/nightspider_poison_spitter.iff"},
 	scale = 0.6,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_toxicgreen"},
 	conversationTemplate = "",
 	attacks = {

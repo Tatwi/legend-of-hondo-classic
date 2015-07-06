@@ -26,7 +26,7 @@ eryk_chinn = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_stormtrooper_black_black.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

@@ -30,7 +30,7 @@ crafting_contractor = Creature:new {
 		"object/mobile/dressed_artisan_trainer_01.iff",
 		"object/mobile/dressed_artisan_trainer_02.iff",
 		"object/mobile/dressed_artisan_trainer_03.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

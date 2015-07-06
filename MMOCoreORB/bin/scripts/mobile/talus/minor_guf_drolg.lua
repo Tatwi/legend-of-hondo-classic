@@ -28,7 +28,7 @@ minor_guf_drolg = Creature:new {
 	templates = {"object/mobile/minor_guf_drolg.iff"},
 	controlDeviceTemplate = "object/intangible/pet/guf_drolg_hue.iff",
 	scale = 0.85,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

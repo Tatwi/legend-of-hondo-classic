@@ -28,7 +28,7 @@ blood_thirsty_monarch = Creature:new {
 	templates = {"object/mobile/corellian_butterfly_monarch.iff"},
 	controlDeviceTemplate = "object/intangible/pet/corellian_butterfly_hue.iff",
 	scale = 1.3,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

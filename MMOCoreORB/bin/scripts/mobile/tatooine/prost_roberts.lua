@@ -26,7 +26,7 @@ prost_roberts = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/space_greeter_mos_espa_young_pilot.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

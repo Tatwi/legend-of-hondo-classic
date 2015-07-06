@@ -27,7 +27,7 @@ bol_pack_runner = Creature:new {
 
 	templates = {"object/mobile/bol_pack_runner.iff"},
 	scale = 0.95,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

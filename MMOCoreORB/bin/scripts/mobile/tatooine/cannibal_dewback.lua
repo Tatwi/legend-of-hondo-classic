@@ -27,7 +27,7 @@ cannibal_dewback = Creature:new {
 
 	templates = {"object/mobile/dewback_hue.iff"},
 	scale = 1.1,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

@@ -28,7 +28,7 @@ vicious_huf_dun = Creature:new {
 	templates = {"object/mobile/huf_dun.iff"},
 	controlDeviceTemplate = "object/intangible/pet/huf_dun_hue.iff",
 	scale = 0.9,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

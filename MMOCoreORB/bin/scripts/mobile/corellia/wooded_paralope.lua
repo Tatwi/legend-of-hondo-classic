@@ -28,7 +28,7 @@ wooded_paralope = Creature:new {
 	templates = {"object/mobile/paralope.iff"},
 	controlDeviceTemplate = "object/intangible/pet/swirl_prong_hue.iff",
 	scale = 1.1,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
