@@ -50,9 +50,7 @@ function TestosioSP:refuseService(conversingPlayer)
 		for lc = 1, table.getn(TestosioSP.relations) , 1 do
 			local playerStanding = playerObject:getFactionStanding(TestosioSP.relations[lc].name)
 			
-			if (TestosioSP.relations[lc].npcStanding == "sympathetic") then
-				return 0 -- Will talk to player and adjust price based on faction
-			elseif (playerStanding < TestosioSP.relations[lc].npcStanding) then
+			if (playerStanding < TestosioSP.relations[lc].npcStanding) then
 				creatureObject:sendSystemMessage("Hint: Increase your " .. TestosioSP:firstToUpper(TestosioSP.relations[lc].name) .. " faction and speak with the NPC again.")
 				return 2 -- Not friendly enough for service
 			elseif (TestosioSP.relations[lc].npcStanding < 0 and (TestosioSP.relations[lc].npcStanding + playerStanding) > 0) then
