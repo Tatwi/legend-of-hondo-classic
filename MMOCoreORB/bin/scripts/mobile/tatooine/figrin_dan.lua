@@ -27,7 +27,7 @@ figrin_dan = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_tatooine_figrin_dan.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	outfit = "band_kloo_horn_outfit",

@@ -27,7 +27,7 @@ tanc_mite = Creature:new {
 
 	templates = {"object/mobile/tanc_mite.iff"},
 	controlDeviceTemplate = "object/intangible/pet/tanc_mite_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

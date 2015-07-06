@@ -27,7 +27,7 @@ arrek_von_sarko = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/human_male.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

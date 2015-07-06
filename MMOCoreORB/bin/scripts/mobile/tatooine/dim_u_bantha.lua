@@ -29,7 +29,7 @@ dim_u_bantha = Creature:new {
 
 	templates = {"object/mobile/bantha.iff"},
 	scale = 0.95,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

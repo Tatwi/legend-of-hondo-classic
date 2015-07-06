@@ -27,7 +27,7 @@ bark_mite_burrower_worker = Creature:new {
 
 	templates = {"object/mobile/bark_mite_hue.iff"},
 	scale = 1.05,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {

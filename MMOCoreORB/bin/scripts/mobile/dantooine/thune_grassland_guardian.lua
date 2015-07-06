@@ -29,7 +29,7 @@ thune_grassland_guardian = Creature:new {
 	templates = {"object/mobile/thune_grassland_guardian.iff"},
 	controlDeviceTemplate = "object/intangible/pet/thune_hue.iff",
 	scale = 1.1,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

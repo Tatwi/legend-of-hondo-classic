@@ -27,7 +27,7 @@ bolle_bol_bark_biter = Creature:new {
 
 	templates = {"object/mobile/bolle_bol_hue.iff"},
 	scale = 1.05,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

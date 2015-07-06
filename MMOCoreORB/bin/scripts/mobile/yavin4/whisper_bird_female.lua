@@ -26,7 +26,7 @@ whisper_bird_female = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/whisper_bird.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

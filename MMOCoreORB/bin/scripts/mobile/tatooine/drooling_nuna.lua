@@ -28,7 +28,7 @@ drooling_nuna = Creature:new {
 	templates = {"object/mobile/dwarf_nuna.iff"},
 	controlDeviceTemplate = "object/intangible/pet/dwarf_nuna_hue.iff",
 	scale = 0.75,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

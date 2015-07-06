@@ -27,7 +27,7 @@ razor_cat_cub = Creature:new {
 
 	templates = {"object/mobile/corellian_sand_panther_cub.iff"},
 	scale = 0.8,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

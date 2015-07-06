@@ -28,7 +28,7 @@ female_snorbal_calf = Creature:new {
 
 	templates = {"object/mobile/female_snorbal_calf.iff"},
 	scale = 0.6,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

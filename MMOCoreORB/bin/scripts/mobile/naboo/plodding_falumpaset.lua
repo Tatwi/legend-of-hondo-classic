@@ -29,7 +29,7 @@ plodding_falumpaset = Creature:new {
 	templates = {"object/mobile/falumpaset_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/falumpaset_hue.iff",
 	scale = 0.9,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {

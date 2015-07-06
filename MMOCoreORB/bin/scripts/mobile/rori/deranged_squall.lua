@@ -27,7 +27,7 @@ deranged_squall = Creature:new {
 
 	templates = {"object/mobile/squall_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/squall_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

@@ -27,7 +27,7 @@ giant_tanc_mite = Creature:new {
 
 	templates = {"object/mobile/giant_tanc_mite.iff"},
 	scale = 1.4,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {

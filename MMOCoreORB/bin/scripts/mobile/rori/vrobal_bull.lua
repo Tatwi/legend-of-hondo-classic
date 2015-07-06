@@ -29,7 +29,7 @@ vrobal_bull = Creature:new {
 	templates = {"object/mobile/vrobal_bull.iff"},
 	controlDeviceTemplate = "object/intangible/pet/roba_hue.iff",
 	scale = 1.15,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

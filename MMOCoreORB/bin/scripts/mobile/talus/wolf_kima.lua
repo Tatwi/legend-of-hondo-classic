@@ -28,7 +28,7 @@ wolf_kima = Creature:new {
 	templates = {"object/mobile/kima.iff"},
 	controlDeviceTemplate = "object/intangible/pet/kima_hue.iff",
 	scale = 1.1,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

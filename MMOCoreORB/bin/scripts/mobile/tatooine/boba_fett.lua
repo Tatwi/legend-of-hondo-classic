@@ -26,7 +26,7 @@ boba_fett = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/boba_fett.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"boba_fett_weapons"},
 	conversationTemplate = "bobaFettConvoTemplate",
 	attacks = {

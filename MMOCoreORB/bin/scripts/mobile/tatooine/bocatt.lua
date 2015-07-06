@@ -27,7 +27,7 @@ bocatt = Creature:new {
 
 	templates = {"object/mobile/bocatt.iff"},
 	controlDeviceTemplate = "object/intangible/pet/bocatt_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {

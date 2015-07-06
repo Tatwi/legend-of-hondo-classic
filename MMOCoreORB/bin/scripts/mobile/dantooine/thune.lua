@@ -27,7 +27,7 @@ thune = Creature:new {
 
 	templates = {"object/mobile/thune.iff"},
 	controlDeviceTemplate = "object/intangible/pet/thune_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

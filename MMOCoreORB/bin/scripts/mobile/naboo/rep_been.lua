@@ -27,7 +27,7 @@ rep_been = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/gungan_s03_male.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

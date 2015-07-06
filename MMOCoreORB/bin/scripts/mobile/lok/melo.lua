@@ -25,7 +25,7 @@ melo = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/rodian_female.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	attacks = {}
 }

@@ -27,7 +27,7 @@ bloodseeker_mite_queen = Creature:new {
 
 	templates = {"object/mobile/bloodseeker_mite_queen.iff"},
 	scale = 1.2,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

@@ -27,7 +27,7 @@ acun_solari = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_rebel_army_captain_bothan_male.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = merge(brawlernovice,marksmannovice)

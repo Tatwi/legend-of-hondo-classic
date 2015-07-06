@@ -25,7 +25,7 @@ idhak_ipath = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_noble_fat_twilek_female_01.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	attacks = {}
 }

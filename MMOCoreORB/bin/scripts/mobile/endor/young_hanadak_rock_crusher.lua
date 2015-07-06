@@ -27,7 +27,7 @@ young_hanadak_rock_crusher = Creature:new {
 
 	templates = {"object/mobile/young_hanadak_rock_crusher.iff"},
 	scale = 0.85,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

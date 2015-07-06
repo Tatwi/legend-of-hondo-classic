@@ -26,7 +26,7 @@ shamdon_kree = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/space_privateer_tier2_shamdon.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

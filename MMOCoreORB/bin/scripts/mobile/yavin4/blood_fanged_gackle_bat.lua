@@ -28,7 +28,7 @@ blood_fanged_gackle_bat = Creature:new {
 	templates = {"object/mobile/bloodfanged_gackle_bat.iff"},
 	controlDeviceTemplate = "object/intangible/pet/gackle_bat_hue.iff",
 	scale = 1.15,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

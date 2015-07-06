@@ -26,7 +26,7 @@ dac_axfow = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/space_greeter_kor_vella_imperial_officer.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

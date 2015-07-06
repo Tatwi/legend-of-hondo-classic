@@ -28,7 +28,7 @@ diseased_vrelt_matriarch = Creature:new {
 	templates = {"object/mobile/vrelt.iff"},
 	controlDeviceTemplate = "object/intangible/pet/stintaril_hue.iff",
 	scale = 1.25,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_toxicgreen"},
 	conversationTemplate = "",
 	attacks = {
