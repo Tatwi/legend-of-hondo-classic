@@ -26,9 +26,7 @@ crackdown_stormtrooper_squad_leader = Creature:new {
 	optionsBitmask = 128,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_stormtrooper_squad_leader_white_gold.iff",
-				"object/mobile/dressed_stormtrooper_groupleader_m.iff"
-	},
+	templates = {"object/mobile/dressed_stormtrooper_white_red.iff"},
 	lootGroups = {
 		{
 			groups = {

@@ -26,7 +26,7 @@ stormtrooper_colonel = Creature:new {
 	optionsBitmask = 136,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_stormtrooper_groupleader_m.iff"},
+	templates = {"object/mobile/dressed_stormtrooper_commander_black_gold.iff"},
 	lootGroups = {
 		{
 			groups = {
