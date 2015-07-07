@@ -26,7 +26,7 @@ stormtrooper_major = Creature:new {
 	optionsBitmask = 136,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_imperial_major_m.iff"},
+	templates = {"object/mobile/dressed_stormtrooper_squad_leader_white_white.iff"},
 	lootGroups = {
 		{
 			groups = {
