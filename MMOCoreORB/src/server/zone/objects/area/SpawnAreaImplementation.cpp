@@ -221,20 +221,12 @@ int SpawnAreaImplementation::tryToSpawn(SceneObject* object) {
 	// START Legend of Hondo
 	// Prevent way, WAY too many mob groups from spawning too close to (or on top of...) each other. 
 	SortedVector<ManagedReference<QuadTreeEntry* > > nearbyObjects;
-	zone->getInRangeObjects(randomPosition.getX(), randomPosition.getY(), 128, &nearbyObjects, true);
-	int chanceToOverlap = System::random(20);
+	zone->getInRangeObjects(randomPosition.getX(), randomPosition.getY(), 150, &nearbyObjects, true);
 	
 	for(int i = 0; i < nearbyObjects.size(); ++i) {
 		SceneObject* scno = cast<SceneObject*>(nearbyObjects.get(i).get());	
 		if (!scno->isPlayerCreature()){	// Ignore the player, just look for anything else.
-			if (chanceToOverlap == 1 && nearbyObjects.size() < 30){
-				// Random 1 in 20 chance to let a lair spawn even though it's too close, unless there are already 30 objects nearby.
-				Logger::console.info("Spawner rolled a 1! Allowing a spawn closer than 128m...", true);
-			}
-			else if(scno != NULL) {
-				// Bail - already too many objects around here!
-				return 10;
-			}	
+			return 10;	
 		}
 	}
 	// END Legend of Hondo
