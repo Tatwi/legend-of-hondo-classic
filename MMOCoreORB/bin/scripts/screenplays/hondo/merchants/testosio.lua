@@ -2,6 +2,17 @@
 -- By R. Bassett Jr. (Tatwi) - www.tpot.ca
 -- July 2015
 
+-- relations table is the NPC's standing with the specified factions. 
+-- Player must have higher npcStanding to buy, unless the value is the special case of -9000. 
+-- Negative number means enemy faction, lower values make NPC more leinient toward player relations with his enemy. 
+-- Set npcStanding=-1 to make NPC refuse to talk if player has 2+ faction with his enemy.
+-- Set npcStanding=-9000 to make the NPC always do business, but also adjust the price based on the specified faction standing.
+-- NIL faction values means player always accepted, no discount, no sircharge.
+-- priceAdjust applies % discount/sircharge on a sliding scale. Use 1 to 99. 
+-- +5000 friendly faction = 100% discount, -5000 enemy faction = 100% surcharge.
+-- Price adjustments are cumulative when multiple factions are present.
+-- "Enemy of my Enemy" discount is 1/4th of the "My Enemy/Enemy of my friend" surcharge.
+
 local ObjectManager = require("managers.object.object_manager")
 
 TestosioSP = ScreenPlay:new {
@@ -9,15 +20,8 @@ TestosioSP = ScreenPlay:new {
 	questString = "testosio",
 	states = {}, 
 	relations = { 
-		-- NPC's standing with these factions. 
-		-- Player must have higher npcStanding to buy. 
-		-- Negative number means enemy faction, lower values make NPC more leinient toward player relations with his enemy. 
-		-- Set npcStanding=-1 to make NPC refuse to talk if player has 2+ faction with his enemy.
-		-- Set npcStanding="sympathetic" to make the NPC always do business, but also adjust the price based on the specified faction standing.
-		-- NIL faction values mean player always accepted, no discount, no sircharge.
-		-- priceAdjust applies % discount/sircharge on a sliding scale. Use 1 to 99. Effects are cumulative when multiple factions are present.
 		{name="jabba", npcStanding=300, priceAdjust=25}, -- Friend
-		{name="rebel", npcStanding="sympathetic", priceAdjust=10}, -- Adjust price only
+		{name="rebel", npcStanding=-9000, priceAdjust=10}, -- Adjust price only
 		{name="thug", npcStanding=-1000, priceAdjust=50}  -- Enemy
 	},
 	goods = {
@@ -26,7 +30,6 @@ TestosioSP = ScreenPlay:new {
 		{optName="slitherhorn", cost=100, itemName="Slitherhorn", item="object/tangible/instrument/slitherhorn.iff"}, 
 		{optName="fanfar", cost=500, itemName="Fanfar", item="object/tangible/instrument/fanfar.iff"}
 	},
-	selectedItem = "", -- When player makes a selection, it gets written here to be used after the confirmation step.
 }
 
 registerScreenPlay("TestosioSP", true)
@@ -50,40 +53,58 @@ function TestosioSP:refuseService(conversingPlayer)
 		for lc = 1, table.getn(TestosioSP.relations) , 1 do
 			local playerStanding = playerObject:getFactionStanding(TestosioSP.relations[lc].name)
 			
-			if (playerStanding < TestosioSP.relations[lc].npcStanding) then
-				creatureObject:sendSystemMessage("Hint: Increase your " .. TestosioSP:firstToUpper(TestosioSP.relations[lc].name) .. " faction and speak with the NPC again.")
-				return 2 -- Not friendly enough for service
-			elseif (TestosioSP.relations[lc].npcStanding < 0 and (TestosioSP.relations[lc].npcStanding + playerStanding) > 0) then
-				creatureObject:sendSystemMessage("Hint: Decrease your " .. TestosioSP:firstToUpper(TestosioSP.relations[lc].name) .. " faction and speak with the NPC again.")
-				return 1 -- Too friendly with my enemy for service
-			end	
+			if (playerStanding ~= -9000) then -- Ignore special case price adjust standing
+				if (playerStanding < TestosioSP.relations[lc].npcStanding and TestosioSP.relations[lc].npcStanding > 0) then
+					creatureObject:sendSystemMessage("Hint: Increase your " .. TestosioSP:firstToUpper(TestosioSP.relations[lc].name) .. " faction and speak with the NPC again.")
+					return 2 -- Not friendly enough for service
+				elseif (TestosioSP.relations[lc].npcStanding < 0 and (TestosioSP.relations[lc].npcStanding + playerStanding) > 0) then
+					creatureObject:sendSystemMessage("Hint: Decrease your " .. TestosioSP:firstToUpper(TestosioSP.relations[lc].name) .. " faction and speak with the NPC again.")
+					return 1 -- Too friendly with my enemy for service
+				end
+			end
 		end
 		return 0 -- Will talk to player
 	end)
 end
 
-function TestosioSP:adjustPrice(cost)
+function TestosioSP:adjustPrice(conversingPlayer, cost)
+
+	print ("adjustPrice function called...")
+	
 	return ObjectManager.withCreatureAndPlayerObject(conversingPlayer, function(creatureObject, playerObject)
-		local priceAdjustment = 0
-		local finalPrice = cost
-		
 		-- Calculate price adjustment
+		local finalPrice = cost
 		for lc = 1, table.getn(TestosioSP.relations) , 1 do
 			local playerStanding = playerObject:getFactionStanding(TestosioSP.relations[lc].name)
-			local adjustment = TestosioSP.goods[lc].priceAdjust
+			playerStanding = math.min(playerStanding, 5000) -- cap faction due to Rebel/Imperial
+			
+			local adjustment = TestosioSP.relations[lc].priceAdjust
+			
+			print ("playerStanding is: " .. playerStanding)
+			print ("adjustment is: " .. adjustment)
 			
 			if (playerStanding ~= nil) then
-				if (playerStanding > 0) then
-					-- Discount
+				if (playerStanding > 0 and (TestosioSP.relations[lc].npcStanding > 0 or TestosioSP.relations[lc].npcStanding == -9000)) then
+					-- Discount: You are my friend or are a friend of my friend
 					finalPrice = finalPrice / ((adjustment * playerStanding / 5000 ) / 100 + 1)
-				elseif (playerStanding < 0) then
-					-- Surcharge
-					finalPrice = finalPrice * ((adjustment * abs(playerStanding) / 5000 ) / 100 + 1)
+				elseif (playerStanding < 0 and TestosioSP.relations[lc].npcStanding < 0 and TestosioSP.relations[lc].npcStanding ~= -9000) then
+					-- Discount: You are also the enemy of my enemy
+					finalPrice = finalPrice / ((adjustment / 4 * math.abs(playerStanding) / 5000 ) / 100 + 1)
+				elseif (playerStanding > 0 and TestosioSP.relations[lc].npcStanding < 0 ) then
+					-- Surcharge: You are friendly with my enemy
+					finalPrice = finalPrice * ((adjustment * playerStanding / 5000 ) / 100 + 1)
+				elseif (playerStanding < 0 and TestosioSP.relations[lc].npcStanding == -9000) then
+					-- Surcharge: You are an enemy of my friend
+					finalPrice = finalPrice * ((adjustment * math.abs(playerStanding) / 5000 ) / 100 + 1)
 				end	
 			end
+			print ("finalPrice in loop " .. lc .. " is " .. finalPrice)
 		end
+		
+		print ("Final Price is: " .. finalPrice)
 		return math.floor(finalPrice)
 	end)
+	
 end
 
 -- Conversation Logic
@@ -144,8 +165,11 @@ function testosio_convo_handler:getNextConversationScreen(conversationTemplate, 
 						noSpace = "true"
 						creature:sendSystemMessage("You need 1 available inventory space to complete transaction.")
 					else
-						-- Sell the item
-						local chargePlayer = TestosioSP:adjustPrice(TestosioSP.goods[lc].cost)
+						-- Sell the item 
+						local chargePlayer = TestosioSP:adjustPrice(conversingPlayer, TestosioSP.goods[lc].cost)
+						
+						print ("chargePlayer is ... " .. chargePlayer)
+						
 						creature:subtractCashCredits(chargePlayer)
 						local pItem = giveItem(pInventory, TestosioSP.goods[lc].item, -1)
 					end
@@ -182,7 +206,8 @@ function testosio_convo_handler:runScreenHandlers(conversationTemplate, conversi
 		local clonedConversation = LuaConversationScreen(conversationScreen)
 		
 		for lc = 1, table.getn(TestosioSP.goods) , 1 do
-			clonedConversation:addOption(TestosioSP.goods[lc].itemName .. "  (" .. TestosioSP.goods[lc].cost .. ")" , TestosioSP.goods[lc].optName)
+			local price = TestosioSP:adjustPrice(conversingPlayer, TestosioSP.goods[lc].cost)
+			clonedConversation:addOption(TestosioSP.goods[lc].itemName .. "  (" .. price .. ")" , TestosioSP.goods[lc].optName)
 		end 
 	end
 	
