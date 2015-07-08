@@ -25,10 +25,15 @@ TestosioSP = ScreenPlay:new {
 		{name="thug", npcStanding=-1000, priceAdjust=50}  -- Enemy
 	},
 	goods = {
-		{optName="survey_mineral", cost=250, itemName="Mineral Survey Tool", item="object/tangible/survey_tool/survey_tool_mineral.iff"}, 
-		{optName="survey_chemical", cost=300, itemName="Chemical Survey Tool", item="object/tangible/survey_tool/survey_tool_liquid.iff"},
-		{optName="slitherhorn", cost=100, itemName="Slitherhorn", item="object/tangible/instrument/slitherhorn.iff"}, 
-		{optName="fanfar", cost=500, itemName="Fanfar", item="object/tangible/instrument/fanfar.iff"}
+		{optName="survey_mineral", cost=250, itemName="Mineral Survey Tool", 
+			items={
+				"object/tangible/survey_tool/survey_tool_mineral.iff", 
+				"object/tangible/dice/eqp_chance_cube.iff"
+			}
+		}, 
+		{optName="survey_chemical", cost=300, itemName="Chemical Survey Tool", items={"object/tangible/survey_tool/survey_tool_liquid.iff"}},
+		{optName="slitherhorn", cost=100, itemName="Slitherhorn", items={"object/tangible/instrument/slitherhorn.iff"}}, 
+		{optName="fanfar", cost=500, itemName="Fanfar", items={"object/tangible/instrument/fanfar.iff"}}
 	},
 }
 
@@ -68,9 +73,6 @@ function TestosioSP:refuseService(conversingPlayer)
 end
 
 function TestosioSP:adjustPrice(conversingPlayer, cost)
-
-	print ("adjustPrice function called...")
-	
 	return ObjectManager.withCreatureAndPlayerObject(conversingPlayer, function(creatureObject, playerObject)
 		-- Calculate price adjustment
 		local finalPrice = cost
@@ -79,10 +81,7 @@ function TestosioSP:adjustPrice(conversingPlayer, cost)
 			playerStanding = math.min(playerStanding, 5000) -- cap faction due to Rebel/Imperial
 			
 			local adjustment = TestosioSP.relations[lc].priceAdjust
-			
-			print ("playerStanding is: " .. playerStanding)
-			print ("adjustment is: " .. adjustment)
-			
+
 			if (playerStanding ~= nil) then
 				if (playerStanding > 0 and (TestosioSP.relations[lc].npcStanding > 0 or TestosioSP.relations[lc].npcStanding == -9000)) then
 					-- Discount: You are my friend or are a friend of my friend
@@ -98,10 +97,7 @@ function TestosioSP:adjustPrice(conversingPlayer, cost)
 					finalPrice = finalPrice * ((adjustment * math.abs(playerStanding) / 5000 ) / 100 + 1)
 				end	
 			end
-			print ("finalPrice in loop " .. lc .. " is " .. finalPrice)
 		end
-		
-		print ("Final Price is: " .. finalPrice)
 		return math.floor(finalPrice)
 	end)
 	
@@ -159,19 +155,27 @@ function testosio_convo_handler:getNextConversationScreen(conversationTemplate, 
 
 			-- Sell Item
 			for lc = 1, table.getn(TestosioSP.goods) , 1 do
-				if (optionLink == TestosioSP.goods[lc].optName) then 
-					if (inventory:hasFullContainerObjects() == true) then
+				if (optionLink == TestosioSP.goods[lc].optName) then
+					-- Check for room in inventory
+					local numberOfItems = inventory:getContainerObjectsSize()
+					local freeSpace = 80 - numberOfItems
+					local pieces = #TestosioSP.goods[lc].items
+				
+					if (freeSpace < pieces) then
 						-- Bail if the player doesn't have enough space in their inventory.
 						noSpace = "true"
-						creature:sendSystemMessage("You need 1 available inventory space to complete transaction.")
+						creature:sendSystemMessage("Transaction Failed. You need " .. pieces .. " available inventory spaces to complete the transaction.")
+					elseif (credits < TestosioSP.goods[lc].cost) then
+						insufficientFunds = "true"
+						creature:sendSystemMessage("Transaction Failed. You do not have enough cash on hand to complete this transaction.")
 					else
-						-- Sell the item 
+						-- Make the sale
 						local chargePlayer = TestosioSP:adjustPrice(conversingPlayer, TestosioSP.goods[lc].cost)
-						
-						print ("chargePlayer is ... " .. chargePlayer)
-						
 						creature:subtractCashCredits(chargePlayer)
-						local pItem = giveItem(pInventory, TestosioSP.goods[lc].item, -1)
+						
+						for ic = 1, table.getn(TestosioSP.goods[lc].items) , 1 do
+							local pItem = giveItem(pInventory, TestosioSP.goods[lc].items[ic], -1)
+						end	
 					end
 				end
 			end
