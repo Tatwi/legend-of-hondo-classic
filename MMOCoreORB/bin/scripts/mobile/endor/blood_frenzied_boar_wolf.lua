@@ -27,7 +27,7 @@ blood_frenzied_boar_wolf = Creature:new {
 
 	templates = {"object/mobile/boar_wolf_hue.iff"},
 	scale = 1.25,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

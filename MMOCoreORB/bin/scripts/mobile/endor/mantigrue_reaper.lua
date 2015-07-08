@@ -27,7 +27,7 @@ mantigrue_reaper = Creature:new {
 
 	templates = {"object/mobile/mantigrue_night_stalker.iff"},
 	scale = 1.15,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_red"},
 	conversationTemplate = "",
 	attacks = {

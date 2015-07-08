@@ -27,7 +27,7 @@ young_mountain_squill = Creature:new {
 
 	templates = {"object/mobile/mountain_squill.iff"},
 	scale = 0.75,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

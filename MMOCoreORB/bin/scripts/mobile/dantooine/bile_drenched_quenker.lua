@@ -28,7 +28,7 @@ bile_drenched_quenker = Creature:new {
 	templates = {"object/mobile/bile_drenched_quenker.iff"},
 	controlDeviceTemplate = "object/intangible/pet/quenker_hue.iff",
 	scale = 1.1,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_green"},
 	conversationTemplate = "",
 	attacks = {

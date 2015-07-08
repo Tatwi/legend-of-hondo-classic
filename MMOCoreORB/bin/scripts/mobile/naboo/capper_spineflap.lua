@@ -27,7 +27,7 @@ capper_spineflap = Creature:new {
 
 	templates = {"object/mobile/capper_spineflap.iff"},
 	controlDeviceTemplate = "object/intangible/pet/capper_spineflap_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

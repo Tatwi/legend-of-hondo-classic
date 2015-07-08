@@ -27,7 +27,7 @@ hermit_spider_queen = Creature:new {
 
 	templates = {"object/mobile/hermit_spider_queen.iff"},
 	scale = 1.4,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_toxicgreen"},
 	conversationTemplate = "",
 	attacks = {

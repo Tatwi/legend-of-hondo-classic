@@ -28,7 +28,7 @@ volatile_scyk = Creature:new {
 	templates = {"object/mobile/scyk.iff"},
 	controlDeviceTemplate = "object/intangible/pet/dune_lizard_hue.iff",
 	scale = 0.9,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

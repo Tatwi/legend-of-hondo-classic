@@ -26,7 +26,7 @@ domestic_bol_mount = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/bol.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

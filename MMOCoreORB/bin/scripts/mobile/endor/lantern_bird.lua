@@ -28,7 +28,7 @@ lantern_bird = Creature:new {
 	templates = {"object/mobile/lantern_bird_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/lantern_bird_hue.iff",
 	scale = 0.9,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

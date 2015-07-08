@@ -26,7 +26,7 @@ remmer_carrion_keeper = Creature:new {
 	diet = CARNIVORE,
 
 	templates = {"object/mobile/remmer_hue.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_red"},
 	conversationTemplate = "",
 	attacks = {

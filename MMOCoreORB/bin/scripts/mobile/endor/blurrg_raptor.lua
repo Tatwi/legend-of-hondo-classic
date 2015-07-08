@@ -27,7 +27,7 @@ blurrg_raptor = Creature:new {
 
 	templates = {"object/mobile/blurrg_hue.iff"},
 	scale = 1.35,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {

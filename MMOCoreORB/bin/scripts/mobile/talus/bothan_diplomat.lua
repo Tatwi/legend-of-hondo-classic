@@ -31,7 +31,7 @@ bothan_diplomat = Creature:new {
 		"object/mobile/dressed_eisley_officer_bothan_female_01.iff",
 		"object/mobile/dressed_eisley_officer_bothan_male_01.iff"
 	},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

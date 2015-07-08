@@ -25,7 +25,7 @@ lok_herald_01 = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_herald_lok_01.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	attacks = {}
 }

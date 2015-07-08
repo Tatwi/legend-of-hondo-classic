@@ -26,7 +26,7 @@ kilnstrider = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/space_imperial_tier4_tatooine_kilnstrider.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {}

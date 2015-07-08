@@ -27,7 +27,7 @@ nuna = Creature:new {
 
 	templates = {"object/mobile/nuna.iff"},
 	controlDeviceTemplate = "object/intangible/pet/nuna_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

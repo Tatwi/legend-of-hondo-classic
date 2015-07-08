@@ -25,7 +25,7 @@ ra7_bug_droid = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/ra7_bug_droid.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	attacks = {}
 }

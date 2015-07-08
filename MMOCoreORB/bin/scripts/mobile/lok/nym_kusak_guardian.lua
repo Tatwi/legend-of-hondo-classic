@@ -26,7 +26,7 @@ nym_kusak_guardian = Creature:new {
 	diet = CARNIVORE,
 
 	templates = {"object/mobile/kusak.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

@@ -28,7 +28,7 @@ war_gronda = Creature:new {
 	templates = {"object/mobile/war_gronda.iff"},
 	controlDeviceTemplate = "object/intangible/pet/gronda_hue.iff",
 	scale = 1.1,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

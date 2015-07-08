@@ -28,7 +28,7 @@ scorched_krevol = Creature:new {
 	templates = {"object/mobile/horned_krevol.iff"},
 	controlDeviceTemplate = "object/intangible/pet/horned_krevol_hue.iff",
 	scale = 0.9,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

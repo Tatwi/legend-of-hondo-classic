@@ -28,7 +28,7 @@ lesser_dewback = Creature:new {
 	templates = {"object/mobile/dewback_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/dewback_hue.iff",
 	scale = 0.8,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

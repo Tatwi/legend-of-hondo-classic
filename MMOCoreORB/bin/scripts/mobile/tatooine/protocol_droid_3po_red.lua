@@ -26,7 +26,7 @@ protocol_droid_3po_red = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/3po_protocol_droid_red.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

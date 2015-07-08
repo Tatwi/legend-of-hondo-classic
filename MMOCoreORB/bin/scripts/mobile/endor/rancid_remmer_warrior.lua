@@ -27,7 +27,7 @@ rancid_remmer_warrior = Creature:new {
 
 	templates = {"object/mobile/remmer_hue.iff"},
 	scale = 1.1,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_red"},
 	conversationTemplate = "",
 	attacks = {

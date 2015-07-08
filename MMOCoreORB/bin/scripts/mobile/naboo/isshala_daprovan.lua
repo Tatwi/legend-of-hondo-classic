@@ -27,7 +27,7 @@ isshala_daprovan = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_isshala_daprovan.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

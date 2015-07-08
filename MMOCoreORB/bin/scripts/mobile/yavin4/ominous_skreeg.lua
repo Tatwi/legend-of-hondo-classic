@@ -28,7 +28,7 @@ ominous_skreeg = Creature:new {
 	templates = {"object/mobile/skreeg.iff"},
 	controlDeviceTemplate = "object/intangible/pet/skreeg_hue.iff",
 	scale = 1.3,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

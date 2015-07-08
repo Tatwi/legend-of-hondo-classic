@@ -27,7 +27,7 @@ horned_rasp = Creature:new {
 
 	templates = {"object/mobile/horned_rasp.iff"},
 	controlDeviceTemplate = "object/intangible/pet/horned_rasp_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

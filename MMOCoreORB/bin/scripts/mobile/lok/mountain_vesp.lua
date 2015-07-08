@@ -28,7 +28,7 @@ mountain_vesp = Creature:new {
 	templates = {"object/mobile/vesp_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/vesp_hue.iff",
 	scale = 0.95,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_yellow"},
 	attacks = {
 		{"blindattack",""},

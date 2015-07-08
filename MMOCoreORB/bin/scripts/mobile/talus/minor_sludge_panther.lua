@@ -28,7 +28,7 @@ minor_sludge_panther = Creature:new {
 	templates = {"object/mobile/minor_sludge_panther.iff"},
 	controlDeviceTemplate = "object/intangible/pet/corellian_sand_panther_hue.iff",
 	scale = 0.85,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

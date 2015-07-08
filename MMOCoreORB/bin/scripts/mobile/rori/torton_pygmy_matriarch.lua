@@ -27,7 +27,7 @@ torton_pygmy_matriarch = Creature:new {
 
 	templates = {"object/mobile/torton_hue.iff"},
 	scale = .6,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

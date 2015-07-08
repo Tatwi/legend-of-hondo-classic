@@ -27,7 +27,7 @@ lice_ridden_remmer_queen = Creature:new {
 
 	templates = {"object/mobile/lice_ridden_remmer_queen.iff"},
 	scale = 1.2,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {

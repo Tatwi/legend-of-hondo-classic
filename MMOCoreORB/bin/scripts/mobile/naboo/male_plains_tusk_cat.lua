@@ -28,7 +28,7 @@ male_plains_tusk_cat = Creature:new {
 	templates = {"object/mobile/tusk_cat_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/tusk_cat_hue.iff",
 	scale = 1.05,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
