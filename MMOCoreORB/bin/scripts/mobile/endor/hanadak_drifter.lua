@@ -28,7 +28,7 @@ hanadak_drifter = Creature:new {
 	templates = {"object/mobile/hanadak_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/hanadak_hue.iff",
 	scale = 0.95,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

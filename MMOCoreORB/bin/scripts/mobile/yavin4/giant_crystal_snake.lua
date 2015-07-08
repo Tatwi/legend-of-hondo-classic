@@ -28,7 +28,7 @@ giant_crystal_snake = Creature:new {
 	templates = {"object/mobile/giant_crystal_snake.iff"},
 	controlDeviceTemplate = "object/intangible/pet/crystal_snake.iff",
 	scale = 1.4,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_toxicgreen"},
 	conversationTemplate = "",
 	attacks = {

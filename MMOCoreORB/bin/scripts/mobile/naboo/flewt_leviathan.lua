@@ -28,7 +28,7 @@ flewt_leviathan = Creature:new {
 	templates = {"object/mobile/flewt_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/flewt_hue.iff",
 	scale = 2,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

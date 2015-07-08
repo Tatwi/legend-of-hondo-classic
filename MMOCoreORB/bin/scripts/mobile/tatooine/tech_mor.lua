@@ -27,7 +27,7 @@ tech_mor = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/tatooine_npc/figrin_dan.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	outfit = "figrin_dan_band_outfit",

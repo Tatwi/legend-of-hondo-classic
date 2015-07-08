@@ -29,7 +29,7 @@ kaadu_female = Creature:new {
 	templates = {"object/mobile/kaadu_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/kaadu_hue.iff",
 	scale = 1.05,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

@@ -27,7 +27,7 @@ athok_dinvar = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_athok_dinvar.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

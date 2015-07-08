@@ -28,7 +28,7 @@ baby_bol = Creature:new {
 
 	templates = {"object/mobile/baby_bol.iff"},
 	scale = 0.7,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

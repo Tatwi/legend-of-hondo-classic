@@ -28,7 +28,7 @@ dwarf_bantha = Creature:new {
 
 	templates = {"object/mobile/dwarf_bantha.iff"},
 	scale = 0.75,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

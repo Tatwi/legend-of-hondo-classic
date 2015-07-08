@@ -26,7 +26,7 @@ corellia_times_investigator = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_fed_dub_investigator_twk_female_01.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"pirate_weapons_light"},
 	conversationTemplate = "",
 	attacks = merge(brawlernovice,marksmannovice)

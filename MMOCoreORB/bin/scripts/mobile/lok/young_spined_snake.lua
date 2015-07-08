@@ -27,7 +27,7 @@ young_spined_snake = Creature:new {
 
 	templates = {"object/mobile/young_spined_snake.iff"},
 	scale = 0.75,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

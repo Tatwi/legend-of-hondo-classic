@@ -27,7 +27,7 @@ durni = Creature:new {
 
 	templates = {"object/mobile/durni.iff"},
 	controlDeviceTemplate = "object/intangible/pet/durni_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

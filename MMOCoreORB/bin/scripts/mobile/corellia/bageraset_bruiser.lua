@@ -27,7 +27,7 @@ bageraset_bruiser = Creature:new {
 
 	templates = {"object/mobile/bageraset_hue.iff"},
 	scale = 1.2,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {

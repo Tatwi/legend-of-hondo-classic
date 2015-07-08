@@ -28,7 +28,7 @@ female_langlatch = Creature:new {
 	templates = {"object/mobile/langlatch_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/langlatch_hue.iff",
 	scale = 0.95,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

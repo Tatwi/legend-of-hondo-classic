@@ -27,7 +27,7 @@ quenker_relic_reaper = Creature:new {
 
 	templates = {"object/mobile/quenker_relic_reaper.iff"},
 	scale = 1.25,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

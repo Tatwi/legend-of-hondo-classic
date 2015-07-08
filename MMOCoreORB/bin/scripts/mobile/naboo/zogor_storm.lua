@@ -27,7 +27,7 @@ zogor_storm = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_supervisor_zogor_sturm.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

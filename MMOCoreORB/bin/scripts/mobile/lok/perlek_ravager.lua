@@ -28,7 +28,7 @@ perlek_ravager = Creature:new {
 	templates = {"object/mobile/perlek.iff"},
 	controlDeviceTemplate = "object/intangible/pet/perlek_hue.iff",
 	scale = 1.15,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {

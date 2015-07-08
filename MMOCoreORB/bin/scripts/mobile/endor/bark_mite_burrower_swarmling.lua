@@ -27,7 +27,7 @@ bark_mite_burrower_swarmling = Creature:new {
 
 	templates = {"object/mobile/bark_mite_hue.iff"},
 	scale = 0.7,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

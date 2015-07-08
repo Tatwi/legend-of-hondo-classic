@@ -27,7 +27,7 @@ massive_gnort = Creature:new {
 
 	templates = {"object/mobile/gnort_hue.iff"},
 	scale = 2,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

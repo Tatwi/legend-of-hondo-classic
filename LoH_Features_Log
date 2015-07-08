@@ -690,6 +690,23 @@ src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.c
 
 
 
+Stormtooper Corp. Updates
+= = = = = = = = = = = = = = = = = 
+scripts/mobile/faction/imperial/[Stortrooper Types]
+- - - - - - -
+- Fixed the ridiculously enormous size of Dark Troopers.
+- Replaced the silly "Duck-Feet" Darktrooper models with the normal black Stormtrooper model.
+- Adjusted the looks of various troops to match their ranks. 
+
+tre/palette/stormtrooper_stripes.pal
+tre/palette/swamptrooper.pal
+- - - - - - -
+- Enhanced the red, green, and blue Stormtrooper stripe colors.
+- Made the Swamptroopers more swampy and less florecent green weirdness...
+
+
+
+
 
 ________________________________________________________
 --- P L A N E D ---

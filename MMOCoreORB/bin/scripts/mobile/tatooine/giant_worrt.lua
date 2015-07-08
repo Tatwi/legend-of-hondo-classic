@@ -28,7 +28,7 @@ giant_worrt = Creature:new {
 	templates = {"object/mobile/giant_worrt.iff"},
 	controlDeviceTemplate = "object/intangible/pet/worrt_hue.iff",
 	scale = 4,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

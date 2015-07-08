@@ -27,7 +27,7 @@ giant_cave_veermok = Creature:new {
 
 	templates = {"object/mobile/giant_veermok.iff"},
 	scale = 1.5,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

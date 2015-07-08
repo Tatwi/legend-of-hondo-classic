@@ -27,7 +27,7 @@ kai_tok_scavenger = Creature:new {
 
 	templates = {"object/mobile/kai_tok_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/kai_tok_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

@@ -28,7 +28,7 @@ female_mamien = Creature:new {
 
 	templates = {"object/mobile/mamien_hue.iff"},
 	scale = 0.95,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

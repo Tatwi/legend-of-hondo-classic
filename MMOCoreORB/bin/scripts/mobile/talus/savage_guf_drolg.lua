@@ -28,7 +28,7 @@ savage_guf_drolg = Creature:new {
 	templates = {"object/mobile/guf_drolg_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/guf_drolg_hue.iff",
 	scale = 1.2,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

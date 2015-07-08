@@ -27,7 +27,7 @@ gnort = Creature:new {
 
 	templates = {"object/mobile/gnort.iff"},
 	controlDeviceTemplate = "object/intangible/pet/gnort_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

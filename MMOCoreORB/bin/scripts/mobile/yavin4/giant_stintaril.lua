@@ -28,7 +28,7 @@ giant_stintaril = Creature:new {
 	templates = {"object/mobile/giant_stintaril.iff"},
 	controlDeviceTemplate = "object/intangible/pet/stintaril_hue.iff",
 	scale = 1.3,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_red"},
 	conversationTemplate = "",
 	attacks = {

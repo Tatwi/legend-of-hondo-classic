@@ -27,7 +27,7 @@ plains_hunter = Creature:new {
 
 	templates = {"object/mobile/tusk_cat_hue.iff"},
 	scale = 1.3,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

@@ -26,7 +26,7 @@ adwan_turoldine = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/space_privateer_tier4_corellia_adwan.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

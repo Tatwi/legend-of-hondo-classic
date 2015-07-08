@@ -26,7 +26,7 @@ eight_lom = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/theme_park_record_keeper_jabba.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

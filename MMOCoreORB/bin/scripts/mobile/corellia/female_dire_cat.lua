@@ -28,7 +28,7 @@ female_dire_cat = Creature:new {
 	templates = {"object/mobile/female_dire_cat.iff"},
 	controlDeviceTemplate = "object/intangible/pet/narglatch_hue.iff",
 	scale = 0.9,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

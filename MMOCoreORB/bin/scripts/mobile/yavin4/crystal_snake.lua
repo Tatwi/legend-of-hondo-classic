@@ -26,7 +26,7 @@ crystal_snake = Creature:new {
 	diet = CARNIVORE,
 
 	templates = {"object/mobile/crystal_snake.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_toxicgreen"},
 	conversationTemplate = "",
 	attacks = {

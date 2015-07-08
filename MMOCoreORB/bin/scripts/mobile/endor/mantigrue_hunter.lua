@@ -27,7 +27,7 @@ mantigrue_hunter = Creature:new {
 
 	templates = {"object/mobile/mantigrue_night_stalker.iff"},
 	controlDeviceTemplate = "object/intangible/pet/perlek_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

@@ -27,7 +27,7 @@ blooming_jax = Creature:new {
 
 	templates = {"object/mobile/blooming_jax.iff"},
 	scale = 1.3,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

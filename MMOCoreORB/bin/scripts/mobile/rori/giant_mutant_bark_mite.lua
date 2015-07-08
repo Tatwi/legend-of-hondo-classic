@@ -28,7 +28,7 @@ giant_mutant_bark_mite = Creature:new {
 	templates = {"object/mobile/bark_mite.iff"},
 	controlDeviceTemplate = "object/intangible/pet/bark_mite_hue.iff",
 	scale = 3,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

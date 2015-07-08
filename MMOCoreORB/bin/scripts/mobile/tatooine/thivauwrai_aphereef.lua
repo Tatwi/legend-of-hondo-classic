@@ -27,7 +27,7 @@ thivauwrai_aphereef = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_rebel_trooper_human_female_01.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"pirate_weapons_medium"},
 	conversationTemplate = "",
 	attacks = {

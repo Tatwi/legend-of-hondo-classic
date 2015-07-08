@@ -27,7 +27,7 @@ puny_gackle_bat = Creature:new {
 
 	templates = {"object/mobile/puny_gackle_bat.iff"},
 	scale = 0.6,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

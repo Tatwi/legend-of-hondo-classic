@@ -27,7 +27,7 @@ mos_taike_veteran_guard = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/mos_taike_guard_old.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	outfit = "mos_taike_guard_old_outfit",
 	conversationTemplate = "",

@@ -27,7 +27,7 @@ choku = Creature:new {
 
 	templates = {"object/mobile/choku.iff"},
 	controlDeviceTemplate = "object/intangible/pet/choku_hue.iff",
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

@@ -26,7 +26,7 @@ bomarr_monk = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/bomarr_monk_spider_droid.iff"},
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

@@ -28,7 +28,7 @@ vrobalet = Creature:new {
 	templates = {"object/mobile/vrobalet.iff"},
 	controlDeviceTemplate = "object/intangible/pet/roba_hue.iff",
 	scale = 0.85,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

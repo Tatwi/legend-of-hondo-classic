@@ -28,7 +28,7 @@ salt_mynock = Creature:new {
 	templates = {"object/mobile/salt_mynock.iff"},
 	controlDeviceTemplate = "object/intangible/pet/salt_mynock_hue.iff",
 	scale = 0.95,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

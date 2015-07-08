@@ -27,7 +27,7 @@ horned_krevol = Creature:new {
 
 	templates = {"object/mobile/horned_krevol.iff"},
 	scale = 0.85,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

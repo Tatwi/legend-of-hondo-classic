@@ -27,7 +27,7 @@ feral_forest_mite_king = Creature:new {
 
 	templates = {"object/mobile/forest_mite.iff"},
 	scale = 1.25,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {

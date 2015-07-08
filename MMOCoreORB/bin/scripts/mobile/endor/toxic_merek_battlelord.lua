@@ -28,7 +28,7 @@ toxic_merek_battlelord = Creature:new {
 	templates = {"object/mobile/merek_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/merek_hue.iff",
 	scale = 1.05,
-	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			},			lootChance = 2500000,		}	},
+	lootGroups = {		{			groups = {				{group = "junk", chance = 10000000},			}		}	},
 	weapons = {"creature_spit_small_yellow"},
 	conversationTemplate = "",
 	attacks = {
