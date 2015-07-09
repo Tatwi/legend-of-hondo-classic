@@ -4,7 +4,8 @@
 includeFile("hondo/merchants/starter_gear.lua")
 includeFile("hondo/merchants/starter_weapons.lua")
 includeFile("hondo/merchants/merch_crazy_larry.lua")
-includeFile("hondo/merchants/testosio.lua")
+--includeFile("hondo/merchants/testosio.lua")
+includeFile("hondo/merchants/iken.lua")
 
 -- Travel
 includeFile("hondo/travel/wolten_kinhara_from_espa.lua")
