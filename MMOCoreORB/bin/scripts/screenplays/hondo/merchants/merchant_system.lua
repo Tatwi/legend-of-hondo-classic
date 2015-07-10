@@ -3,8 +3,14 @@ local ObjectManager = require("managers.object.object_manager")
 
 MerchantSystem = ScreenPlay:new {
 	numberOfActs = 1,
-	states = {active = 2}, 
+	states = {
+		active = 2,
+		complete = 4,
+	}, 
 	screenplayName = "MerchantSystem",
+	selectedItemName = "Monkey",
+	selectedOptName	= "George",
+	selectedLineNum = 0,
 }
 
 registerScreenPlay("MerchantSystem", true)
@@ -20,6 +26,16 @@ end
 function MerchantSystem:endShopping(pObject)
   ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
     creatureObject:removeScreenPlayState(MerchantSystem.states.active, MerchantSystem.screenplayName)
+    creatureObject:setScreenPlayState(MerchantSystem.states.complete, MerchantSystem.screenplayName)
+        print ("Shopping ended, removed active state and set complete state...")
+  end)
+end
+
+
+function MerchantSystem:resetStates(pObject)
+  ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
+    creatureObject:removeScreenPlayState(MerchantSystem.states.active, MerchantSystem.screenplayName)
+    creatureObject:removeScreenPlayState(MerchantSystem.states.complete, MerchantSystem.screenplayName)
   end)
 end
 
@@ -78,5 +94,71 @@ function MerchantSystem:refuseService(conversingPlayer, relationsTable)
 			end
 		end
 		return 0 -- Will talk to player
+	end)
+end
+
+
+function MerchantSystem:processSelection(pObject, optionLink, goodsTable, gtlc)
+	ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject,playerObject)
+		if (optionLink == goodsTable[gtlc].optName) then
+			-- save selection data for use in confirmation step
+			writeScreenPlayData(pObject, "MerchantSystem", "selectedItemName", goodsTable[gtlc].itemName) 
+			writeScreenPlayData(pObject, "MerchantSystem", "selectedOptName", goodsTable[gtlc].optName) 
+			writeScreenPlayData(pObject, "MerchantSystem", "selectedLineNum", gtlc) 
+			print ("hopefully just saved ... " .. goodsTable[gtlc].itemName .. " and " .. goodsTable[gtlc].optName .. " and " .. gtlc )
+		end
+	end)
+end
+
+
+function MerchantSystem:getSelectedOptName(pObject)
+	return ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
+		return readScreenPlayData(pObject, "MerchantSystem", "selectedOptName")
+	end)
+end
+
+
+function MerchantSystem:getSelectedItemName(pObject)
+	return ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
+		return readScreenPlayData(pObject, "MerchantSystem", "selectedItemName")
+	end)
+end
+
+function MerchantSystem:getSelectedLineNum(pObject)
+	return ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
+		return readScreenPlayData(pObject, "MerchantSystem", "selectedLineNum")
+	end)
+end
+
+function MerchantSystem:completeSale(pObject, creature, relationsTable, goodsTable)
+	ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
+		local gtlc = MerchantSystem:getSelectedLineNum(pObject)
+		gtlc = tonumber(gtlc)
+		print ("gtlc in completeSale is " .. gtlc)
+		local credits = creature:getCashCredits()
+		local pInventory = creature:getSlottedObject("inventory")
+		local inventory = LuaSceneObject(pInventory)
+		local numberOfItems = inventory:getContainerObjectsSize()
+		local freeSpace = 80 - numberOfItems
+		local pieces = #goodsTable[gtlc].items
+
+		if (freeSpace < pieces) then
+			creature:sendSystemMessage("Transaction Failed. You need " .. pieces .. " available inventory spaces to complete the transaction.")
+		elseif (credits < goodsTable[gtlc].cost) then
+			creature:sendSystemMessage("Transaction Failed. You do not have enough cash on hand to complete this transaction.")
+		else
+			-- Make the sale
+			local chargePlayer = MerchantSystem:adjustPrice(pObject, goodsTable[gtlc].cost, relationsTable)
+			
+			if (chargePlayer ~= nil) then -- Error checking
+				creature:subtractCashCredits(chargePlayer)
+				-- Grant items
+				for ic = 1, table.getn(goodsTable[gtlc].items) , 1 do
+					local pItem = giveItem(pInventory, goodsTable[gtlc].items[ic], -1)
+				end
+			else 
+				creature:sendSystemMessage("Transaction Failed. System error in price calculation.")
+			end	
+		end
 	end)
 end

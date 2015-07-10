@@ -35,6 +35,16 @@ iken_shop = ConvoScreen:new {
 iken_template:addScreen(iken_shop);
 
 
+iken_confirm_purchase = ConvoScreen:new {
+  id = "confirm_purchase",
+  leftDialog = "Are you sure you would like to make this purchase?",
+  stopConversation = "false",
+  options = { 
+  }
+}
+iken_template:addScreen(iken_confirm_purchase);
+
+
 iken_bye = ConvoScreen:new {
   id = "bye",
   leftDialog = "",
