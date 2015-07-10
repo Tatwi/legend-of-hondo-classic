@@ -54,7 +54,7 @@ function iken_convo_handler:getNextConversationScreen(conversationTemplate, conv
 		end
 		
 		if ( lastConversationScreen == nil ) then
-			MerchantSystem:endShopping(conversingPlayer)
+			MerchantSystem:resetStates(conversingPlayer)
 			-- See if NPC will talk to player
 			local canTalk = MerchantSystem:refuseService(conversingPlayer, IKenSP.relations)
 		
@@ -70,16 +70,23 @@ function iken_convo_handler:getNextConversationScreen(conversationTemplate, conv
 			local optionLink = luaLastConversationScreen:getOptionLink(selectedOption)
 			
 			local isShopping = creature:hasScreenPlayState(MerchantSystem.states.active, MerchantSystem.screenplayName)
-
-			if (isShopping) then 
-				optionLink = "bye"
+			local checkingOut = creature:hasScreenPlayState(MerchantSystem.states.complete, MerchantSystem.screenplayName)
+			
+			-- Process sale 
+			if (isShopping) then
+				for lc = 1, table.getn(IKenSP.goods) , 1 do
+					MerchantSystem:processSelection(conversingPlayer, optionLink, IKenSP.goods, lc)
+				end
 				MerchantSystem:endShopping(conversingPlayer)
+				nextConversationScreen = conversation:getScreen("confirm_purchase")
+			elseif (checkingOut) then 
+				MerchantSystem:completeSale(conversingPlayer, creature, IKenSP.relations, IKenSP.goods)
+				MerchantSystem:resetStates(conversingPlayer)
+				nextConversationScreen = conversation:getScreen("bye")
+				print ("finshed checking out....")
+			else
+				nextConversationScreen = conversation:getScreen(optionLink)
 			end
-			
-			print ("optionLink is: " .. optionLink)
-			
-			nextConversationScreen = conversation:getScreen(optionLink)
-			
 		end 
 	end
 	
@@ -91,20 +98,28 @@ function iken_convo_handler:runScreenHandlers(conversationTemplate, conversingPl
 	local player = LuaSceneObject(conversingPlayer)
 	local screen = LuaConversationScreen(conversationScreen)
 	local screenID = screen:getScreenID()
-	
-
-	
+		
+	-- Open shop and add items to choose	
 	if (screenID == "shop") then
-		-- Clone screen
 		conversationScreen = screen:cloneScreen()
 		local clonedConversation = LuaConversationScreen(conversationScreen)
-		
-		-- Add items to choose
+	
 		for lc = 1, table.getn(IKenSP.goods) , 1 do
 			local price = MerchantSystem:adjustPrice(conversingPlayer, IKenSP.goods[lc].cost, IKenSP.relations)
 			clonedConversation:addOption(IKenSP.goods[lc].itemName .. "  (" .. price .. ")" , IKenSP.goods[lc].optName)
 		end 
 		MerchantSystem:startShopping(conversingPlayer)
+	end
+	
+	if (screenID == "confirm_purchase") then
+		conversationScreen = screen:cloneScreen()
+		local clonedConversation = LuaConversationScreen(conversationScreen)
+		local selectedOptName = MerchantSystem:getSelectedOptName(conversingPlayer)
+		local selectedItemName = MerchantSystem:getSelectedItemName(conversingPlayer)
+		
+		print ("trying to add confirmation reply option called " .. selectedItemName)
+		
+		clonedConversation:addOption("Yes, I want to buy a " .. selectedItemName, selectedOptName)
 	end
 	
 	return conversationScreen
