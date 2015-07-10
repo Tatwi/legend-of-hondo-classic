@@ -29,8 +29,7 @@ IKenSP = ScreenPlay:new {
 registerScreenPlay("IKenSP", true)
 
 function IKenSP:start() 
-	-- Mos Espa
-	spawnMobile("tatooine", "iken", 1, -2946, 5.0, 2077, 108, 0 )
+	spawnMobile("tatooine", "iken", 1, 8.24, 1.13, -13.91, 108, 1256021 ) -- Mos Espa waypoint -3046 2050
 end
 
 iken_convo_handler = Object:new {
@@ -38,89 +37,13 @@ iken_convo_handler = Object:new {
  }
 
 function iken_convo_handler:getNextConversationScreen(conversationTemplate, conversingPlayer, selectedOption)
-	local creature = LuaCreatureObject(conversingPlayer)
-	local convosession = creature:getConversationSession()
-	lastConversation = nil
-	local conversation = LuaConversationTemplate(conversationTemplate)
-	local nextConversationScreen 
-	
-	if ( conversation ~= nil ) then
-		if ( convosession ~= nil ) then 
-			 local session = LuaConversationSession(convosession)
-			 
-			 if ( session ~= nil ) then
-			 	lastConversationScreen = session:getLastConversationScreen()
-			 end
-		end
-		
-		if ( lastConversationScreen == nil ) then
-			MerchantSystem:resetStates(conversingPlayer)
-			-- See if NPC will talk to player
-			local canTalk = MerchantSystem:refuseService(conversingPlayer, IKenSP.relations)
-		
-			if (canTalk == 1) then
-				nextConversationScreen = conversation:getScreen("get_lost")
-			elseif (canTalk == 2) then
-				nextConversationScreen = conversation:getScreen("faction_too_low")
-			else 
-				nextConversationScreen = conversation:getInitialScreen()
-			end
-		else		
-			local luaLastConversationScreen = LuaConversationScreen(lastConversationScreen)
-			local optionLink = luaLastConversationScreen:getOptionLink(selectedOption)
-			
-			local isShopping = creature:hasScreenPlayState(MerchantSystem.states.active, MerchantSystem.screenplayName)
-			local checkingOut = creature:hasScreenPlayState(MerchantSystem.states.complete, MerchantSystem.screenplayName)
-			
-			-- Process sale 
-			if (isShopping) then
-				for lc = 1, table.getn(IKenSP.goods) , 1 do
-					MerchantSystem:processSelection(conversingPlayer, optionLink, IKenSP.goods, lc)
-				end
-				MerchantSystem:endShopping(conversingPlayer)
-				nextConversationScreen = conversation:getScreen("confirm_purchase")
-			elseif (checkingOut) then 
-				MerchantSystem:completeSale(conversingPlayer, creature, IKenSP.relations, IKenSP.goods)
-				MerchantSystem:resetStates(conversingPlayer)
-				nextConversationScreen = conversation:getScreen("bye")
-				print ("finshed checking out....")
-			else
-				nextConversationScreen = conversation:getScreen(optionLink)
-			end
-		end 
-	end
+	nextConversationScreen = MerchantSystem:nextConvoScreenInnards(conversationTemplate, conversingPlayer, selectedOption, IKenSP.relations, IKenSP.goods)
 	
 	return nextConversationScreen
 end
 
 function iken_convo_handler:runScreenHandlers(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen)
-	local creature = LuaCreatureObject(conversingPlayer)
-	local player = LuaSceneObject(conversingPlayer)
-	local screen = LuaConversationScreen(conversationScreen)
-	local screenID = screen:getScreenID()
-		
-	-- Open shop and add items to choose	
-	if (screenID == "shop") then
-		conversationScreen = screen:cloneScreen()
-		local clonedConversation = LuaConversationScreen(conversationScreen)
-	
-		for lc = 1, table.getn(IKenSP.goods) , 1 do
-			local price = MerchantSystem:adjustPrice(conversingPlayer, IKenSP.goods[lc].cost, IKenSP.relations)
-			clonedConversation:addOption(IKenSP.goods[lc].itemName .. "  (" .. price .. ")" , IKenSP.goods[lc].optName)
-		end 
-		MerchantSystem:startShopping(conversingPlayer)
-	end
-	
-	if (screenID == "confirm_purchase") then
-		conversationScreen = screen:cloneScreen()
-		local clonedConversation = LuaConversationScreen(conversationScreen)
-		local selectedOptName = MerchantSystem:getSelectedOptName(conversingPlayer)
-		local selectedItemName = MerchantSystem:getSelectedItemName(conversingPlayer)
-		
-		print ("trying to add confirmation reply option called " .. selectedItemName)
-		
-		clonedConversation:addOption("Yes, I want to buy a " .. selectedItemName, selectedOptName)
-	end
+	conversationScreen = MerchantSystem:runScreenHandlerInnards(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen, IKenSP.relations, IKenSP.goods)
 	
 	return conversationScreen
 end

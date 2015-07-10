@@ -1,3 +1,6 @@
+-- Legend of Hondo Merchant System
+-- By R. Bassett Jr. (Tatwi) - www.tpot.ca
+-- July 2015
 
 local ObjectManager = require("managers.object.object_manager")
 
@@ -27,7 +30,6 @@ function MerchantSystem:endShopping(pObject)
   ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
     creatureObject:removeScreenPlayState(MerchantSystem.states.active, MerchantSystem.screenplayName)
     creatureObject:setScreenPlayState(MerchantSystem.states.complete, MerchantSystem.screenplayName)
-        print ("Shopping ended, removed active state and set complete state...")
   end)
 end
 
@@ -105,7 +107,6 @@ function MerchantSystem:processSelection(pObject, optionLink, goodsTable, gtlc)
 			writeScreenPlayData(pObject, "MerchantSystem", "selectedItemName", goodsTable[gtlc].itemName) 
 			writeScreenPlayData(pObject, "MerchantSystem", "selectedOptName", goodsTable[gtlc].optName) 
 			writeScreenPlayData(pObject, "MerchantSystem", "selectedLineNum", gtlc) 
-			print ("hopefully just saved ... " .. goodsTable[gtlc].itemName .. " and " .. goodsTable[gtlc].optName .. " and " .. gtlc )
 		end
 	end)
 end
@@ -134,7 +135,6 @@ function MerchantSystem:completeSale(pObject, creature, relationsTable, goodsTab
 	ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
 		local gtlc = MerchantSystem:getSelectedLineNum(pObject)
 		gtlc = tonumber(gtlc)
-		print ("gtlc in completeSale is " .. gtlc)
 		local credits = creature:getCashCredits()
 		local pInventory = creature:getSlottedObject("inventory")
 		local inventory = LuaSceneObject(pInventory)
@@ -161,4 +161,94 @@ function MerchantSystem:completeSale(pObject, creature, relationsTable, goodsTab
 			end	
 		end
 	end)
+end
+
+
+-- The below functions allow each Merchant to have a unique conversation (in their convo template file)
+-- while keeping the actual convo logic in just this one location.
+function MerchantSystem:nextConvoScreenInnards(conversationTemplate, conversingPlayer, selectedOption, relationsTable, goodsTable)
+	local creature = LuaCreatureObject(conversingPlayer)
+	local convosession = creature:getConversationSession()
+	lastConversation = nil
+	local conversation = LuaConversationTemplate(conversationTemplate)
+	local nextConversationScreen 
+	
+	if ( conversation ~= nil ) then
+		if ( convosession ~= nil ) then 
+			 local session = LuaConversationSession(convosession)
+			 
+			 if ( session ~= nil ) then
+			 	lastConversationScreen = session:getLastConversationScreen()
+			 end
+		end
+		
+		if ( lastConversationScreen == nil ) then
+			MerchantSystem:resetStates(conversingPlayer)
+			-- See if NPC will talk to player
+			local canTalk = MerchantSystem:refuseService(conversingPlayer, relationsTable)
+		
+			if (canTalk == 1) then
+				nextConversationScreen = conversation:getScreen("get_lost")
+			elseif (canTalk == 2) then
+				nextConversationScreen = conversation:getScreen("faction_too_low")
+			else 
+				nextConversationScreen = conversation:getInitialScreen()
+			end
+		else		
+			local luaLastConversationScreen = LuaConversationScreen(lastConversationScreen)
+			local optionLink = luaLastConversationScreen:getOptionLink(selectedOption)
+			
+			local isShopping = creature:hasScreenPlayState(MerchantSystem.states.active, MerchantSystem.screenplayName)
+			local checkingOut = creature:hasScreenPlayState(MerchantSystem.states.complete, MerchantSystem.screenplayName)
+			
+			-- Process sale 
+			if (isShopping) then
+				for lc = 1, table.getn(goodsTable) , 1 do
+					MerchantSystem:processSelection(conversingPlayer, optionLink, goodsTable, lc)
+				end
+				MerchantSystem:endShopping(conversingPlayer)
+				nextConversationScreen = conversation:getScreen("confirm_purchase")
+			elseif (checkingOut and optionLink ~= "nope") then 
+				MerchantSystem:completeSale(conversingPlayer, creature, relationsTable, goodsTable)
+				MerchantSystem:resetStates(conversingPlayer)
+				nextConversationScreen = conversation:getScreen("bye")
+			else
+				nextConversationScreen = conversation:getScreen(optionLink)
+			end
+		end 
+	end
+	
+	return nextConversationScreen
+end
+
+
+function MerchantSystem:runScreenHandlerInnards(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen, relationsTable, goodsTable)
+	local creature = LuaCreatureObject(conversingPlayer)
+	local player = LuaSceneObject(conversingPlayer)
+	local screen = LuaConversationScreen(conversationScreen)
+	local screenID = screen:getScreenID()
+		
+	-- Open shop and add items to choose	
+	if (screenID == "shop") then
+		conversationScreen = screen:cloneScreen()
+		local clonedConversation = LuaConversationScreen(conversationScreen)
+	
+		for lc = 1, table.getn(goodsTable) , 1 do
+			local price = MerchantSystem:adjustPrice(conversingPlayer, goodsTable[lc].cost, relationsTable)
+			clonedConversation:addOption(goodsTable[lc].itemName .. "  (" .. price .. ")" , goodsTable[lc].optName)
+		end 
+		MerchantSystem:startShopping(conversingPlayer)
+	end
+	
+	if (screenID == "confirm_purchase") then
+		conversationScreen = screen:cloneScreen()
+		local clonedConversation = LuaConversationScreen(conversationScreen)
+		local selectedOptName = MerchantSystem:getSelectedOptName(conversingPlayer)
+		local selectedItemName = MerchantSystem:getSelectedItemName(conversingPlayer)
+
+		clonedConversation:addOption("Yes, I want to buy a " .. selectedItemName, selectedOptName)
+		clonedConversation:addOption("Nope", "nope")
+	end
+	
+	return conversationScreen
 end

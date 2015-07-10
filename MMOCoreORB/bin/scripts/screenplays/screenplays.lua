@@ -372,10 +372,6 @@ includeFile("record_keepers/record_keepers.lua")
 includeFile("hondo/buff_terminals.lua")
 
 -- Merchants
-includeFile("hondo/merchants/starter_gear.lua")
-includeFile("hondo/merchants/starter_weapons.lua")
-includeFile("hondo/merchants/crazy_larry.lua")
---includeFile("hondo/merchants/testosio.lua")
 includeFile("hondo/merchants/merchant_system.lua")
 includeFile("hondo/merchants/housing_iken.lua")
 

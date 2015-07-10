@@ -152,7 +152,6 @@ includeFile("conversations/pet/pets_conv.lua")
 includeFile("conversations/hondo/merchants/starter_gear_conv.lua")
 includeFile("conversations/hondo/merchants/starter_weapons_conv.lua")
 includeFile("conversations/hondo/merchants/crazy_larry_conv.lua")
---includeFile("conversations/hondo/merchants/testosio_conv.lua")
 includeFile("conversations/hondo/merchants/iken_conv.lua")
 
 -- Travel
