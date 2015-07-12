@@ -91,7 +91,7 @@ object_tangible_wearables_armor_composite_armor_composite_helmet = object_tangib
 	-- These are default Blue Frog stats
 	healthEncumbrance = 50,
 	actionEncumbrance = 30,
-	mindEncumbrance = 350,
+	mindEncumbrance = 30,
 
 	maxCondition = 30000,
 

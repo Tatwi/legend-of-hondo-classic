@@ -93,7 +93,7 @@ object_tangible_wearables_armor_composite_armor_composite_boots = object_tangibl
 
 	-- These are default Blue Frog stats
 	healthEncumbrance = 50,
-	actionEncumbrance = 100,
+	actionEncumbrance = 30,
 	mindEncumbrance = 30,
 
 	maxCondition = 30000,

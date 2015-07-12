@@ -1,10 +1,15 @@
 -- Legends of Hondo Custom Characters
 
 -- NPC Merchants
-includeFile("hondo/merchants/starter_gear.lua")
-includeFile("hondo/merchants/starter_weapons.lua")
-includeFile("hondo/merchants/merch_crazy_larry.lua")
-includeFile("hondo/merchants/iken.lua")
+includeFile("hondo/merchants/crazy_larry.lua")
+includeFile("hondo/merchants/iken_wilyens.lua")
+includeFile("hondo/merchants/duag_hauser.lua")
+includeFile("hondo/merchants/industra_baggins.lua")
+includeFile("hondo/merchants/u8l7.lua")
+includeFile("hondo/merchants/volrik_lonugs.lua")
+includeFile("hondo/merchants/nal_yaro.lua")
+includeFile("hondo/merchants/cyan_yaro.lua")
+includeFile("hondo/merchants/yivvits.lua")
 
 -- Travel
 includeFile("hondo/travel/wolten_kinhara_from_espa.lua")

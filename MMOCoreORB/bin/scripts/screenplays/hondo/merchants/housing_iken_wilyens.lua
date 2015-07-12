@@ -4,7 +4,7 @@
 
 local ObjectManager = require("managers.object.object_manager")
 
-IKenSP = ScreenPlay:new {
+IkenWilyensSP = ScreenPlay:new {
 	numberOfActs = 1, 	
 	relations = { 
 		{name="townsperson", npcStanding=-9000, priceAdjust=15}, -- Adjust price only
@@ -26,24 +26,24 @@ IKenSP = ScreenPlay:new {
 }
 
 
-registerScreenPlay("IKenSP", true)
+registerScreenPlay("IkenWilyensSP", true)
 
-function IKenSP:start() 
-	spawnMobile("tatooine", "iken", 1, 8.24, 1.13, -13.91, 108, 1256021 ) -- Mos Espa waypoint -3046 2050
+function IkenWilyensSP:start() 
+	spawnMobile("tatooine", "iken_wilyens", 1, 8.24, 1.13, -13.91, 35, 1256021 ) -- Mos Espa waypoint -3046 2050
 end
 
-iken_convo_handler = Object:new {
+ikenwilyens_convo_handler = Object:new {
 	tstring = "myconversation"
  }
 
-function iken_convo_handler:getNextConversationScreen(conversationTemplate, conversingPlayer, selectedOption)
-	nextConversationScreen = MerchantSystem:nextConvoScreenInnards(conversationTemplate, conversingPlayer, selectedOption, IKenSP.relations, IKenSP.goods)
+function ikenwilyens_convo_handler:getNextConversationScreen(conversationTemplate, conversingPlayer, selectedOption)
+	nextConversationScreen = MerchantSystem:nextConvoScreenInnards(conversationTemplate, conversingPlayer, selectedOption, IkenWilyensSP.relations, IkenWilyensSP.goods)
 	
 	return nextConversationScreen
 end
 
-function iken_convo_handler:runScreenHandlers(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen)
-	conversationScreen = MerchantSystem:runScreenHandlerInnards(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen, IKenSP.relations, IKenSP.goods)
+function ikenwilyens_convo_handler:runScreenHandlers(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen)
+	conversationScreen = MerchantSystem:runScreenHandlerInnards(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen, IkenWilyensSP.relations, IkenWilyensSP.goods)
 	
 	return conversationScreen
 end
