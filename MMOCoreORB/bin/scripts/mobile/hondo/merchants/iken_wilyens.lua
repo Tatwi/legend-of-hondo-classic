@@ -1,6 +1,6 @@
-testosio = Creature:new {
+iken_wilyens = Creature:new {
 	objectName = "@mob/creature_names:commoner",
-	customName = "Testosio (Merchant)",
+	customName = "Iken Wilyens (Housing Merchant)",
 	socialGroup = "townsperson",
 	pvpFaction = "townsperson",
 	faction = "townsperson",
@@ -27,12 +27,12 @@ testosio = Creature:new {
 	optionsBitmask = 264, --for conversation
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/r2.iff"},
+	templates = {"object/mobile/dressed_commoner_old_human_male_01.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "testosio_template",
+	conversationTemplate = "ikenwilyens_template",
 	attacks = {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(testosio, "testosio")
+CreatureTemplates:addCreatureTemplate(iken_wilyens, "iken_wilyens")

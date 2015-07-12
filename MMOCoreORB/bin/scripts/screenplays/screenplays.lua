@@ -373,7 +373,15 @@ includeFile("hondo/buff_terminals.lua")
 
 -- Merchants
 includeFile("hondo/merchants/merchant_system.lua")
-includeFile("hondo/merchants/housing_iken.lua")
+includeFile("hondo/merchants/housing_iken_wilyens.lua")
+includeFile("hondo/merchants/housing_duag_hauser.lua")
+includeFile("hondo/merchants/vehicles_crazy_larry.lua")
+includeFile("hondo/merchants/facilities_industra_baggins.lua")
+includeFile("hondo/merchants/helper_u8l7.lua")
+includeFile("hondo/merchants/armor_volrik_lonugs.lua")
+includeFile("hondo/merchants/armor_jabba_nal_yaro.lua")
+includeFile("hondo/merchants/armor_jabba_cyan_yaro.lua")
+includeFile("hondo/merchants/weapons_yivvits.lua")
 
 -- Travel
 includeFile("hondo/travel/onak_from_mos_espa.lua")

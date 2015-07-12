@@ -1,6 +1,6 @@
-merch_crazy_larry = Creature:new {
+industra_baggins = Creature:new {
 	objectName = "@mob/creature_names:commoner",
-	customName = "Crazy Larry (Vehicle Merchant)",
+	customName = "Industra Baggins (Factory Merchant)",
 	socialGroup = "townsperson",
 	pvpFaction = "townsperson",
 	faction = "townsperson",
@@ -27,12 +27,12 @@ merch_crazy_larry = Creature:new {
 	optionsBitmask = 264, --for conversation
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_criminal_pirate_human_male_01.iff"},
+	templates = {"object/mobile/dressed_commoner_old_twilek_female_02.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "crazylarry_template",
+	conversationTemplate = "industrabaggins_template",
 	attacks = {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(merch_crazy_larry, "merch_crazy_larry")
+CreatureTemplates:addCreatureTemplate(industra_baggins, "industra_baggins")

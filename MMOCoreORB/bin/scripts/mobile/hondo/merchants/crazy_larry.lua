@@ -1,6 +1,6 @@
-starter_weapons= Creature:new {
+crazylarry = Creature:new {
 	objectName = "@mob/creature_names:commoner",
-	customName = "Starter Weapons Merchant",
+	customName = "Crazy Larry (Vehicle Merchant)",
 	socialGroup = "townsperson",
 	pvpFaction = "townsperson",
 	faction = "townsperson",
@@ -27,12 +27,12 @@ starter_weapons= Creature:new {
 	optionsBitmask = 264, --for conversation
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/jawa_male.iff"},
+	templates = {"object/mobile/dressed_criminal_pirate_human_male_01.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "starterweapons_template",
+	conversationTemplate = "crazylarry_template",
 	attacks = {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(starter_weapons, "starter_weapons")
+CreatureTemplates:addCreatureTemplate(crazylarry, "crazylarry")

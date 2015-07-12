@@ -1,6 +1,6 @@
-starter_gear = Creature:new {
+yivvits = Creature:new {
 	objectName = "@mob/creature_names:commoner",
-	customName = "Starter Gear Merchant",
+	customName = "Yivvits (Specialty Weapons Merchant)",
 	socialGroup = "townsperson",
 	pvpFaction = "townsperson",
 	faction = "townsperson",
@@ -27,12 +27,12 @@ starter_gear = Creature:new {
 	optionsBitmask = 264, --for conversation
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/r4.iff"},
+	templates = {"object/mobile/wookiee_male.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "startergear_template",
+	conversationTemplate = "yivvits_template",
 	attacks = {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(starter_gear, "starter_gear")
+CreatureTemplates:addCreatureTemplate(yivvits, "yivvits")

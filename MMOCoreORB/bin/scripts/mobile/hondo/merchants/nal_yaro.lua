@@ -1,9 +1,9 @@
-iken = Creature:new {
+nal_yaro = Creature:new {
 	objectName = "@mob/creature_names:commoner",
-	customName = "Iken (Housing Merchant)",
-	socialGroup = "townsperson",
+	customName = "Nal Yaro (Armor Merchant)",
+	socialGroup = "jabba",
 	pvpFaction = "townsperson",
-	faction = "townsperson",
+	faction = "jabba",
 	level = 1,
 	chanceHit = 0.25,
 	damageMin = 50,
@@ -27,12 +27,12 @@ iken = Creature:new {
 	optionsBitmask = 264, --for conversation
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_corsec_officer_human_female_01.iff"},
+	templates = {"object/mobile/dressed_tatooine_jabba_henchman.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "iken_template",
+	conversationTemplate = "nalyaro_template",
 	attacks = {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(iken, "iken")
+CreatureTemplates:addCreatureTemplate(nal_yaro, "nal_yaro")
