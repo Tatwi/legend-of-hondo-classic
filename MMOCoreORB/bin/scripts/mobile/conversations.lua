@@ -158,6 +158,7 @@ includeFile("conversations/hondo/merchants/volrik_lonugs_conv.lua")
 includeFile("conversations/hondo/merchants/nal_yaro_conv.lua")
 includeFile("conversations/hondo/merchants/cyan_yaro_conv.lua")
 includeFile("conversations/hondo/merchants/yivvits_conv.lua")
+includeFile("conversations/hondo/merchants/mlo_lemo_conv.lua")
 
 -- Travel
 includeFile("conversations/hondo/travel/wolten_kinhara_from_espa_conv.lua")
