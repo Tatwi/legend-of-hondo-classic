@@ -690,6 +690,7 @@ src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.c
 
 
 
+
 Stormtooper Corp. Updates
 = = = = = = = = = = = = = = = = = 
 scripts/mobile/faction/imperial/[Stortrooper Types]
@@ -708,20 +709,126 @@ tre/palette/swamptrooper.pal
 
 
 
+NPC Merchant System
+= = = = = = = = = = = = = = = = = 
+- Created an extensible framework for selling items using NPC conversations. 
+- NPCs have friends/foes, using the various factions and the player relationships with those factions determines if the merchant will do business and what the final price will be. 
+- There are four basic relationships: Friend, Friend of Friend, Enemy, and Enemy of Enemy. 
+
+scripts/screenplays/hondo/merchants/merchant_system.lua
+scripts/screenplays/hondo/merchants/[MERCHANTS]
+- - - - - - -
+- Common functionality used by all merchants is in the merchant_system.lua. I will add additional features in time. See the README in the merchants screenplay directory for more details.
+- Each merchant file contains the list of their personal relationships and the list of what they sell.
+
+scripts/mobile/hondo/merchants/[MERCHANTS]
+scripts/conversations/mobile/hondo/merchants/[MERCHANTS]
+- - - - - - -
+- Unique characters and conversations per merchant. 
+- Conversations were written in the Lua files rather than creating new STF files. 
+
+Fixes included:
+- Corrected the encumberance values on system generated (Merchant sold) Composite Armor.
+- Reduced the damage range on the system generated (Merchant sold) Light Lightning Cannon.
+
+
+
+
+
 ________________________________________________________
 --- P L A N E D ---
 ========================================================
 
 
 
-NPC Merchants and Living World
+
+Combat Changes
 = = = = = = = = = = = = = = = = = 
-- These help fill in the gaps left by the lack of other players looting and selling "stuff".
-- Create a better framework for selling items. 
-- NPCs will have friends/foes, using the various factions.
-- Player relation to the NPC will factor in the price and availability of items. 
-- Loot from Geonosian Lab, Imperial/Rebel themeparks, and other unavailable content will be for sale. 
-- These merchants are a primary credit sink and accessing them is part of the story/activity driven content.
-- Will include various quests/missions, stories, etc. Perhaps even new locations!
+NOTE: I am sure most pre-cu SWG fans will hate what I am doing here. Oh well! This project is for me, not them. 
+
+Purpose: 
+- LoH is a single player game, so I want to make it such that a person doesn't NEED to multi-box just to play the game. 
+- I want to make combat more like playing a WotLK era Shaman in WoW. The focus is on managing Mind/Action resources and removing states, to keep your Health up while still damaging the enemy enough to win. 
+- Shaman were fun to solo dungeons with, because when played well they had the tools to do the job. When played poorly, however, they weren't over powered enough to make up for the player's lack of skill.
+- Like Shaman, the professions in SWG have cooldowns and "mana" (Action/Mind) to manage, but in SWG but there are added complexities in HAM costs, encumberance, armor resists, and so on.
+- These changes are meant to make it clear that Health is what you have to maintain to stay alive and to do that, you have to manage your Action and Mind as best as you can. 
+
+- Incapacitation and death only happens when the target runs out of Health, for players and NPCs/Creatures.
+- Regen rates for Health and Action while in combat are very low.
+- Mind does not regenerate while in combat.
+- DoTs are the only way to attack the Mind pool. 
+- Mind healing removed in all forms except for "morale boosts" that apply a heal over time when you do well in combat. It's a random chance based on damage done.
+- Action healing is 1/4 the amount shown. 
+- Health healing unchanged.
+- Combat Medic removed, with its abilities and craftables megered into Doctor. 
+- Buff application and crafting moved to xx22 Medic. Note that I already nerfed buffs to keep combat challenging.
+- Cure Poison and Cure Disease moved to 4x4x Medic.
+- Cure State moved to Master Medic.  
+- 15 total points of Wound Healing and Wound Healing Speed moved down to 22xx Medic, 44xx Medic, and Master Medic.
+- Amount of Mind used when using a Medic/Doctor ability is based on Action remaining and Injury Treatment skill.
+- Disable insurance, because it removes the need to heal wounds (so loss of XP) and makes gear last too long. Too "easy mode" for me.
+- NPC/Creatures have a random chance to regenerate some of their health, action, or mind when they perform an attack.
+- Low Action on NPC/Creatures will make them vulnerable to state attacks, such as Dizzy, etc. 
+- Low Mind on NPC/Creatures will reduce their accuracy upto 50%.
+- Similar to the player, when an NPC/Creature is out of action and mind, they will not be able to perform special abilities. However, each of their deafult attacks retains the chance to regen a stat. 
+- RANDOM type special attacks will choose between only Health or Action. 
+- DoTs applied to mind will not be as potent, due to the total lack of active Mind healing.
+
+
+
+
+The Great Decluttering
+= = = = = = = = = = = = = = = = = 
+- Focus on one location at a time. 
+- Combination of World Snapshot and Lua file editing.
+- Remove redundant stuff, such as mission terminals, bazaar terminals, etc. 
+- Replace and replace many useless characters (especially ones that don't seem to make any sense...) with quest givers from the disabled planets, merchants, new quest givers, and NPCs tied to world factions that can be attacked.
+- Have 3 trainers for each elite profession, spread around the galaxy and locked behind world faction related content.
+- Prepair Rebel/Imperial areas in preperation for the removal of the "on leave" status and the addition of the tresspassing concept. 
+- Limit Junk Dealers to those who have names and personalities, with no more than two per type of junk. This makes the system more character/location driven and less gamey.
+
+
+
+Merchant System Improvements
+= = = = = = = = = = = = = = = = = 
+- Inject a reply option that opens an inventory window where the player can fully inspect the items that are for sale.
+- Options for Smugglers to try for discounts. 
+- Stock limations based on month, scarcity, faction standing, and stock levels.
+- Add more merchants, mostly as part of world faction content. This includes Geo Cave loot and other high priced consuables that will act as major credit sinks.
+- Improve the pricing logic for Junk Dealers. 
+
+
+
+Imperial / Rebel Improvements
+= = = = = = = = = = = = = = = = = 
+- Remove On leave status, so that once a player chooses a side the content is always geared toward that choice.
+- Add tiggers to prevent neutral characters from tresspassing on Rebel/Imperial land. 
+- Imprison neutrals who are caught tresspassing. Another character will have to bail (NPC conversation + credits) them out or break them out (quest + combat).
+- Add a free travel system that links faction facilities together. 
+- Add more faction items for purchase.
+
+
+
+
+Creature/NPC Diversification
+= = = = = = = = = = = = = = = = = 
+- Story based content that adds creatures from the disabled planets, such as...
+- The zoo gone wrong on Tatooine that turned into a valley where Bio-Engineers from Bestine study the accidentally wild creatures.
+- The Northern Endorian infestation of creatures from Yavin4, centered around the abandonded Imperial outpost. 
+- And adding other critters to the spawn tables of Dantooine, Dathomir, Endor, Lok, and Tatooine.
+- World faction driven content where players can earn/lose faction with NPCs who live on the disabled planets (Corellia, Talus, Naboo, Rori, and Yavin4).
+
+
+
+
+Personal Ship Improvements
+= = = = = = = = = = = = = = = = = 
+- It's a little wonky (and a bit buggy) as it is. 
+- I would like to tie the functionality to an inventory item so it can be placed on the toolbar and used. 
+- The ship flies down to the player's position and the player double clicks it to get in.
+- Only works on Tatooine, as that's where they are stationed.
+- Move the Onak out of the Mos Espa starport and put a bunch of the fighters in there. Add some related quest content.
+
+
 
 
