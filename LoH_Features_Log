@@ -735,6 +735,22 @@ Fixes included:
 
 
 
+Advanced Structure Placement
+= = = = = = = = = = = = = = = = = 
+src/server/zone/objects/tangible/deed/structure/StructureDeed.idl
+src/server/zone/objects/tangible/deed/structure/StructureDeedImplementation.cpp
+tre/clienteffect/house_plop_ruler.cef
+- - - - - - -
+**** WARNING ****
+- This feature bypasses many limitations on placing a stucture and therefore should not be used by novices or the general public. If you use this feature on a multiplayer server, I highly suggest limiting it to GM's only.
+- Added the "House Plop" ability (something I started working on in 2014 for Kinshi of the Tarkin server. Only took me a year to figure it out! lol...).
+- Place a structure, from its deed using a new radial menu option, almost anywhere, with the door rotated to face the direction your character is facing.
+- Use the Show Ruler option to extend a green line out from your character to make it easier to see what way you are actually facing.
+- It's not a perfect solution, but it does make it much easier to line up player buildings with NPC structures. 
+
+
+
+
 ________________________________________________________
 --- P L A N E D ---
 ========================================================
