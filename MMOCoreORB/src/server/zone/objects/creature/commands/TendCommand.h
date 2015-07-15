@@ -198,7 +198,10 @@ public:
 			return GENERALERROR;
 		}
 
-		if (creature->getHAM(CreatureAttribute::MIND) < mindCost) {
+		// Base healing cost on Focus and skill.
+		float hondoMindCost = 80 / ((creature->getHAM(CreatureAttribute::FOCUS) + creature->getSkillMod("healing_injury_treatment")) / 1000 + 1);
+
+		if (creature->getHAM(CreatureAttribute::MIND) < hondoMindCost) {
 			creature->sendSystemMessage("@healing_response:not_enough_mind"); //You do not have enough mind to do that.
 			return GENERALERROR;
 		}
@@ -220,10 +223,18 @@ public:
 				}
 				return GENERALERROR;
 			}
+			
+			// LoH Make Tend Damage into main Action regen method
+			float critBoost = 1.0f + (System::random(20) / 100);
+			if (System::random(100) > 85){
+				bfScale = 1.0f;
+				critBoost = 2.50f;
+				creature->sendSystemMessage("Your Tend Damage was a Critical Success!");
+			}
+				
+			int healPower = round(((float)creature->getSkillMod("healing_injury_treatment") + System::random(100)) * critBoost * bfScale);
 
-			int healPower = round(((float)creature->getSkillMod("healing_injury_treatment") / 3.f + 20.f) * bfScale);
-
-			int healedHealth = creatureTarget->healDamage(creature, CreatureAttribute::HEALTH, healPower);
+			int healedHealth = creatureTarget->healDamage(creature, CreatureAttribute::HEALTH, 1); 
 			int healedAction = creatureTarget->healDamage(creature, CreatureAttribute::ACTION, healPower, true, false);
 
 			sendHealMessage(creature, creatureTarget, healedHealth, healedAction);
@@ -261,9 +272,10 @@ public:
 			playerManager->sendBattleFatigueMessage(creature, creatureTarget);
 		}
 
-		creature->inflictDamage(creature, CreatureAttribute::MIND, mindCost, false);
-		creature->addWounds(CreatureAttribute::FOCUS, mindWoundCost);
-		creature->addWounds(CreatureAttribute::WILLPOWER, mindWoundCost);
+		creature->inflictDamage(creature, CreatureAttribute::MIND, hondoMindCost, false);
+		creature->addWounds(CreatureAttribute::MIND, mindWoundCost);
+		//creature->addWounds(CreatureAttribute::FOCUS, mindWoundCost);
+		//creature->addWounds(CreatureAttribute::WILLPOWER, mindWoundCost);
 
 		doAnimations(creature, creatureTarget);
 
