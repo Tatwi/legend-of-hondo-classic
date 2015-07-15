@@ -65,7 +65,7 @@ object_draft_schematic_chemistry_component_release_mechanism_duration_advanced =
    ingredientTemplateNames = {"craft_chemical_ingredients_n", "craft_chemical_ingredients_n"},
    ingredientTitleNames = {"organic_element", "chemical_element"},
    ingredientSlotType = {0, 0},
-   resourceTypes = {"meat_herbivore", "petrochem_fuel_liquid_type4"},
+   resourceTypes = {"meat_herbivore_dathomir", "fuel_petrochem_liquid"},
    resourceQuantities = {16, 16},
    contribution = {100, 100},
 

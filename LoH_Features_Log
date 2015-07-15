@@ -854,6 +854,19 @@ tre/datatables/skill/skills.iff
 - Cure State moved to Master Medic.  
 - 15 total points of Wound Healing and Wound Healing Speed moved down to 22xx Medic, 44xx Medic, and Master Medic.
 
+UPDATES:
+
+scripts/object/tangible/medicine/crafted/[A Type Enhance/Cure]
+- - - - - - -
+- Reduced the required medicine use skill to match Medic levels where the abilities are granted. 
+
+scripts/object/draft_schematic/chemistry/component/dispersal_mechanism_advanced.lua
+scripts/object/draft_schematic/chemistry/component/liquid_delivery_suspension_advanced.lua
+scripts/object/draft_schematic/chemistry/component/release_mechanism_duration_advanced.lua
+- - - - - - -
+- Changed ingredients so that they do not require any from the disabled planets. 
+- Increased units used in Advanced Liquid Suspension to match other advanced components.
+
 
 
 
