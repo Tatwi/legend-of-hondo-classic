@@ -150,12 +150,7 @@ public:
 			creature->sendSystemMessage("@healing_response:healing_response_60"); //No valid medicine found.
 			return false;
 		}
-
-		if (creature->getHAM(CreatureAttribute::MIND) < mindCost) {
-			creature->sendSystemMessage("@healing_response:not_enough_mind"); //You do not have enough mind to do that.
-			return false;
-		}
-
+		
 		if (!creatureTarget->isHealableBy(creature)) {
 			creature->sendSystemMessage("@healing:pvp_no_help"); //It would be unwise to help such a patient.
 			return false;
@@ -252,7 +247,7 @@ public:
 			uint32 stimPower = rangeStim->calculatePower(creature, targetCreature);
 
 			uint32 healthHealed = targetCreature->healDamage(creature, CreatureAttribute::HEALTH, stimPower);
-			uint32 actionHealed = targetCreature->healDamage(creature, CreatureAttribute::ACTION, stimPower);
+			uint32 actionHealed = targetCreature->healDamage(creature, CreatureAttribute::ACTION, 1); // LoH Basically don't heal Action
 
 			if (creature->isPlayerCreature()) {
 				PlayerManager* playerManager = server->getZoneServer()->getPlayerManager();
@@ -381,6 +376,15 @@ public:
 
 		if (!canPerformSkill(creature, targetCreature, stimPack))
 			return GENERALERROR;
+			
+		// Base healing cost on Focus and skill.
+		float hondoMindCost = 100 / ((creature->getHAM(CreatureAttribute::FOCUS) + creature->getSkillMod("healing_injury_treatment")) / 1000 + 1);
+
+		if (creature->getHAM(CreatureAttribute::MIND) < (int)round(hondoMindCost)) {
+			creature->sendSystemMessage("@healing_response:not_enough_mind"); //You do not have enough mind to do that.
+			return GENERALERROR;
+		}
+
 
 		float rangeToCheck = 7;
 
@@ -398,7 +402,7 @@ public:
 		uint32 stimPower = stimPack->calculatePower(creature, targetCreature);
 
 		uint32 healthHealed = targetCreature->healDamage(creature, CreatureAttribute::HEALTH, stimPower);
-		uint32 actionHealed = targetCreature->healDamage(creature, CreatureAttribute::ACTION, stimPower, true, false);
+		uint32 actionHealed = targetCreature->healDamage(creature, CreatureAttribute::ACTION, 1 , true, false); // LoH Basically don't heal Action
 
 		if (creature->isPlayerCreature()) {
 			PlayerManager* playerManager = server->getPlayerManager();
@@ -406,8 +410,8 @@ public:
 		}
 
 		sendHealMessage(creature, targetCreature, healthHealed, actionHealed);
-
-		creature->inflictDamage(creature, CreatureAttribute::MIND, mindCost, false);
+		
+		creature->inflictDamage(creature, CreatureAttribute::MIND, hondoMindCost, false);
 
 		Locker locker(stimPack);
 		stimPack->decreaseUseCount();
