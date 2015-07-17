@@ -90,6 +90,8 @@ class CraftingManager extends ZoneManager {
 	
 	public native int calculateExperimentationFailureRate(CreatureObject player, ManufactureSchematic manufactureSchematic, int pointsUsed);
 	
+	public native int calculateFinalJunkValue(CreatureObject player, ManufactureSchematic manufactureSchematic);
+	
 	public native int calculateExperimentationSuccess(CreatureObject player, DraftSchematic draftSchematic, float effectiveness);
 	
 	public native string generateSerial();
