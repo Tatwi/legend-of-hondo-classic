@@ -30,6 +30,11 @@
 
 #include "server/zone/managers/loot/LootManager.h"
 
+#include "server/zone/objects/resource/ResourceContainer.h"
+#include "server/zone/managers/crafting/labratories/SharedLabratory.h"
+#include "server/zone/managers/crafting/labratories/ResourceLabratory.h"
+#include "server/zone/objects/manufactureschematic/ingredientslots/ResourceSlot.h"
+
 
 
 int CraftingSessionImplementation::initializeSession(CraftingTool* tool, CraftingStation* station) {
@@ -781,12 +786,18 @@ void CraftingSessionImplementation::initialAssembly(int clientCounter) {
 
 	prototype->setComplexity(manufactureSchematic->getComplexity());
 	
+	// Hondo - Add Junk Dealer type to the item
+	prototype->setJunkDealerNeeded(1); // JUNKGENERIC
 	
-	// Hondo - Add Junk Dealer value to the item
-	prototype->setJunkDealerNeeded(1); // JUNKGENERIC 
-	float fJunkValue = experimentationPointsTotal+System::random(3*manufactureSchematic->getComplexity()+1);
-	prototype->setJunkValue((int)(fJunkValue));
-
+	// Add a value to the item, based on 1 Credit per unit, OQ, DR, and crafter skill
+		// CraftingManagerImplementation::calculateFinalJunkValue calculates final price and calls...
+			// SharedLabratory::getJunkValue which calculates quality/quantity of resources used
+	int junkPrice = craftingManager.get()->calculateFinalJunkValue(crafter, manufactureSchematic);
+	
+	if (junkPrice > 0) 
+		prototype->setJunkValue(junkPrice); // Max value for perfection capped at aprox 35,000 credits. 
+	else
+		prototype->setJunkValue(1); // Epic fail in the code somewhere! :)
 
 	// Start DMSCO3 ***********************************************************
 	// Sends the updated values to the crafting screen

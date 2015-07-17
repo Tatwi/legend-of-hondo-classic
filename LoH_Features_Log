@@ -871,6 +871,24 @@ scripts/object/draft_schematic/chemistry/component/release_mechanism_duration_ad
 
 
 
+Junk Dealers: Better Prices for Crafted Items!
+= = = = = = = = = = = = = = = = = 
+src/server/zone/managers/crafting/CraftingManager.idl
+src/server/zone/managers/crafting/CraftingManagerImplementation.cpp
+src/server/zone/managers/crafting/labratories/SharedLabratory.cpp
+src/server/zone/managers/crafting/labratories/SharedLabratory.h
+src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.cpp
+- - - - - - -
+- Dramatically improved the Junk Dealer values!
+- Complexity is no longer used as it is too arbitrary, thus experimentation is not required to get a good price.
+- Price is now based up on units of resources used (in the final combination), resource quality, player skill, and a bit of luck.
+- Subcomponents are taken into account, but based only upon an estimate of their resource quantity.
+- Optional component slots that are empty are ignored, ya cheeky pirates!
+- Player skill is capped at 120, because every profession can hit it (and Shipwright Engines +17 is too good of a bonus).
+- Max price is capped around 35,000 credits, "in a perfect world".
+- Explore the math if you want to ruin the mystery of it all :)
+
+
 
 
 ________________________________________________________
