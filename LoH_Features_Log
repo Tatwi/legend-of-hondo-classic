@@ -614,6 +614,11 @@ scripts/object/tangible/beta/beta_terminal_xp.lua
 - Also added learning of all languages as well.
 - Located in the Mos Espa cantina.
 
+UPDATE:
+- Added Artisan, Architect, Armorsmith, Chef, Droid Engineer, Tailor, Shipwright, and Weaponsmith. 
+- The "crafting grind", while being a good resource and credit sink, is ultimately a huge waste of time that isn't fun, even with the XP boosts.
+- I considered making all crafting use General Crafting Experience, but useless grind is still useless grind and this took much less time to impliment. 
+- The real fun is gathering resources and making things you will actually use.
 
 
 
