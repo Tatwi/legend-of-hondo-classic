@@ -761,7 +761,7 @@ Combat Tatwification!
 = = = = = = = = = = = = = = = = = 
 NOTE: 
 - I am sure most pre-cu SWG fans will hate what I am doing here. Oh well! This project is for me, not them. 
-- I don't use Jedi at all, so none of the changes I have made take them into consideration.
+- I don't use Jedi at all, so none of the changes I have made take them into consideration. I did alter their special attacks for consistency/clarity though.
 
 Purpose: 
 - LoH is a single player game, so I want to make it such that a person doesn't NEED to multi-box a "healer" just to play the game. 
@@ -859,7 +859,7 @@ tre/datatables/skill/skills.iff
 - Cure State moved to Master Medic.  
 - 15 total points of Wound Healing and Wound Healing Speed moved down to 22xx Medic, 44xx Medic, and Master Medic.
 
-UPDATES:
+UPDATE 1:
 
 scripts/object/tangible/medicine/crafted/[A Type Enhance/Cure]
 - - - - - - -
@@ -871,6 +871,34 @@ scripts/object/draft_schematic/chemistry/component/release_mechanism_duration_ad
 - - - - - - -
 - Changed ingredients so that they do not require any from the disabled planets. 
 - Increased units used in Advanced Liquid Suspension to match other advanced components.
+
+UPDATE 2: 
+
+src/server/zone/managers/combat/CombatManager.cpp
+- - - - - - -
+- Fixed some issue discovered after more testing. 
+- Fixed issue where specials that hit two pools would do too much damage. 
+- Fixed issue with head armor resists not being used. 
+- Reduced action damage by 3x for better combat balance - we want player special attacks to use it, and we want enemy attacks to drop it, and we want player mind to restore it, but we don't want it to be too easy for the MOB to starve the player of Action, because its recovery is puposefully limited by a finite amount of Mind. 
+- Restored Mind pool as an option for NPC/Creature attacks.
+- Changed random attack calculation to choose Action less and Mind only 3% of the time. Player has no way to modify this RNG.
+- Mind hits are treated at as a "critical hit" doing 25% more Health damage and full Action damage.
+- Mind hits always cause Focus/Willpower wounds. 
+- Action hits have a chance to cause Mind wounds, as Action is roughly 3x more likely to be hit than Mind.
+- Moved the rally concept from Health damage to Mind damage, as the math/logic was not what I wanted.
+- Rally: When hit in the Mind (crit Health/Action damage), players get a Mind heal to help them recover. Max 320, Min 205
+- Capped the extra wounds to primary stats at Min 2, Max 12, based upon the weapon's wound percentage value.
+- Special Attack Cost is now the highest of the values on the weapon, rather than the average of all three values. Average value was too low.
+
+scripts/commands/bleedingShot.lua
+scripts/commands/melee2hMindHit1.lua
+scripts/commands/melee2hMindHit2.lua
+scripts/commands/mindShot1.lua
+scripts/commands/mindShot2.lua
+scripts/commands/saberSlash1.lua
+scripts/commands/saberSlash2.lua
+- - - - - - -
+- Replaced Mind DoT with Action DoT.
 
 
 

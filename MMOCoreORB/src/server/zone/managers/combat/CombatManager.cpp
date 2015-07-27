@@ -1109,16 +1109,12 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 	// now apply the rest of the damage to the regular armor
 	ManagedReference<ArmorObject*> armor = NULL;
 
-	if (poolToDamage & CombatManager::HEALTH){
+	if (poolToDamage & CombatManager::HEALTH)
 		armor = getHealthArmor(defender);
-	} else if (poolToDamage & CombatManager::ACTION){
-		// LoH Apply damage to Mind armor less than Action armor
-		if (System::random(100) < 75){
-			armor = getActionArmor(defender);
-		} else{
-			armor = getMindArmor(defender);
-		}
-	}
+	else if (poolToDamage & CombatManager::ACTION)
+		armor = getActionArmor(defender);
+	else if (poolToDamage & CombatManager::MIND)
+		armor = getMindArmor(defender);
 
 	if (armor != NULL && !armor->isVulnerable(weapon->getDamageType())) {
 		// use only the damage applied to the armor for piercing (after the PSG takes some off)
@@ -1566,12 +1562,19 @@ bool CombatManager::applySpecialAttackCost(CreatureObject* attacker, WeaponObjec
 	action = attacker->calculateCostAdjustment(CreatureAttribute::QUICKNESS, action);
 	mind = attacker->calculateCostAdjustment(CreatureAttribute::FOCUS, mind);
 	
-	// LoH Apply average HAM cost only to the Action pool
-	float finalCost = (health + action + mind) / 3;
+	// LoH Pick the biggest HAM value (averaging them was too easy)
+	float finalCost = health;
+	if (finalCost < action){
+		finalCost = action;
+	} 
+	if (finalCost < mind){
+		finalCost = mind;
+	}
 
 	if (attacker->getHAM(CreatureAttribute::ACTION) <= finalCost)
 		return false;
 
+	// LoH Apply costs only to the Action pool
 	if (finalCost > 0)
 		attacker->inflictDamage(attacker, CreatureAttribute::ACTION, finalCost, true);
 
@@ -1716,11 +1719,13 @@ int CombatManager::calculatePoolsToDamage(int poolsToDamage) {
 		int rand = System::random(100);
 
 		if (rand < 85) {
-			poolsToDamage = HEALTH;
-		} else {
+			poolsToDamage = HEALTH; 
+		} else if (rand < 97) {
 			poolsToDamage = ACTION;
-		} 
-	} // LoH removed Mind pool as an option
+		} else {
+			poolsToDamage = MIND; // LoH Treated as crit hit to Health and Action
+		}
+	}
 
 	return poolsToDamage;
 }
@@ -1730,8 +1735,9 @@ int CombatManager::applyDamage(TangibleObject* attacker, WeaponObject* weapon, C
 		return 0;
 
 	float ratio = weapon->getWoundsRatio();
-	float healthDamage = 0.f, actionDamage = 0.f, mindDamage = 0.f;
-	float primaryWounds = ratio / 4 + 1; // LoH Increase wounds to primary stats
+	float healthDamage = 0.f, actionDamage = 0.f, mindDamage = 0.f, curentAction = 0.f, futureAction = 0.f;
+	float primaryWounds = MAX(2.f, ratio); // Increase wounds to primary stats
+	primaryWounds = MIN(12.f, primaryWounds); // But cap them at 12
 
 	if (defender->isPlayerCreature() && defender->getPvpStatusBitmask() == CreatureFlag::NONE) {
 		return 0;
@@ -1749,12 +1755,6 @@ int CombatManager::applyDamage(TangibleObject* attacker, WeaponObject* weapon, C
 		float healthBeforeHit = defender->getHAM(CreatureAttribute::HEALTH);
 		healthDamage = getArmorReduction(attacker, weapon, defender, damage, HEALTH, data) * damageMultiplier * data.getHealthDamageMultiplier();
 		defender->inflictDamage(attacker, CreatureAttribute::HEALTH, (int)healthDamage, true, xpType);
-		
-		// LoH Give Mind heal when hit hard by a single attack
-		if (defender->isPlayerCreature() && healthBeforeHit > 800 && (healthBeforeHit / 2) < healthDamage){
-			uint32 mindHealed = defender->healDamage(defender, CreatureAttribute::MIND, 50);
-			defender->sendSystemMessage("Ouch! You rally in the face of pain, healing your Mind!");
-		}
 
 		if (System::random(100) < ratio)
 			defender->addWounds(CreatureAttribute::HEALTH, primaryWounds, true);
@@ -1766,16 +1766,20 @@ int CombatManager::applyDamage(TangibleObject* attacker, WeaponObject* weapon, C
 			defender->addWounds(CreatureAttribute::CONSTITUTION, 1, true);
 	}
 
-	// LoH removed Mind damage, merged Mind wounding into Action section
 	if (poolsToDamage & ACTION) {
 		actionDamage = getArmorReduction(attacker, weapon, defender, damage, ACTION, data) * damageMultiplier * data.getActionDamageMultiplier();
 		
-		// LoH Prevent Action from going below 5, so Mobs don't disenage combat before player health runs out
-		float curentAction = defender->getHAM(CreatureAttribute::ACTION);
-		float futureAction = curentAction - actionDamage;
-		if (futureAction < 0)
-			actionDamage += futureAction - 5.0f;
+		// Special cases for players
+		if (defender->isPlayerCreature()){
+			actionDamage /= 3.f; // LoH Reduce direct damage to the Action pool	
 			
+			// LoH Prevent Action from going below 5, so Mobs don't disenage combat before player health runs out		
+			curentAction = defender->getHAM(CreatureAttribute::ACTION);
+			futureAction = curentAction - actionDamage;
+			if (futureAction < 0)
+				actionDamage += futureAction - 5.0f;
+		}
+		
 		defender->inflictDamage(attacker, CreatureAttribute::ACTION, (int)actionDamage, true, xpType);
 
 		if (System::random(100) < ratio)
@@ -1786,15 +1790,39 @@ int CombatManager::applyDamage(TangibleObject* attacker, WeaponObject* weapon, C
 
 		if (System::random(100) < ratio)
 			defender->addWounds(CreatureAttribute::STAMINA, 1, true);
-
+			
 		if (System::random(100) < ratio)
 			defender->addWounds(CreatureAttribute::MIND, primaryWounds, true);
-
-		if (System::random(100) < ratio)
-			defender->addWounds(CreatureAttribute::FOCUS, 1, true);
-
-		if (System::random(100) < ratio)
-			defender->addWounds(CreatureAttribute::WILLPOWER, 1, true);
+	}
+	
+	// LoH Treat Mind damage as a critical hit and apply full damage to the Action pool and 25% more damage to the Health pool.
+	// Can only happen on random auto attacks or random based specials, as all direct Mind attack specials were changed to Health or Action.
+	if (poolsToDamage & MIND) {
+		mindDamage = getArmorReduction(attacker, weapon, defender, damage, MIND, data) * damageMultiplier * data.getMindDamageMultiplier();
+		
+		float healthCritHit = mindDamage * 1.25;
+		defender->inflictDamage(attacker, CreatureAttribute::HEALTH, (int)healthCritHit, true, xpType);
+		
+		// LoH Prevent Action from going below 5, so Mobs don't disenage combat before player health runs out
+		curentAction = defender->getHAM(CreatureAttribute::ACTION);
+		futureAction = curentAction - mindDamage;
+		if (futureAction < 0)
+			mindDamage += futureAction - 5.0f;
+		
+		defender->inflictDamage(attacker, CreatureAttribute::ACTION, (int)mindDamage, true, xpType);
+		
+		mindDamage = healthCritHit; // LoH so function returns the crit value
+		
+		// Apply a Mind heal as a reaction for players
+		if (defender->isPlayerCreature()){
+			float rallyMindHeal = 255 / (primaryWounds/100 + 1) + System::random(75); // Max 320, Min 205
+			uint32 mindHealed = defender->healDamage(defender, CreatureAttribute::MIND, (int)rallyMindHeal);
+			defender->sendSystemMessage("Ouch! You rally in the face of pain, healing your Mind!");
+		}
+		
+		// Only a 3% chance on random type attacks to get here, so always add some secondary mind wounds.
+		defender->addWounds(CreatureAttribute::FOCUS, System::random(5)+1, true);
+		defender->addWounds(CreatureAttribute::WILLPOWER, System::random(5)+1, true);
 	}
 
 	// This method can be called multiple times for area attacks.  Let the calling method decrease the powerup once
