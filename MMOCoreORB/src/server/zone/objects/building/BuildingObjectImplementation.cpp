@@ -1246,7 +1246,7 @@ void BuildingObjectImplementation::createChildObjects(){
 				dbString = "playerstructures";
 			}
 
-			ManagedReference<SceneObject*> obj = server->createObject(child->getTemplateFile().hashCode(),dbString,1);
+			ManagedReference<SceneObject*> obj = server->createObject(child->getTemplateFile().hashCode(), dbString, getPersistenceLevel());
 
 			if (obj == NULL )
 				continue;
@@ -1395,7 +1395,7 @@ void BuildingObjectImplementation::spawnChildSceneObject(String& templatePath, f
 	if (zone == NULL)
 		return;
 
-	ManagedReference<SceneObject*> object = zoneServer->createObject(templatePath.hashCode(), 0);
+	ManagedReference<SceneObject*> object = zoneServer->createObject(templatePath.hashCode(), getPersistenceLevel());
 
 	if (object == NULL || object->isCreatureObject())
 		return;
@@ -1579,7 +1579,7 @@ void BuildingObjectImplementation::changeSign( SignTemplate* signConfig ){
 
 	ZoneServer* zoneServer = getZone()->getZoneServer();
 
-	ManagedReference<SceneObject*> signSceno = zoneServer->createObject(signConfig->getTemplateFile().hashCode(), 1);
+	ManagedReference<SceneObject*> signSceno = zoneServer->createObject(signConfig->getTemplateFile().hashCode(), getPersistenceLevel());
 	if (signSceno == NULL)
 		return;
 
