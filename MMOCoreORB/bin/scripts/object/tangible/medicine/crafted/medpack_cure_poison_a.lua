@@ -56,8 +56,8 @@ object_tangible_medicine_crafted_medpack_cure_poison_a = object_tangible_medicin
 	experimentalWeights = {1, 1, 2, 1, 2, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "exp_effectiveness", "exp_charges", "expEaseOfUse", "null"},
 	experimentalSubGroupTitles = {"null", "null", "power", "charges", "skillmodmin", "hitpoints"},
-	experimentalMin = {0, 0, 10, 10, 51, 1000},
-	experimentalMax = {0, 0, 90, 20, 51, 1000},
+	experimentalMin = {0, 0, 10, 10, 40, 1000},
+	experimentalMax = {0, 0, 90, 20, 40, 1000},
 	experimentalPrecision = {0, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 4},
 }

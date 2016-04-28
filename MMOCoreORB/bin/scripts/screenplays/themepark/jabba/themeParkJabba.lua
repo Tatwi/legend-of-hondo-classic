@@ -206,8 +206,8 @@ porcellus_missions =
 			},
 			secondarySpawns =
 			{
-				{ npcTemplate = "mercenary_aggro", planetName = "tatooine", npcName = "a Mercenary" },
-				{ npcTemplate = "mercenary_aggro", planetName = "tatooine", npcName = "a Mercenary" },
+				{ npcTemplate = "valarian_thug", planetName = "tatooine", npcName = "Valarian Thug" },
+				{ npcTemplate = "valarian_thug", planetName = "tatooine", npcName = "Valarian Thug" },
 			},
 			itemSpawns = {
 				{ itemTemplate = "object/tangible/loot/misc/petrified_avian_egg.iff", itemName = "Petrified Avian Egg" }

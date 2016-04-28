@@ -35,6 +35,7 @@ public:
 	virtual void experimentRow(CraftingValues* craftingValues,int rowEffected, int pointsAttempted, float failure, int experimentationResult) = 0;
 	virtual void initialize(ZoneServer* server);
 	virtual float getWeightedValue(ManufactureSchematic* manufactureSchematic, int type);
+	virtual float getJunkValue(ManufactureSchematic* manufactureSchematic);
 	virtual bool allowFactoryRun(ManufactureSchematic* manufactureSchematic);
 	virtual int getCreationCount(ManufactureSchematic* manufactureSchematic) = 0;
 	virtual int calculateAssemblySuccess(CreatureObject* player,DraftSchematic* draftSchematic, float effectiveness);

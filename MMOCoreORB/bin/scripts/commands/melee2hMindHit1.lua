@@ -56,7 +56,7 @@ Melee2hMindHit1Command = {
 	  DotEffect( 
 		BLEEDING, 
 		{ "resistance_bleeding", "bleed_resist" },
-		MIND,
+		ACTION,
 		true,
 		125,
 		100,

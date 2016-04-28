@@ -615,47 +615,52 @@ int PlayerManagerImplementation::notifyDestruction(TangibleObject* destructor, T
 	PlayerObject* ghost = playerCreature->getPlayerObject();
 
 	ghost->updateIncapacitationCounter();
+	
+	// LoH
+	int playerHealth = playerCreature->getHAM(CreatureAttribute::HEALTH);
 
 	DeltaVector<ManagedReference<SceneObject*> >* defenderList = destructor->getDefenderList();
 
 	bool isDefender = false;
 
-	if (defenderList->contains(destructedObject)) {
+	if (defenderList->contains(destructedObject)) { 
 		isDefender = true;
 		destructor->removeDefender(destructedObject);
 	}
+	
+	// LoH Only incap/kill player when out of Health
+	if (playerHealth <= 0){
+		if ((!destructor->isKiller() || !isDefender) && ghost->getIncapacitationCounter() < 3) {
+			playerCreature->setCurrentSpeed(0);
+			playerCreature->setPosture(CreaturePosture::INCAPACITATED, true);
+			playerCreature->updateLocomotion();
 
-	if ((!destructor->isKiller() || !isDefender) && ghost->getIncapacitationCounter() < 3) {
-		playerCreature->setCurrentSpeed(0);
-		playerCreature->setPosture(CreaturePosture::INCAPACITATED, true);
-		playerCreature->updateLocomotion();
+			uint32 incapTime = calculateIncapacitationTimer(playerCreature, condition);
+			playerCreature->setCountdownTimer(incapTime, true);
 
-		uint32 incapTime = calculateIncapacitationTimer(playerCreature, condition);
-		playerCreature->setCountdownTimer(incapTime, true);
+			Reference<Task*> oldTask = playerCreature->getPendingTask("incapacitationRecovery");
 
-		Reference<Task*> oldTask = playerCreature->getPendingTask("incapacitationRecovery");
+			if (oldTask != NULL && oldTask->isScheduled()) {
+				oldTask->cancel();
+				playerCreature->removePendingTask("incapacitationRecovery");
+			}
 
-		if (oldTask != NULL && oldTask->isScheduled()) {
-			oldTask->cancel();
-			playerCreature->removePendingTask("incapacitationRecovery");
-		}
+			Reference<Task*> task = new PlayerIncapacitationRecoverTask(playerCreature, false);
+			playerCreature->addPendingTask("incapacitationRecovery", task, incapTime * 1000);
 
-		Reference<Task*> task = new PlayerIncapacitationRecoverTask(playerCreature, false);
-		playerCreature->addPendingTask("incapacitationRecovery", task, incapTime * 1000);
+			StringIdChatParameter stringId;
 
-		StringIdChatParameter stringId;
+			stringId.setStringId("base_player", "prose_victim_incap");
+			stringId.setTT(destructor->getObjectID());
 
-		stringId.setStringId("base_player", "prose_victim_incap");
-		stringId.setTT(destructor->getObjectID());
+			playerCreature->sendSystemMessage(stringId);
 
-		playerCreature->sendSystemMessage(stringId);
-
-	} else {
-		if (destructor->isKiller() || !ghost->isFirstIncapacitationExpired()) {
-			killPlayer(destructor, playerCreature, 0);
+		} else {
+			if (destructor->isKiller() || !ghost->isFirstIncapacitationExpired()) {
+				killPlayer(destructor, playerCreature, 0);
+			}
 		}
 	}
-
 	return 0;
 }
 
@@ -887,12 +892,18 @@ void PlayerManagerImplementation::sendPlayerToCloner(CreatureObject* player, uin
 	uint64 preDesignatedFacilityOid = ghost->getCloningFacility();
 	ManagedReference<SceneObject*> preDesignatedFacility = server->getObject(preDesignatedFacilityOid);
 
+	// LoH Apply wounds even when cloning where data is stored, but less so.
+	int cloningWounds = 100; // Just in case... 
 	if (preDesignatedFacility == NULL || preDesignatedFacility != cloningBuilding) {
-		player->addWounds(CreatureAttribute::HEALTH, 100, true, false);
-		player->addWounds(CreatureAttribute::ACTION, 100, true, false);
-		player->addWounds(CreatureAttribute::MIND, 100, true, false);
-		player->addShockWounds(100, true);
+		cloningWounds = System::random(100) + 120;
+	} else{
+		cloningWounds = System::random(50) + 25;
 	}
+	
+	player->addWounds(CreatureAttribute::HEALTH, cloningWounds, true, false);
+	player->addWounds(CreatureAttribute::ACTION, cloningWounds, true, false);
+	player->addWounds(CreatureAttribute::MIND, cloningWounds, true, false);
+	player->addShockWounds(100, true);
 
 	if (ghost->getFactionStatus() != FactionStatus::ONLEAVE)
 		ghost->setFactionStatus(FactionStatus::ONLEAVE);
@@ -913,8 +924,8 @@ void PlayerManagerImplementation::sendPlayerToCloner(CreatureObject* player, uin
 				Locker clocker(obj, player);
 
 				if (obj->getOptionsBitmask() & OptionBitmask::INSURED) {
-					//1% Decay for insured items
-					obj->inflictDamage(obj, 0, 0.01 * obj->getMaxCondition(), true, true);
+					//3% Decay for insured items
+					obj->inflictDamage(obj, 0, 0.03 * obj->getMaxCondition(), true, true); // LoH increased decay rate for insured items.
 					//Set uninsured
 					uint32 bitmask = obj->getOptionsBitmask() - OptionBitmask::INSURED;
 					obj->setOptionsBitmask(bitmask);

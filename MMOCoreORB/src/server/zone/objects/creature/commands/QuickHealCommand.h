@@ -35,8 +35,8 @@ public:
 		actionHealed = 0;
 		mindHealed = 0;
 
-		mindCost = 800;
-		mindWoundCost = 10;
+		mindCost = 50;
+		mindWoundCost = 25;
 
 		speed = 1;
 		range = 6;
@@ -114,28 +114,13 @@ public:
 
 		Locker clocker(creatureTarget, creature);
 		
-		if (!creature->isInRange(creatureTarget, range + creatureTarget->getTemplateRadius() + creature->getTemplateRadius()))
-			return TOOFAR;		
+		creatureTarget = creature; // LoH Never heal anything but the player using the ability
 
-		if ((creatureTarget->isAiAgent() && !creatureTarget->isPet()) || creatureTarget->isDroidObject() || creatureTarget->isDead() || creatureTarget->isRidingMount() || creatureTarget->isAttackableBy(creature))
-			creatureTarget = creature;
+		// LoH Base healing cost on Focus and skill.
+		float hondoMindCost = 50 / ((creature->getHAM(CreatureAttribute::FOCUS) + creature->getSkillMod("healing_injury_treatment")) / 1000 + 1);
 
-		if (creature->isInCombat()) {
-			creature->sendSystemMessage("You cannot do that while in Combat.");
-			return GENERALERROR;
-		}
 
-		if (creatureTarget->isInCombat()) {
-			creature->sendSystemMessage("You cannot do that while your target is in Combat.");
-			return GENERALERROR;
-		}
-
-		if (!creatureTarget->isHealableBy(creature)) {
-			creature->sendSystemMessage("@healing:pvp_no_help");  //It would be unwise to help such a patient.
-			return GENERALERROR;
-		}
-
-		if (creature->getHAM(CreatureAttribute::MIND) < abs(mindCost)) {
+		if (creature->getHAM(CreatureAttribute::MIND) < abs(hondoMindCost)) {
 			creature->sendSystemMessage("@healing_response:not_enough_mind"); //You do not have enough mind to do that.
 			return GENERALERROR;
 		}
@@ -156,7 +141,7 @@ public:
 			return GENERALERROR;
 		}
 
-		int healPower = (int) round(150 + System::random(600));
+		int healPower = (int) round(400 + System::random(350 + creature->getSkillMod("healing_injury_treatment")));
 
 		int healedHealth = creatureTarget->healDamage(creature, CreatureAttribute::HEALTH, healPower);
 		int healedAction = creatureTarget->healDamage(creature, CreatureAttribute::ACTION, healPower);
@@ -167,10 +152,13 @@ public:
 		}
 
 		sendHealMessage(creature, creatureTarget, healedHealth, healedAction);
+		
+		int hondoMindWoundCost = healPower / 20; // LoH Wounds based on healed amount.
 
-		creature->inflictDamage(creature, CreatureAttribute::MIND, mindCost, false);
-		creature->addWounds(CreatureAttribute::FOCUS, mindWoundCost, true);
-		creature->addWounds(CreatureAttribute::WILLPOWER, mindWoundCost, true);
+		creature->inflictDamage(creature, CreatureAttribute::MIND, hondoMindCost, false);
+		creature->addWounds(CreatureAttribute::MIND, hondoMindWoundCost);
+		//reature->addWounds(CreatureAttribute::FOCUS, mindWoundCost, true);
+		//creature->addWounds(CreatureAttribute::WILLPOWER, mindWoundCost, true);
 
 		doAnimations(creature, creatureTarget);
 

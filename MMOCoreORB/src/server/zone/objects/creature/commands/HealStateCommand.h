@@ -114,11 +114,6 @@ public:
 			return false;
 		}
 
-		if (creature->getHAM(CreatureAttribute::MIND) < mindCost) {
-			creature->sendSystemMessage("@healing_response:not_enough_mind"); //You do not have enough mind to do that.
-			return false;
-		}
-
 		return true;
 	}
 
@@ -253,8 +248,16 @@ public:
 
 			return GENERALERROR;
 		}
+		
+		// Base healing cost on Focus and skill.
+		float hondoMindCost = 120 / ((creature->getHAM(CreatureAttribute::FOCUS) + creature->getSkillMod("healing_injury_treatment")) / 1000 + 1);
 
-		creature->inflictDamage(creature, CreatureAttribute::MIND, mindCost, false);
+		if (creature->getHAM(CreatureAttribute::MIND) < (int)round(hondoMindCost)) {
+			creature->sendSystemMessage("@healing_response:not_enough_mind"); //You do not have enough mind to do that.
+			return GENERALERROR;
+		}
+
+		creature->inflictDamage(creature, CreatureAttribute::MIND, hondoMindCost, false);
 
 		sendStateMessage(creature, creatureTarget, state);
 

@@ -2477,31 +2477,38 @@ void CreatureObjectImplementation::activateHAMRegeneration() {
 	float modifier = 1.f;// (isInCombat()) ? 1.f : 1.f;
 
 	if (isKneeling())
-		modifier *= (1.5);
-	else if (isSitting())
-		modifier *= (2);
+		modifier *= (1.15);
+	else if (isSitting() && !isInCombat()) // LoH No bonus for sitting in combat, but large bonus when resting out of combat
+		modifier *= (10);
 
 	if (!isPlayerCreature() && isInCombat())
 		return;
 
 	uint32 healthTick = (uint32) ceil((float) MAX(0, getHAM(
-			CreatureAttribute::CONSTITUTION)) * 13.0f / 1200.0f * 3.0f
-			* modifier);
+			CreatureAttribute::CONSTITUTION)) * 13.0f / 1200.0f * 3.0f);
 	uint32 actionTick = (uint32) ceil((float) MAX(0, getHAM(
 			CreatureAttribute::STAMINA)) * 13.0f / 1200.0f * 3.0f * modifier);
 	uint32 mindTick = (uint32) ceil((float) MAX(0, getHAM(
-			CreatureAttribute::WILLPOWER)) * 13.0f / 1200.0f * 3.0f * modifier);
-
-	if (healthTick < 1)
-		healthTick = 1;
-
+			CreatureAttribute::WILLPOWER)) * 13.0f / 1200.0f * modifier); // LoH Removed * 3.0f
+			
+	if (healthTick < 1 || isInCombat()) // LoH Health regen in combat is disabled and it's lowered to 1 other times.
+		healthTick = 0;
+	
+	// LoH regen while in combat is reduced
+	if (isInCombat()){
+		actionTick = actionTick / 2;
+		mindTick = mindTick / 3;
+	}
+		
 	if (actionTick < 1)
 		actionTick = 1;
 
 	if (mindTick < 1)
 		mindTick = 1;
-
-	healDamage(asCreatureObject(), CreatureAttribute::HEALTH, healthTick, true, false);
+	
+	if (healthTick > 0) // LoH Health regen in combat is disabled
+		healDamage(asCreatureObject(), CreatureAttribute::HEALTH, healthTick, true, false);
+		
 	healDamage(asCreatureObject(), CreatureAttribute::ACTION, actionTick, true, false);
 	healDamage(asCreatureObject(), CreatureAttribute::MIND, mindTick, true, false);
 

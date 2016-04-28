@@ -614,6 +614,11 @@ scripts/object/tangible/beta/beta_terminal_xp.lua
 - Also added learning of all languages as well.
 - Located in the Mos Espa cantina.
 
+UPDATE:
+- Added Artisan, Architect, Armorsmith, Chef, Droid Engineer, Tailor, Shipwright, and Weaponsmith. 
+- The "crafting grind", while being a good resource and credit sink, is ultimately a huge waste of time that isn't fun, even with the XP boosts.
+- I considered making all crafting use General Crafting Experience, but useless grind is still useless grind and this took much less time to impliment. 
+- The real fun is gathering resources and making things you will actually use.
 
 
 
@@ -735,45 +740,193 @@ Fixes included:
 
 
 
-________________________________________________________
---- P L A N E D ---
-========================================================
-
-
-
-
-Combat Changes
+Advanced Structure Placement
 = = = = = = = = = = = = = = = = = 
-NOTE: I am sure most pre-cu SWG fans will hate what I am doing here. Oh well! This project is for me, not them. 
+src/server/zone/objects/tangible/deed/structure/StructureDeed.idl
+src/server/zone/objects/tangible/deed/structure/StructureDeedImplementation.cpp
+tre/clienteffect/house_plop_ruler.cef
+- - - - - - -
+**** WARNING ****
+- This feature bypasses many limitations on placing a stucture and therefore should not be used by novices or the general public. If you use this feature on a multiplayer server, I highly suggest limiting it to GM's only.
+- Added the "House Plop" ability (something I started working on in 2014 for Kinshi of the Tarkin server. Only took me a year to figure it out! lol...).
+- Place a structure, from its deed using a new radial menu option, almost anywhere, with the door rotated to face the direction your character is facing.
+- Use the Show Ruler option to extend a green line out from your character to make it easier to see what way you are actually facing.
+- It's not a perfect solution, but it does make it much easier to line up player buildings with NPC structures. 
+
+
+
+
+
+Combat Tatwification!
+= = = = = = = = = = = = = = = = = 
+NOTE: 
+- I am sure most pre-cu SWG fans will hate what I am doing here. Oh well! This project is for me, not them. 
+- I don't use Jedi at all, so none of the changes I have made take them into consideration. I did alter their special attacks for consistency/clarity though.
 
 Purpose: 
-- LoH is a single player game, so I want to make it such that a person doesn't NEED to multi-box just to play the game. 
-- I want to make combat more like playing a WotLK era Shaman in WoW. The focus is on managing Mind/Action resources and removing states, to keep your Health up while still damaging the enemy enough to win. 
-- Shaman were fun to solo dungeons with, because when played well they had the tools to do the job. When played poorly, however, they weren't over powered enough to make up for the player's lack of skill.
-- Like Shaman, the professions in SWG have cooldowns and "mana" (Action/Mind) to manage, but in SWG but there are added complexities in HAM costs, encumberance, armor resists, and so on.
-- These changes are meant to make it clear that Health is what you have to maintain to stay alive and to do that, you have to manage your Action and Mind as best as you can. 
+- LoH is a single player game, so I want to make it such that a person doesn't NEED to multi-box a "healer" just to play the game. 
+- To mesh all combat professions with the use Medic 444x rather than said secondary healer.
+- To give Health/Action/Mind their own sensible purposes and remove the weirdness that was killing one's self by using special attacks, etc. 
 
-- Incapacitation and death only happens when the target runs out of Health, for players and NPCs/Creatures.
-- Regen rates for Health and Action while in combat are very low.
-- Mind does not regenerate while in combat.
-- DoTs are the only way to attack the Mind pool. 
-- Mind healing removed in all forms except for "morale boosts" that apply a heal over time when you do well in combat. It's a random chance based on damage done.
-- Action healing is 1/4 the amount shown. 
-- Health healing unchanged.
+Health: 
+- The only stat which will cause incap/death. 
+- All attacks can hit it.
+- Stimpacks and Quick Heal heal it.
+- Tend Damage DOES NOT heal it.
+- Does not regen in combat (and extremely slowly out of combat - use Medic!).
+
+Action: 
+- Overall 15% chance enemy attacks will damage it.
+- All "weapon ability HAM costs" are averaged and applied only to the Action pool. 
+- Incap does not occur when it is empty. 
+- DoTs still effect it.
+- Tend Damage heals it.
+- Stimpacks DO NOT heal it.
+- Regens more slowly in combat, but very fast when sitting out of combat.
+
+Mind:
+- Primary function is to manage healing of Health/Action, and the removal of States/DoTs.
+- No enemy can directly attack it.
+- DoTs still effect it.
+- Incap does not occur when it is empty. 
+- Tend Damage, Tend Wound, and Quick Heal all cause Mind wounds (but not Focus/Willpower wounds), with the amount of wounds based on various factors.
+- In combat regen was nerfed into the ground (because it is TOTALLY "live forever or until I run out of stimpacks" OVERPOWERED otherwise...), but very fast when sitting out of combat.
+- When player lands a good hit he regens 100 Mind.
+- Blue Milk still heals mind, until the player's "drink filling" is full. 
+
+
+src/server/zone/objects/creature/CreatureObjectImplementation.cpp
+- - - - - - -
+- Health does not regenerate while in combat.
+- 50% Action and Mind regen while in combat.
+- Action and Mind regen is much higher while sitting when not in combat.
+- 15% Action and Mind bonus when kneeling, even in combat.
+
+src/server/zone/managers/combat/CombatManager.cpp
+- - - - - - -
+- Weapon HAM costs are now only applied to the Action pool. The amount applied is the average of the normal health, action, and mind costs.
+- Removed chance to hit Mind with direct attacks. 85% Health, 15% Action
+- Removed Mind damage.
+- Merged Mind wound application into Action calculations.
+- Wounds are increased to primary stats (Health/Action/Mind) when damaged in combat.
+- Apply less damage to Mind type armor than Action type, by choosing randomly between them when damage is applied to Action pool.
+- Added a "Shocked Rally" Mind heal, based on available Action, when the player is hit for more than 25% of their Health in a single hit. Min of 500 health required to get this "kick in the pants"!
+
+src/server/zone/managers/player/PlayerManagerImplementation.cpp
+- - - - - - -
+- Wounds are always applied when cloning. Random amount higher than default SWG, but less if you clone where your data is stored.
+- Insured items decay at 3% rather than 1%. Uninsured still decay at 5%.
+- Incapacitation and death only occur if the player is out of Health.
+
+src/server/zone/objects/creature/commands/HealDamageCommand.h
+- Stimpacks are now only for healing Health.
+- Set amount of Action healed to 1 regardless of stimpack power, player skill, etc.
+- Mind cost based on Focus and Injury Treatment skill.
+ 
+src/server/zone/objects/creature/commands/TendDamageCommand.h
+- - - - - - -
+- Tend Damage is now the primary way to heal Action,
+- Mind cost based on Focus and Injury Treatment skill.
+- Reduced wounds.
+
+src/server/zone/objects/creature/commands/TendWoundCommand.h
+- - - - - - -
+- Mind cost based on Focus and Injury Treatment skill.
+- Increase wounds.
+ 
+src/server/zone/objects/creature/commands/TendCommand.h
+- - - - - - -
+- TendDamage heals Action based more on player skill and with an additional crit chance, but only heals 1 Health.
+- Both TendDamage and TendWound only cause Mind wounds, no longer wounds Focus and Willpower. 
+
+src/server/zone/objects/creature/commands/QuickHealCommand.h
+- - - - - - -
+- Made this into an "Oh Shit" self heal button that can now be used in combat.
+- Still heals both Health and Action.
+- Increased min possible healing to 400. Max is 400 + random(350 + Injury Treatment Skill).
+- Mind cost based on Focus and Injury Treatment skill.
+- Increased Mind wounds to healed amount / 20, but no longer wounds Focus and Willpower.
+
+src/server/zone/objects/creature/commands/HealStateCommand.h
+- - - - - - -
+- Mind cost based on Focus and Injury Treatment skill.
+
+tre/datatables/skill/skills.iff
+- - - - - - -
 - Combat Medic removed, with its abilities and craftables megered into Doctor. 
-- Buff application and crafting moved to xx22 Medic. Note that I already nerfed buffs to keep combat challenging.
+- Doctor Buff application and buff crafting moved to xx22 Medic. Note that I already nerfed buffs to keep combat challenging.
 - Cure Poison and Cure Disease moved to 4x4x Medic.
 - Cure State moved to Master Medic.  
 - 15 total points of Wound Healing and Wound Healing Speed moved down to 22xx Medic, 44xx Medic, and Master Medic.
-- Amount of Mind used when using a Medic/Doctor ability is based on Action remaining and Injury Treatment skill.
-- Disable insurance, because it removes the need to heal wounds (so loss of XP) and makes gear last too long. Too "easy mode" for me.
-- NPC/Creatures have a random chance to regenerate some of their health, action, or mind when they perform an attack.
-- Low Action on NPC/Creatures will make them vulnerable to state attacks, such as Dizzy, etc. 
-- Low Mind on NPC/Creatures will reduce their accuracy upto 50%.
-- Similar to the player, when an NPC/Creature is out of action and mind, they will not be able to perform special abilities. However, each of their deafult attacks retains the chance to regen a stat. 
-- RANDOM type special attacks will choose between only Health or Action. 
-- DoTs applied to mind will not be as potent, due to the total lack of active Mind healing.
 
+UPDATE 1:
+
+scripts/object/tangible/medicine/crafted/[A Type Enhance/Cure]
+- - - - - - -
+- Reduced the required medicine use skill to match Medic levels where the abilities are granted. 
+
+scripts/object/draft_schematic/chemistry/component/dispersal_mechanism_advanced.lua
+scripts/object/draft_schematic/chemistry/component/liquid_delivery_suspension_advanced.lua
+scripts/object/draft_schematic/chemistry/component/release_mechanism_duration_advanced.lua
+- - - - - - -
+- Changed ingredients so that they do not require any from the disabled planets. 
+- Increased units used in Advanced Liquid Suspension to match other advanced components.
+
+UPDATE 2: 
+
+src/server/zone/managers/combat/CombatManager.cpp
+- - - - - - -
+- Fixed some issue discovered after more testing. 
+- Fixed issue where specials that hit two pools would do too much damage. 
+- Fixed issue with head armor resists not being used. 
+- Reduced action damage by 3x for better combat balance - we want player special attacks to use it, and we want enemy attacks to drop it, and we want player mind to restore it, but we don't want it to be too easy for the MOB to starve the player of Action, because its recovery is puposefully limited by a finite amount of Mind. 
+- Restored Mind pool as an option for NPC/Creature attacks.
+- Changed random attack calculation to choose Action less and Mind only 3% of the time. Player has no way to modify this RNG.
+- Mind hits are treated at as a "critical hit" doing 25% more Health damage and full Action damage.
+- Mind hits always cause Focus/Willpower wounds. 
+- Action hits have a chance to cause Mind wounds, as Action is roughly 3x more likely to be hit than Mind.
+- Moved the rally concept from Health damage to Mind damage, as the math/logic was not what I wanted.
+- Rally: When hit in the Mind (crit Health/Action damage), players get a Mind heal to help them recover. Max 320, Min 205
+- Capped the extra wounds to primary stats at Min 2, Max 12, based upon the weapon's wound percentage value.
+- Special Attack Cost is now the highest of the values on the weapon, rather than the average of all three values. Average value was too low.
+
+scripts/commands/bleedingShot.lua
+scripts/commands/melee2hMindHit1.lua
+scripts/commands/melee2hMindHit2.lua
+scripts/commands/mindShot1.lua
+scripts/commands/mindShot2.lua
+scripts/commands/saberSlash1.lua
+scripts/commands/saberSlash2.lua
+- - - - - - -
+- Replaced Mind DoT with Action DoT.
+
+
+
+
+
+Junk Dealers: Better Prices for Crafted Items!
+= = = = = = = = = = = = = = = = = 
+src/server/zone/managers/crafting/CraftingManager.idl
+src/server/zone/managers/crafting/CraftingManagerImplementation.cpp
+src/server/zone/managers/crafting/labratories/SharedLabratory.cpp
+src/server/zone/managers/crafting/labratories/SharedLabratory.h
+src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.cpp
+- - - - - - -
+- Dramatically improved the Junk Dealer values!
+- Complexity is no longer used as it is too arbitrary, thus experimentation is not required to get a good price.
+- Price is now based up on units of resources used (in the final combination), resource quality, player skill, and a bit of luck.
+- Subcomponents are taken into account, but based only upon an estimate of their resource quantity.
+- Optional component slots that are empty are ignored, ya cheeky pirates!
+- Player skill is capped at 120, because every profession can hit it (and Shipwright Engines +17 is too good of a bonus).
+- Max price is capped around 35,000 credits, "in a perfect world".
+- Explore the math if you want to ruin the mystery of it all :)
+
+
+
+
+________________________________________________________
+--- P L A N E D ---
+========================================================
 
 
 

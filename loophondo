@@ -1,0 +1,80 @@
+#!/bin/bash
+#
+# Automatically start, save, shutdown, and restart a SWGEmu server.
+#
+# Tatwi 2015 - www.tpot.ca
+#
+# To uses this, shh into your server and make a new terminal screen called hondo:
+# 	screen -S hondo
+# then cd into Core3/MMOCoreORB/bin and close SSH connection. The hondo screen will stay running, which you can see with htop.
+# Open another SSH connection and make a new screen called looper
+#	screen -S looper
+# then cd to where you saved this script
+# run the script by typing ./loophondo
+# 
+# Personally I put the loophondo script (and others that I use) in the ~/bin dir and added that dir to my system path so I can 
+# type them from anywhere.
+
+# Load the server in terminal named hondo
+screen -S hondo -p 0 -X stuff "./core3$(printf \\r)"
+
+# Provide feedback while booting
+echo -n "The server is booting... "; date
+
+# Wait 4 minutes for server to boot
+sleep 240s
+
+# Provide feedback when server is up
+echo -n "The server is now running! Uptime will be approx 130 minutes... "; date
+
+# Wait 130 minutes while server is running 
+sleep 130m
+
+# Issue 10 minute warning
+echo -n "Issuing 10 minute warning... "; date
+screen -S hondo -p 0 -X stuff "broadcast The server will start its reboot sequence in 10 minutes. $(printf \\r)" 
+
+sleep 5m
+
+# Issue 5 minute warning
+echo -n "Issuing 5 minute warning... "; date
+screen -S hondo -p 0 -X stuff "broadcast The server will start its reboot sequence in 5 minutes. $(printf \\r)" 
+
+sleep 5m
+
+# Issue shutdown command, with a 2 minute countdown
+echo -n "Shutting down the server in 2 minutes - LOG OUT NOW! Any action beyond this point will not be saved... "; date
+screen -S hondo -p 0 -X stuff "shutdown 2$(printf \\r)"
+
+# Wait until final shutdown message, then kill/restart the server.
+sleep 125s
+
+# Issue 10 minute warning
+echo -n "Issuing 10 minute warning... "; date
+screen -S hondo -p 0 -X stuff "broadcast The server will start its reboot sequence in 10 minutes. $(printf \\r)" 
+
+sleep 5m
+
+# Issue 5 minute warning
+echo -n "Issuing 5 minute warning... "; date
+screen -S hondo -p 0 -X stuff "broadcast The server will start its reboot sequence in 5 minutes. $(printf \\r)" 
+
+sleep 5m
+
+# Issue shutdown command, with a 2 minute countdown
+echo -n "Shutting down the server in 2 minutes... "; date
+screen -S hondo -p 0 -X stuff "shutdown 2$(printf \\r)"
+
+# Wait until final shutdown message, then kill/restart the server.
+sleep 125s
+
+# Kill the server process
+kill $(ps aux | grep 'core3' | awk '{print $2}')
+echo -n "The server is down and will be restarted in 10 seconds . . . "; date
+echo "= - = - = - = - = - = - = - = - = - = - = - = - = - = - ="
+
+# Wait 10s
+sleep 10s
+
+# Run this script again
+loophondo
