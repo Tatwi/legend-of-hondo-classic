@@ -391,3 +391,6 @@ includeFile("hondo/travel/planetary_travel_dantooine.lua")
 includeFile("hondo/travel/planetary_travel_dathomir.lua")
 includeFile("hondo/travel/planetary_travel_endor.lua")
 includeFile("hondo/travel/planetary_travel_tatooine.lua")
+
+-- Bread Crumb Quests
+includeFile("hondo/quest_breadcrumb/helper_trainers.lua")

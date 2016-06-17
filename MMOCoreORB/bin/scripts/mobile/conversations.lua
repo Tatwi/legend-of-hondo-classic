@@ -169,3 +169,6 @@ includeFile("conversations/hondo/travel/dantooine_shuttle_conv.lua")
 includeFile("conversations/hondo/travel/dathomir_shuttle_conv.lua")
 includeFile("conversations/hondo/travel/endor_shuttle_conv.lua")
 includeFile("conversations/hondo/travel/tatooine_shuttle_conv.lua")
+
+-- Bread Crumb Quests
+includeFile("conversations/hondo/quest_breadcrumb/helper_trainers_conv.lua")
