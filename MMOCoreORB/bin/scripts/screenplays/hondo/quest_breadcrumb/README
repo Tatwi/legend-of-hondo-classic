@@ -1,0 +1,21 @@
+-- Legend of Hondo Bread Crumb Quests
+-- By R. Bassett Jr. (Tatwi) - www.tpot.ca
+-- June 2016
+
+This a system based on work I did for a new player quest for the Tarkin server. 
+It's modeled after the race track logic, because it has similar functionality. 
+The player is given a waypoint that he must reach and once he gets there, he is
+provided another waypoint. This repeats until all the waypoints are reached and
+the player is given a reward.
+
+Each step of the quest provides the player with a custom text update. This allows
+the quest creator to teach the player where things are or to give them clues or
+other information, role play text, etc. It's a really simple kind of quest, but
+it's real power lies in what the player can do at the location you've taken him
+to. That was the point of the new player quest on Tarkin, to show the player
+where "stuff" is and that's why I originally added it to Legend of Hondo as well.
+
+Unlike the system I created for Merchants, each bread crumb quest screenplay is
+its own independant entity. I chose to make them in this manner so that they the 
+quest structure could be modified without haivng to change every other quest that
+used the same system. However, for the most part they all follow the same formula.

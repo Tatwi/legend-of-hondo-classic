@@ -923,6 +923,14 @@ src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.c
 
 
 
+Trainer Relocation
+= = = = = = = = = = = = = = = = = 
+- - - - - - -
+- All profession trainers can be found in cities on Tatooine.
+- Starter profession trainers are in Mos Espa, Mos Entha, Mos Eisley, Bestine, and Ancorhead.
+- Advanced profession trainers are spread out more.
+- 
+
 
 ________________________________________________________
 --- P L A N E D ---

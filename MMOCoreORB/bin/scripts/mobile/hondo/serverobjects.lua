@@ -22,3 +22,6 @@ includeFile("hondo/travel/dantooine_shuttle_pilot.lua")
 includeFile("hondo/travel/dathomir_shuttle_pilot.lua")
 includeFile("hondo/travel/endor_shuttle_pilot.lua")
 includeFile("hondo/travel/tatooine_shuttle_pilot.lua")
+
+-- Bread Crumb Quests
+includeFile("hondo/quest_breadcrumb/helper_trainers.lua")
