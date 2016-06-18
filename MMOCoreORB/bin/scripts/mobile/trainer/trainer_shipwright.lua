@@ -1,6 +1,7 @@
 trainer_shipwright = Creature:new {
 	objectName = "@npc_spawner_n:shipwright_trainer",
-	randomNameType = NAME_GENERIC_TAG,
+    customName = "Itza Traaap (Shipwright Trainer)",
+	--randomNameType = NAME_GENERIC_TAG,
 	faction = "",
 	level = 100,
 	chanceHit = 0.390000,

@@ -1,6 +1,7 @@
 trainer_squadleader = Creature:new {
 	objectName = "@mob/creature_names:trainer_squadleader",
-	randomNameType = NAME_GENERIC_TAG,
+    customName = "Katz Herder (Squad Leader Trainer)",
+	--randomNameType = NAME_GENERIC_TAG,
 	faction = "",
 	level = 100,
 	chanceHit = 0.390000,

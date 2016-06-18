@@ -1,6 +1,7 @@
 trainer_bountyhunter = Creature:new {
 	objectName = "@mob/creature_names:trainer_bountyhunter",
-	randomNameType = NAME_GENERIC_TAG,
+    customName = "Bulabar Dowel (Bounty Hunter Trainer)",
+	--randomNameType = NAME_GENERIC_TAG,
 	faction = "",
 	level = 100,
 	chanceHit = 0.390000,
@@ -27,9 +28,9 @@ trainer_bountyhunter = Creature:new {
 
 	templates = {
 		--"object/mobile/dressed_bountyhunter_trainer_01.iff",
-		--"object/mobile/dressed_bountyhunter_trainer_02.iff",
+		"object/mobile/dressed_bountyhunter_trainer_02.iff",
 		--"object/mobile/dressed_bountyhunter_trainer_03.iff",
-		"object/mobile/dressed_bountyhunter_trainer_04.iff"
+		--"object/mobile/dressed_bountyhunter_trainer_04.iff"
 	},
 	lootGroups = {},
 	weapons = {},

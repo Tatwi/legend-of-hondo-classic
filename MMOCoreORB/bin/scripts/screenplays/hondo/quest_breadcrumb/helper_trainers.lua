@@ -41,13 +41,13 @@ HelperTrainersScreenPlay = ScreenPlay:new {
     },
     waypoints = { 
       {x = -2910, y = 2150, wpName = "Beginner's Square", wpDesc = "Before we get started, it's worth mentioning that you'll find other people like me to talk to here in the Starport area. Take a moment and have a look around, before heading out."},
-      {x = -2986, y = 2150, wpName = "Auto-Teach Termial", wpDesc = "First thing's, first... What you're looking at here is BETA, the super experience induction device. It's capable of helping you learn a range of skills that you may find useful or enjoyable. These skills do not require or use Skill Points and the machine is even free to use!"},
+      {x = -2986, y = 2150, wpName = "Auto-Teach Termial", wpDesc = "First thing's, first... What you're looking at here is BETA, the super experience induction device. It's capable of helping you learn a range of skills that you may find useful or enjoyable. Most of these skills do not require Skill Points and the machine is even free to use!"},
       {x = -3057, y = 2060, wpName = "Crafter's Guild", wpDesc = "Here in this guild for crafters, you will find trainers for Architecture, Armorsmithing, Droid Engineering, and Weaponsmithing. There's also an array of related Merchants here, much like you will find in other shops throughout your travels."},
       {x = -3136, y = 2114, wpName = "Hospital", wpDesc = "Yup, this is the local hospital. Sure, it's not as fancy as what you'll find in some other cities, but it has all the services you might need, such as that standard issue Wound Terminal over there. The local doctor is a good teacher, having trained many in the use of advanced medicine and healing. I've heard he'll even teach you how to make and use poisons, so... probably a wise idea to stay on his good side. The Doc's second in command, the Medic trainer, is kinda skittish, but he's OK I guess."},
       {x = -3089, y = 2219, wpName = "The Hotel", wpDesc = "Somewhere in this entertaining place I'm sure you'll find the Smuggler trainer. Can't say as though I've ever seen him anywhere else, now that I think about it..."},
       {x = -2992, y = 2223, wpName = "Lovable Critters", wpDesc = "The local Creature Handler is a nice guy. He mostly looks after mounts at the cantina these days, but rumor has it that he's seen some adventures in his time."},
       {x = -3097, y = 2284, wpName = "Cloning Facility", wpDesc = "Ah, the other doctor in town. This creap used to work at the hospital, until they found him... uh, you know what, never mind. He works at the cloner now and calls himself a Bio-Engineer. If you store your clone data there, your clone can see him when you die!"},
-      {x = -2898, y = 2425, wpName = "Nado's Junk Shop", wpDesc = "Being so close to the rough side of town, Nado likes to keep a guard in each of his entrances at all times. Perfect job for a retired Swordsman and Fencer who still have some swash left in their old buckles."},
+      {x = -2898, y = 2425, wpName = "Nado's Junk Shop", wpDesc = "Being so close to the rough side of town, Nado likes to keep a guard in each of his entrances at all times. Perfect job for a retired Swordsman and an old Fencer who still have some swash left in their old buckles."},
       {x = -3015, y = 2423, wpName = "Fighter's Guild", wpDesc = "Across the road from the best defended junk shop in the galaxy, you have the local Fighter's Guild. Markman, Rifelman, Brawler, and Pikeman trainers are usually here, as is the Teras Kasi Artist. The Pistoleer and Carbineer trainer on the other hand are probably out shooting mynocks again... or is it still..."},
       {x = -2988, y = 2534, wpName = "Outdoorman", wpDesc = "Out here on the edge of town is the Scouting and Ranger Center. They should be more than happy to train you, sell you some camping gear, feed you to something. You know, the usual. "},
       {x = -2716, y = 2506, wpName = "About Them Mynocks...", wpDesc = "I was right, wasn't I? Well, at least their happy, which is more than I can say for the Pistoleer's wife. She's the Marksman Tainer you just met, you know, back at the office where somebody has to do all the paper work. Somebody."},
@@ -97,6 +97,7 @@ function HelperTrainersScreenPlay:createBreadCrumbs()
   end
 end
 
+
 function HelperTrainersScreenPlay:startQuesting(pObject)
   ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
     clearScreenPlayData(pObject,self.questConfig.questName )
@@ -111,6 +112,7 @@ function HelperTrainersScreenPlay:startQuesting(pObject)
     creatureObject:playMusicMessage("sound/music_themequest_acc_criminal.snd")
   end)
 end
+
 
 function HelperTrainersScreenPlay:processWaypoint(pActiveArea, pObject)
   if not SceneObject(pObject):isPlayerCreature() then
@@ -169,6 +171,7 @@ function HelperTrainersScreenPlay:ongoingWaypoints(pObject,index)
   end)
 end
 
+
 function HelperTrainersScreenPlay:finalWaypoint(pActiveArea, pObject)
   ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject,playerObject)
     -- get current waypoint
@@ -196,8 +199,18 @@ function HelperTrainersScreenPlay:resetQuest(pObject)
     clearScreenPlayData(pObject,self.questConfig.questName )
     creatureObject:removeScreenPlayState(HelperTrainersScreenPlay.states.active, HelperTrainersScreenPlay.screenplayName)
     creatureObject:removeScreenPlayState(HelperTrainersScreenPlay.states.complete, HelperTrainersScreenPlay.screenplayName)
-    creatureObject:sendSystemMessage("You have succesfullly abandoned your mission.")
+    creatureObject:sendSystemMessage("You have succesfullly abandoned " .. self.questConfig.questGiverName .. "'s mission.")
     creatureObject:playMusicMessage("sound/music_themequest_fail_imperial.snd")
+  end)
+end
+
+
+function HelperTrainersScreenPlay:endQuest(pObject)
+  ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
+    playerObject:removeWaypointBySpecialType(WAYPOINTRACETRACK)
+    clearScreenPlayData(pObject,self.questConfig.questName )
+    creatureObject:removeScreenPlayState(HelperTrainersScreenPlay.states.active, HelperTrainersScreenPlay.screenplayName)
+    creatureObject:removeScreenPlayState(HelperTrainersScreenPlay.states.complete, HelperTrainersScreenPlay.screenplayName)
   end)
 end
 
@@ -241,7 +254,7 @@ function HelperTrainersScreenPlay:resetPlayerUnfinishedEventHandler(pObject)
         
         creatureObject:removeScreenPlayState(HelperTrainersScreenPlay.states.active, HelperTrainersScreenPlay.screenplayName)
         creatureObject:removeScreenPlayState(HelperTrainersScreenPlay.states.complete, HelperTrainersScreenPlay.screenplayName)
-        creatureObject:sendSystemMessage("Sorry, you have failed to complete your mission in time.")
+        creatureObject:sendSystemMessage("Sorry, you have failed to complete " .. self.questConfig.questGiverName .. "'s mission in time.")
         creatureObject:playMusicMessage("sound/music_themequest_fail_imperial.snd")
       end 
     end
@@ -362,6 +375,7 @@ function helpertrainers_convo_handler:getNextConversationScreen(conversationTemp
                 
                 if (enoughSpace) then -- 7
                     HelperTrainersScreenPlay:giveReward(creature)
+                    HelperTrainersScreenPlay:endQuest(conversingPlayer)
                 else
                     nextConversationScreen = conversation:getScreen("no_space")
                 end -- 7 end

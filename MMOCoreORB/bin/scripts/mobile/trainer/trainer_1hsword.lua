@@ -1,6 +1,7 @@
 trainer_1hsword = Creature:new {
 	objectName = "@mob/creature_names:trainer_1hsword",
-	randomNameType = NAME_GENERIC_TAG,
+    customName = "Feredir Bali (Fencer Trainer)",
+	--randomNameType = NAME_GENERIC_TAG,
 	socialGroup = "",
 	faction = "",
 	level = 100,

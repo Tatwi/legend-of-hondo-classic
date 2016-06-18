@@ -1,6 +1,7 @@
 trainer_weaponsmith = Creature:new {
 	objectName = "@mob/creature_names:trainer_weaponsmith",
-	randomNameType = NAME_GENERIC_TAG,
+    customName = "Ruger Jookdaniels (Weaponsmith Trainer)",
+	--randomNameType = NAME_GENERIC_TAG,
 	faction = "",
 	level = 100,
 	chanceHit = 0.390000,
