@@ -26,9 +26,9 @@ trainer_brawler = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {
-		"object/mobile/dressed_brawler_trainer_01.iff",
+		--"object/mobile/dressed_brawler_trainer_01.iff",
 		"object/mobile/dressed_brawler_trainer_02.iff",
-		"object/mobile/dressed_brawler_trainer_03.iff"
+		--"object/mobile/dressed_brawler_trainer_03.iff"
 	},
 	lootGroups = {},
 	weapons = {},

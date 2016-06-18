@@ -21,28 +21,28 @@ function TatooineBestineScreenPlay:spawnMobiles()
 	--{"quajjifek_coge",60,32.2473,0.105,-7.74246,15.5057,1028646, "neutral", "Quajjif-Ek Coge"},
 
 	--Med Center
-	spawnMobile("tatooine", "trainer_medic",0,-8.7,0.2,0.1,91,4005383)
+	--spawnMobile("tatooine", "trainer_medic",0,-8.7,0.2,0.1,91,4005383)
 	--{"melious_purl",60,-1.28426,0.184067,0.712487,280.416,4005383, "npc_imperial", "Melious Purl"},
 
 	--Guild Hall -1239 -3580
 	--{"coa3_tactical_imperial",60,9.74537,1.13306,0.300803,93.0077,1028549, "npc_imperial", ""},
-	spawnMobile("tatooine", "trainer_scout",0,-13,1.1,4.8,180,1028550)
+	--spawnMobile("tatooine", "trainer_scout",0,-13,1.1,4.8,180,1028550)
 	spawnMobile("tatooine", "hunter",300,-14.01,1.13306,-8.53,120.004,1028553)
-	spawnMobile("tatooine", "trainer_brawler",0,-11,1.1,-14,0,1028553)
-	spawnMobile("tatooine", "trainer_marksman",0,0,1.13306,-13,0,1028552)
+	--spawnMobile("tatooine", "trainer_brawler",0,-11,1.1,-14,0,1028553)
+	--spawnMobile("tatooine", "trainer_marksman",0,0,1.13306,-13,0,1028552)
 	spawnMobile("tatooine", "businessman",60,3.32,1.13306,-8.49,228.007,1028552)
 
 	--Guild Hall -1241 -3524
-	spawnMobile("tatooine", "trainer_architect",0,11,1.133,-14.5,0,1028581)
-	spawnMobile("tatooine", "trainer_armorsmith",0,-12.8138,1.13306,3.64955,176,1028580)
-	spawnMobile("tatooine", "trainer_droidengineer",0,-11.6346,1.13306,-13.252,2,1028583)
-	spawnMobile("tatooine", "trainer_weaponsmith",0,-3,1.13306,-8.3,91,1028582)
-	spawnMobile("tatooine", "trainer_merchant",0,12,1.13306,6,180,1028579)
+	--spawnMobile("tatooine", "trainer_architect",0,11,1.133,-14.5,0,1028581)
+	--spawnMobile("tatooine", "trainer_armorsmith",0,-12.8138,1.13306,3.64955,176,1028580)
+	--spawnMobile("tatooine", "trainer_droidengineer",0,-11.6346,1.13306,-13.252,2,1028583)
+	--spawnMobile("tatooine", "trainer_weaponsmith",0,-3,1.13306,-8.3,91,1028582)
+	--spawnMobile("tatooine", "trainer_merchant",0,12,1.13306,6,180,1028579)
 
 	--Guild Hall -1187 -3515
 	spawnMobile("tatooine", "contractor",60,-3.69,1.13306,-6,11.0003,1028558)
 	--{"oka_alewame",60,3.72152,1.13306,-4.85162,52.801,1028558, "neutral", "Oka Alewame"},
-	spawnMobile("tatooine", "trainer_artisan",0,-0.0507306,1.13306,-13.747,0,1028562)
+	--spawnMobile("tatooine", "trainer_artisan",0,-0.0507306,1.13306,-13.747,0,1028562)
 	spawnMobile("tatooine", "miner",60,3.29,1.13306,-9.58,249.007,1028562)
 	--{"coa3_information_imperial",60,14.0299,1.13306,-8.82756,97.6176,1028561, "npc_imperial", ""},
 
@@ -74,7 +74,7 @@ function TatooineBestineScreenPlay:spawnMobiles()
 	--{"farmer",60,20.4356,1.28309,-1.59068,180.009,1223850, "conversation", ""},
 	--{"gil_burtin",60,20.5073,1.56616,12.9718,218.196,1223850, "neutral", ""},
 	--{"spacer",60,20.4356,1.28309,-2.59068,0,1223850, "conversation", ""},
-	spawnMobile("tatooine", "trainer_chef",0,24,1.3,7,217,1223850)
+	--spawnMobile("tatooine", "trainer_chef",0,24,1.3,7,217,1223850)
 	--{"ty_vila",60,15.3218,1.28309,9.00139,113.449,1223850, "neutral", ""},
 
 	--Guild Hall -1093 -3660
@@ -170,17 +170,17 @@ function TatooineBestineScreenPlay:spawnMobiles()
 	--{"siarafont_cakrod",60,-1104.12,12,-3705.29,199.904,0, "neutral", "Siarafont Cakrod"},
 	--{"sol_windtide",60,-1203.12,12,-3612.74,236.494,0, "calm", "Sol Windtide"},
 	--{"tegou_howy",60,-1005.68,12,-3716.81,181.862,0, "neutral", "Tegou Howy"},
-	spawnMobile("tatooine", "trainer_architect",0,-1255,12,-3567,-47,0)
-	spawnMobile("tatooine", "trainer_artisan",0,-1266,12,-3559,227,0)
-	spawnMobile("tatooine", "trainer_bioengineer",0,-1444.06,10,-3749.08,90,0)
-	spawnMobile("tatooine", "trainer_brawler",0,-1278.75,12,-3540.47,79,0)
-	spawnMobile("tatooine", "trainer_chef",0,-1216,12,-3601,153,0)
-	spawnMobile("tatooine", "trainer_entertainer",0,-1266,12,-3626,22,0)
-	spawnMobile("tatooine", "trainer_marksman",0,-1272,12,-3538,180,0)
-	spawnMobile("tatooine", "trainer_politician",0,-1125,12.2,-3616,130,0)
-	spawnMobile("tatooine", "trainer_scout",0,-1295.83,12,-3563.27,51,0)
-	spawnMobile("tatooine", "trainer_squadleader",0,-1019,10,-3532,180,0)
-	spawnMobile("tatooine", "trainer_tailor",0,-1348,12,-3677,180,0)
+	--spawnMobile("tatooine", "trainer_architect",0,-1255,12,-3567,-47,0)
+	--spawnMobile("tatooine", "trainer_artisan",0,-1266,12,-3559,227,0)
+	--spawnMobile("tatooine", "trainer_bioengineer",0,-1444.06,10,-3749.08,90,0)
+	--spawnMobile("tatooine", "trainer_brawler",0,-1278.75,12,-3540.47,79,0)
+	--spawnMobile("tatooine", "trainer_chef",0,-1216,12,-3601,153,0)
+	--spawnMobile("tatooine", "trainer_entertainer",0,-1266,12,-3626,22,0)
+	--spawnMobile("tatooine", "trainer_marksman",0,-1272,12,-3538,180,0)
+	--spawnMobile("tatooine", "trainer_politician",0,-1125,12.2,-3616,130,0)
+	--spawnMobile("tatooine", "trainer_scout",0,-1295.83,12,-3563.27,51,0)
+	--spawnMobile("tatooine", "trainer_squadleader",0,-1019,10,-3532,180,0)
+	--spawnMobile("tatooine", "trainer_tailor",0,-1348,12,-3677,180,0)
 	spawnMobile("tatooine", "valarian_swooper_leader",300,-1158.7,12,-3661.7,270,0)
 	spawnMobile("tatooine", "valarian_swooper_leader",300,-1161,12,-3662,90,0)
 	spawnMobile("tatooine", "valarian_swooper_leader",300,-1161.6,12,-3647.1,-61,0)

@@ -20,7 +20,7 @@ function TatooineAnchorheadScreenPlay:spawnMobiles()
 	--{"borra_setas",60,9.51111,0.408271,-0.736723,320.12,1213345, "scared", "Borra Setas"},
 	--{"commoner_tatooine",60,-9.58703,0.408271,0.574718,94,1213345, "npc_standing_drinking", ""},
 	--{"nitra_vendallan",60,-2.95305,0.40827,-9.30713,12.2342,1213345, "calm", "Nitra Vendallan"},
-	spawnMobile("tatooine", "trainer_doctor",0,1.53792,1.00421,6.82596,265,1213346)
+	--spawnMobile("tatooine", "trainer_doctor",0,1.53792,1.00421,6.82596,265,1213346)
 	spawnMobile("tatooine", "rebel_recruiter",60,-6.22005,-3.96617,-6.58904,194.653,1213349)
 
 	--Outside

@@ -26,8 +26,8 @@ trainer_droidengineer = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {
-		"object/mobile/dressed_droidengineer_trainer_human_male_01.iff",
-		"object/mobile/dressed_droidengineer_trainer_moncal_male_01.iff",
+		--"object/mobile/dressed_droidengineer_trainer_human_male_01.iff",
+		--"object/mobile/dressed_droidengineer_trainer_moncal_male_01.iff",
 		"object/mobile/dressed_droidengineer_trainer_rodian_male_01.iff"
 	},
 	lootGroups = {},

@@ -26,9 +26,9 @@ trainer_chef = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {
-		"object/mobile/dressed_chef_trainer_devaronian_male_01.iff",
+		--"object/mobile/dressed_chef_trainer_devaronian_male_01.iff",
 		"object/mobile/dressed_chef_trainer_human_female_01.iff",
-		"object/mobile/dressed_chef_trainer_human_male_01.iff"
+		--"object/mobile/dressed_chef_trainer_human_male_01.iff"
 	},
 	lootGroups = {},
 	weapons = {},

@@ -27,8 +27,8 @@ trainer_commando = Creature:new {
 
 	templates = {
 		"object/mobile/dressed_commando_trainer_human_male_01.iff",
-		"object/mobile/dressed_commando_trainer_rodian_male_01.iff",
-		"object/mobile/dressed_commando_trainer_trandoshan_male_01.iff"
+		--"object/mobile/dressed_commando_trainer_rodian_male_01.iff",
+		--"object/mobile/dressed_commando_trainer_trandoshan_male_01.iff"
 	},
 	lootGroups = {},
 	weapons = {},
