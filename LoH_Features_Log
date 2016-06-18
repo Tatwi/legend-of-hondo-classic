@@ -614,11 +614,6 @@ scripts/object/tangible/beta/beta_terminal_xp.lua
 - Also added learning of all languages as well.
 - Located in the Mos Espa cantina.
 
-UPDATE:
-- Added Artisan, Architect, Armorsmith, Chef, Droid Engineer, Tailor, Shipwright, and Weaponsmith. 
-- The "crafting grind", while being a good resource and credit sink, is ultimately a huge waste of time that isn't fun, even with the XP boosts.
-- I considered making all crafting use General Crafting Experience, but useless grind is still useless grind and this took much less time to impliment. 
-- The real fun is gathering resources and making things you will actually use.
 
 
 
@@ -923,13 +918,20 @@ src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.c
 
 
 
-Trainer Relocation
+
+
+Trainers: Relocation with Character
 = = = = = = = = = = = = = = = = = 
 - - - - - - -
-- All profession trainers can be found in cities on Tatooine.
-- Starter profession trainers are in Mos Espa, Mos Entha, Mos Eisley, Bestine, and Ancorhead.
-- Advanced profession trainers are spread out more.
-- 
+- All profession trainers are now located (only) in Mos Espa, Tatooine. This is to enhance the narative that Mos Espa is the player's home.
+- Added a quest to show the player where the trainers are.
+- Each trainer is always the same character.
+- Added some public crafting stations and other decorations to spice up some locations.
+- Removed the crafting professions from the BETA xp terminal, as I had a change of heart on the leveling being a "grind". Leveling crafting presents "organic" challenges that are too entertaining to throw away.
+
+
+
+
 
 
 ________________________________________________________
