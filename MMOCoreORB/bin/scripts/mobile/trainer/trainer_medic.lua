@@ -1,6 +1,7 @@
 trainer_medic = Creature:new {
 	objectName = "@mob/creature_names:trainer_medic",
-	randomNameType = NAME_GENERIC_TAG,
+    customName = "Barkley Murdoc (Medic Trainer)",
+	--randomNameType = NAME_GENERIC_TAG,
 	faction = "",
 	level = 100,
 	chanceHit = 0.390000,

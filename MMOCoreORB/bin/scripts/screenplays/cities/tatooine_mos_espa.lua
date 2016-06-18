@@ -9,6 +9,7 @@ registerScreenPlay("TatooineMosEspaScreenPlay", true)
 function TatooineMosEspaScreenPlay:start()
 	if (isZoneEnabled("tatooine")) then
 		self:spawnMobiles()
+        self:spawnSceneObjects()
 	end
 end
 
@@ -29,6 +30,7 @@ function TatooineMosEspaScreenPlay:spawnMobiles()
 	--spawnMobile("tatooine", "miner",60,3.29,1.13306,-9.58,249.007,1256011)
 	--spawnMobile("tatooine", "trainer_artisan",0,-0.0885271,1.13306,-14.0283,2,1256011)
 	spawnMobile("tatooine", "gungan_chef",60,-10.694,1.13306,-13.3009,-8,1256012)
+    spawnMobile("tatooine", "commoner_naboo",60,7.65031,1.13306,-11.193,112,1256010)  
 
 	--Cantina
 	spawnMobile("tatooine", "bartender",60,-11.1703,-0.894992,1.53149,33.4278,1256058)
@@ -422,4 +424,33 @@ function TatooineMosEspaScreenPlay:spawnMobiles()
 	spawnMobile("tatooine", "worrt",300,-2589.82,5,2226.13,110.267,0)
 	spawnMobile("tatooine", "worrt",300,-2613.31,5.08118,1969.82,347.531,0)
 	spawnMobile("tatooine", "worrt",300,-2628.18,5.04651,1955.15,351.895,0)
+end
+
+
+function TatooineMosEspaScreenPlay:spawnSceneObjects()
+    -- Decorations added for Legend of Hondo
+    -- spawnSceneObject(<planet>, <objecttemplatefile>, x, z, y, <cell>, dw, dx, dy, dz>  where dw and dy are the ow and oy rotaion values in the dumpz command output
+    
+    --Guild Hall -2857 1987
+    spawnSceneObject("tatooine", "object/tangible/crafting/station/public_food_station.iff",  -10.5241, 1.13306, -14.8839, 1256012,  0.0, 0, 0.0, 0) 
+    spawnSceneObject("tatooine", "object/tangible/crafting/station/public_weapon_station.iff",  3.6814, 1.13306, -5.82231, 1256306,  0.999998, 0, 0.0, 0)
+    spawnSceneObject("tatooine", "object/tangible/crafting/station/public_clothing_station.iff",  15.0941, 1.13306, -4.6966, 1256306,  1.0, 0, 0.0, 0)  
+    spawnSceneObject("tatooine", "object/tangible/crafting/station/public_structure_station.iff",  -6.36432, 1.13306, -6.0, 1256306,  0.999998, 0, 0.0, 0)  
+    
+    -- Hospital
+    spawnSceneObject("tatooine", "object/tangible/crafting/station/public_food_station.iff",  0.77886, 0.184067, -11.2705, 4005424,  1.0, 0, 0.0, 0) 
+    spawnSceneObject("tatooine", "object/tangible/item/quest/force_sensitive/bacta_tank.iff",  -6.6883, 0.184067, 0.0579108, 4005424,  1.0, 0, 0.0, 0)
+    
+    --Guild Hall -3063 2079
+    spawnSceneObject("tatooine", "object/tangible/crafting/station/public_weapon_station.iff",  -7.18723, 1.13306, -10.4749, 1256023,  -0.700969, 0, 0.713191, 0)
+    spawnSceneObject("tatooine", "object/tangible/crafting/station/public_weapon_station.iff",  0.00787778, 1.13306, -15, 1256022,  1.0, 0, 0.0, 0)
+    spawnSceneObject("tatooine", "object/tangible/crafting/station/public_clothing_station.iff",  -8.76385, 1.13306, 2.52475, 1256020,  0.998299, 0, -0.0582979, 0) 
+    spawnSceneObject("tatooine", "object/tangible/crafting/station/public_structure_station.iff",  14.6757, 1.13306, -8.22967, 1256021,  -0.41052, 0, 0.911852, 0)  
+    
+    -- Outdoorman
+    spawnSceneObject("tatooine", "object/tangible/camp/camp_tent_s1.iff",  -2980.62, 5.0, 2528.85, 0,  0.963207, 0, -0.268761, 0)
+    spawnSceneObject("tatooine", "object/tangible/camp/camp_tent_s2.iff",  -2994.26, 5.0, 2537.57, 0,  0.256278, 0, 0.966603, 0)
+    spawnSceneObject("tatooine", "object/tangible/camp/camp_tent_s4.iff",  -2985.99, 5.0, 2532.78, 0,  0.998804, 0, 0.048897, 0)
+    spawnSceneObject("tatooine", "object/static/flora/flora_tree_palm_fngi.iff",  -2982.34, 5.0, 2535.57, 0,  0.960846, 0, 0.277085, 0)
+    spawnSceneObject("tatooine", "object/static/flora/flora_tree_palm_thk.iff",  -2994.2, 5.0, 2533.32, 0,  -0.460367, 0, 0.887729, 0)
 end
