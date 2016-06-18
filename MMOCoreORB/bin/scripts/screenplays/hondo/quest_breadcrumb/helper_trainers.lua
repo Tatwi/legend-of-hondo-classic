@@ -25,6 +25,7 @@ HelperTrainersScreenPlay = ScreenPlay:new {
     planetName = "tatooine",
     questName="HelperTrainers",  -- Internal quest , should be unique to the quest
     className="HelperTrainersScreenPlay", -- Class name of this class
+    questGiverName="Wherma Traynr",
     timeResolution=0, -- number of decimal places to use for the time updates 0 = none
     expiryTime = 3600, --Amount of time in seconds that a player will be expired from the quest
     waypointRadius=3, -- size of the waypoint observer. 3 is good for on foot, 10 for when in a vehicle. 1 makes it kind of annoying to trigger.
@@ -39,15 +40,20 @@ HelperTrainersScreenPlay = ScreenPlay:new {
       "object/tangible/treasure_map/treasure_map_pirate2.iff",
     },
     waypoints = { 
-      {x = -2910, y = 2150, wpName = "Beginner's Square", wpDesc = "Here in the starport square you can find a trainer for each of the basic professions. Take a moment to explore the area. Similar locations in other cities on Tatooine also have such trainers."},
-      {x = -3057, y = 2060, wpName = "Artisan's Guild", wpDesc = "This is the hall of a local guild of Artisans. Here you will find trainers for Architecture, Armorsmithing, Droid Engineering, Tailoring, and Weaponsmithing, as well as an array of related Merchants. These are good good folks who are willing to help most anyone in need, for a small fee, of course."},
-      {x = -3136, y = 2114, wpName = "Hospital", wpDesc = "This is the local hospital. Not as fancy as what you'll find in some other cities, but it has all the services you might need, such as that standard issue Wound Terminal over there. The local doctor is a good teacher, having trained many in the use of advanced medicine and healing. I heard he'll even teach you how to make and use poisons, so... probably a wise idea to stay on his good side."},
-      {x = -2986, y = 2150, wpName = "Auto-Teach Termial", wpDesc = "What you're looking at here is BETA, the super experience induction device. It's capable of helping you learn a range of skills that you may find useful or enjoyable. These skills do not require or use Skill Points."},
-      {x = -3006, y = 2191, wpName = "The Kitchen", wpDesc = "Also in the Mos Espa Cantina is the one of the best chefs on all of Tatooine. Lucky for you, they enjoy training other up and coming cooks."},
-      {x = -3015, y = 2423, wpName = "Fighter's Guild", wpDesc = "Here across the road from the best defended junk shop in the galaxy, you have the local Fighter's Guild. If it's combat related, chances are someone here can teach it to you. Don't go looking for trouble here!"},
-      {x = -2988, y = 2534, wpName = "Outdoorman", wpDesc = "Out here on the edge of town is the outdoorsman center where you will find a Creature Handler, a Ranger, and a Bio-Engineer who should be willing to train you. Or feed you to something. You know, either or."},
-      {x = -2870, y = 2498, wpName = "A Shady Part of Town...", wpDesc = "In the less wealthy part of town you're likely to find Smuglers, Bounty Hunters, and trouble. And, Jawa. Always, Jawa..."},
-      {x = -2896, y = 2083, wpName = "The Starport", wpDesc = "Finally, in the depths of the Starport is the local Shipwright. Always ready to help you build something!"},
+      {x = -2910, y = 2150, wpName = "Beginner's Square", wpDesc = "Before we get started, it's worth mentioning that you'll find other people like me to talk to here in the Starport area. Take a moment and have a look around, before heading out."},
+      {x = -2986, y = 2150, wpName = "Auto-Teach Termial", wpDesc = "First thing's, first... What you're looking at here is BETA, the super experience induction device. It's capable of helping you learn a range of skills that you may find useful or enjoyable. These skills do not require or use Skill Points and the machine is even free to use!"},
+      {x = -3057, y = 2060, wpName = "Crafter's Guild", wpDesc = "Here in this guild for crafters, you will find trainers for Architecture, Armorsmithing, Droid Engineering, and Weaponsmithing. There's also an array of related Merchants here, much like you will find in other shops throughout your travels."},
+      {x = -3136, y = 2114, wpName = "Hospital", wpDesc = "Yup, this is the local hospital. Sure, it's not as fancy as what you'll find in some other cities, but it has all the services you might need, such as that standard issue Wound Terminal over there. The local doctor is a good teacher, having trained many in the use of advanced medicine and healing. I've heard he'll even teach you how to make and use poisons, so... probably a wise idea to stay on his good side. The Doc's second in command, the Medic trainer, is kinda skittish, but he's OK I guess."},
+      {x = -3089, y = 2219, wpName = "The Hotel", wpDesc = "Somewhere in this entertaining place I'm sure you'll find the Smuggler trainer. Can't say as though I've ever seen him anywhere else, now that I think about it..."},
+      {x = -2992, y = 2223, wpName = "Lovable Critters", wpDesc = "The local Creature Handler is a nice guy. He mostly looks after mounts at the cantina these days, but rumor has it that he's seen some adventures in his time."},
+      {x = -3097, y = 2284, wpName = "Cloning Facility", wpDesc = "Ah, the other doctor in town. This creap used to work at the hospital, until they found him... uh, you know what, never mind. He works at the cloner now and calls himself a Bio-Engineer. If you store your clone data there, your clone can see him when you die!"},
+      {x = -2898, y = 2425, wpName = "Nado's Junk Shop", wpDesc = "Being so close to the rough side of town, Nado likes to keep a guard in each of his entrances at all times. Perfect job for a retired Swordsman and Fencer who still have some swash left in their old buckles."},
+      {x = -3015, y = 2423, wpName = "Fighter's Guild", wpDesc = "Across the road from the best defended junk shop in the galaxy, you have the local Fighter's Guild. Markman, Rifelman, Brawler, and Pikeman trainers are usually here, as is the Teras Kasi Artist. The Pistoleer and Carbineer trainer on the other hand are probably out shooting mynocks again... or is it still..."},
+      {x = -2988, y = 2534, wpName = "Outdoorman", wpDesc = "Out here on the edge of town is the Scouting and Ranger Center. They should be more than happy to train you, sell you some camping gear, feed you to something. You know, the usual. "},
+      {x = -2716, y = 2506, wpName = "About Them Mynocks...", wpDesc = "I was right, wasn't I? Well, at least their happy, which is more than I can say for the Pistoleer's wife. She's the Marksman Tainer you just met, you know, back at the office where somebody has to do all the paper work. Somebody."},
+      {x = -2763, y = 2035, wpName = "The Nine to Fiver's Club", wpDesc = "It may come as a surprise, but the Empire does at least TRY to train their troops to the best of their ability, even if they have to bring in contract workers to get it done. You'll usually find their Squad Leader, Commando, and Bounty Hunter trainers relaxing here together when they aren't working for the man."},
+      {x = -2838, y = 1991, wpName = "Artisan's Mall", wpDesc = "This is a nice little place. A top notch Tailor, an Artisan who knows a little about a lot of things, and... the food is delicious! Be sure to tell that to the Chef even -especially- when it isn't."},
+      {x = -2896, y = 2083, wpName = "The Starport", wpDesc = "Finally, inside the Starport is the local Shipwright who always seems ready to help folks build stuff."},
       {x = -2896, y = 2137, wpName = "Wherma's Hangout", wpDesc = "Welcome back! Speak to me again to complete the mission."}, -- final waypoint should be the quest giver, because quest ends only after talking to them.
     }
   } -- End questConfig1
@@ -140,7 +146,7 @@ function HelperTrainersScreenPlay:ongoingWaypoints(pObject,index)
     
     -- Update Player on quest status 
     local timePassed = self:getLaptime(pObject) / 1000 -- miliseconds to seconds
-    local timeLeft = self.questConfig.expiryTime - timePassed 
+    local timeLeft = self.questConfig.expiryTime - timePassed
     local timeType = " minutes"
     if (timeLeft < 60) then
       timeType = " seconds"
@@ -152,7 +158,7 @@ function HelperTrainersScreenPlay:ongoingWaypoints(pObject,index)
     end
     timeLeft = self:roundNumber(timeLeft) -- drop the decimal places
     
-    creatureObject:sendSystemMessage("You have " .. timeLeft .. timeType .. " to complete your mission.")
+    creatureObject:sendSystemMessage("You have " .. timeLeft .. timeType .. " to complete " .. self.questConfig.questGiverName .. "'s mission.")
     -- Describe the waypoint the player arrived at...
     creatureObject:sendSystemMessage(self.questConfig.waypoints[index].wpDesc)
     

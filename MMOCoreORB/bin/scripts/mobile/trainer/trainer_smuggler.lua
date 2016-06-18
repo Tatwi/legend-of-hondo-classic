@@ -26,9 +26,9 @@ trainer_smuggler = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {
-		"object/mobile/dressed_smuggler_trainer_01.iff",
+		--"object/mobile/dressed_smuggler_trainer_01.iff",
 		"object/mobile/dressed_smuggler_trainer_02.iff",
-		"object/mobile/dressed_smuggler_trainer_03.iff"
+		--"object/mobile/dressed_smuggler_trainer_03.iff"
 	},
 	lootGroups = {},
 	weapons = {},

@@ -27,8 +27,8 @@ trainer_scout = Creature:new {
 
 	templates = {
 		"object/mobile/dressed_scout_trainer_01.iff",
-		"object/mobile/dressed_scout_trainer_02.iff",
-		"object/mobile/dressed_scout_trainer_03.iff"
+		--"object/mobile/dressed_scout_trainer_02.iff",
+		--"object/mobile/dressed_scout_trainer_03.iff"
 	},
 	lootGroups = {},
 	weapons = {},

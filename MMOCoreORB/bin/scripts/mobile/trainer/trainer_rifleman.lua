@@ -26,8 +26,8 @@ trainer_rifleman = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {
-		"object/mobile/dressed_rifleman_trainer_01.iff",
-		"object/mobile/dressed_rifleman_trainer_02.iff",
+		--"object/mobile/dressed_rifleman_trainer_01.iff",
+		--"object/mobile/dressed_rifleman_trainer_02.iff",
 		"object/mobile/dressed_rifleman_trainer_03.iff"
 	},
 	lootGroups = {},

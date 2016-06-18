@@ -26,8 +26,8 @@ trainer_squadleader = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {
-		"object/mobile/dressed_squad_leader_trainer_01.iff",
-		"object/mobile/dressed_squad_leader_trainer_02.iff",
+		--"object/mobile/dressed_squad_leader_trainer_01.iff",
+		--"object/mobile/dressed_squad_leader_trainer_02.iff",
 		"object/mobile/dressed_squad_leader_trainer_03.iff"
 	},
 	lootGroups = {},

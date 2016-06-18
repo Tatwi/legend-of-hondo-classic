@@ -26,9 +26,9 @@ trainer_unarmed = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {
-		"object/mobile/dressed_unarmed_trainer_01.iff",
+		--"object/mobile/dressed_unarmed_trainer_01.iff",
 		"object/mobile/dressed_unarmed_trainer_02.iff",
-		"object/mobile/dressed_unarmed_trainer_03.iff"
+		--"object/mobile/dressed_unarmed_trainer_03.iff"
 	},
 	lootGroups = {},
 	weapons = {},

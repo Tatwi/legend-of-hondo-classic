@@ -26,7 +26,12 @@ gungan_hermit = Creature:new {
 	optionsBitmask = 128,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/gungan_male.iff"},
+	templates = {
+        "object/mobile/gungan_male.iff",
+        "object/mobile/gungan_s02_male.iff",
+        "object/mobile/gungan_s03_male.iff",
+        "object/mobile/gungan_s04_male.iff",
+    },
 	lootGroups = {
 		{
 			groups = {

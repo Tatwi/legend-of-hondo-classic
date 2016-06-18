@@ -96,26 +96,26 @@ function TatooineMosEisleyScreenPlay:spawnMobiles()
 	--{"rancher",60,-2.46731,0.408271,-1.67245,0,1187893, "conversation", ""},
 
 	--Guild Hall 3429 -4730
-	spawnMobile("tatooine", "trainer_artisan",0,-0.0585386,1.13306,-13.9039,0,1279964)
+	--spawnMobile("tatooine", "trainer_artisan",0,-0.0585386,1.13306,-13.9039,0,1279964)
 
 	--Guild Hall 3479 -4684
-	spawnMobile("tatooine", "trainer_2hsword",0,11,1.1,-11,0,1189637)
-	spawnMobile("tatooine", "trainer_brawler",0,-11,1.1,-14,0,1189639)
-	spawnMobile("tatooine", "trainer_marksman",0,0,1.13306,-13,0,1189638)
-	spawnMobile("tatooine", "trainer_rifleman",0,12,1.1,2,180,1189635)
-	spawnMobile("tatooine", "trainer_scout",0,-13,1.1,4.8,180,1189636)
+	--spawnMobile("tatooine", "trainer_2hsword",0,11,1.1,-11,0,1189637)
+	--spawnMobile("tatooine", "trainer_brawler",0,-11,1.1,-14,0,1189639)
+	--spawnMobile("tatooine", "trainer_marksman",0,0,1.13306,-13,0,1189638)
+	--spawnMobile("tatooine", "trainer_rifleman",0,12,1.1,2,180,1189635)
+	--spawnMobile("tatooine", "trainer_scout",0,-13,1.1,4.8,180,1189636)
 
 	--Guild Hall 3355 -4713
-	spawnMobile("tatooine", "trainer_droidengineer",0,-10.9183,1.13306,-14.2845,5,1189580)
-	spawnMobile("tatooine", "trainer_architect",0,11,1.133,-14.5,0,1189578)
-	spawnMobile("tatooine", "trainer_armorsmith",0,-12.2888,1.13306,3.6161,171,1189577)
-	spawnMobile("tatooine", "trainer_merchant",0,12,1.13306,6,180,1189576)
-	spawnMobile("tatooine", "trainer_weaponsmith",0,-2.87328,1.13306,-8.72939,122,1189579)
+	--spawnMobile("tatooine", "trainer_droidengineer",0,-10.9183,1.13306,-14.2845,5,1189580)
+	--spawnMobile("tatooine", "trainer_architect",0,11,1.133,-14.5,0,1189578)
+	--spawnMobile("tatooine", "trainer_armorsmith",0,-12.2888,1.13306,3.6161,171,1189577)
+	--spawnMobile("tatooine", "trainer_merchant",0,12,1.13306,6,180,1189576)
+	--spawnMobile("tatooine", "trainer_weaponsmith",0,-2.87328,1.13306,-8.72939,122,1189579)
 
 	--Med Center
-	spawnMobile("tatooine", "trainer_1hsword",0,4.4,0.2,-7.8,36,9655496)
-	spawnMobile("tatooine", "trainer_combatmedic",0,7.84086,0.184067,5.40226,80,9655496)
-	spawnMobile("tatooine", "trainer_doctor",0,-7.29914,0.184067,0.0809266,186,9655496)
+	--spawnMobile("tatooine", "trainer_1hsword",0,4.4,0.2,-7.8,36,9655496)
+	--spawnMobile("tatooine", "trainer_combatmedic",0,7.84086,0.184067,5.40226,80,9655496)
+	--spawnMobile("tatooine", "trainer_doctor",0,-7.29914,0.184067,0.0809266,186,9655496)
 
 	--Tavern 3488 -4745
 	--{"imperial_cadet",400,0.6,0,-9.7,188,1280131, "npc_use_terminal_high", ""},
@@ -158,7 +158,7 @@ function TatooineMosEisleyScreenPlay:spawnMobiles()
 	--{"mebi_axane",60,26.7839,2.12876,69.7524,360.011,1105853, "conversation", "Mebi Axane"},
 	--{"rodian_clan_medic",300,17.0318,2.12878,76.3601,179.996,1105853, "conversation", ""},
 	spawnMobile("tatooine", "theater_manager",60,21.99,2.12804,64.05,4.00007,1105853)
-	spawnMobile("tatooine", "trainer_dancer",0,17.9873,2.12874,53.6448,1,1105853)
+	--spawnMobile("tatooine", "trainer_dancer",0,17.9873,2.12874,53.6448,1,1105853)
 
 	--Outside
 	--{"agriculturalist",60,3247.43,4.00222,-4850.96,0.276961,0, "conversation", ""},
@@ -350,17 +350,17 @@ function TatooineMosEisleyScreenPlay:spawnMobiles()
 	spawnMobile("tatooine", "worrt",300,3580.5,5,-4544.8,34,0)
 
 	--Trainers Outside
-	spawnMobile("tatooine", "trainer_artisan",0,3503,5,-4809,42,0)
+	--spawnMobile("tatooine", "trainer_artisan",0,3503,5,-4809,42,0)
 	--{"trainer_bountyhunter",0,3357.1,5,-4839.6,64,0, "npc_sitting_chair", ""},
-	spawnMobile("tatooine", "trainer_brawler",0,3496,5,-4765,91,0)
+	--spawnMobile("tatooine", "trainer_brawler",0,3496,5,-4765,91,0)
 	--{"trainer_carbine",0,3538.3,5,-4692.7,218,0, "npc_sitting_chair", ""},
-	spawnMobile("tatooine", "trainer_entertainer",0,3477.89,5,-4791.6,215,0)
-	spawnMobile("tatooine", "trainer_marksman",0,3506,5,-4760,180,0)
-	spawnMobile("tatooine", "trainer_marksman",0,3552,5,-4710,215,0)
-	spawnMobile("tatooine", "trainer_medic",0,3522,5,-4774,200,0)
-	spawnMobile("tatooine", "trainer_musician",0,3393,5,-4791,300,0)
+	--spawnMobile("tatooine", "trainer_entertainer",0,3477.89,5,-4791.6,215,0)
+	--spawnMobile("tatooine", "trainer_marksman",0,3506,5,-4760,180,0)
+	--spawnMobile("tatooine", "trainer_marksman",0,3552,5,-4710,215,0)
+	--spawnMobile("tatooine", "trainer_medic",0,3522,5,-4774,200,0)
+	--spawnMobile("tatooine", "trainer_musician",0,3393,5,-4791,300,0)
 	--{"trainer_pistol",0,3358.6,5,-4841.3,36,0, "npc_sitting_chair", ""},
-	spawnMobile("tatooine", "trainer_rifleman",0,3426,5,-4917,0,0)
-	spawnMobile("tatooine", "trainer_scout",0,3519.76,5,-4786.9,77,0)
+	--spawnMobile("tatooine", "trainer_rifleman",0,3426,5,-4917,0,0)
+	--spawnMobile("tatooine", "trainer_scout",0,3519.76,5,-4786.9,77,0)
 	--{"trainer_smuggler",0,3401,5,-4879,340,0, "worried", ""},
 end

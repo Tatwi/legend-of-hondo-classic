@@ -20,7 +20,7 @@ function TatooineWayfarScreenPlay:spawnMobiles()
 	--{"entertainer",60,6.82411,0.40827,-8.7422,0,1499419, "conversation", ""},
 	--{"rodian_clan_warchief",300,6.82411,0.408269,-7.6422,180,1499419, "conversation", ""},
 	--{"commoner_technician",60,5.72411,0.408269,-7.6422,135.001,1499419, "conversation", ""},
-	spawnMobile("tatooine", "trainer_medic",0,-8.4035,1.00421,8.19643,110,1499420)
+	spawnMobile("tatooine", "medic",0,-8.4035,1.00421,8.19643,110,1499420)
 	spawnMobile("tatooine", "criminal",300,-7.85116,-3.96617,6.43429,272.53,1499424)
 
 	--Guild Hall
@@ -44,7 +44,7 @@ function TatooineWayfarScreenPlay:spawnMobiles()
 	--{"rodian_clan_warchief",300,10.2838,-0.894992,-2.63465,135.005,1134560, "conversation", ""},
 	--{"squatter",300,-3.85346,-0.894991,7.83775,180.003,1134560, "conversation", ""},
 	--{"stanic_wavingstar",60,17.9368,-0.894992,22.6329,180,1134562, "calm", "Stanic Wavingstar"},
-	spawnMobile("tatooine", "trainer_bountyhunter",0,19,-0.894,-17,0,1134561)
+	spawnMobile("tatooine", "bounty_hunter",0,19,-0.894,-17,0,1134561)
 	--{"yondalla",60,20.1921,-0.894996,-19.0778,25.109,1134561, "calm", "Yondalla"},
 	--{"farmer",60,-25.6583,-0.894991,24.4065,134.995,1134569, "conversation", ""},
 	spawnMobile("tatooine", "informant_npc_lvl_1",0,-5216,75,-6563,270,0)
@@ -114,8 +114,8 @@ function TatooineWayfarScreenPlay:spawnMobiles()
 	--{"romo_vax",60,-5224.18,75,-6559.69,70.368,0, "calm", "Romo Vax"},
 	spawnMobile("tatooine", "scientist",60,-5260.46,75,-6556.07,247.019,0)
 	--{"smuggler_pilot",60,-5868.38,90,-6199.5,65.5014,0, "neutral", ""},
-	spawnMobile("tatooine", "trainer_artisan",0,-5274,75,-6547,139,0)
-	spawnMobile("tatooine", "trainer_commando",0,-5038,75,-6609,226,0)
-	spawnMobile("tatooine", "trainer_scout",0,-5051.46,75,-6629.48,7,0)
+	spawnMobile("tatooine", "moisture_thief",0,-5274,75,-6547,139,0)
+	spawnMobile("tatooine", "moisture_farmer",0,-5038,75,-6609,226,0)
+	spawnMobile("tatooine", "moisture_farmer",0,-5051.46,75,-6629.48,7,0)
 	--{"trainer_unarmed",0,-5055,75,-6633,310,0, "npc_sitting_ground", ""},
 end

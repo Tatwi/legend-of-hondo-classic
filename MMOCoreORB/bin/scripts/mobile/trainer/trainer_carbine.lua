@@ -27,8 +27,8 @@ trainer_carbine = Creature:new {
 
 	templates = {
 		"object/mobile/dressed_carbine_trainer_01.iff",
-		"object/mobile/dressed_carbine_trainer_02.iff",
-		"object/mobile/dressed_carbine_trainer_03.iff"
+		--"object/mobile/dressed_carbine_trainer_02.iff",
+		--"object/mobile/dressed_carbine_trainer_03.iff"
 	},
 	lootGroups = {},
 	weapons = {},

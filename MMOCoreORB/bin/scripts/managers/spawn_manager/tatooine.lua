@@ -752,18 +752,64 @@ tatooine_static_spawns = {
 	{"tl_017",400,6.1,0.3,-0.49,96.7754,926475, "npc_imperial", "TL-017","stationary"},
 	{"tour_aryon",60,-37.3031,1.29422,0.713583,123.566,926479, "neutral", "Tour Aryon (governor)","stationary"},
 	{"trace_lyson",60,-2909.17,5,2180.03,180,0, "calm", "Trace Lyson","stationary"},
-	{"trainer_bountyhunter",0,3357.1,5,-4839.6,64,0, "npc_sitting_chair", "","stationary"},
-	{"trainer_carbine",0,3538.3,5,-4692.7,218,0, "npc_sitting_chair", "","stationary"},
-	{"trainer_imagedesigner",0,-20.9956,2.12878,73.874,90,1105854, "", "","stationary"},
-	{"trainer_pistol",0,3358.6,5,-4841.3,36,0, "npc_sitting_chair", "","stationary"},
-	{"trainer_smuggler",0,3401,5,-4879,340,0, "worried", "","stationary"},
-	{"trainer_unarmed",0,-5055,75,-6633,310,0, "npc_sitting_ground", "","stationary"},
 	{"ty_vila",60,15.3218,1.28309,9.00139,113.449,1223850, "neutral", "","stationary"},
 	{"viconya_tili",60,-1001.04,10,-3550.02,271.672,0, "calm", "Vi`conya T`ili","stationary"},
 	{"victor_visalis",60,-26.4873,3.22324,20.2943,140.257,926480, "neutral", "Victor Visalis","stationary"},
 	{"wlinc_tchrr",60,-1288.15,12,-3588.42,276.296,0, "neutral", "","stationary"},
 	{"wuher",60,-14,-0.9,0,90,1082877, "worried", "Wuher","stationary"},
 	{"yondalla",60,20.1921,-0.894996,-19.0778,25.109,1134561, "calm", "Yondalla","stationary"},
+    
+    -- Added for Legend of Hondo
+    {"commoner_tatooine",60,-2.42,0.18,3.85,68,4005424, "npc_sitting_chair", "","stationary"}, -- Mos Espa Hospital
+    
+    -- All of the Trainers in Legend of Hondo are located in Mos Espa
+    -- Loaded here rather than in the city screenplay so I could use the sitting/emotion features
+    
+    -- Crafting Professions
+    {"trainer_architect",0,11,1.13,-14.5,0,1256021, "happy", "","stationary"}, --Guild Hall -3063 2079
+    {"trainer_artisan",0,3.29,1.13,-9.58,249,1256011, "conversation", "","stationary"}, --Guild Hall -2857 1987
+    {"trainer_armorsmith",0,-12.51,1.13,3.62,165,1256020, "calm", "","stationary"}, --Guild Hall -3063 2079
+    {"trainer_bioengineer",0,-2.62,-0.05,3.27,44,1254763, "calm", "","stationary"}, --Clone Facility
+    {"trainer_chef",0,-12.98,1.13,-10.67,40,1256012, "angry", "","stationary"}, --Guild Hall -2857 1987
+    {"trainer_droidengineer",0,-11.54,1.13,-12.64,1,1256023, "calm", "","stationary"}, --Guild Hall -3063 2079
+    {"trainer_shipwright",0,-36.32,1.64,60.27,-49,1261660, "npc_use_terminal_high", "","stationary"},
+    {"trainer_tailor",0,9.12,1.13,-11.70,-77,1256010, "happy", "","stationary"}, --Guild Hall -2857 1987
+    {"trainer_weaponsmith",0,-2.96,1.13,-8.77,109,1256022, "calm", "","stationary"}, --Guild Hall -3063 2079
+
+    -- Combat Professions
+    {"trainer_brawler",0,-8.33,1.13,-9.48,-135,1255994, "happy", "","stationary"}, --Guild Hall -3015 2437
+    {"trainer_carbine",0,-2716.84,7.5,2505.25,-175,0, "happy", "","stationary"}, --Guild Hall -3015 2437
+    {"trainer_commando",0,-2763.95,5,2030.99,0,0, "calm", "","stationary"}, -- Behind Starport
+    {"trainer_1hsword",0,-11.91,0.04,3.66,28,1255996, "calm", "","stationary"}, -- Fencer, Nado's Shop
+    {"trainer_marksman",0,2.07,1.13,-12.46,-53,1255993, "calm", "","stationary"}, --Guild Hall -3015 2437
+    {"trainer_polearm",0,-11.89,1.13,-12.36,47,1255994, "calm", "","stationary"}, -- Pikeman, Guild Hall -3015 2437
+    {"trainer_pistol",0,-2714.79,5,2507.18,65,0, "happy", "","stationary"}, --Mynocks
+    {"trainer_rifleman",0,10.04,1.13,0.65,-157,1255990, "calm", "","stationary"}, --Guild Hall -3015 2437
+    {"trainer_2hsword",0,-11.42,0.39,-6.33,64,1255998, "calm", "","stationary"}, -- Swordsman, Nado's Shop
+    {"trainer_unarmed",0,-14.49,1.13,2.24,85,1255991, "npc_sitting_ground", "","stationary"}, --Teras Kasi Artist, Guild Hall -3015 2437
+
+    -- Other Professions
+    {"trainer_bountyhunter",0,-2763.2,5,2038.57,81,0, "conversation", "","stationary"}, -- Behind Starport
+    {"trainer_creaturehandler",0,-2993.96,5,2223.91,65,0, "conversation", "","stationary"}, -- By Cantina
+    {"trainer_doctor",0,-2.06,0.18,0.62,5,4005424, "conversation", "","stationary"}, -- Hospital
+    {"trainer_medic",0,0.09,0.18,5.92,-107,4005424, "worried", "","stationary"}, -- Hospital
+    {"trainer_ranger",0,-2978.75,5,2531.99,-33,0, "calm", "","stationary"}, -- North Gate
+    {"trainer_scout",0,-2978.18,5,2533.45,-113,0, "calm", "","stationary"}, -- North Gate
+    {"trainer_smuggler",0,20.13,1.28,5.51,-126,1261018, "npc_sitting_chair", "","stationary"}, -- Hotel
+    {"trainer_squadleader",0,-2767.37,5,2035.32,132,0, "npc_sitting_chair", "","stationary"}, -- Behind Starport
+
+    -- Free on the BETA terminal in the Mos Espa cantina
+    --Entertainer
+    --Dancer
+    --Image Designer
+    --Merchant     > x = -36.3232, z = 1.63942, y = 60.273, ow = 0.907192, ox = 0, oz = 0, oy = -0.420717, cellid = 9
+    --Musician
+    --Politician
+
+    -- Removed from the game entirely
+    --Combat Medic (merged into Doctor)
+    
+    
 }
 
 tatooine_badges = {

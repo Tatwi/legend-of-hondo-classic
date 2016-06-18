@@ -27,8 +27,8 @@ trainer_shipwright = Creature:new {
 
 	templates = {
 		"object/mobile/space_shipwright_trainer_01.iff",
-		"object/mobile/space_shipwright_trainer_02.iff",
-		"object/mobile/space_shipwright_trainer_03.iff"
+		--"object/mobile/space_shipwright_trainer_02.iff",
+		--"object/mobile/space_shipwright_trainer_03.iff"
 	},
 	lootGroups = {},
 	weapons = {},
