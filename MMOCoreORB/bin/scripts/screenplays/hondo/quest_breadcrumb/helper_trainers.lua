@@ -270,7 +270,8 @@ function HelperTrainersScreenPlay:checkSpace(creature)
     -- Check for room in inventory
     local numberOfItems = inventory:getContainerObjectsSize()
     local freeSpace = 80 - numberOfItems
-
+    
+    -- NOTE: In newer versions of the SWGEmu server code the hasFullContainerObjects() method was replaced with the isContainerFullRecursive() method. Thanks to Thrax989 for finding this issue.
     if (inventory:hasFullContainerObjects() == true and HelperTrainersScreenPlay.questConfig.rewardType ~= "all") then
         -- Bail if the player doesn't have enough space in their inventory.
         creature:sendSystemMessage("You need 1 available inventory space to complete this quest.")
