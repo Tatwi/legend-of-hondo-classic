@@ -1,11 +1,17 @@
 Legend of Hondo
 ----------------
-Features Log
+Completed Features Log
 ==============================
 
+This file contains a list of themed changes I have made.
+As much as possible, I published them to the git repo as
+a single commit, however that wasn't always possible, so
+I listed related changes as "fixes" and "updates" to 
+existing features where it made sense.
 ________________________________________________________
---- C O M P L E T E D ---
-========================================================
+
+
+
 
 
 Server Settings
@@ -40,6 +46,7 @@ scripts/managers/loot_manager.lua
 
 
 
+
 Skill Points and New Players
 = = = = = = = = = = = = = = = = = 
 tre/loh_001.tre/datatables/skill/skills.iff
@@ -65,6 +72,7 @@ tre/loh_001.tre/appearance/thm_prp_kiosk_statue.apt
 scripts/managers/planet_manager.lua
 - - - - - - -
 - Removed default "Character Builder" locations
+
 
 
 
@@ -928,70 +936,6 @@ Trainers: Relocation with Character
 - Each trainer is always the same character.
 - Added some public crafting stations and other decorations to spice up some locations.
 - Removed the crafting professions from the BETA xp terminal, as I had a change of heart on the leveling being a "grind". Leveling crafting presents "organic" challenges that are too entertaining to throw away.
-
-
-
-
-
-
-________________________________________________________
---- P L A N E D ---
-========================================================
-
-
-
-The Great Decluttering
-= = = = = = = = = = = = = = = = = 
-- Focus on one location at a time. 
-- Combination of World Snapshot and Lua file editing.
-- Remove redundant stuff, such as mission terminals, bazaar terminals, etc. 
-- Replace and replace many useless characters (especially ones that don't seem to make any sense...) with quest givers from the disabled planets, merchants, new quest givers, and NPCs tied to world factions that can be attacked.
-- Have 3 trainers for each elite profession, spread around the galaxy and locked behind world faction related content.
-- Prepair Rebel/Imperial areas in preperation for the removal of the "on leave" status and the addition of the tresspassing concept. 
-- Limit Junk Dealers to those who have names and personalities, with no more than two per type of junk. This makes the system more character/location driven and less gamey.
-
-
-
-Merchant System Improvements
-= = = = = = = = = = = = = = = = = 
-- Inject a reply option that opens an inventory window where the player can fully inspect the items that are for sale.
-- Options for Smugglers to try for discounts. 
-- Stock limations based on month, scarcity, faction standing, and stock levels.
-- Add more merchants, mostly as part of world faction content. This includes Geo Cave loot and other high priced consuables that will act as major credit sinks.
-- Improve the pricing logic for Junk Dealers. 
-
-
-
-Imperial / Rebel Improvements
-= = = = = = = = = = = = = = = = = 
-- Remove On leave status, so that once a player chooses a side the content is always geared toward that choice.
-- Add tiggers to prevent neutral characters from tresspassing on Rebel/Imperial land. 
-- Imprison neutrals who are caught tresspassing. Another character will have to bail (NPC conversation + credits) them out or break them out (quest + combat).
-- Add a free travel system that links faction facilities together. 
-- Add more faction items for purchase.
-
-
-
-
-Creature/NPC Diversification
-= = = = = = = = = = = = = = = = = 
-- Story based content that adds creatures from the disabled planets, such as...
-- The zoo gone wrong on Tatooine that turned into a valley where Bio-Engineers from Bestine study the accidentally wild creatures.
-- The Northern Endorian infestation of creatures from Yavin4, centered around the abandonded Imperial outpost. 
-- And adding other critters to the spawn tables of Dantooine, Dathomir, Endor, Lok, and Tatooine.
-- World faction driven content where players can earn/lose faction with NPCs who live on the disabled planets (Corellia, Talus, Naboo, Rori, and Yavin4).
-
-
-
-
-Personal Ship Improvements
-= = = = = = = = = = = = = = = = = 
-- It's a little wonky (and a bit buggy) as it is. 
-- I would like to tie the functionality to an inventory item so it can be placed on the toolbar and used. 
-- The ship flies down to the player's position and the player double clicks it to get in.
-- Only works on Tatooine, as that's where they are stationed.
-- Move the Onak out of the Mos Espa starport and put a bunch of the fighters in there. Add some related quest content.
-
 
 
 
