@@ -1,0 +1,103 @@
+Legend of Hondo
+----------------
+"To Do" List
+==============================
+
+This a list of things I have thought about doing in the
+future, much of which I will actually do at some point.
+Once completed, things listed here will be moved into 
+the Features Log. For some of my thoughts on why I did
+or didn't make something, go to www.tpot.ca.
+________________________________________________________
+
+
+Imperial Housing Authority
+= = = = = = = = = = = = = = = = = 
+- Allow the player to purchase buildings that already exist in the world, where that is possible. 
+- Tie the option to the Structure Management Terminal and place one in each of the building templates.
+- Add some quests to show players the locations they whrere can purchase structures.
+- If possible, have items stored in these structures saved to their own database outside of clientobjects.db and have load on the client only when the player enters the structure.
+- Remove the concept of lots, because it doesn't matter in a single player situation. The lot system only forces people into using multiple accounts to circumvent it, which is just a pain in the rear for no good reason.
+
+
+
+Reduce the Passage of Time
+= = = = = = = = = = = = = = = = = 
+- I find that I don't like leaving a computer running just to have time pass in a single player game, but that's how the server/client thing works. However, I can make changes that will reduce the need to run a server all the time, to the point where I can turn it off when I'm not using it and won't impact the game play. Talk about totally different than SWG, eh? :)
+- Remove maintenance fees on all structures. 
+- Resource shifts should happen on server boot, but make sure that the system works well enough when turning the server off for days/weeks.
+- Disable the Bazaar system and use the terminals for a static sales system.
+- Move Merchant perks into Artisan and remove Merchant, because it doesn't need to be a whole profession.
+- Keep the player vendor system, because it could be fun and handy. However, make the listing time 100 years or something crazy so the passage of time doesn't matter. 
+- Limit factory run time to a max of 3 seconds per item. A single player doesn't really need huge amounts of items, so I think 20 items per minute is reasonable. 
+- Survey missions, where the player searches out spots of X concentration will grant an amount of the located resources as well as credits.
+- Remove Harvesters. It pains me to do so, because they are neat and I have spent a lot of time using them over the years, but they don't fit with this experience.
+- Add new Destroy Mission "theatres" that have harvester models and grant currently spawning resources as a bonus reward. 
+- Nerf hand sampling to 1 unit per resource type per hour, there by making it a discovery tool rather than an AFK "I win the game!" exploit.
+- Add a network of merchants who sell resources and make a quest that introduces them to the player.
+- Remove player city functionality, because I already let the player build wherever they want anyway. The buffs could be provided in a different way.
+- Remove Politician.
+- To enhance the usefulness of power type resources, vehicle hitpoint decay will be fuel loss, rather than damage, so the decay is "fixed" by using resource power rather than credits. Each fuel type resource has a different efficiency and the Potential Energy stat plays into it. Garages would still use credits though.
+
+
+
+Bring the world to life
+= = = = = = = = = = = = = = = = = 
+- This is an ongoing project, where I would do a bit a time.
+- Replace and replace many useless characters (especially ones that don't seem to make any sense...) with quest givers from the disabled planets, merchants, new quest givers, and NPCs tied to world factions that can be attacked.
+- Make all the Junk Dealers character and location driven so they feel less gamey.
+- Make screenplays for each town that generate NPC (when the player is within range) who spawn, "do something", and then despawn.
+- Add more "Points of Interest", "Quest Hubs", etc. Such as...
+- Story based content that adds creatures from the disabled planets, such as...
+- The zoo gone wrong on Tatooine that turned into a valley where Bio-Engineers from Bestine study the accidentally wild creatures.
+- The Northern Endorian infestation of creatures from Yavin4, centered around the abandonded Imperial outpost. 
+- And adding other critters to the spawn tables of Dantooine, Dathomir, Endor, Lok, and Tatooine.
+- World faction driven content where the player can earn/lose faction with NPCs who live on the disabled planets (Corellia, Talus, Naboo, Rori, and Yavin4).
+- Enable and build up Rori, because it has a unique atmosphere to it and a lot of potential.
+
+
+
+Economy Adjustments
+= = = = = = = = = = = = = = = = = 
+- Don't allow some items to be made in factories, because they need to be a "credit sink" and simply aren't when you can make a life time supply of them in an afternoon.
+- Vehicles: Only purchased from Crazy Larry, apart from some NGE era models that I will add as looted single use crafting schematics.
+
+
+
+Merchant System Improvements
+= = = = = = = = = = = = = = = = = 
+- Inject a reply option that opens an inventory window where the player can fully inspect the items that are for sale.
+- Options for Smugglers to try for discounts. 
+- Stock limations based on month, scarcity, faction standing, and stock levels.
+- Add more merchants, mostly as part of world faction content. This includes Geo Cave loot and other high priced consuables that will act as major credit sinks.
+- Repurpose the Bazaar terminals to be a merchant system with a UI similar to the Crate of Free Reources. These terminals are all over the galaxy already, so it would make sense to use them for something.
+
+
+
+Imperial / Rebel Improvements
+= = = = = = = = = = = = = = = = = 
+- Add tiggers to prevent neutral characters from tresspassing on Rebel/Imperial land, because it doesn't make any sense for people to be able walk in there and do whatever they want.
+- Imprison neutrals who are caught tresspassing. Another character will have to bail (NPC conversation + credits) them out or break them out (quest + combat).
+- Add a free travel system that links faction facilities together. 
+- Add more faction items for purchase.
+
+
+
+Personal Ship Improvements
+= = = = = = = = = = = = = = = = = 
+- It's a little wonky (and a bit buggy) as it is. 
+- I would like to tie the functionality to an inventory item so it can be placed on the toolbar and used. 
+- The ship flies down to the player's position and the player double clicks it to get in.
+- Only works on Tatooine, as that's where they are stationed.
+- Move the Onak out of the Mos Espa starport and put a bunch of the fighters in there. Add some related quest content.
+
+
+
+Smuggling / Bounty Hunting 
+= = = = = = = = = = = = = = = = = 
+- Limit bounty targets to spawning only on planets that are enabled.
+- Add some repeatable, multi-part smuggling missions that are interesting and different each time.
+- Have treasure maps as a possible reward. 
+- Make treasure maps indicate the planet where the treasure is on and if the planet is not one the player can access, let them know the map is useless. Such is life!
+
+
