@@ -104,6 +104,7 @@ scripts/managers/planet_manager.lua
 Power/Maint/Housing Adjustments
 = = = = = = = = = = = = = = = = = 
 scripts/object/installation/[GENERATORS/HARVESTERS]
+scripts/object/tangible/deed/[GENERATORS/HARVESTERS]
 
 - Increased Min/Max BER on all harvesters and (less so) generators
 - Increased max possible hopper size for harvesters (but not generators).
