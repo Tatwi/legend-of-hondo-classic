@@ -79,7 +79,11 @@ public:
 			ManagedReference<CellObject*> cell = cast<CellObject*>( targetObject->getParent().get().get());
 			Vector3 cellPosition = targetObject->getPosition();
 			text << "Cell Position:\t  {x:" << cellPosition.getX() << ", z:" << cellPosition.getZ() << ", y:" << cellPosition.getY() << "} Cell: " << cell->getCellNumber() << " (" << cell->getObjectID() << ")\n";
-		}
+            
+            ManagedReference<SceneObject*> parent = cell->getParent().get();
+            
+            text << "Structure ID:\t" << parent->getObjectID() << "\n";
+        }
 
 		Quaternion* dir = targetObject->getDirection();
 		text << "Direction:\t\t  {x:" << dir->getX() << ", y:" << dir->getY() << ", z:" << dir->getZ() << ", w:" << dir->getW() << "}\n";
