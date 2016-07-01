@@ -2513,31 +2513,30 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 					"Modern Table", "object/tangible/furniture/modern/table_modern_style_01.iff"	
 				},
 				"Camp Furniture",
-				-- Commented items don't have a mouseover hit box, which makes them too difficult to interact with.
-				-- Uncomment them when the issue has been resolved.
+				-- Note: --I do = Camp items that require a client-side iff file with the last bit of targetable set to 1
 				{
-					--"Ashes","object/tangible/camp/campfire_logs_ash.iff",
-					--"Logs (Burnt)","object/tangible/camp/campfire_logs_burnt.iff",
-					--"Logs (Fresh)","object/tangible/camp/campfire_logs_fresh.iff",
-					--"Logs (Smoldering)","object/tangible/camp/campfire_logs_smoldering.iff",
+					"Ashes","object/tangible/camp/campfire_logs_ash.iff", --I do
+					"Logs (Burnt)","object/tangible/camp/campfire_logs_burnt.iff", --I do
+					"Logs (Fresh)","object/tangible/camp/campfire_logs_fresh.iff", --I do
+					"Logs (Smoldering)","object/tangible/camp/campfire_logs_smoldering.iff", --I do
 					"Chair (Style 1)","object/tangible/camp/camp_chair_s1.iff",
 					"Chair (Style 2)","object/tangible/camp/camp_chair_s2.iff",
 					"Chair (Style 3)","object/tangible/camp/camp_chair_s3.iff",
-					--"Cot (Style 1)","object/tangible/camp/camp_cot_s1.iff",
-					--"Cot (Style 2)","object/tangible/camp/camp_cot_s2.iff",
-					--"Cot (Style 3)","object/tangible/camp/camp_cot_s3.iff",
-					--"Crate","object/tangible/camp/camp_crate_s1.iff",
-					--"Lantern (Style 1)","object/tangible/camp/camp_lantern_s1.iff",
-					--"Lantern (Style 2)","object/tangible/camp/camp_lantern_s2.iff",
-					--"Lantern (Style 3)","object/tangible/camp/camp_lantern_s3.iff",
-					--"Torch (Tall)","object/tangible/camp/camp_light_s1.iff",
-					--"Light Post","object/tangible/camp/camp_light_s2.iff",
-					--"Light Post (Beacon)","object/tangible/camp/camp_light_s3.iff",
+					"Cot (Style 1)","object/tangible/camp/camp_cot_s1.iff", --I do
+					"Cot (Style 2)","object/tangible/camp/camp_cot_s2.iff", --I do
+					"Cot (Style 3)","object/tangible/camp/camp_cot_s3.iff", --I do
+					"Crate","object/tangible/camp/camp_crate_s1.iff", --I do
+					"Lantern (Style 1)","object/tangible/camp/camp_lantern_s1.iff", --I do
+					"Lantern (Style 2)","object/tangible/camp/camp_lantern_s2.iff", --I do
+					"Lantern (Style 3)","object/tangible/camp/camp_lantern_s3.iff", --I do
+					"Torch (Tall)","object/tangible/camp/camp_light_s1.iff", --I do
+					"Light Post","object/tangible/camp/camp_light_s2.iff", --I do
+					"Light Post (Beacon)","object/tangible/camp/camp_light_s3.iff", --I do
 					"Meat Skewer","object/tangible/camp/camp_spit_s1.iff",
 					"Camp Center (Small)","object/tangible/camp/camp_spit_s2.iff",
 					"Camp Center (Large)","object/tangible/camp/camp_spit_s3.iff",
-					--"Stool (Short)","object/tangible/camp/camp_stool_short.iff",
-					--"Stool (Tall)","object/tangible/camp/camp_stool_tall.iff",
+					"Stool (Short)","object/tangible/camp/camp_stool_short.iff", --I do
+					"Stool (Tall)","object/tangible/camp/camp_stool_tall.iff", --I do
 				},
 				"Jedi Furniture",
 				{
