@@ -1,0 +1,59 @@
+New Combat Model Concept
+========================
+July 2015
+
+
+Purpose: Modify the pre-cu era SWG combat so that makes more sense.
+
+Goals: 
+
+- To make combat more about active healing and active mitigation than passive regeneration and mitigation.
+
+
+- Eventually the player will run out of resources during a long fight, thus they need to use their special attacks and healing abilities wisely.
+
+- To give the player the ability to manage those resources with only the partial Medic abilities. Leveling players will do fine with just Nocive Medic, while top end content will require more like 0040 Medic skill, for access to Stim-E
+
+
+Key Points:
+
+- Encumberance remains the same. 
+- Incapacitation and death only happens when the target runs out of Health. 
+- Action is used/required for special attacks.
+- Mind is used/required for healing abilities. 
+- Regen rates for Health and Action while in combat are very low.
+
+- Using a special attack only reduces Action, but costs are higher than pre-cu. This is more like combat in the NGE version of SWG. 
+
+- Using a healing type ability reduces Mind and Mind does not regenerate while in combat. This is akin to mana in World of Warcraft. 
+
+
+Healing: 
+
+- Cooldown on the healing ability not as effected by the Injury Treatment skill and Halva food.
+
+- Healing causes wounds to random stats, a little at a time.
+
+- Stim-A: Directly heals Health only, at about the level of a good pre-cu Stim-B. 
+
+- Stim-B: Directly heals Action only. Max quality of 1000 healed.
+
+- Stim-C: Heals Mind over time. Max quality of 500 healed. 5 ticks at 1 per second.
+
+- Stim-D: Directly heals Health only, at about the level of a good pre-cu Stim-C. This is the health stim to use for high end combat.
+
+- Stim-E: Heals Health/Action/Mind over time, with each tick having the chance to cure a poison or disease. Max quality of 500 healed. 10 ticks at 1 per second.
+
+- Each of these healing packs trigger the cooldown on healing, making their use much more strategic. 
+- The possibility to cure a disease without taking Doctor opens up more possibilities for profession choices, but doing so is not without risk!  
+
+
+General Combat:
+
+- NPC/Creatures/Player can only directly attack Health. 
+- Damage over time effects can be applied to health, Action and Mind.
+- NPC/Creatures randomly use either action or mind when they perform a special attack. 
+- NPC/Creatures have a random chance to regenerate some of their health, action, or mind when they perform an attack.
+- Low Action on NPC/Creatures will make them vulnerable to state attacks, such as Dizzy, etc. 
+- Low Mind on NPC/Creatures will reduce their accuracy upto 50%.
+- Similar to the player, when an NPC/Creature is out of action and mind, they will not be able to perform special abilities. However, each of their deafult attacks retains the chance to regen a stat. 

@@ -1,0 +1,32 @@
+0 = 0
+1 = 90
+2 = 180 / -180
+3 = -90
+4 = 0
+
+
+placestructure deedID x y 0 = N = 0
+placestructure deedID x y 0.5 = NE = 45
+placestructure deedID x y 1 = E = 90
+placestructure deedID x y 1.5 = SE = 135
+placestructure deedID x y 2 = S = 180 / - 180
+placestructure deedID x y 2.5 = SW = -135
+placestructure deedID x y 3 = W = -90
+placestructure deedID x y 3.5 = NW = -45
+
+
+int direction = player facing direction
+float angle = direction * 0.0111111
+
+if angle < 0 
+	angle *= -1 // make it positive
+
+
+45  
+---- = 0.5
+ x
+	0.5
+ x = -----
+	45
+	
+x = 0.01111

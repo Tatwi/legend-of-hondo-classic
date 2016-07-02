@@ -1,0 +1,53 @@
+In brief, a string file is a simple table similar to a spreadsheet that has two columns and many rows of values. The first column is as a short name or "ID" and the second column is the content being referenced, taking on this general format: 
+
+-----|---Column 1---|------Column 2--------|
+Row1 | Book Chapter | Words in the chapter |
+
+These files are saved inside the TRE files on the client and the server and are used as handy references for much of the text that is seen in Star Wars Galaxies. One can edit a string file using Sytner's IFF Editor and doing so looks like this, 
+<a href="https://tatwi.files.wordpress.com/2016/06/string_file_example1.jpg"><img src="https://tatwi.files.wordpress.com/2016/06/string_file_example1.jpg?w=1024" alt="string_file_example" width="1024" height="576" class="aligncenter size-large wp-image-840" /></a>
+
+The reason why these files are used, as apposed to just putting the full text of everything where ever it happened to be needed it, is that it allows the client to easily be displayed in multiple languages. Simply change a value in the client settings and all the text references get pointed away from the English files to player's choice of language. 
+
+<strong>Here is an example that will help make this process clear:</strong>
+To say hello you would reference the @hello ID and it would spit out the value associated with it.
+
+English: string/en/greetings[@hello:hello]
+French: string/fr/greetings[@hello:Bonjour]
+
+The client simply replaced en with fr and voila, everything is now in french! That's fantastic! What a great way to add new languages to the game! I'm sold!
+
+The End! 
+<hr>
+Unfortunately, no, that's not the end of the story, because in many circumstances the work flow and efficiency of string file editing is terrible.  
+
+I make a lot of typos, usually in the form of missing words, as my brain far outpaces my typing fingers. As a result, I tend to do a lot of proof reading and editing when I write. That's probably quite common, if not the normal. Also, many times I'll find that I poorly articulated or conveyed an idea so I'll go ahead and edit the passage for clarity. And there in lies the biggest issues with using string files - <em>it takes far too long to fix simple mistakes.</em>
+
+To give you an example, here is the work flow for editing a custom NPC conversation if it was created in a server-side lua file:
+
+1. Open the file.
+2. Fix the issue.
+3. Save the file.
+
+Just as simple as editing any text file, right? That's nice. <em>Really nice!</em>
+
+Now here is the work flow for doing the same thing with a string file. 
+
+1. Open Sytner's IFF Editor.
+2. Locate the string file you'd like to edit and open it.
+3. Fix the issue.
+4. Export the string file to the desktop.
+5. Use Sytner's IFF Editor to create a new TRE file.
+6. Copy/paste the new TRE file to server and the client.
+7. Edit the config files for the server and client so they load the new TRE file. 
+
+And feel free to add on another couple steps if you've created an entirely new string file, as you'll need to edit the CRC files so the server and client know about that new string file you've made. Or some more steps if you're compacting or organizing your TRE structure in a sensible way. But even just having to do steps 1-6 for every single edit... what glorious excitement! What a fabulous use of time! :|
+
+For reference, <a href="https://github.com/Tatwi/legend-of-hondo/blob/master/MMOCoreORB/bin/scripts/mobile/conversations/hondo/merchants/crazy_larry_conv.lua">here</a> is lua conversation file with custom text and <a href="https://github.com/Tatwi/legend-of-hondo/blob/master/MMOCoreORB/bin/scripts/mobile/conversations/trainer/trainers_conv.lua">here</a> is one that uses string file references. It should be noted that the custom one was hand written (copy/paste/rename stanzas mostly), while the string file reference one was built using an online tool. To use the online tool with custom string files, you'd have to update that tool too.
+
+By comparison to accomplishing English-only functionality with server side lua files, using string files is a nightmare that really does add up to a colossal waste of time <em>if you never plan on adding any additional languages anyway.</em> Not only is it a waste of time, it ends up being a logistical problem too, as each minor change requires every player to download new or replacement files. 
+
+This is why I, as much as humanly possible, avoid client modding in general. Server side, everything I do is accomplished in text files, be they lua or c++, and they're applied simply be compiling and restarting the server. Heck, lua changes are extremely powerful and they only need a server reboot to be applied for everyone who plays. Can't beat that work flow!
+
+But with that said, for those of you out there who are hosting your own SWGEmu servers for the general world population (as apposed to my LoH solo server project that no one else will likely ever use), it would be best for you to make use of string files as much as possible. Using the string files allows your community to create and use versions that have been translated into their native language, even if they've just gone ahead and modified their client on their own to make that happen. Forcing English down the pipe from the server isn't end of the world, of course, but it's certainly not optimal and fortunately Sony Online Entertainment left us a Star Wars Galaxies that has a multilingual system built right into it. 
+
+<strong>Yup, this is one of those lovely hypocritical moments when someones says, "Do as I say, not as I do".</strong> Sorry, but the truth is that using string files is "the right thing to do", because it's inclusive and respectful of the SWGEmu community as a whole. Is it a pain in the ass? Yes, yes it most certainly is, but "Unus pro omnibus, omnes pro uno", they say (in Latin).

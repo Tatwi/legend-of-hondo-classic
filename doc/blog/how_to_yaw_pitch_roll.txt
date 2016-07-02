@@ -1,0 +1,3 @@
+My original post on this got all messed up, like the other files listed as FIXME, here. Suffice to say that you can accomplish yaw, pitch, roll by editing the /rotateFurniture command on the server. Here is a link to the file, 
+
+https://github.com/Tatwi/legend-of-hondo/blob/master/MMOCoreORB/src/server/zone/objects/creature/commands/RotateFurnitureCommand.h

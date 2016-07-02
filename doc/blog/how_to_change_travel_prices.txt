@@ -1,0 +1,62 @@
+As promised, I am bringing back my old posts on SWGEmu server and client mods. I originally posted this on the SWGEmu forum and it was one of the first mods I made (/teleport works great for me now lol...).
+
+On my testvm I wanted to reduce the travel costs and allow travel to all destinations for my convenience (/teleport never seems to get me another planet! So God rides the shuttle lol...). I was able to change the appearance of the cost by placing my modified datatables/travel/travel.iff in my client side file structure, but the server still charged the normal price. As such, I am wondering where I need to place the modified travel.iff on the server. I placed datatables/travel/travel.iff in the TRE folder on the server, but that did not override the one inside the TRE files like it did on the client.I also tried making a "mystuff" subdir in the server TRE directory and changing the path on line 223 /home/swgemu/workspace/MMOCoreORB/src/server/zone/managers/planet/PlanetManagerImplementation.cpp to mystuff/datatables/travel/travel.iff, but that caused the server not find the ticket prices when it loaded. 
+
+Interestingly, the default action when the ticket prices are not found is to charge -1 credit, which had the effect of adding 1 credit to my bank account each time I bought a ticket. There's an accidental exploit waiting to happen!
+
+I'll try some more things before posting this...
+
+-------------------------   
+
+Problem Solved! 
+
+------------------------
+
+I was able to do both things I wanted! Here are the steps.
+
+1. Use TRE Explorer[http://www.modthegalaxy.com/forums/thread-tool-tre-explorer-small-update-to-uli-s-
+
+update-1-0-1-95-updated-04-0-8-2014] to open data_other_00.tre on your Windows host computer. 
+
+2. Choose the little edit thing on datatables/travel/travel.iff and edit the data table values to your 
+
+liking.
+
+3. Save travel.iff to your desktop. Conveniently it will put it into the correct directory structure.
+
+4. Create a new folder on your "c drive" C:\tre\
+
+5. Copy the datatables folder from your desktop into C:\tre\
+
+6. Following the advice at end part of a guide I read..., extract TRE Packer
+
+[http://www.modthegalaxy.com/forums/thread-tool-tre-packer] to your C:\ directly, not in a sub folder.
+
+7. Run TreEdit.exe and click the Create TRE button.
+
+8. Choose Computer &gt; C: &gt; tre &gt; OK
+
+9. Name the tre file (something like mystuff_01.tre is fine) and save it to the Desktop. Be sure to actually 
+
+type the .tre in the name.
+
+10. Copy the TRE file into your server virtual machine here /home/swgemu/workspace/tre (using whatever tools 
+
+you normally use to transfer files from the host to the VM).
+
+11. Open /home/swgemu/workspace/MMOCoreORB/bin/conf/config.lua and add "mystuff_01.tre", to the TOP of the 
+
+list of TRE files. Don't forget the comma on the end.
+
+12. Reboot your server. 
+
+13. Copy your mystuff_01.tre file to your SWGEMU folder. Note that you should do this with a copy of the 
+
+client that you use just for testing.
+
+14. In your SWGEMU client folder, open swgemu_live.cfg and make the following edits
+
+maxSearchPriority=27
+searchTree_00_26=mystuff_01.tre15 
+
+15. Start your client and enjoy the changes!

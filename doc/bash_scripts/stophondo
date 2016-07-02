@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# Shutdown SWGEMu server.
+
+kill $(ps aux | grep 'core3' | awk '{print $2}')

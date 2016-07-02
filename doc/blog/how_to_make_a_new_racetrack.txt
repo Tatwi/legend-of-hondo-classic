@@ -1,0 +1,44 @@
+<em><strong>Update:</strong> I noticed that I forgot to change the "badge" granted for completing the track from Keren to something new. So, have a look at <a href="http://www.modthegalaxy.com/forums/thread-guide-content-adding-badges" target="_blank">Lasko's guide to creating new badges</a> over on Mod the Galaxy if you want to do that.</em> 
+
+The good folks who created the racetrack system for SWGEmu did so in such a way that it proved to be very easy to make a new one for the Tarkin server. We wanted something to introduce new players to some of the useful places in the starter city, Theed, and it occurred to me that a race track might be a fun way to accomplish the task. Races in Star Wars Galaxies are basically a series of waypoints a person travels to in succession, so... pretty handy and fun way to show a new player around, no? :)
+
+Racetracks are made up of four lua files and two string files. The lua files are plain text files, where as the two string files are a special file type that can be edited with Sytner's Iff Editor, Jawa Toolbox, or TRE Editor. You can browse the lua files on my Github <a href="https://github.com/Tatwi/tarkin_scripts/commit/2ec7aec2d9dbb863329cbfe2d98b368dcb1fa15f" target="_blank">here</a> and download the TRE file <a href="https://github.com/Tatwi/tarkin_scripts/blob/22f176a1cf835a8e89801d5b825eefb619d8463a/NEWTRE/theed_race.tre" target="_blank">here</a>.
+
+If you're confused by what is in those files, it essentially boils down to this:
+
+1. All I did to create this race was copy the existing files for the Keren race and add some new entries to the one string file that is shared between all races.
+
+2. I put all the files in the right spots and registered them with the engine (including using Sytner's Iff Editor to pack a new TRE file, so the server can register it as well as adding it my to client).
+
+3. Changed the word Keren to Theed in all the files (Being sure to MATCH THE CASE!).
+
+4. Made new waypoints for the droid and the race by driving around Tarkin and marking them down as I went.
+
+5. Added some custom screen messages in the string files, as well as entries for each step in the race. Again, I simply used the Keren race as a template.
+
+<strong>scripts/mobile/conversations.lua</strong>
+- Registers the conversation for the new race droid.
+
+<strong>scripts/mobile/conversations/racetracks/theedconversation.lua</strong>
+- Is the conversation for the new race droid. 
+- This stuff is fed into the "race engine" and there is very little you need to change here.
+- Simply change the word theed (using the "replace all" tool in your text editor!) to what you're calling your new race. 
+
+<strong>scripts/mobile/misc/serverobjects.lua</strong>
+- Register the new race droid.
+
+<strong>scripts/mobile/misc/theedracecoordinator.lua</strong>
+- The new race droid himself.
+- Required because it points to the above new conversation, which must be unique.
+
+<strong>scripts/screenplays/racetracks/racetracks.lua</strong>
+- Register the new racetrack.
+
+<strong>scripts/screenplays/racetracks/theed.lua</strong>
+- The screenplay that feeds all the data into the "race engine". 
+- All you change here are the names, Theed/theed in this case, and the waypoints. 
+
+
+That's it. Provided you haven't made any typos, mixed up or forgotten any name changes, or neglected to register the new TRE file in your conf/config.lua file on the server, you will have a new race track. No real need to comprehend the underlying system, thanks to the clever way the SWGEmu folks designed their "race engine". 
+
+May the Force be with you!

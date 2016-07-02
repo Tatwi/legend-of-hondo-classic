@@ -1,0 +1,150 @@
+<em>I originally created this mod in August 2014. I am reposting the tutorial here.</em>
+
+This server side mod is a mini game that aims to reward those who enjoy the crafting process with a chance to win some loot. I created this mod with my Legends of Hondo single player server in mind, where the only source of Skill Enhancing Attachments is what you happen personally loot - slow going to say the least!
+
+The mod consists of c++ changes to one file and has two optional files that you can use if you'd like. 
+
+<strong><a href="https://onedrive.live.com/?cid=B3E6CE0644F53EE8&amp;id=b3e6ce0644f53ee8%214637" target="_blank">Download Version 1.0</a></strong></a>
+
+<strong>Purpose:</strong>
+- To add a fun way for non-combat type players to earn useful loot.
+- To act as another "resource sink" that encourages folks to use up their stock piles.
+
+<strong>What it Does:</strong>
+- Adds a chance to get a piece of loot when using the Practice Mode option while crafting.
+- There are 6 teirs of success, 
+
+1. You rolled successfully, but the item you crafted didn't have any quality stats (could not be experimented upon) so you don't win a prize.
+2. You rolled successfully, but the quality of the item and/or your skill was not high enough to win a prize.
+3. You won a piece of Junk Loot (on a LoH server this includes the chance to win an SEA of level 10 out of 300).
+4. You won a piece of Junk Loot (on a LoH server this includes the chance to win an SEA of level 50 out of 300).
+5. You won an Armor Attachment! (level 100 out of 300)
+6. You won a Clothing Attachment! (level 150 out of 300)
+
+- In my testing creating MANY SEAs, the highest number I got using level 150 was 16. Pretty great, but super uber either.
+
+- Keep in mind that the loot groups used are entirely optional and you can set them to whatever you'd like. In fact, you could even go ahead and create brand new loot groups just for this mini game if you'd like!
+
+<strong>How it Works:</strong>
+- The basic idea here is that when you hit the [Practice] button, the game determines:
+1. If you've won a piece of loot, based up on the complexity of the final item, your crafting tool quality, and your related assembly skill mod.
+2. The prize you've won, based upon the complexity of the final item, the highest experimentation percentage, and your related assembly skill mod.
+- Keep in mind that no matter how great you are, you'll only ever have about a 50/50 chance to win, <em>at best</em>. This can easily be adjusted "to taste" though.
+
+The process rewards players who choose the most complex schematics, who use the best resources for the schematic, who use all their experimentation points to the best of their ability, and who have the highest related assembly skill (which is capped at 150 for this mini game).
+
+Here is the logic portion of the code for anyone who wants to understand the process in detail and remove ALL the mystery from the game.  :D 
+<code>
+// ===================
+		// Legend of Hondo Customization
+		// Roll for loot drop when in practice mode
+		if (grantLootChance == 1){	
+			ManagedReference draftSchematic = manufactureSchematic-&gt;getDraftSchematic();
+			int itemComplexity = manufactureSchematic-&gt;getComplexity();
+			int toolQuality = craftingTool-&gt;getEffectiveness();
+			int assemblySkill = crafter-&gt;getSkillMod(draftSchematic-&gt;getAssemblySkill());
+			if (assemblySkill &gt; 150)
+				assemblySkill = 150; // Cap Assembly Skill
+			
+			int playerRoll = (itemComplexity + toolQuality) + (assemblySkill / 2);
+			int luckRoll = System::random(30);
+			// Set the random goal to beat. Min is 61. Increase 300 to reduce likelihood of winning. 
+			int successTarget = System::random(300) + 60; 
+			
+			// See if they won loot and take action if they did.
+			if ((playerRoll + luckRoll) &gt;= successTarget){				
+				// Get the average quality of the crafted item, based up resources used and experimentation results, and times it by 1000.
+				Reference craftingValues = manufactureSchematic-&gt;getCraftingValues();
+				int titleCount = craftingValues-&gt;getVisibleExperimentalPropertyTitleSize();
+				if (titleCount &lt;= 0)
+					titleCount = 1; // Prevent divide by zero.
+				float goodness = 0;
+				float cvTemp = 0;
+				for (int i = 0; i getVisibleExperimentalPropertyTitle(i);
+					cvTemp = craftingValues-&gt;getCurrentVisiblePercentage(title);
+					if (cvTemp &gt; goodness)
+						goodness = cvTemp; // Use the highest  % experimentation line avchieved
+				}
+
+				// Determine the winnings. Higher numbers are harder to achieve.
+				int lootGroupAchieved = (itemComplexity + luckRoll) * goodness * assemblySkill * 10;
+				String lootGroup;
+				int level = 0;
+				
+				if (lootGroupAchieved sendSystemMessage("Sorry, but in order to win loot, you must craft items that can be experimented upon.");
+				}
+				else if (lootGroupAchieved sendSystemMessage("You pause for a moment and wonder what you could do with higher quality resources and more refined skill...");
+				}
+				else if (lootGroupAchieved &gt;= 120000){
+					// Clothing SEA
+					lootGroup = "clothing_attachments";
+					level = luckRoll + 100;
+				}
+				else if (lootGroupAchieved &gt;= 90000){
+					// Armor SEA (which includes crafting ones in Legend of Hondo)
+					lootGroup = "armor_attachments";
+					level = luckRoll + 50;
+				}
+				else if (lootGroupAchieved &gt;= 30000){
+					// Junk Loot with a chance for a mid level SEA
+					lootGroup = "junk";
+					level = luckRoll + 10;
+				}
+				else if (lootGroupAchieved &gt;= 7500){
+					// Junk Loot with a chance for a low level SEA
+					lootGroup = "junk";
+					level = 10;
+				}
+				
+				// Send the winnings to the player
+				ManagedReference inventory = crafter-&gt;getSlottedObject("inventory");
+				if (level &gt; 0 &amp;&amp; inventory != NULL) {
+					if (inventory-&gt;isContainerFull()) {
+						crafter-&gt;sendSystemMessage("Inventory Full! You won a loot item, but it could not be created.");
+					}
+					else{
+						Reference lootManager = crafter-&gt;getZoneServer()-&gt;getLootManager();
+						lootManager-&gt;createLoot(inventory, lootGroup, level);
+						crafter-&gt;sendSystemMessage( "You have received a loot item!");
+					}
+				}
+			}
+		}
+		// ===================
+</code>
+
+
+<strong>Files Included:</strong>
+
+[Required]
+required/src/server/zone/objects/player/sessions/crafting/CraftingSessionImplementation.cpp
+- This is the source code required to make this mod work. 
+
+[Optional]
+optional/src/server/zone/objects/player/sessions/crafting/WITH_VERBOSE_DEBUG_OUTPUT_CraftingSessionImplementation.cpp
+- This is the same file as above, only I put in some handy output to the command line and one item to the chat box in game. You can use it instead if you'd like. It's nice for tuning the numbers to your liking or just seeing how close you were to winning!
+
+optional/bin/scripts/loot/groups/junk.lua
+- This file adds both types of Skill Enhancing Attachment types into the Junk Loot group.
+- Level of the Mob looted is passed on to the SEA, so their quality is appropriate for the 
+  difficulty of the encounter.
+
+optional/bin/scripts/managers/loot_manager.lua
+- This file lists the groups of skills that can occur on looted gear and SEAs. 
+- Normally Clothing Attachments more possibilties than Armor Attachment.
+- This mod makes both SEA types have the same full array of stat possibilities.
+
+
+<strong>How to Install:</strong>
+1. Compare your version of these files with the mod version and note any differences in personalization, etc.
+2. Rename your version of these files [NAME]_original. 
+3. Copy and paste these files into the correct directories.
+4. Open any files that need personalization and make your changes.
+5. Recompile your server.
+
+
+<strong><a href="https://onedrive.live.com/?cid=B3E6CE0644F53EE8&amp;id=b3e6ce0644f53ee8%214637" target="_blank">Download Version 1.0</a></strong></a>
+
+
+
+I hope someone out there gives this a whirl and enjoys it as much as I do!  :D

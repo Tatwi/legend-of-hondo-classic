@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+# Replace armor values to create basic armor for purchase.
+# sed -i 's/find/replace/' file
+
+# Add the mission maxCondition
+# sed -i 's/-- These are default Blue Frog stats/-- These are default Blue Frog stats\n\n\t maxCondition = 30000,\n/' *.lua
+
+
+sed -i 's/kinetic = [0-9][0-9],/kinetic = 55,/' *.lua
+sed -i 's/energy = [0-9][0-9],/energy = 55,/' *.lua
+sed -i 's/electricity = [0-9][0-9],/electricity = 55,/' *.lua
+sed -i 's/stun = [0-9][0-9],/stun = 55,/' *.lua
+sed -i 's/blast = [0-9][0-9],/blast = 55,/' *.lua
+sed -i 's/heat = [0-9][0-9],/heat = 55,/' *.lua
+sed -i 's/cold = [0-9][0-9],/cold = 55,/' *.lua
+sed -i 's/acid = [0-9][0-9],/acid = 55,/' *.lua
+
+sed -i 's/kinetic = [0-9],/kinetic = 55,/' *.lua
+sed -i 's/energy = [0-9],/energy = 55,/' *.lua
+sed -i 's/electricity = [0-9],/electricity = 55,/' *.lua
+sed -i 's/stun = [0-9],/stun = 55,/' *.lua
+sed -i 's/blast = [0-9],/blast = 55,/' *.lua
+sed -i 's/heat = [0-9],/heat = 55,/' *.lua
+sed -i 's/cold = [0-9],/cold = 55,/' *.lua
+sed -i 's/acid = [0-9],/acid = 55,/' *.lua
+
+
+
+sed -i 's/healthEncumbrance = [0-9][0-9],/healthEncumbrance = 35,/' *.lua
+sed -i 's/actionEncumbrance = [0-9][0-9],/actionEncumbrance = 35,/' *.lua
+sed -i 's/mindEncumbrance = [0-9][0-9],/mindEncumbrance = 35,/' *.lua
+
+sed -i 's/healthEncumbrance = [0-9],/healthEncumbrance = 35,/' *.lua
+sed -i 's/actionEncumbrance = [0-9],/actionEncumbrance = 35,/' *.lua
+sed -i 's/mindEncumbrance = [0-9],/mindEncumbrance = 35,/' *.lua
+
+sed -i 's/vulnerability =.*,/vulnerability = STUN + LIGHTSABER,/' *.lua
+

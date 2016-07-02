@@ -1,0 +1,9 @@
+1. Create the session with the screen command.
+
+screen -S mySession1
+
+2. Open a different terminal.
+
+3. Send the command from the other terminal.
+
+screen -S mySession1 -p 0 -X stuff "top$(printf \\r)"

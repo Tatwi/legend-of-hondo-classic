@@ -1,0 +1,146 @@
+I was recently contacted by another kind person who was reading some of my posts on Mod the Galaxy and found dead links that pointed to the self-hosting I stopped paying for a while back. Sorry about that, I truly am, but it got a bit expensive for me, given how few people ever visited the site. 
+
+Anyhow, Sean had a lot of questions about getting his own personal server up and running and how he could change the default Star Wars Galaxies experience to make more sense for just himself and a few friends. It's an important consideration, because in its natural state, SWG absolutely <em>requires</em> the division of labour in order for the game to function as it was intended. Simply put, without changes to many key systems, the game is impossible to play as a single player game. I think perhaps the most important reality there is that one needs to keep a server running 24/7/365 so that time can pass in the virtual world, but even that requirement could be modded out with enough effort... I digress. 
+
+Sean's questions were very good and I tried my best to answer them in a helpful way. As such, I thought it would perhaps prove useful to others down the road if I posted my reply to his email here on my site as well. So, here you go (typos and all)!
+<hr>
+Hi Sean,
+
+Looks like you have quite the adventure ahead of you! Working with the SWGEmu code base and the SWG client side tools is extremely time consuming and can be tedious, frustrating, and down-right awful at times. It really has to be a labor of love. That said, everything you mentioned is possible for you to do!
+
+For my part, I am sorry about the dead links. I haven't really done touched SWG in about a year, since I stopped working on my Legend of Hondo single player server. I also stopped hosting my own website a while back to save some money, so all the guides I wrote are wrapped up in a PHPBB database save that I haven't had much luck in accessing.
+
+All that sounds dire to be sure, so on to the light side! I'm going to go through your email step by step.
+
+
+<em><strong>Sean:</strong> "I'm a fellow enthusiast of Star Wars Galaxies, and a friend and I were discussing the other day of making a private server that would be geared for, at the most, maybe two or three people tweaked to our own personal liking."</em>
+
+I know a couple other people working on the same type of thing and I have done so myself, so you can do it too! Have a look at my features list and commit history to see where and how I went about changing the code and the client side files. That's the important part, knowing where and how to inject your awesome!
+
+https://github.com/Tatwi/legend-of-hondo/blob/master/LoH_Features_Log
+https://github.com/Tatwi/legend-of-hondo/commits/master
+
+I've been told that my merchant system does not work with the latest version of SWGEmu and it's probably not something I will get around to fixing, as I don't intend to move LoH to a newer code base (because that is a major, major pain the arse). That said, the code and concepts remain valid for the most part, so looking through it is a pretty good guide to how to mod the galaxy, so to speak. :) That's why I put it up on github actually.
+
+
+<em><strong>Sean:</strong> "For starters, I was wondering where to look for the files for the latest pre-CU server."</em>
+
+The best place to do this is on the SWGEmu forum. They just recently released a new quick-start virtual machine setup guide for 2016. I personally haven't run through that setup, as I am still using an older code base, but it looked straight forward when I read it. Here's the link to the thread (you will need to log into their forum to access it),
+
+http://www.swgemu.com/forums/showthread.php?t=175307
+
+The older version that I am using has a setup guide/tool made by Scurby and host here,
+
+https://github.com/Scurby/deb7
+
+You'll most likely want to use the latest version though, so go ahead and log into the SWGEmu forum and read through the that guide. Once you have your own VM setup, you can use it as your development environment and push your updates to an external repo, which you can later pull in on your "live server" VM or physical hardware.
+
+A note about physical hardware: It doesn't take much to host a single player server. I did it with an old Athlon X2 era laptop with 3GB RAM. So anything better than that will be fine. Ideally, a quad core or better CPU (even an old one), 8GB of RAM, a 60GB solid state drive, and a 500GB backup rotational drive would be plenty good enough for 10 - 50 concurrent players.
+
+<em><strong>Sean:</strong> "Second, just to confirm, this link (http://www.modthegalaxy.com/forums/thread-mod-the-galaxy-community-content-repository) will help me pull in NGE content to this server, right? I'd like to be able to access Mustafar and Kashyyk and the creatures that inhabit it to explore as well. Not sure if that adds the loot for them (the Chu-Gon Dar cube items and the combination you can do with that was so fun to me for some reason) but I hope so."</em>
+
+To be honest, I haven't been keeping up with Mod the Galaxy, but that is indeed their own custom server, complete with its own content and "development toolchain". You could use that instead of the official SWGEmu guide if you like, it's really up to you.
+
+The power of the online repository is in that it shares with you not only the current version of the code, but all the commits that happened to get to that point. Even if you didn't use the MotG server directly, there's nothing stopping you from looking through their commits and downloading the parts that you want from it. Same goes with my LoH server.
+
+The biggest reasons to use the official SWGEmu as a base for your project are:
+
+1. You get every update as of the day you download it.
+2. You can keep two branches in your git repo, one that is current with SWGEmu official and one that has all your mods in it. This allows you to merge SWGEmu official branch into your mod branch USING EXTREME CAUTION. Once you get too far away from default, you're probably going to NEED to use a tool like Meld to merge in each individual code change SWGEmu makes as patch to your own server, because just merging SWGEmu official will likely over-write and break a lot of things, especially loot tables and other Lua scripting.
+
+On idea on the Chu Gon Dar cube, I am afraid, but I don't see why it couldn't be programmed. A lot of C++, Lua, and client-side file editing work to add that kind of content though. Same goes for adding the rest of the NGE content, it can be done with a lot of time and effort.
+
+
+<em><strong>Sean:</strong> "I'd like to be able to "move into" all the NPC cities in the game. Either by replacing a building with one of my own or just to head inside of one and be able to drop items down and decorate an existing home."</em>
+
+This is a loaded question, as it touches many systems in SWGEmu and the client. Long story short...
+
+1. SOE made most of the buildings in the NPC cities as filler, literally called filler_blah256x256 in their file names. As such, the filler buildings don't have any interior 3D modeling, nor do they have any zone boxes (instances) allocated to them. While I have read that some people have been able to export 3D files from SWG, edit them, and then import them back into the game, I have never seen anyone actually share the tools and tech they used to achieve this. Thus, adding interiors to the filler type buildings isn't possible for the most part. Also, it's a hell of a lot work anyhow.
+
+2. The public structures that do have interiors, such as the starports, cantinas, guild halls, and other built in housing can be used by players simply by having a server admin enter the building and type /setpermission admin PLAYERNAME. However, there is a major SWGEmu specific problem with doing this!
+
+On the server, the data for public structures is loaded from the world snap shot files when the server boots up. This data is stored in PLANETNAME.ws files inside the TRE files on the server. The data is placed into the custom Berkley Database that SWGEmu use as, essentially, a huge "RAM Drive". All the server side data for the game, aside from player and account names, is stored a set of Berkley DB files. Unfortunately, due to this design, anything that a player places in a public structure not only gets loaded by the server at boot time, but it also gets saved into the world snapshot Berkley DB rather than the one that holds player housing data. The trouble with this, as we discovered on the Tarkin server, was that sometimes other world data could get messed up, such as the shuttle system, and we couldn't wipe it (by simply deleting the world DB file and letting it rebuild on boot), because it stored player items rather than only static world items.
+
+Another problem with storing items in public structures that we found on Tarkin was lag. Massive, enormous, client-side lag. Due to all that stuff being loaded by the server at boot time, it was part of the world even when people were just driving by outside. As such, any time a person drove past a popular area where players had lots of stuff in public structures, the game would load all of it into RAM, even though the player couldn't see any of it yet. SOE/SWGEmu avoided this issue with normal player housing by way of seamless instancing, such that stuff stored in player housing doesn't load on the client until player actually steps into the house.
+
+Now, this sounds bad, but the reality is that you can place stuff in these built in public structures if you like. It works really well and as long as you're OK with the potential for lag and having to move it all out to normal housing should you at some point need to rebuild the world snapshot Berkley DB, then it's "all good".
+
+3. Personally, as much of a tedious pain in the rear as it is, I would suggest replacing the filler buildings in the NPC cities with player placed structures and then decorating the remaining public structures sparingly. This will reduce server boot time and client side lag by keeping your player items stored in the correct Berkley DB file(s), while also making it easier for players to do their own thing without needing server admin access.
+
+To accomplish this you will need to use either Timbab's Jawa Toolbox or Sytner's IFF Editor suite to manually load the PLANETNAME.ws world snapshot file then delete all the building references that you don't want. It's a huge pain in the arse, because it's a text tool rather than a 3D tool, but it does show you the X,Y,Z location of each structure and you can use an admin client to /teleport there so you know for sure what it is you're looking at.
+
+When I did the "Coronet Unchained", I literally used an AutoHotKey script to spam left click on the delete button of the Jawa Toolbox, because there were so many buildings to delete. Thankfully I was able to select a category of structure and delete them all, but there are many cases where you'll have to look at the X,Y coordinates in the tool and in the game manually.
+
+To help with placing the player structures, I made a server/client mod for advanced house placement, or "house plop" as Kinshi from Tarkin put it. This method allows you to line the building up to any arbitrary angle, at the cost of also allowing you to place the building in a way that prevents entry (by door overlapping other object or ending up off the edge of a cliff, etc), so it must be used with care.
+
+Here links to the tools:
+
+<strong>Jawa Toolbox:</strong>
+http://www.modthegalaxy.com/forums/thread-tool-unmaintained-the-jawa-toolbox-alpha-update-v1-22-15-07-14
+
+<strong>Sytner's Iff Editor:</strong>
+http://www.modthegalaxy.com/forums/thread-tool-sytner-s-iff-editor-3
+
+<strong>Tatwi's Advanced Structure Placement:</strong>
+https://github.com/Tatwi/legend-of-hondo/commit/5f6272fbd80f9fec2257c53650cce6dc5b5a6e72
+
+
+<em><strong>Sean:</strong> "... if you know where I can find the values for things like skill caps (for a player to be able to branch out and gain skills in more trees than default SWG to be more than two or three classes), EXP requirements for skills, skill effects, EXP gain rates, player lots, battle fatigue from combat and wounds rates, harvester rates/requirements and some other values for a solo/small group server, please point me to some files of interest."</em>
+
+Almost all of those things are either in the the iff files or the lua files and they are easy to modify once you get the hang of it. Lua files are 100% server side plain text files and any changes to them do not require updating anything on the client. Iff files, on the other hand, are stored in the TRE files on both the server and the client, so when they are changed one needs to repack them into a new (or replacement) TRE file and added to both the server and client. This is more tedious than it is difficult.
+
+The skill point cap can be changed to whatever you'd like in a C++ header file on the server, however the client will only ever show 250 Skill Points, even though the player can use more. Last I checked, no one had figured out how to change the number displayed on the client.
+
+You can find information about how to edit/create loot tables, quests, themeparks, and many other things in the development forum for SWGEmu,
+
+http://www.swgemu.com/forums/showthread.php?t=175307
+ 
+Some example of files that I edited in my Legend of Hondo project are,
+
+<strong>Skill Tree, XP/Point Requirement Changes:</strong>
+https://github.com/Tatwi/legend-of-hondo/tree/master/tre/datatables/skill/
+- Edited skill.iff table with Jawa Toolbox
+ 
+<strong>Skill Effect/Numbers Editing:</strong>
+https://github.com/Tatwi/legend-of-hondo/tree/master/MMOCoreORB/bin/scripts/commands
+
+<strong>Loot Groups:</strong>
+https://github.com/Tatwi/legend-of-hondo/tree/master/MMOCoreORB/bin/scripts/loot/groups
+
+<strong>About Editing Loot Groups:</strong>
+http://www.swgemu.com/forums/showthread.php?t=178170&amp;highlight=edit+loot+groups
+
+And here is how the SWGEmu team rebuilt Jabba's Themepark,
+https://github.com/Tatwi/legend-of-hondo/tree/master/MMOCoreORB/bin/scripts/screenplays/themepark/jabba
+
+They built it as a system that can (and is) used to create other themeparks, even your own custom ones.
+
+
+<em><strong>Sean: </strong>"Fifth, would you happen to know how I could add new items such as weapons or furniture items? I've been able to do model imports and replacements to the game as mods from scratch so that's not an issue, I just would like to know how to add a new schematic for a new item that you could place down or a new weapon."</em>
+
+Adding new items (and slash commands) requires adding new files to both server and the client and editing the CRC files so that the client and server know that you've added new files. stacy_19201325 (Liaharra) from the SWGEmu forums was a master at adding new items, as she added a ton to the Tarkin server. Personally, I only ever added a new slash command and thus don't have a lot of hands on experience with the process. However, it's possible to add new items, looted crafting schematics for said items, and normal crafting schematics. Kinshi and Lia did a lot of that and Lasko and Duffstone from Mod the Galaxy also have a lot experience with this process and Duffstone's guide to adding NGE housing covers the general process quite well.
+
+http://www.modthegalaxy.com/forums/thread-adding-post-14-1-housing-to-core3
+
+It's tedious (there's that word again!) stuff and very time consuming per item, especially when you get into adding the lua files for the crafting and loot schematics, adding the loot to the loot tables, etc. But, it's possible to, at the very least, provide access to most of the content SOE added to the pre-cu client, but never gave the player access to (decorations, etc). Adding NGE era content is also possible with effort, however adding entirely new 3D models, in my experience, is not possible. That said, with the amount of stuff added in the NGE, it would take you years to add in just that stuff.
+
+
+<em><strong>Sean:</strong> "Finally, I'd like to add some more content in terms of NPCs. Quests may be a little too complicated, but I would like to find a way to burn credits in the game."</em>
+
+Quests, of the typical SWG sort, aren't too hard to add. They are all done in lua scripting on the server, using either the Themepark format or the Screenplay format. I was able to add a new race track, some bread crumb type quests, and a whole custom NPC merchant system, and a custom travel system, using and modifying the systems the SWGEmu team created. All of my scripts for that can be found here,
+
+https://github.com/Tatwi/legend-of-hondo/tree/master/MMOCoreORB/bin/scripts/screenplays/hondo
+
+I have heavily commented the scripts to help anyone who reads them to learn how things work. That said, the SWGEmu development forum has a lot of information on how to use the lua scripting and reading up on that stuff is pretty much a "must".
+
+Well Sean, I wish you well and I hope that I was able to answer your questions in a useful way. I know how difficult it is to start from scratch, not even knowing where to look for information, let alone making any headway. It can be very overwhelming, but it's not an insurmountable challenge.
+
+You may have noticed that I used the word tedious several times. That pretty well sums up why I stopped working on my Legend of Hondo project. Simply put, every mod one wishes to produce for SWGEmu requires a massive time investment. From the sheer tedium of editing many text files, to all the learning one must do to build new C++ or client side systems, working with SWGEmu and it's rudimentary tools can feel very much like a poor use of one's time. And that's no one's fault, it's just the nature of the beast - it's an amazing reverse engineered, community built project. It has its limits.
+
+Personally, I decided that for the time I want to spend "making games", I could make better use of my limited time by making a new game using the Blender Game Engine, hence my work on Loop Dipole and the Chaoties. I do the programming thing as hobby. I like "making things". But, I only have so much time to do that and I found that SWGEmu required way more than what I had in me to give. For instance, the Hunting Mission update that I made for the Tarkin server was a week's worth of work, 10+ hours a day. I spent more than 18 hours placing the decorations in the screenplay for the Theed race race track pavillion that I did for the Tarkin 2.0 new player experience (which never got used). I don't remember how long it took to make the custom travel system for Tarkin, but it was a long ass time indeed. Anyhow, I just thought I would share my experience and reasoning with you, so you have a realistic idea of the amount of time and effort is involved. As I said in the beginning, making and running a SWGEmu really needs to be a labor of love.
+
+Take care and thanks for contacting me,
+
+- Rob.
+
+Ps. I posted this reply on my blog in case others find it useful. Hope you don't mind.

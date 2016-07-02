@@ -1,0 +1,5 @@
+C++
+Logger::console.info("target: " + String::valueOf(target), true);
+
+Lua
+printf("validLocation after function call: " .. validLocation .."\n"); -- Debug

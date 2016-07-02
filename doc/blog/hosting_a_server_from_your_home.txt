@@ -1,0 +1,38 @@
+Someone recently asked me how this is done, so I dug through my files and found the following guide that I downloaded from somewhere at some point. Kudos to the original creator (whomever you are)! Note that I have not actually tried this myself, but it looks like it should work.
+<hr />
+You will need to open up some ports in your router.
+
+Here are the ports that need to be opened.
+DBPort = 3306
+LoginPort = 44453
+MantisPort = 3306
+PingPort = 44462
+StatusPort = 44455
+WebPorts = 44460
+ZonePort = 44463 (This value i located in a different file than the others)
+
+The computer the Dev Enviroment is on is 192.168.0.13
+My dev Enviroment ip is 192.168.0.10
+
+Port range forwarding needs to have.
+
+Heres what i have;
+
+Port Range
+Start_____End____Protocol____Ip Address
+3306____3306____Both_______192.168.0.10
+44453___44463___Both_______192.168.0.10
+
+Now in your VM.
+
+goto Applications -&gt; Programming -&gt; MySQL Query Browser -&gt; (login)
+
+under swgemu -&gt; galaxy
+
+I changed the address from "192.168.0.10" to my external ip 99.245.12.65
+side note: you can change the server name.
+
+Save your changes.
+<hr />
+
+Some additional thoughts... Depending on the volume of concurrent players, you will need at least a quad core CPU, 6GB of RAM, and 20GB of hard drive space. More is better all around, but age isn't really a big deal. An older AMD Operteron or Intel Xeon server can be had for cheap and will be fine, provided the parts don't die of old age. You might also want to consider your upload and download speed and data caps. Finally, an uninterruptible power supply (battery backup) is handy if the area you live in has frequent momentary power outages.

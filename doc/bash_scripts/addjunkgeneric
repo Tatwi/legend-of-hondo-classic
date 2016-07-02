@@ -1,0 +1,7 @@
+#/bin/sh
+
+## find . -name "*.lua" -print0 | xargs -0 sed -i -e 's/customizationValues = {}/customizationValues = {},\r\tjunkDealerTypeNeeded = JUNKGENERIC,\r\tjunkMinValue = 7,\r\tjunkMaxValue = 60,/g'
+
+## increase junk chance, as clothing was dropping too often
+
+## find . -name "*.lua" -print0 | xargs -0 sed -i -e 's/group = "junk", chance = 3000000/group = "junk", chance = 7000000/g'

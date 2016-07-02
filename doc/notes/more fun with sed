@@ -1,0 +1,3 @@
+sed -i '/numberToSpawn = 0,/d' *.lua
+sed -i '/weighting/d' *.lua
+sed -i '/spawnLimit = -1,/d' *.lua

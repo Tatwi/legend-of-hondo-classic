@@ -1,0 +1,81 @@
+They say necessity is the mother of invention. Well, allow me to share a Legend of Hondo feature with you that I made to make my life easier when populating and decorating the world. While I made these changes in my 2015 era SWGEmu code base, you can most likely get it work fine with the current code base without any issues. 
+
+<strong>Feature: Admin Decoration Tools</strong>
+= = = = = = = = = = = = = = = = = 
+<a href="https://github.com/Tatwi/legend-of-hondo/blob/master/MMOCoreORB/src/server/zone/objects/scene/components/ObjectMenuComponent.cpp">src/server/zone/objects/scene/components/ObjectMenuComponent.cpp</a>
+<a href="https://github.com/Tatwi/legend-of-hondo/blob/master/MMOCoreORB/src/server/zone/objects/creature/commands/RotateFurnitureCommand.h">src/server/zone/objects/creature/commands/RotateFurnitureCommand.h</a>
+<a href="https://github.com/Tatwi/legend-of-hondo/blob/master/MMOCoreORB/src/server/zone/objects/creature/commands/MoveFurnitureCommand.h">src/server/zone/objects/creature/commands/MoveFurnitureCommand.h</a>
+<a href="https://github.com/Tatwi/legend-of-hondo/blob/master/MMOCoreORB/src/server/zone/objects/creature/commands/GetObjVarsCommand.h">src/server/zone/objects/creature/commands/GetObjVarsCommand.h</a>
+<a href="https://github.com/Tatwi/legend-of-hondo/blob/master/MMOCoreORB/src/server/zone/objects/creature/commands/FindPlayerCommand.h">src/server/zone/objects/creature/commands/FindPlayerCommand.h</a>
+<a href="https://github.com/Tatwi/legend-of-hondo/blob/master/MMOCoreORB/src/server/zone/objects/tangible/terminal/characterbuilder/CharacterBuilderTerminalImplementation.cpp">bin/scripts/object/tangible/terminal/terminal_character_builder.lua</a>
+<a href="https://github.com/Tatwi/legend-of-hondo/tree/master/tre/object/tangible/camp">tre/object/tangible/camp/*.iff</a>
+- - - - - - -
+- Added radial menu options for Admin Characters to drop and pickup objects while outside. Works on most objects, including NPCs and items loaded by screenplays and world snap shot files. Some items, such as armor, can't be picked up, but they can be dropped and moved/rotated.
+- Admin Characters are also able to move and rotate objects outside.
+- Added new options to /getObjVars command that output helpful information into the chat log, such as fully formatted spawnSceneObject and spawnMobile screenplay calls. 
+- /getobjvars spout = spawnSceneObject for the targetted object.
+- /getobjvars onme = spawnMobile based on where the player is standing and facing. Defaults are "commoner" mobile template and 1 for respawn time.
+- /getobjvars myparent = returns the objectID of the structure you are standing in.
+- With chat logging enabled and the commands put into toolbar buttons via macros, this allows an admin to decorate normally and then cut and paste fully formated code directly into a screenplay file.
+- Added the Structure ID to the output of the findPlayer admin-only command, because it's handy.
+- Uncommented some decorations on the character builder terminal.
+- Fixed some iff files for some camp items that couldn't be targeted. Note that the files only *need* to be on the client for the for targeting to work (fyi adding targetable = 1 to the server template doesn't allow the client to target the item).
+<hr>
+Rather than go through the arduous process of adding a new slash command to the game, which requires editing client side files, I decided to mod my desired functionality  into the /getObjVars and other admin commands. It was just a better use of time.
+
+The great part about using these mods is that it that they allow the admin account to place, move, and rotate objects <strong>outside</strong> in the world. You can build an outdoor scene pretty much the same as you would decorate a house, then (/log to turn on chat logging) target each item and press a toolbar key to spit out the code that will load the same scene from a screenplay. The nice part is, you can pick up, drop, and rotate mobs too (hostiles included when you set yourself as invulnerable) and the /objgetvars spout command will output the spawnMobile call rather than spawnSceneObject. 
+
+Pretty cool, eh? Here's a guide on how to use it.
+
+<strong>/getobjvars</strong>
+<em>Emails a bunch of data about your targeted object as it normally would.</em>
+
+<strong>/getobjvars id NUMBER</strong>
+<em>Emails a bunch of data about the object id provided as it normally would.</em>
+
+<strong>/getobjvars spout</strong>
+<em>Spits out a fully formatted spawnSceneObject screenplay command into the chat box for the targeted object. When used on an NPC, it will spit out a spawnMobile screenplay command instead.
+
+Example Output: 
+spawnSceneObject("tatooine", "object/tangible/camp/camp_tent_s1.iff",  -2980.62, 5.0, 2528.85, 0,  0.963207, 0, -0.268761, 0)</em>
+spawnMobile("dathomir", "singing_mountain_clan_sentry", 360, -4573.5, 34.7, -6556.4, 138, 0)</em>
+
+<strong>getobjvars onme</strong>
+<em>This spits out a fully formatted spawnMobile screenplay command based on your current position and the direction you are facing. Simply stand where and how you want the NPC and fire off this command. By default the NPC name is "commoner", so you just need to replace it with the name of the NPC mobile template that you want. This workflow might be faster than spawning / placing / rotating and "/getobjvars spout" on the mob itself.
+
+Example Output: 
+spawnMobile("tatooine", "commoner", 360, -4573.5, 34.7, -6556.4, 138, 0)</em>
+
+<strong>getobjvars myparent</strong>
+<em>Returns the ObjectID of the building you are standing in, unlike CTL+SHIFT+G which shows you the ObjectID of the cell you are standing in. </em>
+
+
+<h2>Step By Step How-To</h2>
+
+1. Merge the changes listed above into your development server. No real need to put these into a live server, yet no reason not to have them on a dev sever! :) 
+
+2. Compile/build/boot your server. 
+
+3. Log into the game on an admin character and decorate as you normally would in the game, inside or out. When outside you will notice new radial menu options for Admin Drop Outside and Admin Pickup Outside. 
+
+4. Type /log to turn on chat logging, so that everything in the chat box gets written to a file on your hard drive. You'll want to turn off the time stamping in the Options &gt; Chat menu in the game as well. To avoid duplicate messages, you need to get rid of System Messages in your Combat chat log by right clicking the combat tab, choosing Modify Tab, and moving System Messages from the right side box to the left side box.
+
+5. Open the command window and make a macro for /getobjvars spout and drop the macro onto your toolbar in the first (or any really) slot.
+
+6. Target an object you placed as a decoration and press the key for the macro you put on your toolbar.
+
+7. Repeat step 6 for every object or mob that you placed. 
+
+8. When you're finished step 7 type /log to turn off logging. 
+
+9. Alt-Tab out of the game and head to your profiles folder in the game installation folder and open the chatlog text file in Notepad. This will look something like so: C:\SWGEmu\profiles\accountName\serverName\281474993500826_chatlog.txt where the long number is the character's reference number. Smaller number = older character. I made a handy shortcut to the file to save rooting around for it.
+
+10. Remove all the [Spatial] text and extra spaces before the commands you want by copying one instance of [Spatial] and go to Edit &gt; Replace (ctl+h) in Notepad. Paste [Spatial] in the "Find what:" text box (empty spaces included if you'd like) and press the [Replace All] button.
+
+11. Now all you need to do is copy and paste every spawnSceneObject or spawnMobile line into your screenplay. SHAAAHH BAM!, YOU'RE DONE!
+
+12. Note: Any object you dropped outside will be deleted when your server reboots, so no need to clean up after yourself.
+<hr>
+It's not a perfect workflow, but it's actually not too shabby either. Unfortunately it doesn't work with most of the items that are classed as "static objects", as there isn't a way to target them. I'll see what I can do about that in the future, as it would be very handy to be able to place bridges, roads, walls, filler buildings, etc. like any other decoration.
+
+Happy world building! :)

@@ -1,0 +1,26 @@
+#/bin/sh
+
+#find . -name "*.lua" -print0 | xargs -0 
+
+# add three loot groups to anything that does not already have a loot group.
+
+sed -i -e 's/lootGroups = {},/lootGroups = {\r\t\t{\r\t\t\tgroups = {\r\t\t\t\t{group = "junk", chance = 6000000},\r\t\t\t\t{group = "wearables_common", chance = 2000000},\r\t\t\t\t{group = "weapons_all", chance = 2000000},\r\t\t\t},\r\t\t}\r\t},/g' *.lua
+
+
+
+
+
+Add junk dealer price - range is multiplied by 10
+
+sed -i -e 's/customizationValues = {}/customizationValues = {},\r\tjunkDealerTypeNeeded = JUNKGENERIC,\r\tjunkMinValue = 3,\r\tjunkMaxValue = 25,/g'
+
+
+
+############################
+New Super Junk Delux!
+############################
+
+sed -i -e 's/lootGroups = {},/lootGroups = {\r\t\t{\r\t\t\tgroups = {\r\t\t\t\t{group = "junk", chance = 10000000},\r\t\t\t},\r\t\t\tlootChance = 2500000,\r\t\t}\r\t},/g' *.lua
+
+
+sed -i -e 's/,\r\t\t\tlootChance = 2500000,//g' *.lua
