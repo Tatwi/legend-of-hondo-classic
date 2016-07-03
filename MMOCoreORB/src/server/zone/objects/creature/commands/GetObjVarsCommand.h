@@ -49,28 +49,49 @@ public:
                 
                 String planetName = object->getZone()->getZoneName();
                 String templateFile = object->getObjectTemplate()->getFullTemplateString();
-                
                 StringBuffer text;
                 
-                text << "spawnSceneObject(\"" << planetName << "\", \"" << templateFile << "\", ";
+                if (templateFile.contains("object/mobile")){
+                    int angle = object->getDirectionAngle();
+                    
+                    text << "spawnMobile(\"" << planetName << "\", " <<  "\"" << templateFile << "\", 1, ";
                 
-                if (object->getParent() != NULL && object->getParent().get()->isCellObject()) {
-                    // Inside
-                    ManagedReference<CellObject*> cell = cast<CellObject*>( object->getParent().get().get());
-                    Vector3 cellPosition = object->getPosition();
+                    if (object->getParent() != NULL && object->getParent().get()->isCellObject()) {
+                        // Inside
+                        ManagedReference<CellObject*> cell = cast<CellObject*>( object->getParent().get().get());
+                        Vector3 cellPosition = object->getPosition();
 
-                    text << cellPosition.getX() << ", " << cellPosition.getZ() << ", " << cellPosition.getY() << ", " << cell->getObjectID() << ", ";
-                }else {
-                    // Outside
-                    Vector3 worldPosition = object->getWorldPosition();
-                    text << worldPosition.getX() << ", " << worldPosition.getZ() << ", " << worldPosition.getY() << ", " << "0" << ", ";
+                        text << cellPosition.getX() << ", " << cellPosition.getZ() << ", " << cellPosition.getY() << ", " << angle << ", " << cell->getObjectID() << ")";
+                    }else {
+                        // Outside
+                        Vector3 worldPosition = object->getWorldPosition();
+                        
+                        text << worldPosition.getX() << ", " << worldPosition.getZ() << ", " << worldPosition.getY() << ", " << angle << ", " << "0" << ")\n";
+                    }
+                    
+                    creature->sendSystemMessage(text.toString());// spawnMobile("planet", "mobileTemplate", respawnTimer, x, z, y, heading, cellid)
+                } else {
+                    text << "spawnSceneObject(\"" << planetName << "\", \"" << templateFile << "\", ";
+                
+                    if (object->getParent() != NULL && object->getParent().get()->isCellObject()) {
+                        // Inside
+                        ManagedReference<CellObject*> cell = cast<CellObject*>( object->getParent().get().get());
+                        Vector3 cellPosition = object->getPosition();
+
+                        text << cellPosition.getX() << ", " << cellPosition.getZ() << ", " << cellPosition.getY() << ", " << cell->getObjectID() << ", ";
+                    }else {
+                        // Outside
+                        Vector3 worldPosition = object->getWorldPosition();
+                        text << worldPosition.getX() << ", " << worldPosition.getZ() << ", " << worldPosition.getY() << ", " << "0" << ", ";
+                    }
+                    
+                    Quaternion* dir = object->getDirection();
+                    
+                    text << dir->getW() << ", " << dir->getX() << ", " << dir->getY() << ", " << dir->getZ() << ")\n";
+                    
+                    creature->sendSystemMessage(text.toString()); // spawnSceneObject("planet", "objectTemplateFilePathAndName", x, z, y, cellNumber, dw, dx, dy, dz> 
                 }
                 
-                Quaternion* dir = object->getDirection();
-                
-                text << dir->getW() << ", " << dir->getX() << ", " << dir->getY() << ", " << dir->getZ() << ")\n";
-                
-                creature->sendSystemMessage(text.toString()); // spawnSceneObject("planet", "objectTemplateFilePathAndName", x, z, y, cellNumber, dw, dx, dy, dz> 
                 return SUCCESS;
             } else if (commandType.beginsWith("onme")){
                 //PlayerObject* targetGhost = creature->getPlayerObject();
@@ -80,7 +101,7 @@ public:
                 
                 StringBuffer text;
                 
-                text << "spawnMobile(\"" << planetName << "\"," <<  "\"commoner" << "\", 1, ";
+                text << "spawnMobile(\"" << planetName << "\", " <<  "\"commoner" << "\", 1, ";
                 
                 if (creature->getParent() != NULL && creature->getParent().get()->isCellObject()) {
                     // Inside
