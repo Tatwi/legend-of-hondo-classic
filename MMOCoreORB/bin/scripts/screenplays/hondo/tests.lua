@@ -21,6 +21,7 @@ end
 
 function HondoTestSP:spawnSceneObjects()
     --spawnSceneObject("tatooine", "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff", -2906.17, 5, 2568.92, 0, 0.906308, 0, 0.422618, 0) -- new "static object" as "tangible object" that is targetable so we can move/rotate it.
-    spawnSceneObject("tatooine", "object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff", -2899.51, 5, 2561.47, 0, 0.906308, 0, 0.422618, 0) -- original "static object" with manually edited path after using /getobjvars spout
-    spawnSceneObject("tatooine", "object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff", -2906.17, 5, 2568.92, 0, 0.906308, 0, 0.422618, 0) -- completely generated with /getobjvars static used on the tangible object version in the game! 
+    --spawnSceneObject("tatooine", "object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff", -2899.51, 5, 2561.47, 0, 0.906308, 0, 0.422618, 0) -- original "static object" with manually edited path after using /getobjvars spout
+    --spawnSceneObject("tatooine", "object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff", -2906.17, 5, 2568.92, 0, 0.906308, 0, 0.422618, 0) -- completely generated with /getobjvars static used on the tangible object version in the game! 
+    --spawnSceneObject("tatooine", "object/building/tatooine/filler_building_block_64x16_style_01.iff", -3103.35, 5.07129, 2461.04, 0, 0.707107, 0, 0.707107, 0) -- testing a filler building as a scene object. Works!
 end

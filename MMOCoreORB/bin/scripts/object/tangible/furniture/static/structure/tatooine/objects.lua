@@ -1,6 +1,13 @@
 -- Legend of Hondo
 -- "Static Object" models as decorative items for use in screenplays.
 
+
+object_tangible_furniture_static_structure_tatooine_shared_bridge_tatooine_small_style_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_bridge_tatooine_small_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_bridge_tatooine_small_style_01, "object/tangible/furniture/static/structure/tatooine/shared_bridge_tatooine_small_style_01.iff")
+
+
 object_tangible_furniture_static_structure_tatooine_shared_wall_archway_tatooine_large_style_01 = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_archway_tatooine_large_style_01.iff"
 }
@@ -11,3 +18,9 @@ object_tangible_furniture_static_structure_tatooine_shared_wall_archway_tatooine
 	clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_archway_tatooine_wide_style_01.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_archway_tatooine_wide_style_01, "object/tangible/furniture/static/structure/tatooine/shared_wall_archway_tatooine_wide_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_cleft_tatooine_large_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_cleft_tatooine_large_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_cleft_tatooine_large_style_01, "object/tangible/furniture/static/structure/tatooine/shared_wall_cleft_tatooine_large_style_01.iff")

@@ -56,7 +56,12 @@ object_tangible_beta_donham_terminal = object_tangible_beta_shared_donham_termin
             {
                 "Archway - Large", "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff",
                 "Archway - Wide", "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff",
-            }
+                "Wall - Cleft Large", "object/tangible/furniture/static/structure/tatooine/wall_cleft_tatooine_large_style_01.iff",
+            },
+            "Bridges and Walkways",
+            {
+                "Bridge - Small", "object/tangible/furniture/static/structure/tatooine/bridge_tatooine_small_style_01.iff",
+            },
         },
 	}
 

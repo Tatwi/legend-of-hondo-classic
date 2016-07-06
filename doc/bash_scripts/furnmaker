@@ -1,0 +1,145 @@
+#!/bin/bash
+# Make StaticObject Info Files
+# -----------------------------
+# Tatwi's "Static Object as Tangible Object" lua file creator. 
+#
+# Usage: furnmaker <paste original file path and name>
+# 
+# Example: furnmaker object/static/structure/tatooine/shared_wall_archway_tatooine_large_style_01.iff
+#
+# Output: 
+# Creates new file ~/tmp/furnmaker-output.txt. Copy/paste contents into objects.lua and serverobjects.lua.
+# Creates new file ~/tmp/new_item_name.lua. Copy/paste this file into the destination directory.
+
+# Bail if not passed argument
+if [ -z "$1" ] 
+then
+    echo "Usage: furnmaker <paste original file path and name>"
+    echo "Example: furnmaker object/static/structure/tatooine/shared_wall_archway_tatooine_large_style_01.iff"
+    exit 1
+fi
+
+pathAndName=$1
+validObject=0
+
+# Check if we were passed a supported object
+if [[ $pathAndName == *"static"* ]]
+then
+    validObject=1
+elif [[ $pathAndName == *"building"* ]]
+then
+    if [[ $pathAndName == *"filler"* ]]
+    then
+        validObject=1
+    fi
+fi 
+
+# Bail if the object isn't valid
+if [ "$validObject" -eq "0" ] 
+then
+    echo "Error: Sorry, this script only supports files originating from /object/static/ and filler type buildings from /object/building/"
+    exit 1
+fi
+
+# Bail if extention not included
+if [[ $pathAndName != *"iff"* ]]
+then
+    echo "Error: Please include the full path as seen in the TRE files."
+    echo "Example: furnmaker object/static/structure/tatooine/shared_wall_archway_tatooine_large_style_01.iff"
+    exit 1
+fi
+
+# Bail if it's not a path containing the shared_ part
+if [[ $pathAndName != *"shared"* ]]
+then
+    echo "Error: Please include the full path as seen in the TRE files."
+    echo "Example: furnmaker object/static/structure/tatooine/shared_wall_archway_tatooine_large_style_01.iff"
+    exit 1
+fi
+
+echo "Input looks good... Generating output..."
+
+# Make array of path and name, spilt by /
+parts=(${pathAndName//// })
+
+# Use the array
+length=${#parts[@]}
+filename=${parts[${length}-1]}
+filenameNoShared=${filename/shared_/}
+
+midpath=${pathAndName/${filename}/}
+
+if [[ $midpath == *"static"* ]]
+then
+    midpath=${midpath/object\//}
+    midpath=${midpath/static\//}
+else
+    midpath=${midpath/object\//}
+fi
+
+# object/building/corellia/shared_filler_building_corellia_style_07.iff
+# object/static/structure/naboo/shared_elevated_walkway_s01.iff
+
+# Other variables
+pathAndNameWithoutShared="${pathAndName/shared_/}"
+pathAndNameAsUnderscore="${pathAndName////_}" 
+    pathAndNameAsUnderscore="${pathAndNameAsUnderscore/.iff/}"
+pathAndNameAsUnderscoreWithoutShared="${pathAndNameAsUnderscore/shared_/}"
+
+tangiblePath="tangible/furniture/static/"
+
+
+fullTangiblePath="object/tangible/furniture/static"
+fulltangiblePathAsUnderscore="object_tangible_furniture_static_"
+midpathAsUnderscore=${midpath/\//_}
+    midpathAsUnderscore=${midpathAsUnderscore/\//_} # because once wasn't enough!
+    
+newPathAndName=${fullTangiblePath}"/"${midpath}${filename}
+
+newPathAndNameAsUnderscoreWithoutShared=${fulltangiblePathAsUnderscore}${midpathAsUnderscore}${filename/.iff/}
+    newPathAndNameAsUnderscoreWithoutShared=${newPathAndNameAsUnderscoreWithoutShared/shared_/}
+
+
+# # # furnmaker-output.txt # # # 
+echo "Copy and paste these lines into the files within the destination folder." > ~/tmp/furnmaker-output.txt
+echo "If the files don't already exist, then you need to add and include them." >> ~/tmp/furnmaker-output.txt
+echo "" >> ~/tmp/furnmaker-output.txt
+echo "" >> ~/tmp/furnmaker-output.txt
+
+echo "###### "${fullTangiblePath}"/"${midpath}"serverobjects.lua :" >> ~/tmp/furnmaker-output.txt
+echo "" >> ~/tmp/furnmaker-output.txt
+
+echo "includeFile(\""${tangiblePath}${midpath}${filenameNoShared/iff/lua}"\")" >> ~/tmp/furnmaker-output.txt
+
+echo "" >> ~/tmp/furnmaker-output.txt
+echo "" >> ~/tmp/furnmaker-output.txt
+
+echo "###### "${fullTangiblePath}"/"${midpath}"objects.lua :" >> ~/tmp/furnmaker-output.txt
+echo "" >> ~/tmp/furnmaker-output.txt
+
+echo ${fulltangiblePathAsUnderscore}${midpathAsUnderscore}${filename/.iff/}" = SharedTangibleObjectTemplate:new {" >> ~/tmp/furnmaker-output.txt
+echo "    clientTemplateFileName = \""${newPathAndName}"\"" >> ~/tmp/furnmaker-output.txt
+echo "}" >> ~/tmp/furnmaker-output.txt
+echo "ObjectTemplates:addClientTemplate("${fulltangiblePathAsUnderscore}${midpathAsUnderscore}${filename/.iff/}", \""${newPathAndName}"\")" >> ~/tmp/furnmaker-output.txt
+
+
+
+
+# # # new_item_name.lua  # # # 
+echo "-- Legend of Hondo" > ${filenameNoShared/iff/lua}
+echo "-- \"Static Object\" models as decorative items for use in screenplays." >> ${filenameNoShared/iff/lua}
+echo "" >> ${filenameNoShared/iff/lua}
+
+#object_tangible_furniture_static_structure_tatooine_wall_archway_tatooine_large_style_01 = object_tangible_furniture_static_structure_tatooine_shared_wall_archway_tatooine_large_style_01:new {
+#
+#}
+#ObjectTemplates:addTemplate(object_tangible_furniture_static_structure_tatooine_wall_archway_tatooine_large_style_01, "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff")
+
+echo ${newPathAndNameAsUnderscoreWithoutShared}" = "${fulltangiblePathAsUnderscore}${midpathAsUnderscore}${filename/.iff/}":new {" >> ${filenameNoShared/iff/lua}
+echo "" >> ${filenameNoShared/iff/lua}
+echo "}" >> ${filenameNoShared/iff/lua}
+echo "ObjectTemplates:addTemplate("${newPathAndNameAsUnderscoreWithoutShared}", \""${fullTangiblePath}"/"${midpath}${filenameNoShared}"\")" >> ${filenameNoShared/iff/lua}
+
+
+# # # Finsihed # # # 
+echo "Done! Output files are located in your ~/tmp directory."
