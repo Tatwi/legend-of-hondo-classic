@@ -43,6 +43,23 @@
 
 object_tangible_beta_donham_terminal = object_tangible_beta_shared_donham_terminal:new {
 
+	gameObjectType = 16400,
+			
+	maxCondition = 0,
+
+	templateType = CHARACTERBUILDERTERMINAL,
+
+	itemList = {
+		"Tatooine", 
+        {
+            "Walls - Arches - Pillars",
+            {
+                "Archway - Large", "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff",
+                "Archway - Wide", "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff",
+            }
+        },
+	}
+
 }
 
 ObjectTemplates:addTemplate(object_tangible_beta_donham_terminal, "object/tangible/beta/donham_terminal.iff")

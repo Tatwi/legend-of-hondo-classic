@@ -120,4 +120,7 @@ includeFile("tangible/veteran_reward/serverobjects.lua")
 includeFile("tangible/wearables/serverobjects.lua")
 includeFile("tangible/weather_object/serverobjects.lua")
 
+-- Legend of Hondo
+includeFile("tangible/furniture/static/structure/tatooine/serverobjects.lua")
+
 -- Server Objects

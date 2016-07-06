@@ -836,3 +836,5 @@ includeFile("weapon/ranged/objects.lua")
 includeFile("weapon/trap/objects.lua")
 includeFile("weapon/objects.lua")
 
+-- Legend of Hondo
+includeFile("tangible/furniture/static/structure/tatooine/objects.lua")
