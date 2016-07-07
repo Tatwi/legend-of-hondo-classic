@@ -25,13 +25,29 @@ At the end of the day, Legend of Hondo is a project designed for me. Absolutely 
 
 To use this project you NEED:
 
-1. To understand how to build a server environement that can compile and run the SWGEmu server. See https://github.com/scurby for how to do that.
-2. A valid copy of the Star Wars Galaxies client, which one can usually find on Ebay or Amazon.
-3. Some understanding of how use Virtualbox or VMWare, MySQL workbench, Lua scripting, and general experience using GNU/Linux. 
+1. A valid copy of the Star Wars Galaxies client, which one can usually find on Ebay or Amazon.
+2. Some understanding of how use Virtualbox, MySQL workbench, Lua scripting, and general experience using GNU/Linux. Once it's setup, you really only need to type a couple commands to make it go.
+3. The ability to research solutions and guides by searching the internet. I'm not being cheeky here - even though I have used Linux since 1998 I still look things up all the time, because I just can't know or remember everything! 
 
-I wish this wasn't the case, but game client needs a server to bring it to life. That's just the way it was made and we work with what we're given, right? :)
+Instructions and scripts for building a server VM from scratch:
+https://github.com/Scurby/deb7
 
-LoH only uses 5 of the 10 planets (I may add another later) in SWG and it is intended for only a single person to use. Therefore its system requirements are quite low. Compiling the software in a virtual machine with 4 cores of my 3.5GHz AMD FX-8230 is about 2.5 times faster than compiling on my 1.8GHz dual core AMD Turion64x2 laptop. GCC loves integer cores! Running the server only requires about 1.5GB of RAM and it seems happy enough to live on a dual core system or virtual machine. Here is what I use:
+Or you can download a public version of my VM here:
+https://mega.nz/#F!aIMA2Zzb!XXX-fVi5B8iU05NyNVo56A
+
+My VM is compressed with 7zip and split into 700mb chunks, so just download the three parts and open the first one with 7zip and it will unzip them. There is a readme file included, but if you need help with setting up the VM itself, just web search how to setup a VirtualBox VM, because there are lots of guides out there. I configured git for public use on it, so it can pull in the most recent version with "git pull". Then build it with "build". Then run it with "gohono". 
+
+If you want to further develop Legend of Hondo on your own, then fork this repo and follow these steps:
+
+1. Remove the "origin" that points to gitub.com/tatwi/legend-of-hondo and replace it with yours.
+https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
+2. Change the git username and password and setup an SSH key with github.
+https://help.github.com/articles/set-up-git/
+3. Now that you have your own project setup, you can merge in any changes I make to my git repo and you can easily manage any changes you make to your own git repo.
+
+I wish it was easier to use Legend of Hondo (and SWG in general), but game client needs a server to bring it to life. That's just the way it was made and we work with what we're given, right? :)
+
+LoH only uses 5 of the 10 planets (I may add another later) in SWG and it is intended for only a single person to use. Therefore the server system requirements are quite low. Compiling the software in a virtual machine with 4 cores of my 3.5GHz AMD FX-8230 is about 2.5 times faster than compiling on my 1.8GHz dual core AMD Turion64x2 laptop. GCC loves integer cores! Running the server only requires about 1.5GB of RAM and it seems happy enough to live on a dual core system or virtual machine. Here is what I have used in the past as  dedicated server hardware,
 
 Server (Frankenputer):
 - Physical remains of a Dell Inspiron 1501 laptop, with custom desktop heatsink/fan.
@@ -40,6 +56,8 @@ Server (Frankenputer):
 - 2.5GB DDR2 RAM
 - 80GB 5400RPM Toshiba hard drive
 
+I do all of my development work in a Linux virtual machine, with a Window 7 host, because both the game client and several SWG tools function properly only in Windows. Virtualbox makes the whole thing quite seemless and enjoyable. 
+
 Workspace:
 - Virtualbox VM running Debian 7 Wheezy 64Bit
 - 4 Cores, 3GB RAM allocated
@@ -47,7 +65,7 @@ Workspace:
 - 8GB virtual hard drive
 - XFCE desktop, Geany programming editor
 
-I decided to use the Frankenputer as a server, because it saves electricity, as I don't need to run the server VM on my power sucking desktop machine all the time. It's really easy to use SSH, the screen command, and a simple shell script to keep the server running. I added a copy of my reboot script, loophondo, to the repo as an example for others. I also used xvnc and the Xfce desktop when I imported my SQL database using MySQL Workbench. So the whole server can be setup and run "headless" pretty easily if you are familiar with Linux. The server idles at 0-5% CPU usage. Server loading time from my workspace VM on my old OCZ SSD is around 80 seconds, but it is more like 4 minutes on the old Toshiba drive. Database saves seem to take only a few seconds on either drive type, but occassionally will take 10 - 15 seconds so best to give them a 1 minute window when scripting the save function to be safe. SQL backups are quick as well, because very little is stored in the SQL database. The MMOCoreORB/bin/databases/ directory contains all the actually in game server data and it can be backed up / restored by compressing it into tar.gz format or by putting it into a loopback ext3 or ext4 file system and mounting that system at the databases directory. I personally recommend the loopback method, as it kinda idiot proof - just copy and paste it to backup/restore it. Also, these Berkley Database files simply will NOT function if they are hosted on an NTFS partition. However, the TRE game files can live on an NTFS partition just fine (I use the same files for the client and serverVM by mounting the Windows shared folder in my VM - saves space on my tiny SSD!). Best of luck to ya!
+That said, I really don't think it makes a lot of sense to run a server 24/7/365 just so that the game world of a single player game can observe the passage of time. It's, if nothing else, a waste of electricity. With this in mind, I am making changes that reduce the impact of turning the server off for extended periods of time. When the server boots, it will apply the passage of time to a degree, but not to the point where all your buildings blow up and you lose all your stuff, etc. Games are supposed to be fun, right? :)
 
 
 # Roleplay Introduction
