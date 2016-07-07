@@ -126,19 +126,14 @@ echo "ObjectTemplates:addClientTemplate("${fulltangiblePathAsUnderscore}${midpat
 
 
 # # # new_item_name.lua  # # # 
-echo "-- Legend of Hondo" > ${filenameNoShared/iff/lua}
-echo "-- \"Static Object\" models as decorative items for use in screenplays." >> ${filenameNoShared/iff/lua}
-echo "" >> ${filenameNoShared/iff/lua}
+echo "-- Legend of Hondo" > ~/tmp/${filenameNoShared/iff/lua}
+echo "-- \"Static Object\" models as decorative items for use in screenplays." >> ~/tmp/${filenameNoShared/iff/lua}
+echo "" >> ~/tmp/${filenameNoShared/iff/lua}
 
-#object_tangible_furniture_static_structure_tatooine_wall_archway_tatooine_large_style_01 = object_tangible_furniture_static_structure_tatooine_shared_wall_archway_tatooine_large_style_01:new {
-#
-#}
-#ObjectTemplates:addTemplate(object_tangible_furniture_static_structure_tatooine_wall_archway_tatooine_large_style_01, "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff")
-
-echo ${newPathAndNameAsUnderscoreWithoutShared}" = "${fulltangiblePathAsUnderscore}${midpathAsUnderscore}${filename/.iff/}":new {" >> ${filenameNoShared/iff/lua}
-echo "" >> ${filenameNoShared/iff/lua}
-echo "}" >> ${filenameNoShared/iff/lua}
-echo "ObjectTemplates:addTemplate("${newPathAndNameAsUnderscoreWithoutShared}", \""${fullTangiblePath}"/"${midpath}${filenameNoShared}"\")" >> ${filenameNoShared/iff/lua}
+echo ${newPathAndNameAsUnderscoreWithoutShared}" = "${fulltangiblePathAsUnderscore}${midpathAsUnderscore}${filename/.iff/}":new {" >> ~/tmp/${filenameNoShared/iff/lua}
+echo "" >> ~/tmp/${filenameNoShared/iff/lua}
+echo "}" >> ~/tmp/${filenameNoShared/iff/lua}
+echo "ObjectTemplates:addTemplate("${newPathAndNameAsUnderscoreWithoutShared}", \""${fullTangiblePath}"/"${midpath}${filenameNoShared}"\")" >> ~/tmp/${filenameNoShared/iff/lua}
 
 
 # # # Finsihed # # # 
