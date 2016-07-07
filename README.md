@@ -35,7 +35,7 @@ https://github.com/Scurby/deb7
 Or you can download a public version of my VM here:
 https://mega.nz/#F!aIMA2Zzb!XXX-fVi5B8iU05NyNVo56A
 
-My VM is compressed with 7zip and split into 700mb chunks, so just download the three parts and open the first one with 7zip and it will unzip them. There is a readme file included, but if you need help with setting up the VM itself, just web search how to setup a VirtualBox VM, because there are lots of guides out there. I configured git for public use on it, so it can pull in the most recent version with "git pull". Then build it with "build". Then run it with "gohono". 
+My VM is compressed with 7zip and split into 700mb chunks, so just download the three parts and open the first one with 7zip and it will unzip them. There is a readme file included, but if you need help with setting up the VM itself, just web search how to setup a VirtualBox VM, because there are lots of guides out there. I configured git for public use on it, so it can pull in the most recent version with "git pull". Then build it with "build". Then run it with "gohondo". 
 
 If you want to further develop Legend of Hondo on your own, then fork this repo and follow these steps:
 
