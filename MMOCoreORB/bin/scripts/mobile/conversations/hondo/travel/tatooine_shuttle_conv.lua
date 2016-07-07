@@ -35,8 +35,7 @@ tatooineshuttlepilot_tatooine_start = ConvoScreen:new {
     {"Mos Entha West", "mos_entha_west"},
     {"Mos Entha East", "mos_entha_east"},
     {"Anchorhead", "anchorhead"},
-    {"Mos Espa West", "mos_espa_west"},
-    {"Mos Espa East", "mos_espa_east"},
+    {"Mos Espa", "mos_espa_west"},
     {"Wayfar", "wayfar"},
     {"Mos Taike", "mos_taike"},
   }
@@ -96,15 +95,6 @@ tatooineshuttlepilot_mos_espa_west = ConvoScreen:new {
   }
 }
 tatooineshuttlepilot_template:addScreen(tatooineshuttlepilot_mos_espa_west);
-
-tatooineshuttlepilot_mos_espa_east = ConvoScreen:new {
-  id = "mos_espa_east",
-  leftDialog = "",
-  stopConversation = "true",
-  options = { 
-  }
-}
-tatooineshuttlepilot_template:addScreen(tatooineshuttlepilot_mos_espa_east);
 
 tatooineshuttlepilot_wayfar = ConvoScreen:new {
   id = "wayfar",

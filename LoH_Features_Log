@@ -11,6 +11,30 @@ existing features where it made sense.
 ________________________________________________________
 
 
+Feature: Setting the Stage
+= = = = = = = = = = = = = = = = = 
+tre/snapshot/tatooine.ws
+- - - - - - -
+- Edits to Tatooine world snapshot for Mos Espa, making way for more content created using screenplay loaded items and characters/quests.
+- Removed some houses, two shuttleports, three garages, the bank, and misc items. 
+- Removed some walls and filler buildings to make way for two new city regions, NE and NW.
+- Added an Imperial fort to their bunker area. 
+- Added a capitol building and second starport.
+- Replaced the small hospital with a large style hospital.
+- Minor adjustments to some items, walls, etc.
+- Ensured the player has ample room to place his own structures around town.
+
+bin/scripts/managers/spawn_manager/tatooine.lua
+bin/scripts/screenplays/cities/tatooine_mos_espa.lua
+bin/scripts/screenplays/hondo/buff_terminals.lua
+bin/scripts/screenplays/hondo/travel/planetary_travel_tatooine.lua
+bin/scripts/mobile/conversations/hondo/travel/tatooine_shuttle_conv.lua
+- - - - - - -
+- Moved the Medic and Doctor trainers, as well as their patient, into the new hospital.
+- Removed a shuttle pilot who no longer has a shuttle to fly.
+- Moved the buff terminals and food crafting station to the new hospital.
+
+
 
 
 Feature: Admin Decoration Tools
@@ -34,6 +58,27 @@ tre/object/tangible/camp/*.iff
 - Uncommented some decorations on the character builder terminal.
 - Fixed some iff files for some camp items that couldn't be targeted. Note that the files only *need* to be on the client for the for targeting to work (fyi adding targetable = 1 to the server template doesn't allow the client to target the item). 
 
+bin/scripts/object/allobjects.lua
+bin/scripts/object/tangible/beta/donham_terminal.lua
+bin/scripts/object/tangible/furniture/static/structure/tatooine/objects.lua
+bin/scripts/object/tangible/furniture/static/structure/tatooine/serverobjects.lua
+bin/scripts/object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_large_style_01.lua
+bin/scripts/object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_wide_style_01.lua
+bin/scripts/object/tangible/serverobjects.lua
+bin/scripts/screenplays/hondo/tests.lua
+bin/scripts/screenplays/screenplays.lua
+src/server/zone/objects/creature/commands/GetObjVarsCommand.h
+tre/misc/object_template_crc_string_table.iff
+tre/object/tangible/furniture/static/structure/tatooine/shared_wall_archway_tatooine_large_style_01.iff
+tre/object/tangible/furniture/static/structure/tatooine/shared_wall_archway_tatooine_wide_style_01.iff
+tre/string/en/frn_d.stf
+tre/string/en/frn_n.stf
+- - - - - - -
+- Added a system for decorating using "static objects".
+- Created new furniture style tangible objects that point to the appearance files for tangible objects (only 2 so far).
+- These new objects can be drop, picked up, moved, and rotated even outside (by admin using prior mods).
+- Added a new function "/getObjVars static" which outputs a spawnSceneObject screenplay call the points to the original static object rather than the new tangible object, so the final item that's loaded by the server won't be targetable.
+- Created a Character Builder based terminal that despenses these items for admin use.
 
 
 

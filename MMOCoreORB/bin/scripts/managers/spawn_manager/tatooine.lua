@@ -760,7 +760,7 @@ tatooine_static_spawns = {
 	{"yondalla",60,20.1921,-0.894996,-19.0778,25.109,1134561, "calm", "Yondalla","stationary"},
     
     -- Added for Legend of Hondo
-    {"commoner_tatooine",60,-2.42,0.18,3.85,68,4005424, "npc_sitting_chair", "","stationary"}, -- Mos Espa Hospital
+    {"commoner_tatooine",60,-18.0835,0.26,-1.97139,68,9995780, "npc_sitting_chair", "","stationary"}, -- Mos Espa Hospital
     
     -- All of the Trainers in Legend of Hondo are located in Mos Espa
     -- Loaded here rather than in the city screenplay so I could use the sitting/emotion features
@@ -791,8 +791,8 @@ tatooine_static_spawns = {
     -- Other Professions
     {"trainer_bountyhunter",0,-2763.2,5,2038.57,81,0, "conversation", "","stationary"}, -- Behind Starport
     {"trainer_creaturehandler",0,-2993.96,5,2223.91,65,0, "conversation", "","stationary"}, -- By Cantina
-    {"trainer_doctor",0,-2.06,0.18,0.62,5,4005424, "conversation", "","stationary"}, -- Hospital
-    {"trainer_medic",0,0.09,0.18,5.92,-107,4005424, "worried", "","stationary"}, -- Hospital
+    {"trainer_doctor",0,-21.8594,0.26,-10.0825,26,9995780, "conversation", "","stationary"}, -- Hospital
+    {"trainer_medic",0,-16.4817,0.26,-1.28535,206,9995780, "worried", "","stationary"}, -- Hospital
     {"trainer_ranger",0,-2978.75,5,2531.99,-33,0, "calm", "","stationary"}, -- North Gate
     {"trainer_scout",0,-2978.18,5,2533.45,-113,0, "calm", "","stationary"}, -- North Gate
     {"trainer_smuggler",0,20.13,1.28,5.51,-126,1261018, "npc_sitting_chair", "","stationary"}, -- Hotel

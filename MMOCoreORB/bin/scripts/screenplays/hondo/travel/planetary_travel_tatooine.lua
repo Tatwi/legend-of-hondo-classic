@@ -39,7 +39,6 @@ function PlanetaryTatooineScreenPlay:spawnMobiles()
   local pPilotMosEnthaEast = spawnMobile("tatooine", "tatooine_shuttle_pilot", 1, 1729, 7.4, 3192, 161, 0 )
   local pPilotAnchorhead = spawnMobile("tatooine", "tatooine_shuttle_pilot", 1, 46, 52.6, -5329, 153, 0 )
   local pPilotMosEspaWest = spawnMobile("tatooine", "tatooine_shuttle_pilot", 1, -3121, 5.6, 2172, 88, 0 )
-  local pPilotMosEspaEast = spawnMobile("tatooine", "tatooine_shuttle_pilot", 1, -2893, 5.4, 1923, -17, 0 )
   local pPilotWayfar = spawnMobile("tatooine", "tatooine_shuttle_pilot", 1, -5064, 75.6, -6547, -72, 0 )
   local pPilotMosTaike = spawnMobile("tatooine", "tatooine_shuttle_pilot", 1, 3734, 6.4, 2409, 158, 0 )
 end
@@ -92,7 +91,6 @@ function tatooineshuttlepilot_convo_handler:getNextConversationScreen(conversati
               optionLink == "mos_entha_east" or
               optionLink == "anchorhead" or
               optionLink == "mos_espa_west" or
-              optionLink == "mos_espa_east" or
               optionLink == "wayfar" or
               optionLink == "mos_taike"
              ) then
@@ -127,8 +125,6 @@ function tatooineshuttlepilot_convo_handler:runScreenHandlers(conversationTempla
       player:switchZone("tatooine", 49, 52, -5340, 0)
     elseif (screenID == "mos_espa_west") then
       player:switchZone("tatooine", -3112, 5, 2172, 0)
-    elseif (screenID == "mos_espa_east") then
-      player:switchZone("tatooine", -2895, 5, 1932, 0)
     elseif (screenID == "wayfar") then
       player:switchZone("tatooine", -5073, 75, -6546, 0)
     elseif (screenID == "mos_taike") then

@@ -438,8 +438,8 @@ function TatooineMosEspaScreenPlay:spawnSceneObjects()
     spawnSceneObject("tatooine", "object/tangible/crafting/station/public_structure_station.iff",  -6.36432, 1.13306, -6.0, 1256306,  0.999998, 0, 0.0, 0)  
     
     -- Hospital
-    spawnSceneObject("tatooine", "object/tangible/crafting/station/public_food_station.iff",  0.77886, 0.184067, -11.2705, 4005424,  1.0, 0, 0.0, 0) 
-    spawnSceneObject("tatooine", "object/tangible/item/quest/force_sensitive/bacta_tank.iff",  -6.6883, 0.184067, 0.0579108, 4005424,  1.0, 0, 0.0, 0)
+    spawnSceneObject("tatooine", "object/tangible/crafting/station/public_food_station.iff", -32.7385, 0.254413, -6.32808, 9995780, 0.707107, 0, 0.707107, 0) 
+    spawnSceneObject("tatooine", "object/tangible/crafting/station/public_food_station.iff", 16.3456, 0.26, 11.5, 9995699, 0, 0, 1, 0) 
     
     --Guild Hall -3063 2079
     spawnSceneObject("tatooine", "object/tangible/crafting/station/public_weapon_station.iff",  -7.18723, 1.13306, -10.4749, 1256023,  -0.700969, 0, 0.713191, 0)
