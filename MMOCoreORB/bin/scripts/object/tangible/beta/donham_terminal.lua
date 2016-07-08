@@ -50,11 +50,17 @@ object_tangible_beta_donham_terminal = object_tangible_beta_shared_donham_termin
 	templateType = CHARACTERBUILDERTERMINAL,
 
 	itemList = {
-		"Tatooine", 
+		"Tatooine Themed", 
         {
-            "Bridges - Walkways",
+            "Bridges - Walkways - Stairs",
             {
-                "Bridge - Small", "object/tangible/furniture/static/structure/tatooine/bridge_tatooine_small_style_01.iff",
+                "Walking Bridge - Small", "object/tangible/furniture/static/structure/tatooine/bridge_tatooine_small_style_01.iff",
+                "Walking Bridge - Medium", "object/tangible/furniture/static/structure/tatooine/bridge_tatooine_small_style_02.iff",
+                "Walking Bridge - Large", "object/tangible/furniture/static/structure/tatooine/bridge_tatooine_small_style_02.iff",
+                "Stairs - Large 45 Degree", "object/tangible/furniture/static/structure/tatooine/stair_tatooine_large_style_01.iff",
+                "Stairs - Large Steep", "object/tangible/furniture/static/structure/tatooine/stair_tatooine_large_style_02.iff",
+                "Stairs - Small 45 Degree", "object/tangible/furniture/static/structure/tatooine/stair_tatooine_small_style_01.iff",
+                "Stairs - Small Steep", "object/tangible/furniture/static/structure/tatooine/stair_tatooine_small_style_02.iff",
             },
             "Gates - Archways",
             {
@@ -64,6 +70,8 @@ object_tangible_beta_donham_terminal = object_tangible_beta_shared_donham_termin
                 "Gate - Wide", "object/tangible/furniture/static/structure/tatooine/wall_gate_tatooine_wide_style_01.iff",
                 "Archway - Large", "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff",
                 "Archway - Wide", "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff",
+                "Overhead Beam - Style 1", "object/tangible/furniture/static/structure/tatooine/beam_tatooine_overhead_style_01.iff",
+                "Overhead Beam - Style 2", "object/tangible/furniture/static/structure/tatooine/beam_tatooine_overhead_style_02.iff",
             },
             "Pillars",
             {
@@ -87,10 +95,92 @@ object_tangible_beta_donham_terminal = object_tangible_beta_shared_donham_termin
                 "Wall - Ruined Large 1", "object/tangible/furniture/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff",
                 "Wall - Ruined Large 2", "object/tangible/furniture/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff",
                 "Wall - Ruined Small", "object/tangible/furniture/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff",
+                "Concrete Block - Large", "object/tangible/furniture/static/structure/tatooine/concrete_slab_tatooine_16x8.iff",
             },
-            
+            "Filler Buildings",
+            {
+                "Small Round Shed-Tank - No Door","object/tangible/furniture/static/structure/tatooine/shed_junkshop_watto.iff",
+                "Small Round Hovel","object/tangible/furniture/static/structure/tatooine/stone_hovel_tatooine_style_01.iff",
+            },
         }, -- Tatooine End
-	}
+        "Plants",
+        {
+            "Stand-alone",
+            {
+                "NA","NA",
+            },
+            "Potted",
+            {
+                "NA","NA",
+            },
+        }, -- Plants End
+        "Creatures",
+        {
+            "Bones",
+            {
+                "NA","NA",
+            },
+            "Animals",
+            {
+                "NA","NA",
+            },
+            "Mounts",
+            {
+                "NA","NA",
+            },
+            "Droids",
+            {
+                "NA","NA",
+            },
+        }, -- Creatures End
+        "Large Misc Items",
+        {
+            "Antenna - Poles - Posts - Pipes",
+            {
+                "Antenna - Tatooine 1","object/tangible/furniture/static/structure/tatooine/antenna_tatt_style_1.iff",
+                "Antenna - Tatooine 2","object/tangible/furniture/static/structure/tatooine/antenna_tatt_style_2.iff",
+            },
+            "Other Large Junk",
+            {
+                "NA","NA",
+            },
+            "Vehicles - Ships",
+            {
+                "NA","NA",
+            },
+            "Large Rocks etc.",
+            {
+                "NA","NA",
+            },
+            "Industrial Filler Buildings",
+            {
+                "NA","NA",
+            },
+            "Large Debris",
+            {
+                "NA","NA",
+            },
+        }, -- Large Misc Items End
+        "Small Misc Items",
+        {
+            "Boxes - Crates - etc.",
+            {
+                "NA","NA",
+            },
+            "Other Small Junk",
+            {
+                "NA","NA",
+            },
+            "Small Rocks etc.",
+            {
+                "NA","NA",
+            },
+            "Small Debris",
+            {
+                "NA","NA",
+            },
+        }, -- Small Misc Items End
+	} -- List End
 
 }
 
