@@ -52,17 +52,44 @@ object_tangible_beta_donham_terminal = object_tangible_beta_shared_donham_termin
 	itemList = {
 		"Tatooine", 
         {
-            "Walls - Arches - Pillars",
-            {
-                "Archway - Large", "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff",
-                "Archway - Wide", "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff",
-                "Wall - Cleft Large", "object/tangible/furniture/static/structure/tatooine/wall_cleft_tatooine_large_style_01.iff",
-            },
-            "Bridges and Walkways",
+            "Bridges - Walkways",
             {
                 "Bridge - Small", "object/tangible/furniture/static/structure/tatooine/bridge_tatooine_small_style_01.iff",
             },
-        },
+            "Gates - Archways",
+            {
+                "Gate - Style 1", "object/tangible/furniture/static/structure/tatooine/wall_gate_tatooine_style_01.iff",
+                "Gate - Style 2", "object/tangible/furniture/static/structure/tatooine/wall_gate_tatooine_style_02.iff",
+                "Gate - Style 3", "object/tangible/furniture/static/structure/tatooine/wall_gate_tatooine_style_03.iff",
+                "Gate - Wide", "object/tangible/furniture/static/structure/tatooine/wall_gate_tatooine_wide_style_01.iff",
+                "Archway - Large", "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff",
+                "Archway - Wide", "object/tangible/furniture/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff",
+            },
+            "Pillars",
+            {
+                "Damaged - Large","object/tangible/furniture/static/structure/tatooine/pillar_damaged_large_style_01.iff",
+                "Pristine - Large","object/tangible/furniture/static/structure/tatooine/pillar_pristine_large_style_01.iff",
+                "Pristine - Small","object/tangible/furniture/static/structure/tatooine/pillar_pristine_small_style_01.iff",
+                "Pristine - Tall","object/tangible/furniture/static/structure/tatooine/pillar_pristine_tall_style_01.iff",
+                "Ruined - Large","object/tangible/furniture/static/structure/tatooine/pillar_ruined_large_style_01.iff",
+                "Ruined - Small","object/tangible/furniture/static/structure/tatooine/pillar_ruined_small_style_01.iff",
+                "Junkshop","object/tangible/furniture/static/structure/tatooine/pillar_watto_junkshop.iff",
+            },
+            "Walls",
+            {
+                "Wall - Cleft Large", "object/tangible/furniture/static/structure/tatooine/wall_cleft_tatooine_large_style_01.iff",
+                "Wall - Damaged Large", "object/tangible/furniture/static/structure/tatooine/wall_damaged_tatooine_large_style_01.iff",
+                "Wall - Junkshop Long", "object/tangible/furniture/static/structure/tatooine/wall_junkshop_watto.iff",
+                "Wall - Pristine Large", "object/tangible/furniture/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff",
+                "Wall - Pristine Large Long", "object/tangible/furniture/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff",
+                "Wall - Pristine Small Short", "object/tangible/furniture/static/structure/tatooine/wall_pristine_tatooine_small_style_01.iff",
+                "Wall - Pristine Tall", "object/tangible/furniture/static/structure/tatooine/wall_pristine_tatooine_tall_style_01.iff",
+                "Wall - Ruined Large 1", "object/tangible/furniture/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff",
+                "Wall - Ruined Large 2", "object/tangible/furniture/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff",
+                "Wall - Ruined Small", "object/tangible/furniture/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff",
+            },
+            
+        }, -- Tatooine End
 	}
 
 }

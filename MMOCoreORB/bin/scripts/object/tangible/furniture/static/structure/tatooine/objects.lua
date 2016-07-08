@@ -24,3 +24,127 @@ object_tangible_furniture_static_structure_tatooine_shared_wall_cleft_tatooine_l
     clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_cleft_tatooine_large_style_01.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_cleft_tatooine_large_style_01, "object/tangible/furniture/static/structure/tatooine/shared_wall_cleft_tatooine_large_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_damaged_tatooine_large_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_damaged_tatooine_large_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_damaged_tatooine_large_style_01, "object/tangible/furniture/static/structure/tatooine/shared_wall_damaged_tatooine_large_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_gate_tatooine_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_gate_tatooine_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_gate_tatooine_style_01, "object/tangible/furniture/static/structure/tatooine/shared_wall_gate_tatooine_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_gate_tatooine_style_02 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_gate_tatooine_style_02.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_gate_tatooine_style_02, "object/tangible/furniture/static/structure/tatooine/shared_wall_gate_tatooine_style_02.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_gate_tatooine_style_03 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_gate_tatooine_style_03.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_gate_tatooine_style_03, "object/tangible/furniture/static/structure/tatooine/shared_wall_gate_tatooine_style_03.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_gate_tatooine_wide_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_gate_tatooine_wide_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_gate_tatooine_wide_style_01, "object/tangible/furniture/static/structure/tatooine/shared_wall_gate_tatooine_wide_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_junkshop_watto = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_junkshop_watto.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_junkshop_watto, "object/tangible/furniture/static/structure/tatooine/shared_wall_junkshop_watto.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_pristine_tatooine_large_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_pristine_tatooine_large_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_pristine_tatooine_large_style_01, "object/tangible/furniture/static/structure/tatooine/shared_wall_pristine_tatooine_large_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_pristine_tatooine_large_style_02 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_pristine_tatooine_large_style_02.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_pristine_tatooine_large_style_02, "object/tangible/furniture/static/structure/tatooine/shared_wall_pristine_tatooine_large_style_02.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_pristine_tatooine_small_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_pristine_tatooine_small_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_pristine_tatooine_small_style_01, "object/tangible/furniture/static/structure/tatooine/shared_wall_pristine_tatooine_small_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_pristine_tatooine_tall_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_pristine_tatooine_tall_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_pristine_tatooine_tall_style_01, "object/tangible/furniture/static/structure/tatooine/shared_wall_pristine_tatooine_tall_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_ruined_tatooine_large_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_ruined_tatooine_large_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_ruined_tatooine_large_style_01, "object/tangible/furniture/static/structure/tatooine/shared_wall_ruined_tatooine_large_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_ruined_tatooine_large_style_02 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_ruined_tatooine_large_style_02.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_ruined_tatooine_large_style_02, "object/tangible/furniture/static/structure/tatooine/shared_wall_ruined_tatooine_large_style_02.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_wall_ruined_tatooine_small_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_wall_ruined_tatooine_small_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_wall_ruined_tatooine_small_style_01, "object/tangible/furniture/static/structure/tatooine/shared_wall_ruined_tatooine_small_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_pillar_damaged_large_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_pillar_damaged_large_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_pillar_damaged_large_style_01, "object/tangible/furniture/static/structure/tatooine/shared_pillar_damaged_large_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_pillar_pristine_large_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_pillar_pristine_large_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_pillar_pristine_large_style_01, "object/tangible/furniture/static/structure/tatooine/shared_pillar_pristine_large_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_pillar_pristine_small_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_pillar_pristine_small_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_pillar_pristine_small_style_01, "object/tangible/furniture/static/structure/tatooine/shared_pillar_pristine_small_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_pillar_pristine_tall_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_pillar_pristine_tall_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_pillar_pristine_tall_style_01, "object/tangible/furniture/static/structure/tatooine/shared_pillar_pristine_tall_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_pillar_ruined_large_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_pillar_ruined_large_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_pillar_ruined_large_style_01, "object/tangible/furniture/static/structure/tatooine/shared_pillar_ruined_large_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_pillar_ruined_small_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_pillar_ruined_small_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_pillar_ruined_small_style_01, "object/tangible/furniture/static/structure/tatooine/shared_pillar_ruined_small_style_01.iff")
+
+
+object_tangible_furniture_static_structure_tatooine_shared_pillar_watto_junkshop = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_pillar_watto_junkshop.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_pillar_watto_junkshop, "object/tangible/furniture/static/structure/tatooine/shared_pillar_watto_junkshop.iff")
+
+
+
+
