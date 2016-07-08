@@ -3,48 +3,70 @@ Legend of Hondo
 "To Do" List
 ==============================
 
-This a list of things I have thought about doing in the
-future, much of which I will actually do at some point.
-Once completed, things listed here will be moved into 
-the Features Log. For some of my thoughts on why I did
-or didn't make something, go to www.tpot.ca.
+This a list of things (in no strict order) I have thought 
+about doing in the future, much of which I will actually 
+do at some point. Once completed, things listed here will 
+be moved into the Features Log. For some of my thoughts on 
+why I did or didn't make something, go to www.tpot.ca.
 ________________________________________________________
 
 
-Imperial Housing Authority
+Housing and Structure Changes
 = = = = = = = = = = = = = = = = = 
-- Allow the player to purchase buildings that already exist in the world, where that is possible. 
-- Tie the option to the Structure Management Terminal and place one in each of the building templates.
-- Add some quests to show players the locations they whrere can purchase structures.
-- If possible, have items stored in these structures saved to their own database outside of clientobjects.db and have load on the client only when the player enters the structure.
-- Remove the concept of lots, because it doesn't matter in a single player situation. The lot system only forces people into using multiple accounts to circumvent it, which is just a pain in the rear for no good reason.
+- I decided against using existing structures, so reworking player structures a bit.
+- Give each character 250 lots, essentially removing the lot limitation, because it's not really useful in a single player situation.
+- House storage = lots * 250. Adjust all plauyer structures so their lot count matches with their usable internal space.
+- Maint rate will be used, but houses will never be removed from the world if it's not paid.
+- Restrict building to the Mos Espa region of Tatooine, but allow all building types to placed there.
+- Increase the Mos Espa city region to account for the new districts on the west side.
+- Add all house deeds that I want available in the game to NPC Merchants.
+- Remove structure deeds from Architect crafting, making the profession into an "Industrial Designer" profession that is focused on decor. This is to allow structure deeds to only be purchased as a "money sink". I'll add more decorative items to be crafted and I'll leave the building parts as industial themed decor.
+- Add a quest to show some nice build locations and deed merchants.
 
+
+
+Pirate Legacy System
+= = = = = = = = = = = = = = = = = 
+- The world factions system of SWG will finally reach its in Legend of Hondo! Using this system to make your own legacy is the ultimate "point" of playing LoH.
+- Add a new "Renown" faction, whose enemy is "Infamy". The player will want to increase his Renown, of course, but being Infamous isn't too bad either, for a pirate!
+- Renown is gained though improving Mos Espa by operating businesses that benifit the local population and completing certain (new) quests. 
+- Infamy is gained by completing (some types of) destroy missions and embarking on (new) quests to dangerous places. 
+- Both Renown and Infamy are automatically lost over time, though the closer the player is to the max of 5,000, the slower his legacy will fade.
+- Add a business system, as a screenplay managed by a network of droids. The droids will be in certain existing structures as well as some player placed structures. 
+ -- This is a simple economic simulation, with random and controlable factors that effect the player's success. Each structure has services, needs, costs, employees, and patrons of various types. Renown will increase when these factors balance in a profitable way. The trick is keeping the patrons happy, despite their differences!
+ -- Managed with a SUI box window system. 
+ -- Both Renoun and Infamy will play into the simulation in subtle ways, as will pitting your characters against each other by having more than one running businesses.
+- NPC Merchants already factor world factions into their relations with the player , making it easy to add an Renown and Infamy.
+- Empire doesn't appreciate Renown and is hostile to Infamy, but the Rebels like Renown and are indifferent to Infamy.
+- Townspeople and common folk in general like Renown and dislike Infamy.
+- Other pirate factions greatly appreciate Renown and tolerate or are hostile toward Infamy.
+- Other world factions will factor in Renown and Infamy in various ways as well, affecting their friendliness, hostility, and the quests/merchants/locations they make available.
+- You know you've "beat the game" when one of your characters is able to maintain 5,000 Renown, has above 2,500 Infamy or so (because Pirate!), and has become the mayor of Mos Espa. You're a pirate a who's legacy stands with the legends of Hondo and the other great pirates of the ages!
 
 
 Reduce the Passage of Time
 = = = = = = = = = = = = = = = = = 
 - I find that I don't like leaving a computer running just to have time pass in a single player game, but that's how the server/client thing works. However, I can make changes that will reduce the need to run a server all the time, to the point where I can turn it off when I'm not using it and won't impact the game play. Talk about totally different than SWG, eh? :)
-- Remove maintenance fees on all structures. 
 - Resource shifts should happen on server boot, but make sure that the system works well enough when turning the server off for days/weeks.
 - Disable the Bazaar system and use the terminals for a static sales system.
-- Move Merchant perks into Artisan and remove Merchant, because it doesn't need to be a whole profession.
+- Move Merchant perks into Artisan and remove Merchant, because it doesn't need to be a whole profession in the absence of other players.
 - Keep the player vendor system, because it could be fun and handy. However, make the listing time 100 years or something crazy so the passage of time doesn't matter. 
 - Limit factory run time to a max of 3 seconds per item. A single player doesn't really need huge amounts of items, so I think 20 items per minute is reasonable. 
 - Survey missions, where the player searches out spots of X concentration will grant an amount of the located resources as well as credits.
-- Remove Harvesters. It pains me to do so, because they are neat and I have spent a lot of time using them over the years, but they don't fit with this experience.
+- Remove Harvesters. It pains me to do so, because they are neat and I have spent a lot of time using them over the years, but they don't fit with this experience. As a single player you won't need boat loads of resources and the way harvesters work doesn't jibe with the desire to turn off the server when one's not using it.
 - Add new Destroy Mission "theatres" that have harvester models and grant currently spawning resources as a bonus reward. 
 - Nerf hand sampling to 1 unit per resource type per hour, there by making it a discovery tool rather than an AFK "I win the game!" exploit.
-- Add a network of merchants who sell resources and make a quest that introduces them to the player.
-- Remove player city functionality, because I already let the player build wherever they want anyway. The buffs could be provided in a different way.
+- Add a network of merchants who sell resources and make a quest that introduces them to the player. They won't sell everything, so the 500 unit resource deeds, survey and destroy missions, will be an important part of locating resources.
+- Remove player city functionality. The buffs could be provided in a different way.
 - Remove Politician.
 - To enhance the usefulness of power type resources, vehicle hitpoint decay will be fuel loss, rather than damage, so the decay is "fixed" by using resource power rather than credits. Each fuel type resource has a different efficiency and the Potential Energy stat plays into it. Garages would still use credits though.
-
+- Buildings won't blow up when the player is out of money and the condemned fees will max at 50,000 credits.
 
 
 Bring the world to life
 = = = = = = = = = = = = = = = = = 
 - This is an ongoing project, where I would do a bit a time.
-- Replace and replace many useless characters (especially ones that don't seem to make any sense...) with quest givers from the disabled planets, merchants, new quest givers, and NPCs tied to world factions that can be attacked.
+- Replace many useless characters (especially ones that don't seem to make any sense, just standing around...) with quest givers from the disabled planets, merchants, new quest givers, and NPCs tied to world factions that can be attacked.
 - Make all the Junk Dealers character and location driven so they feel less gamey.
 - Make screenplays for each town that generate NPC (when the player is within range) who spawn, "do something", and then despawn.
 - Add more "Points of Interest", "Quest Hubs", etc. Such as...
@@ -60,14 +82,14 @@ Bring the world to life
 Economy Adjustments
 = = = = = = = = = = = = = = = = = 
 - Don't allow some items to be made in factories, because they need to be a "credit sink" and simply aren't when you can make a life time supply of them in an afternoon.
-- Vehicles: Only purchased from Crazy Larry, apart from some NGE era models that I will add as looted single use crafting schematics.
+- Vehicles: Only purchased from Crazy Larry, apart from some NGE era models that I will (eventually) add as looted single use crafting schematics.
 
 
 
 Merchant System Improvements
 = = = = = = = = = = = = = = = = = 
 - Inject a reply option that opens an inventory window where the player can fully inspect the items that are for sale.
-- Options for Smugglers to try for discounts. 
+- Options for Smugglers to try for discounts (and perhaps outright theft). 
 - Stock limations based on month, scarcity, faction standing, and stock levels.
 - Add more merchants, mostly as part of world faction content. This includes Geo Cave loot and other high priced consuables that will act as major credit sinks.
 - Repurpose the Bazaar terminals to be a merchant system with a UI similar to the Crate of Free Reources. These terminals are all over the galaxy already, so it would make sense to use them for something.
@@ -80,16 +102,23 @@ Imperial / Rebel Improvements
 - Imprison neutrals who are caught tresspassing. Another character will have to bail (NPC conversation + credits) them out or break them out (quest + combat).
 - Add a free travel system that links faction facilities together. 
 - Add more faction items for purchase.
+- Rebuild the Rebel and Imperial themeparks so they  take place on the available planets. 
+- Move other faction related content to the available planets. 
+- Add battles/invasions that the player can instigate through quests and take part in.
+- Add Rebel and Imperial convoys that the player can plunder, as randomly spawned "theaters".
+- Beef up the ownership of cities on Tatooine, which should be interesting when I add more reasons to go to these cities. Rebel: Anchorhead, Mos Eisley. Imperial: Bestine, Mos Entha.
 
 
 
 Personal Ship Improvements
 = = = = = = = = = = = = = = = = = 
-- It's a little wonky (and a bit buggy) as it is. 
-- I would like to tie the functionality to an inventory item so it can be placed on the toolbar and used. 
-- The ship flies down to the player's position and the player double clicks it to get in.
+- It's a little wonky (and a bit buggy) as it is, but I may be able to spruce it up a bit. 
 - Only works on Tatooine, as that's where they are stationed.
-- Move the Onak out of the Mos Espa starport and put a bunch of the fighters in there. Add some related quest content.
+- Place some models in the second starport in Mos Espa and add some related quest content.
+- Tie the functionality to an inventory item so it can be placed on the toolbar and used (because opening the datapad is hard! lol...). 
+- The ship flies down to the player's position and the player double clicks it to get in.
+- Add vertical and reverse thrusters for a more space-shippy feel.
+
 
 
 
