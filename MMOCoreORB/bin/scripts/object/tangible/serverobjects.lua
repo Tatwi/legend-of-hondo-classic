@@ -122,5 +122,8 @@ includeFile("tangible/weather_object/serverobjects.lua")
 
 -- Legend of Hondo
 includeFile("tangible/furniture/static/structure/tatooine/serverobjects.lua")
+includeFile("tangible/furniture/static/building/tatooine/serverobjects.lua")
+includeFile("tangible/furniture/static/flora/serverobjects.lua")
+includeFile("tangible/furniture/static/structure/general/serverobjects.lua")
 
 -- Server Objects
