@@ -1,0 +1,7 @@
+-- Legend of Hondo
+-- "Static Object" models as decorative items for use in screenplays.
+
+object_tangible_furniture_static_building_tatooine_filler_building_slave_quarters_style_01 = object_tangible_furniture_static_building_tatooine_shared_filler_building_slave_quarters_style_01:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_furniture_static_building_tatooine_filler_building_slave_quarters_style_01, "object/tangible/furniture/static/building/tatooine/filler_building_slave_quarters_style_01.iff")

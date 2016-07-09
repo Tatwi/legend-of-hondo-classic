@@ -838,3 +838,4 @@ includeFile("weapon/objects.lua")
 
 -- Legend of Hondo
 includeFile("tangible/furniture/static/structure/tatooine/objects.lua")
+includeFile("tangible/furniture/static/building/tatooine/objects.lua")
