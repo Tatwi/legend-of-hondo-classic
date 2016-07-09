@@ -17,6 +17,10 @@ void CharacterBuilderTerminalImplementation::loadTemplateData(SharedObjectTempla
 		return;
 
 	rootNode = terminalData->getItemList();
+    
+    // Legend of Hondo
+    suiBoxTitle = terminalData->getSuiBoxTitle();
+    suiBoxText = terminalData->getSuiBoxText();
 
 	//info("loaded " + String::valueOf(itemList.size()));
 }
@@ -48,7 +52,14 @@ void CharacterBuilderTerminalImplementation::sendInitialChoices(CreatureObject* 
 
 	ManagedReference<SuiCharacterBuilderBox*> sui = new SuiCharacterBuilderBox(player, rootNode);
 	sui->setUsingObject(_this.getReferenceUnsafeStaticCast());
-
+    
+    // Legend of Hondo
+    // Over-ride the default box text and title with values loaded from the object's lua template.
+    if (suiBoxTitle != "") {
+        sui->setPromptTitle(suiBoxTitle);
+        sui->setPromptText(suiBoxText);
+    }
+    
 	player->sendMessage(sui->generateMessage());
 	player->getPlayerObject()->addSuiBox(sui);
 }

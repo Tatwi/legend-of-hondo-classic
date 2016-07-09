@@ -48,6 +48,9 @@ object_tangible_beta_beta_terminal_xp = object_tangible_beta_shared_beta_termina
 	maxCondition = 0,
 
 	templateType = CHARACTERBUILDERTERMINAL,
+    
+    suiBoxTitle = "Character Builder", 
+    suiBoxText = "The BETA Terminal is capable of imprinting upon your mind a range of skills that you may find entertaining. This service is freely available to all citizens of the Empire. Enjoy!",
 
 	itemList = {
 		"Learn Skill",

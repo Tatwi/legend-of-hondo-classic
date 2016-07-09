@@ -17,10 +17,13 @@ class CharacterBuilderTerminalTemplate : public SharedTangibleObjectTemplate {
 	int medicalBuff;
 	int	performanceDuration;
 	int	medicalDuration;
+    String suiBoxTitle;
+    String suiBoxText;
 
 public:
+    
 	CharacterBuilderTerminalTemplate() : rootNode(NULL), performanceBuff(0),
-		medicalBuff(0), performanceDuration(0), medicalDuration(0) {
+		medicalBuff(0), performanceDuration(0), medicalDuration(0), suiBoxTitle(""), suiBoxText("") {
 	}
 
 	~CharacterBuilderTerminalTemplate() {
@@ -37,6 +40,8 @@ public:
 		medicalBuff = templateData->getIntField("medicalBuff");
 		performanceDuration = templateData->getIntField("performanceDuration");
 		medicalDuration = templateData->getIntField("medicalDuration");
+        suiBoxTitle = templateData->getStringField("suiBoxTitle");
+        suiBoxText = templateData->getStringField("suiBoxText");
 
 		LuaObject luaItemList = templateData->getObjectField("itemList");
 
@@ -71,6 +76,14 @@ public:
 
     inline int getMedicalDuration() const {
     	return medicalDuration;
+    }
+    
+    inline String getSuiBoxTitle() const {
+    	return suiBoxTitle;
+    }
+    
+    inline String getSuiBoxText() const {
+    	return suiBoxText;
     }
 
 };

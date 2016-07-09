@@ -48,6 +48,9 @@ object_tangible_beta_donham_terminal = object_tangible_beta_shared_donham_termin
 	maxCondition = 0,
 
 	templateType = CHARACTERBUILDERTERMINAL,
+    
+    suiBoxTitle = "Tatwi's Admin Toolbox",
+    suiBoxText = "This terminal is intended to help a server admin decorate cities via screenplays. Use these tangible versions of static objects in conjunctions with my other Admin Toolbox mods: Admin Drop/Pickup Outside, getObjVars command, and the rotate-move any Tangible Object mods.",
 
 	itemList = {
 		"Tatooine Themed", 

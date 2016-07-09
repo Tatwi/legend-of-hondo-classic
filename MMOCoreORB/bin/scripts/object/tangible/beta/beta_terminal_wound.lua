@@ -48,6 +48,10 @@ object_tangible_beta_beta_terminal_wound = object_tangible_beta_shared_beta_term
 	maxCondition = 0,
 
 	templateType = CHARACTERBUILDERTERMINAL,
+    
+    suiBoxTitle = "Medical Services", 
+    suiBoxText = "Welcome Imperial Citizen! Please enjoy these helpful medical services.",
+
 
 	itemList = {
 		"Buff Character (5,000 Credits)", "enhance_character",
