@@ -224,16 +224,40 @@ object_tangible_furniture_static_structure_tatooine_shared_stone_hovel_tatooine_
 ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_stone_hovel_tatooine_style_01, "object/tangible/furniture/static/structure/tatooine/shared_stone_hovel_tatooine_style_01.iff")
 
 
+object_tangible_furniture_static_structure_tatooine_shared_debris_tatt_pipe_dual_unconnected = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_debris_tatt_pipe_dual_unconnected.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_debris_tatt_pipe_dual_unconnected, "object/tangible/furniture/static/structure/tatooine/shared_debris_tatt_pipe_dual_unconnected.iff")
 
 
+object_tangible_furniture_static_structure_tatooine_shared_debris_tatt_pipe_narrow_1 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_debris_tatt_pipe_narrow_1.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_debris_tatt_pipe_narrow_1, "object/tangible/furniture/static/structure/tatooine/shared_debris_tatt_pipe_narrow_1.iff")
 
 
+object_tangible_furniture_static_structure_tatooine_shared_debris_tatt_pipe_narrow_2 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_debris_tatt_pipe_narrow_2.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_debris_tatt_pipe_narrow_2, "object/tangible/furniture/static/structure/tatooine/shared_debris_tatt_pipe_narrow_2.iff")
 
 
+object_tangible_furniture_static_structure_tatooine_shared_debris_tatt_pipe_widemouth = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_debris_tatt_pipe_widemouth.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_debris_tatt_pipe_widemouth, "object/tangible/furniture/static/structure/tatooine/shared_debris_tatt_pipe_widemouth.iff")
 
 
+object_tangible_furniture_static_structure_tatooine_shared_orchard_tatooine_style_01 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_orchard_tatooine_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_orchard_tatooine_style_01, "object/tangible/furniture/static/structure/tatooine/shared_orchard_tatooine_style_01.iff")
 
 
+object_tangible_furniture_static_structure_tatooine_shared_orchard_tatooine_style_02 = SharedTangibleObjectTemplate:new {
+    clientTemplateFileName = "object/tangible/furniture/static/structure/tatooine/shared_orchard_tatooine_style_02.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_static_structure_tatooine_shared_orchard_tatooine_style_02, "object/tangible/furniture/static/structure/tatooine/shared_orchard_tatooine_style_02.iff")
 
 
 

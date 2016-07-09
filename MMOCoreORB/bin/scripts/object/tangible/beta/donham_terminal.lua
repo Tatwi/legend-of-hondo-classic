@@ -118,84 +118,57 @@ object_tangible_beta_donham_terminal = object_tangible_beta_shared_donham_termin
                 "Silo - Wide Clean", "object/tangible/furniture/static/building/tatooine/filler_building_tatt_style01_10.iff",
                 "Pyramid with Door on One Side", "object/tangible/furniture/static/building/tatooine/filler_building_tatt_style01_11.iff",
             },
+            "Antenna - Poles - Posts - Pipes",
+            {
+                "Antenna - Tatooine 1","object/tangible/furniture/static/structure/tatooine/antenna_tatt_style_1.iff",
+                "Antenna - Tatooine 2","object/tangible/furniture/static/structure/tatooine/antenna_tatt_style_2.iff",
+                "Pipe Dual Unconnected","object/tangible/furniture/static/structure/tatooine/debris_tatt_pipe_dual_unconnected.iff",
+                "Pipe Narrow 1","object/tangible/furniture/static/structure/tatooine/debris_tatt_pipe_narrow_1.iff",
+                "Pipe Narrow 2","object/tangible/furniture/static/structure/tatooine/debris_tatt_pipe_narrow_2.iff",
+                "Pipe Wide Mouth","object/tangible/furniture/static/structure/tatooine/debris_tatt_pipe_widemouth.iff",
+            },
+            "Pre-made Walls with Gates",
+            {
+                "Corral 32x32 - Style 1","object/tangible/furniture/static/structure/general/poi_tato_corral_half_32x32_s01.iff",
+                "Corral 32x32 - Style 2","object/tangible/furniture/static/structure/general/poi_tato_corral_half_32x32_s02.iff",
+                "Corral 32x32 - Style 3","object/tangible/furniture/static/structure/general/poi_tato_corral_half_32x32_s03.iff",
+                "Corral 32x32 - Style 4","object/tangible/furniture/static/structure/general/poi_tato_corral_half_32x32_s04.iff",
+                "Corral 64x64 - Style 1","object/tangible/furniture/static/structure/general/poi_tato_corral_half_64x64_s01.iff",
+                "Corral 64x64 - Style 2","object/tangible/furniture/static/structure/general/poi_tato_corral_half_64x64_s02.iff",
+                "Corral 64x64 - Style 3","object/tangible/furniture/static/structure/general/poi_tato_corral_half_64x64_s03.iff",
+                "Corral 64x64 - Style 4","object/tangible/furniture/static/structure/general/poi_tato_corral_half_64x64_s04.iff",
+                "Pen 16x8","object/tangible/furniture/static/structure/general/poi_tato_corral_pen_16x8_s01.iff",
+                "Farm 32x32 - Style 1","object/tangible/furniture/static/structure/general/poi_tato_farm_32x32_s01.iff",
+                "Farm 32x32 - Style 2","object/tangible/furniture/static/structure/general/poi_tato_farm_32x32_s02.iff",
+            },
         }, -- Tatooine End
         "Plants",
         {
             "Stand-alone",
             {
-                "NA","NA",
+                "Hubba Tree","object/tangible/furniture/static/flora/flora_plant_tato_hubba.iff",
+                "Palm Tree","object/tangible/furniture/static/flora/flora_tree_palm_fngi.iff",
+                "Palm Tree - Thin","object/tangible/furniture/static/flora/flora_tree_palm_sm.iff",
+                "Palm Tree - Thick","object/tangible/furniture/static/flora/flora_tree_palm_thk.iff",
+                "Rori Light Brown Tree 1","object/tangible/furniture/static/flora/flora_tree_rori_windswept_s00.iff",
+                "Rori Light Brown Tree 2","object/tangible/furniture/static/flora/flora_tree_rori_windswept_s01.iff",
+                "Rori Light Brown Tree 3","object/tangible/furniture/static/flora/flora_tree_rori_windswept_s02.iff",
+                "Rori Light Brown Tree 4","object/tangible/furniture/static/flora/flora_tree_rori_windswept_s03.iff",
             },
             "Potted",
             {
-                "NA","NA",
+                "Huge Potted Tree 1","object/tangible/furniture/static/structure/general/planter_generic_style_1.iff",
+                "Huge Potted Tree 2","object/tangible/furniture/static/structure/general/planter_generic_style_2.iff",
+                "Huge Potted Tree 3","object/tangible/furniture/static/structure/general/planter_generic_style_3.iff",
+                "Huge Potted Tree 4","object/tangible/furniture/static/structure/general/planter_generic_style_4.iff",
+                "Tatooine Orchard 1","object/tangible/furniture/static/structure/tatooine/orchard_tatooine_style_01.iff",
+                "Tatooine Orchard 2","object/tangible/furniture/static/structure/tatooine/orchard_tatooine_style_02.iff",
             },
         }, -- Plants End
-        "Creatures",
+        "Misc Decor",
         {
-            "Bones",
-            {
-                "NA","NA",
-            },
-            "Animals",
-            {
-                "NA","NA",
-            },
-            "Mounts",
-            {
-                "NA","NA",
-            },
-            "Droids",
-            {
-                "NA","NA",
-            },
-        }, -- Creatures End
-        "Large Misc Items",
-        {
-            "Antenna - Poles - Posts - Pipes",
-            {
-                "Antenna - Tatooine 1","object/tangible/furniture/static/structure/tatooine/antenna_tatt_style_1.iff",
-                "Antenna - Tatooine 2","object/tangible/furniture/static/structure/tatooine/antenna_tatt_style_2.iff",
-            },
-            "Other Large Junk",
-            {
-                "NA","NA",
-            },
-            "Vehicles - Ships",
-            {
-                "NA","NA",
-            },
-            "Large Rocks etc.",
-            {
-                "NA","NA",
-            },
-            "Industrial Filler Buildings",
-            {
-                "NA","NA",
-            },
-            "Large Debris",
-            {
-                "NA","NA",
-            },
-        }, -- Large Misc Items End
-        "Small Misc Items",
-        {
-            "Boxes - Crates - etc.",
-            {
-                "NA","NA",
-            },
-            "Other Small Junk",
-            {
-                "NA","NA",
-            },
-            "Small Rocks etc.",
-            {
-                "NA","NA",
-            },
-            "Small Debris",
-            {
-                "NA","NA",
-            },
-        }, -- Small Misc Items End
+            "Parked X-Wing", "object/tangible/furniture/static/structure/general/xwing.iff",
+        }, -- Misc Decor Ends
 	} -- List End
 
 }
