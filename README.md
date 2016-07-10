@@ -89,3 +89,25 @@ Enjoy,
 - Tatwi
 
 Ps. I have included the additional files needed for some of these customizations in the tre folder. You can use Sytner's Iff Editor to repack the tre folder into a .tre file, then include that file on your client and server. Or you can download just the parts you want to use in your own projects.
+
+
+
+# Notice
+
+Every file in the Legend of Hondo repository, whether marked explicitly within the file or not, is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE, Version 3, 19 November 2007. Should you choose to use a file that is not so marked, you must ensure that it is so marked in your copy, either by a blanket statement on your project indicating that all files in your project are licensed under the GNU AFFERO GENERAL PUBLIC LICENSE, Version 3, 19 November 2007 or by an explicit statement in the file you have copied.
+
+Legend of Hondo does NOT contain any copyrighted prohibited material from any source, including the Star Wars Galaxies game files. All files in the Legend of Hondo repository are original works that were created using properly licensed software, such as Gimp, sytner's IFF Editor, TRE Explorer, and other open source and commercial applications. 
+
+
+
+# Disclaimer of Warranties and Limitation of Liability
+
+SWGEmu and R. Bassett Jr. (Tatwi) disclaim all warranties of any kind, either express or implied, as to the software provided in this repository, including, but not limited to, implied warranties of fitness for a particular purpose, or non‐infringement of proprietary rights. Neither this agreement nor any documentation furnished under it is intended to express or imply any warranty that the operation of the software will be uninterrupted, timely, or error‐free.
+
+Under no circumstances shall SWGEmu or R. Bassett Jr. (Tatwi) be liable to any user for direct, indirect, incidental, consequential, special, or exemplary damages, arising from or relating to this agreement, the software, or userʹs use or misuse of the software. Such limitation of liability shall apply whether the damages arise from the use or misuse of the software (including such damages incurred by third parties).
+
+Information provided in this repository is done so "As-Is" and is not promised or guaranteed to be correct, current, or complete, and may be out of date and may contain technical inaccuracies or typographical errors. Any reliance on the material in this repository is at your own risk. R. Bassett Jr. (Tatwi) assumes no responsibility (and expressly disclaims responsibility) for keeping information current or to ensure the accuracy or completeness of any information provided. Accordingly, you should confirm the accuracy and completeness of all information provided in this repository before making any decision related to using any part of it.
+
+By using any software, files, or concepts provided in this repository, you waive the right to SWGEmu game client support from SWGEmu and you acknowledge and accept that you will not recieve support from R. Bassett Jr (Tatwi) of any kind.
+
+
