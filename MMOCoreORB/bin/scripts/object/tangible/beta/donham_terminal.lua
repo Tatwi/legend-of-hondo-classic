@@ -164,8 +164,8 @@ object_tangible_beta_donham_terminal = object_tangible_beta_shared_donham_termin
                 "Huge Potted Tree 2","object/tangible/furniture/static/structure/general/planter_generic_style_2.iff",
                 "Huge Potted Tree 3","object/tangible/furniture/static/structure/general/planter_generic_style_3.iff",
                 "Huge Potted Tree 4","object/tangible/furniture/static/structure/general/planter_generic_style_4.iff",
-                "Tatooine Orchard 1","object/tangible/furniture/static/structure/tatooine/orchard_tatooine_style_01.iff",
-                "Tatooine Orchard 2","object/tangible/furniture/static/structure/tatooine/orchard_tatooine_style_02.iff",
+                --Not Targetable "Tatooine Orchard 1","object/tangible/furniture/static/structure/tatooine/orchard_tatooine_style_01.iff",
+                --Not Targetable "Tatooine Orchard 2","object/tangible/furniture/static/structure/tatooine/orchard_tatooine_style_02.iff",
             },
         }, -- Plants End
         "Misc Decor",
