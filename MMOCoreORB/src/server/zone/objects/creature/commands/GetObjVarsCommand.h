@@ -115,6 +115,9 @@ public:
                 
                 templateFile = templateFile.replaceAll("tangible/furniture/", ""); // Convert from Admin-handy tangible version to the normal static version.
                 
+                 if (templateFile.contains("static/building"))
+                    templateFile = templateFile.replaceAll("static/building", "building"); // Fix path for filler type buildings
+                
                 StringBuffer text;
                 
                 text << "spawnSceneObject(\"" << planetName << "\", \"" << templateFile << "\", ";
