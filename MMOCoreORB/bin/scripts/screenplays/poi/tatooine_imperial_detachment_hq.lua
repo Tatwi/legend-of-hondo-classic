@@ -14,10 +14,10 @@ end
 function ImperialDetachmentHQScreenPlay:spawnMobiles()
 
 	-- Entrance
-	spawnMobile("tatooine", "stormtrooper", 300, -2589.75, 5, 2116.08, -90, 0)
-	spawnMobile("tatooine", "stormtrooper", 300, -2590.52, 5, 2111.61, -90, 0)
-	spawnMobile("tatooine", "stormtrooper", 300, -2591.35, 5, 2107.1, -90, 0)
-	spawnMobile("tatooine", "stormtrooper", 300, -2592.6, 5, 2100.61, -90, 0)
+    spawnMobile("tatooine", "stormtrooper", 500, -2635.92, 5, 2119.68, 252, 0) 
+    spawnMobile("tatooine", "stormtrooper", 500, -2636.9500, 5, 2114.95, 273, 0) 
+    spawnMobile("tatooine", "stormtrooper", 500, -2641.5500, 5, 2113.48, 267, 0) 
+    spawnMobile("tatooine", "stormtrooper", 500, -2639.48, 5, 2122.3, 276, 0) 
 	
 	
 	-- Shuttle
