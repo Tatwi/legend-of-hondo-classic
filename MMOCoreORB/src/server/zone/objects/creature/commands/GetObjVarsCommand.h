@@ -7,6 +7,7 @@
 
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/chat/ChatManager.h"
+#include "server/zone/templates/mobile/CreatureTemplate.h"
 
 class GetObjVarsCommand : public QueueCommand {
 public:
@@ -54,7 +55,17 @@ public:
                 if (templateFile.contains("object/mobile")){
                     int angle = object->getDirectionAngle();
                     
-                    text << "spawnMobile(\"" << planetName << "\", " <<  "\"" << templateFile << "\", 1, ";
+                    // Beause they crash the server if we try to use them as an AI agent.
+                    if (templateFile.contains("junk") || templateFile.contains("vehicle") || templateFile.contains("vendor")){ 
+                       creature->sendSystemMessage("Sorry, this feature does not support the selected object or NPC.");
+                       return INVALIDPARAMETERS;
+                    }
+                    
+                    AiAgent* mob = object.castTo<AiAgent*> ();
+                    CreatureTemplate* creatureTemplate = mob->getCreatureTemplate();
+                    String mobileName = creatureTemplate->getTemplateName();
+
+                    text << "spawnMobile(\"" << planetName << "\", " <<  "\"" << mobileName << "\", 1, ";
                 
                     if (object->getParent() != NULL && object->getParent().get()->isCellObject()) {
                         // Inside

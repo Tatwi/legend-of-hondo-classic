@@ -31,13 +31,18 @@ void ObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, Objec
     int adminLevelCheck = ghost->getAdminLevel();
     
     if (adminLevelCheck == 15 && playersParent == NULL){ 
+        
+        if (!sceneObject->isTangibleObject())
+            return;
+            
         // Legend of Hondo
-        // Admin can pickup / drop / move / rotate objects outside for use as a basic "world builder" tool.
+        // Admin can pickup / drop / move / rotate tanglible type objects outside for use as a basic "world builder" tool.
 
         if (parent != NULL){
             menuResponse->addRadialMenuItem(73, 3, "Admin Drop Outside"); 
         } else{
-            menuResponse->addRadialMenuItem(72, 3, "Admin Pickup Outside"); // Admin Pick up
+            if (!sceneObject->isCreatureObject())
+                menuResponse->addRadialMenuItem(72, 3, "Admin Pickup Outside"); // Admin Pick up
             
             menuResponse->addRadialMenuItem(54, 1, "@ui_radial:item_move"); //Move
             menuResponse->addRadialMenuItem(51, 1, "@ui_radial:item_rotate"); //Rotate
