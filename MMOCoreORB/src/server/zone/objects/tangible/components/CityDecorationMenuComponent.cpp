@@ -25,7 +25,7 @@ void CityDecorationMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 		menuResponse->addRadialMenuItem(233, 3, "@city/city:place"); // Place Decoration
 	}
 
-	if(city != NULL && sceneObject->getParent().get() == NULL && sceneObject->getCityRegion() == city && city->isMayor(player->getObjectID()) ) {
+	if(city != NULL && sceneObject->getParent().get() == NULL && sceneObject->getCityRegion() == city) {
 		menuResponse->addRadialMenuItem(234, 3, "@city/city:mt_remove"); // Remove
 
 		menuResponse->addRadialMenuItem(73, 3, "@city/city:align"); // Align

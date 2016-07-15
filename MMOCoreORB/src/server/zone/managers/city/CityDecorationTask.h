@@ -13,6 +13,7 @@
 #include "server/zone/objects/region/CityRegion.h"
 #include "server/zone/managers/planet/PlanetManager.h"
 #include "server/zone/objects/scene/SceneObject.h"
+#include "server/zone/ZoneServer.h"
 
 class CityDecorationTask : public Task {
 	ManagedReference<CreatureObject*> mayor;
@@ -48,77 +49,51 @@ public:
 		Locker _lock(mayor);
 
 		ManagedReference<CityRegion*> city = mayor->getCityRegion();
-/*
+
 		if(city == NULL) {
-			mayor->sendSystemMessage("@player_structure:cant_place_civic"); //This structure must be placed within the borders of the city in which you are mayor.
+			mayor->sendSystemMessage("You may only place decorations in Mos Espa."); // Not in a city at all.
 			return;
 		}
-*/
-		CityManager* cityManager = mayor->getZoneServer()->getCityManager();
-/*
-		if(!city->isMayor(mayor->getObjectID())) {
-			mayor->sendSystemMessage("@player_structure:cant_place_civic"); //This structure must be placed within the borders of the city in which you are mayor.
-			return;
-		}
-*/
-		PlayerObject* mayorGhost = mayor->getPlayerObject().get();
-		if (mayorGhost == NULL) {
-			return;
-		}
+        
+        String regionName = city->getRegionName();
 
-		if ((obj->isCityStreetLamp() && !mayorGhost->hasAbility("place_streetlamp")) || (obj->isCityStatue() && !mayorGhost->hasAbility("place_statue")) || (obj->isCityFountain() && !mayorGhost->hasAbility("place_fountain"))) {
-			mayor->sendSystemMessage("@city/city:no_skill_deco"); // You lack the skill to place this decoration in your city.
-			return;
-		}
-
-		if(!cityManager->canSupportMoreDecorations(city)) {
-			StringIdChatParameter param("city/city", "no_more_decos"); //"Your city can't support any more decorations at its current rank!");
-			mayor->sendSystemMessage(param);
-			return;
-		}
+        if (regionName != "@tatooine_region_names:mos_espa"){
+            mayor->sendSystemMessage("You may only place decorations in Mos Espa.");  // Not in Mos Espa.
+            return;
+        }
 
 		Zone* zone = mayor->getZone();
 
 		if (zone == NULL || obj->getObjectTemplate() == NULL)
 			return;
 
-		Reference<SceneObject*> objTooClose = zone->getPlanetManager()->findObjectTooCloseToDecoration(mayor->getPositionX(), mayor->getPositionY(), obj->getObjectTemplate()->getNoBuildRadius());
-/*
-		if (objTooClose != NULL && !obj->isCityStreetLamp()) {
-			StringIdChatParameter msg;
-			msg.setStringId("@city/city:deco_too_close"); //"You can't place a decoration here, it would be too close to structure %TO.");
-
-			msg.setTO(objTooClose);
-			//msg.setTO(objTooClose->getObjectNameStringIdFile(), obj->getObjectNameStringIdName());
-			mayor->sendSystemMessage(msg);
-			return;
-		}
-
-		if(city->getCityTreasury() < 1000) {
-			StringIdChatParameter msg;
-			msg.setStringId("@city/city:action_no_money");
-			msg.setDI(1000);
-			mayor->sendSystemMessage(msg); //"The city treasury must have %DI credits in order to perform that action.");
-			return;
-		}
-*/
 		Locker tlock(obj, mayor);
 
 		if(!obj->isASubChildOf(mayor)) {
 			mayor->sendSystemMessage("@space/quest:not_in_inv"); // The object must be in your inventory
 			return;
 		}
-
-		obj->initializePosition(mayor->getWorldPositionX(), mayor->getWorldPositionZ(),mayor->getWorldPositionY());
-		obj->rotate(mayor->getDirectionAngle() - obj->getDirectionAngle());
-
-		if(zone->transferObject(obj, -1, true)) {
-			tlock.release();
-			Locker clock(city, mayor);
-			city->addDecoration(obj);
-			city->subtractFromCityTreasury(1000);
-		}
-
+        
+        // Allow player to decorate Mos Espa with persistent objects
+  
+        String originalObject = obj->getObjectTemplate()->getFullTemplateString();
+        String strDatabase = "playerstructures";
+        
+        // Delete the original object
+        obj->destroyObjectFromDatabase(true);
+        obj->destroyObjectFromWorld(true);
+        
+        // Create a duplicate object as a persistent object stored in the player structures database
+        ManagedReference<SceneObject*> dupe = ObjectManager::instance()->createObject(originalObject.hashCode(), 1, strDatabase);
+        
+        // Initialize the position/roatation of the new object
+        dupe->initializePosition(mayor->getWorldPositionX(), mayor->getWorldPositionZ(),mayor->getWorldPositionY());
+		dupe->rotate(mayor->getDirectionAngle() - dupe->getDirectionAngle());
+        
+        // Move the dupe into the world
+        zone->transferObject(dupe, -1, true);
+        
+        tlock.release();
 	}
 
 	void removeDecoration() {
@@ -128,11 +103,7 @@ public:
 
 		if(city == NULL)
 			return;
-
-		if(!city->isMayor(mayor->getObjectID())) {
-			return;
-		}
-
+            
 		Zone* zone = mayor->getZone();
 
 		if (zone == NULL)

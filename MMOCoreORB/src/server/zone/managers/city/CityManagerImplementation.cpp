@@ -2264,14 +2264,11 @@ void CityManagerImplementation::sendMail(CityRegion* city, const String& sender,
 bool CityManagerImplementation::canSupportMoreDecorations(CityRegion* city) {
 	if (city == NULL)
 		return false;
+        
+    return true; // Legend of Hondo - go forth and decorate!
 		
-	// Legend of Hondo
-	// Fudge to allow 30 city decorations to be placed in NPC cities.
-	int decorLimit = decorationsPerRank * city->getCityRank();
-	if (decorLimit <= 0)
-		decorLimit = 30;
-	
-	return city->getDecorationCount() < (decorLimit); 
+//	int decorLimit = decorationsPerRank * city->getCityRank();
+//	return city->getDecorationCount() < (decorLimit); 
 }
 
 bool CityManagerImplementation::canSupportMoreTrainers(CityRegion* city) {

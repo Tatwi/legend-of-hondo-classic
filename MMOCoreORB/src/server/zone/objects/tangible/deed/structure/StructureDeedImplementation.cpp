@@ -16,6 +16,7 @@
 #include "server/zone/objects/tangible/deed/Deed.h"
 #include "server/zone/objects/tangible/deed/structure/StructureDeed.h"
 #include "server/zone/ZoneServer.h"
+#include "server/zone/managers/planet/PlanetManager.h"
 
 
 
@@ -32,7 +33,18 @@ void StructureDeedImplementation::initializeTransientMembers() {
 
 void StructureDeedImplementation::fillObjectMenuResponse(ObjectMenuResponse* menuResponse, CreatureObject* player) {
 	// Legend of Hondo
-	if (player->getParent() == NULL) {	
+	if (player->getParent() == NULL) {
+        Zone* zone = player->getZone();
+        PlanetManager* planetManager = zone->getPlanetManager();
+        CityRegion* cityRegion = planetManager->getRegionAt(player->getWorldPositionX(), player->getWorldPositionY());
+        String regionName = "";
+
+        if (cityRegion != NULL)
+            regionName = cityRegion->getRegionName();
+        
+        if (regionName != "@tatooine_region_names:mos_espa") // Only allow building in Mos Espa
+            return;
+    
 		menuResponse->addRadialMenuItem(73, 3, "Advanced Placement");
 			menuResponse->addRadialMenuItemToRadialID(73, 70, 3, "Show Ruler");  
 			menuResponse->addRadialMenuItemToRadialID(73, 71, 3, "House Plop - Use Caution"); 
@@ -54,7 +66,8 @@ int StructureDeedImplementation::handleObjectMenuSelect(CreatureObject* player, 
 	// Legend of Hondo
 	if (selectedID == 73) {
 		player->sendSystemMessage("Advanced Placement: To use this feature, face the direction you want the door of your building to face and select the House Plop option. To help with alignment, use the Show Ruler option to better see where you are facing. While the ruler is active, use the mouse wheel to zoom in then turn your character with the mouse. Zoom out again to see where the ruler is pointing. Be careful using this feature, as it will place a structure wherever you happen to be...");
-	}
+        return 0;
+    }
 	// Drop the building on top of the player with the door facing the same direction as the player.
 	if (selectedID == 71) {
 		if (!isASubChildOf(player))
@@ -70,9 +83,8 @@ int StructureDeedImplementation::handleObjectMenuSelect(CreatureObject* player, 
 		float	y = player->getPositionY();
 		
 		player->sendSystemMessage("Building constructed at your location with door facing the way you were facing...");
-		
+        
 		uint64 deedID;
-		
 		deedID = getObjectID();
 		
 		ManagedReference<StructureDeed*> deed = server->getZoneServer()->getObject(deedID).castTo<StructureDeed*>();
@@ -124,7 +136,9 @@ void StructureDeedImplementation::fillAttributeList(AttributeListMessage* alm, C
 
 	if (extractionRate > 0)
 		alm->insertAttribute("examine_extractionrate", String::valueOf(Math::getPrecision(extractionRate, 2)));
-
+    
+    alm->insertAttribute("examine_scene", "Tatooine in Mos Espa");
+/*
 	for (int i = 0; i < structureTemplate->getTotalAllowedZones(); ++i) {
 		String zoneName = structureTemplate->getAllowedZone(i);
 
@@ -133,6 +147,7 @@ void StructureDeedImplementation::fillAttributeList(AttributeListMessage* alm, C
 
 		alm->insertAttribute("examine_scene", "@planet_n:" + zoneName); //Can Be Built On
 	}
+*/
 }
 
 void StructureDeedImplementation::updateCraftingValues(CraftingValues* values, bool firstUpdate){

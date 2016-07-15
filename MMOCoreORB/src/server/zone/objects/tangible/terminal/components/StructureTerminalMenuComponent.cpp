@@ -68,10 +68,7 @@ void StructureTerminalMenuComponent::fillObjectMenuResponse(SceneObject* sceneOb
 		menuResponse->addRadialMenuItemToRadialID(118, 128, 3, "@player_structure:permission_destroy"); //Destroy Structure
 		menuResponse->addRadialMenuItemToRadialID(118, 124, 3, "@player_structure:management_status"); //Status
 		menuResponse->addRadialMenuItemToRadialID(118, 129, 3, "@player_structure:management_pay"); //Pay Maintenance
-
-		if (structureObject->isGuildHall()) {
-			menuResponse->addRadialMenuItemToRadialID(118, 70, 3, "@player_structure:take_maintenance"); // Withdraw Maintenance
-		}
+        menuResponse->addRadialMenuItemToRadialID(118, 70, 3, "@player_structure:take_maintenance"); // Withdraw Maintenance
 
 		menuResponse->addRadialMenuItemToRadialID(118, 50, 3, "@player_structure:management_name_structure"); //Name Structure
 
@@ -92,24 +89,25 @@ void StructureTerminalMenuComponent::fillObjectMenuResponse(SceneObject* sceneOb
 		}
 
 		if (structureObject->isBuildingObject()) {
+            BuildingObject* building = cast<BuildingObject*>(structureObject.get());
+            
 			menuResponse->addRadialMenuItemToRadialID(118, 127, 3, "@player_structure:management_residence"); //Declare Residence
 			menuResponse->addRadialMenuItemToRadialID(118, 125, 3, "@player_structure:management_privacy"); //Privacy
 
 			if (creature->hasSkill("crafting_artisan_business_01") && structureObject->isOnAdminList(creature)) {
-				BuildingObject* building = cast<BuildingObject*>(structureObject.get());
 				if(!building->hasAccessFee())
 					menuResponse->addRadialMenuItemToRadialID(118, 68, 3, "@player_structure:management_add_turnstile"); //Set Access Fee
 				else
 					menuResponse->addRadialMenuItemToRadialID(118, 68, 3, "@player_structure:management_remove_turnstile"); //Remove Access Fee
-
 			}
 
 			if (creature->hasSkill("crafting_artisan_business_03"))
 				menuResponse->addRadialMenuItemToRadialID(118, 130, 3, "@player_structure:create_vendor"); //Create Vendor
 
-
-			menuResponse->addRadialMenuItemToRadialID(118, 69, 3, "@player_structure:management_change_sign"); //Change Sign
-			menuResponse->addRadialMenuItemToRadialID(118, 201, 3, "@player_structure:delete_all_items"); //Delete all items
+            if( building->getSignObject() != NULL )
+                menuResponse->addRadialMenuItemToRadialID(118, 69, 3, "@player_structure:management_change_sign"); //Change Sign
+			
+            menuResponse->addRadialMenuItemToRadialID(118, 201, 3, "@player_structure:delete_all_items"); //Delete all items
 			menuResponse->addRadialMenuItemToRadialID(118, 202, 3, "@player_structure:move_first_item"); //Find Lost Items
 		}
 
@@ -150,7 +148,7 @@ int StructureTerminalMenuComponent::handleObjectMenuSelect(SceneObject* sceneObj
 
 	if (zone == NULL)
 		return 1;
-
+        
 	if (structureObject->isCivicStructure()) {
 		if (structureObject->isOnAdminList(creature)) {
 			StructureManager* structureManager = StructureManager::instance();

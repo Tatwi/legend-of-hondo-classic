@@ -2082,7 +2082,9 @@ int PlayerObjectImplementation::getLotsRemaining() {
 	Locker locker(_this.getReferenceUnsafeStaticCast());
 
 	int lotsRemaining = maximumLots;
-
+    
+    return lotsRemaining; // Legend of Hondo: This essentially removes the lot system as a consideration when placing buildings, by saying the player always has 10 lots available.
+/*
 	for (int i = 0; i < ownedStructures.size(); ++i) {
 		unsigned long oid = ownedStructures.get(i);
 
@@ -2094,6 +2096,7 @@ int PlayerObjectImplementation::getLotsRemaining() {
 	}
 
 	return lotsRemaining;
+*/
 }
 
 void PlayerObjectImplementation::setJediState(int state, bool notifyClient) {

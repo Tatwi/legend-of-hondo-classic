@@ -36,8 +36,8 @@ public:
         ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
         int adminLevelCheck = ghost->getAdminLevel(); // For highest level admin character exemptions to some rules.
         
-        // Check Outside
-        if (objParent == NULL && adminLevelCheck != 15){
+        // Check Outside: Allow admin, allow any if city decor
+        if (objParent == NULL && adminLevelCheck != 15 && !obj->isDecoration()){
             creature->sendSystemMessage("@player_structure:must_be_in_building"); //You must be in a building to do that.
             return GENERALERROR;
         }

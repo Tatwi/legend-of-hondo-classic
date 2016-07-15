@@ -57,8 +57,9 @@ public:
         // Legend of Hondo
         int adminLevelCheck = ghost->getAdminLevel();
 
-        if (adminLevelCheck == 15){
+        if (adminLevelCheck == 15 || obj->isDecoration()){
             // Admin can move things outside as part of the basic world building tools
+            // Anyone can move city decorations
         } else{
             if (creatureParent == NULL || !creatureParent->isBuildingObject()) {
                 creature->sendSystemMessage("@player_structure:must_be_in_building"); //You must be in a building to do that.

@@ -209,139 +209,24 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 		return 1;
 	}
 
-	Reference<SharedStructureObjectTemplate*> serverTemplate =
-			dynamic_cast<SharedStructureObjectTemplate*>(templateManager->getTemplate(serverTemplatePath.hashCode()));
-
-/* Legend of Hondo
-	//Check to see if this zone allows this structure.
-	if (serverTemplate == NULL || !serverTemplate->isAllowedZone(zone->getZoneName())) {
-		creature->sendSystemMessage("@player_structure:wrong_planet"); //That deed cannot be used on this planet.
+	Reference<SharedStructureObjectTemplate*> serverTemplate = dynamic_cast<SharedStructureObjectTemplate*>(templateManager->getTemplate(serverTemplatePath.hashCode()));
+    
+    // Legend of Hondo
+    // Only allow building in Mos Entha region, but allow all building types to be placed there.
+    // Don't check footprints or if there is enough space, etc. to allow for maximum customization.
+    // Don't check for lots or further permissions, as neither are used.
+    CityRegion* cityRegion = planetManager->getRegionAt(creature->getWorldPositionX(), creature->getWorldPositionY());
+    String regionName = "";
+    
+    if (cityRegion != NULL)
+        regionName = cityRegion->getRegionName();
+    
+    if (regionName != "@tatooine_region_names:mos_espa"){
+        creature->sendSystemMessage("Legend of Hondo: You may only build structures in Mos Espa.");
 		return 1;
-	}
-
-	if (!planetManager->isBuildingPermittedAt(x, y, creature)) {
-		creature->sendSystemMessage("@player_structure:not_permitted"); //Building is not permitted here.
-		return 1;
-	}
-
-	SortedVector<ManagedReference<ActiveArea*> > objects;
-	zone->getInRangeActiveAreas(x, y, &objects, true);
-
-	ManagedReference<CityRegion*> city;
-
-	for (int i = 0; i < objects.size(); ++i) {
-		ActiveArea* area = objects.get(i).get();
-
-		if (!area->isRegion())
-			continue;
-
-		city = dynamic_cast<Region*>(area)->getCityRegion();
-
-		if (city != NULL)
-			break;
-	}
-*/
-	SortedVector<ManagedReference<QuadTreeEntry*> > inRangeObjects;
-	zone->getInRangeObjects(x, y, 128, &inRangeObjects, true);
-
-	float placingFootprintLength0, placingFootprintWidth0, placingFootprintLength1, placingFootprintWidth1;
-
-	if (!getStructureFootprint(serverTemplate, angle, placingFootprintLength0, placingFootprintWidth0, placingFootprintLength1, placingFootprintWidth1)) {
-		float x0 = x + placingFootprintWidth0;
-		float y0 = y + placingFootprintLength0;
-		float x1 = x + placingFootprintWidth1;
-		float y1 = y + placingFootprintLength1;
-
-		BoundaryRectangle placingFootprint(x0, y0, x1, y1);
-
-		//info("placing center x:" + String::valueOf(x) + " y:" + String::valueOf(y), true);
-		//info("placingFootprint x0:" + String::valueOf(x0) + " y0:" + String::valueOf(y0) + " x1:" + String::valueOf(x1) + " y1:" + String::valueOf(y1), true);
-
-		for (int i = 0; i < inRangeObjects.size(); ++i) {
-			SceneObject* scene = inRangeObjects.get(i).castTo<SceneObject*>();
-
-			if (scene == NULL)
-				continue;
-
-			float l0 = -5; //Along the x axis.
-			float w0 = -5; //Along the y axis.
-			float l1 = 5;
-			float w1 = 5;
-
-			if (getStructureFootprint(scene->getObjectTemplate(), scene->getDirectionAngle(), l0, w0, l1, w1))
-				continue;
-
-			float xx0 = scene->getPositionX() + (w0 + 0.1);
-			float yy0 = scene->getPositionY() + (l0 + 0.1);
-			float xx1 = scene->getPositionX() + (w1 - 0.1);
-			float yy1 = scene->getPositionY() + (l1 - 0.1);
-
-			BoundaryRectangle rect(xx0, yy0, xx1, yy1);
-
-			//info("existing footprint xx0:" + String::valueOf(xx0) + " yy0:" + String::valueOf(yy0) + " xx1:" + String::valueOf(xx1) + " yy1:" + String::valueOf(yy1), true);
-		/* LoH Mod
-			// check 4 points of the current rect
-			if (rect.containsPoint(x0, y0)
-					|| rect.containsPoint(x0, y1)
-					|| rect.containsPoint(x1, y0)
-					|| rect.containsPoint(x1, y1) ) {
-
-				//info("existing footprint contains placing point", true);
-
-				creature->sendSystemMessage("@player_structure:no_room"); //there is no room to place the structure here..
-
-				return 1;
-			}
-
-			if (placingFootprint.containsPoint(xx0, yy0)
-					|| placingFootprint.containsPoint(xx0, yy1)
-					|| placingFootprint.containsPoint(xx1, yy0)
-					|| placingFootprint.containsPoint(xx1, yy1)
-					|| (xx0 == x0 && yy0 == y0 && xx1 == x1 && yy1 == y1)) {
-				//info("placing footprint contains existing point", true);
-
-				creature->sendSystemMessage("@player_structure:no_room"); //there is no room to place the structure here.
-
-				return 1;
-			} */
-		}
-	}
-/*
-	int rankRequired = serverTemplate->getCityRankRequired();
-
-	if (city == NULL && rankRequired > 0) {
-		creature->sendSystemMessage("@city/city:build_no_city"); // You must be in a city to place that structure.
-		return 1;
-	}
-
-	if (city != NULL) {
-		if (city->isZoningEnabled() && !city->hasZoningRights(creature->getObjectID())) {
-			creature->sendSystemMessage("@player_structure:no_rights"); //You don't have the right to place that structure in this city. The mayor or one of the city milita must grant you zoning rights first.
-			return 1;
-		}
-
-		if (rankRequired != 0 && city->getCityRank() < rankRequired) {
-			StringIdChatParameter param("city/city", "rank_req"); // The city must be at least rank %DI (%TO) in order for you to place this structure.
-			param.setDI(rankRequired);
-			param.setTO("city/city", "rank" + String::valueOf(rankRequired));
-
-			creature->sendSystemMessage(param);
-			return 1;
-		}
-
-		if (serverTemplate->isCivicStructure() && !city->isMayor(creature->getObjectID()) ) {
-				creature->sendSystemMessage("@player_structure:cant_place_civic");//"This structure must be placed within the borders of the city in which you are mayor."
-				return 1;
-		}
-
-		if (serverTemplate->isUniqueStructure() && city->hasUniqueStructure(serverTemplate->getServerObjectCRC())) {
-			creature->sendSystemMessage("@player_structure:cant_place_unique"); //This city can only support a single structure of this type.
-			return 1;
-		}
-	}
-*/
+    }
+    
 	Locker _lock(deed, creature);
-
 
 	if(serverTemplate->isDerivedFrom("object/building/faction_perk/base/shared_factional_building_base.iff")){
 		Zone* zone = creature->getZone();
@@ -363,30 +248,6 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 	}
 
 	TemplateManager* templateManager = TemplateManager::instance();
-
-	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
-
-	if (ghost != NULL) {
-		String abilityRequired = serverTemplate->getAbilityRequired();
-
-		if (!abilityRequired.isEmpty() && !ghost->hasAbility(abilityRequired)) {
-			creature->sendSystemMessage("@player_structure:" + abilityRequired);
-			return 1;
-		}
-
-		int lots = serverTemplate->getLotSize();
-
-		if (!ghost->hasLotsRemaining(lots)) {
-			StringIdChatParameter param("@player_structure:not_enough_lots");
-			param.setDI(lots);
-			creature->sendSystemMessage(param);
-			return 1;
-		}
-	}
-
-	//Validate that the structure can be placed at the given coordinates:
-	//Ensure that no other objects impede on this structures footprint, or overlap any city regions or no build areas.
-	//Make sure that the player has zoning rights in the area.
 
 	ManagedReference<PlaceStructureSession*> session = new PlaceStructureSession(creature, deed);
 	creature->addActiveSession(SessionFacadeType::PLACESTRUCTURE, session);
@@ -962,7 +823,9 @@ void StructureManager::reportStructureStatus(CreatureObject* creature,
 		status->addMenuItem(
 				"@player_structure:items_in_building_prompt "
 						+ String::valueOf(
-								building->getCurrentNumberOfPlayerItems())); //Number of Items in Building:
+								building->getCurrentNumberOfPlayerItems())
+                        + " / "        
+                        + String::valueOf(building->getMaximumNumberOfPlayerItems())); //Number of Items in Building: 0 / 250
 	}
 
 	ghost->addSuiBox(status);
@@ -1048,12 +911,14 @@ void StructureManager::promptPayUncondemnMaintenance(CreatureObject* creature,
 	}
 
 	int uncondemnCost = -structure->getSurplusMaintenance();
+    int threeMonthsOfMaintenance = 3 * 30 * 24 * structure->getMaintenanceRate();
+    
+    uncondemnCost = MIN(uncondemnCost, threeMonthsOfMaintenance); // Cap the uncondemn cost at 3 months
 
 	ManagedReference<SuiMessageBox*> sui;
 	String text;
 
-	if (creature->getCashCredits() + creature->getBankCredits()
-			>= uncondemnCost) {
+	if (creature->getCashCredits() + creature->getBankCredits() >= uncondemnCost) {
 		//Owner can un-condemn the structure.
 		sui = new SuiMessageBox(creature,
 				SuiWindowType::STRUCTURE_UNCONDEMN_CONFIRM);
@@ -1139,10 +1004,6 @@ void StructureManager::promptPayMaintenance(StructureObject* structure,
 }
 
 void StructureManager::promptWithdrawMaintenance(StructureObject* structure, CreatureObject* creature) {
-	if (!structure->isGuildHall()) {
-		return;
-	}
-
 	if (!structure->isOnAdminList(creature)) {
 		creature->sendSystemMessage("@player_structure:withdraw_admin_only"); // You must be an administrator to remove credits from the treasury.
 		return;
@@ -1300,10 +1161,6 @@ void StructureManager::payMaintenance(StructureObject* structure,
 }
 
 void StructureManager::withdrawMaintenance(StructureObject* structure, CreatureObject* creature, int amount) {
-	if (!structure->isGuildHall()) {
-		return;
-	}
-
 	if (!structure->isOnAdminList(creature)) {
 		creature->sendSystemMessage("@player_structure:withdraw_admin_only"); // You must be an administrator to remove credits from the treasury.
 		return;

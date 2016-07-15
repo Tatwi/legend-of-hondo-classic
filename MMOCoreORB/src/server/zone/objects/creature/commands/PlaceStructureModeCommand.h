@@ -71,7 +71,7 @@ public:
 
 		if (serverTemplate == NULL)
 			return GENERALERROR; //Template is unknown.
-
+/*
 		int lots = serverTemplate->getLotSize();
 
 		if (!ghost->hasLotsRemaining(lots)) {
@@ -80,7 +80,7 @@ public:
 			creature->sendSystemMessage(param);
 			return GENERALERROR;
 		}
-
+*/
 		String clientTemplatePath = templateManager->getTemplateFile(serverTemplate->getClientObjectCRC());
 
 		EnterStructurePlacementModeMessage* espmm = new EnterStructurePlacementModeMessage(deed->getObjectID(), clientTemplatePath);

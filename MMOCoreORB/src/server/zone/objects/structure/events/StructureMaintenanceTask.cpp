@@ -91,7 +91,7 @@ void StructureMaintenanceTask::run() {
 			//Reschedule task in 1 day.
 			reschedule(oneDayTime);
 		} else {
-			if (strongRef->isBuildingObject() && !shouldBuildingBeDestroyed(strongRef)) {
+			if (strongRef->isBuildingObject()) {
 				BuildingObject* building = strongRef.castTo<BuildingObject*>();
 
 				//Building is condemned since it has decayed.
@@ -100,10 +100,6 @@ void StructureMaintenanceTask::run() {
 				strongRef->info("Structure decayed, it is now condemned.");
 
 				building->updateSignName(true);
-			} else {
-				strongRef->info("Structure decayed, destroying it.");
-
-				StructureManager::instance()->destroyStructure(strongRef);
 			}
 		}
 	}
