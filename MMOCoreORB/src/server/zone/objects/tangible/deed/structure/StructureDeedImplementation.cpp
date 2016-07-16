@@ -88,10 +88,15 @@ int StructureDeedImplementation::handleObjectMenuSelect(CreatureObject* player, 
 		deedID = getObjectID();
 		
 		ManagedReference<StructureDeed*> deed = server->getZoneServer()->getObject(deedID).castTo<StructureDeed*>();
+       
+		if (deed != NULL){
+            String templateFile = deed->getObjectTemplate()->getFullTemplateString();
 
-		if (deed != NULL)
+            if (templateFile.contains("tatooine_house_large_style_02") || templateFile.contains("cloning") || templateFile.contains("hospital"))
+                angle -= 90; // Correct unusual default POB rotation
+            
 			deed->placeStructure(player, x, y, angle);
-		
+		}
 		return 0;
 	}
 	// Display a long green ruler to help with alignment

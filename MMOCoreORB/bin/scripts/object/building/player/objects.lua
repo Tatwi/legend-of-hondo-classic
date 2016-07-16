@@ -2260,3 +2260,17 @@ object_building_player_shared_player_merchant_tent_style_03 = SharedBuildingObje
 }
 
 ObjectTemplates:addClientTemplate(object_building_player_shared_player_merchant_tent_style_03, "object/building/player/shared_player_merchant_tent_style_03.iff")
+
+
+-- Legend of Hondo
+
+object_building_player_shared_player_house_tatooine_large_style_02 = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tatooine_large_style_02.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tatooine_large_style_02, "object/building/player/shared_player_house_tatooine_large_style_02.iff")
+
+
+object_building_player_shared_player_house_tatooine_medium_style_02 = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_house_tatooine_medium_style_02.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tatooine_medium_style_02, "object/building/player/shared_player_house_tatooine_medium_style_02.iff")

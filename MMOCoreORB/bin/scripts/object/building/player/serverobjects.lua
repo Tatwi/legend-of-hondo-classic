@@ -83,3 +83,7 @@ includeFile("building/player/player_house_tatooine_small_style_02.lua")
 includeFile("building/player/player_merchant_tent_style_01.lua")
 includeFile("building/player/player_merchant_tent_style_02.lua")
 includeFile("building/player/player_merchant_tent_style_03.lua")
+
+-- Legend of Hondo
+includeFile("building/player/player_house_tatooine_large_style_02.lua")
+includeFile("building/player/player_house_tatooine_medium_style_02.lua")
