@@ -42,15 +42,15 @@
 
 
 object_building_player_city_cloning_tatooine = object_building_player_city_shared_cloning_tatooine:new {
-	lotSize = 0,
-	baseMaintenanceRate = 0,
+	lotSize = 4,
+	baseMaintenanceRate = 56,
 	allowedZones = {"dantooine", "lok", "tatooine"},
 	length = 5,
 	width = 5,
 	planetMapCategory = "cloningfacility",
 	cityRankRequired = 3,
 	uniqueStructure = true,
-	cityMaintenanceBase = 20000,
+	cityMaintenanceBase = 0,
 	spawningPoints = { {x = -9.8, z = -1.2, y = -6.6, ow = 1, ox = 0, oz = 0, oy = 0, cellid = 4} }, -- { x, z, y, ow, ox, oy, oz, cellid }
 	templateType = CLONINGBUILDING,
 	abilityRequired = "place_cloning",
@@ -64,10 +64,10 @@ object_building_player_city_cloning_tatooine = object_building_player_city_share
 	},
 	shopSigns = {
 			{templateFile = "object/tangible/sign/player/house_address_tatooine.iff", x = 9.75, z = 2, y = -3, ox = 0, oy = 0.707107, oz = 0, ow = -0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:house_address"},	
-			{templateFile = "object/tangible/sign/player/shop_sign_s01.iff", x = 15, z = 0.5, y = 0, ox = 0, oy = 0.707107, oz = 0, ow =  0.707107, cellid = -1, containmentType = -1, requiredSkill = "crafting_merchant_management_01", suiItem = "@player_structure:shop_sign1"},
-			{templateFile = "object/tangible/sign/player/shop_sign_s02.iff", x = 15, z = 0.5, y = 0, ox = 0, oy = 0.707107, oz = 0, ow =  0.707107, cellid = -1, containmentType = -1, requiredSkill = "crafting_merchant_management_02", suiItem = "@player_structure:shop_sign2"},
-			{templateFile = "object/tangible/sign/player/shop_sign_s03.iff", x = 15, z = 0.5, y = 0, ox = 0, oy = 0.707107, oz = 0, ow =  0.707107, cellid = -1, containmentType = -1, requiredSkill = "crafting_merchant_management_03", suiItem = "@player_structure:shop_sign3"},
-			{templateFile = "object/tangible/sign/player/shop_sign_s04.iff", x = 15, z = 0.5, y = 0, ox = 0, oy = 0.707107, oz = 0, ow =  0.707107, cellid = -1, containmentType = -1, requiredSkill = "crafting_merchant_management_04", suiItem = "@player_structure:shop_sign4"},			
+			{templateFile = "object/tangible/sign/player/shop_sign_s01.iff", x = 15, z = 0.5, y = 0, ox = 0, oy = 0.707107, oz = 0, ow =  0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign1"},
+			{templateFile = "object/tangible/sign/player/shop_sign_s02.iff", x = 15, z = 0.5, y = 0, ox = 0, oy = 0.707107, oz = 0, ow =  0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign2"},
+			{templateFile = "object/tangible/sign/player/shop_sign_s03.iff", x = 15, z = 0.5, y = 0, ox = 0, oy = 0.707107, oz = 0, ow =  0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign3"},
+			{templateFile = "object/tangible/sign/player/shop_sign_s04.iff", x = 15, z = 0.5, y = 0, ox = 0, oy = 0.707107, oz = 0, ow =  0.707107, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign4"},			
 	},	
 }
 

@@ -42,8 +42,8 @@
 
 
 object_building_player_player_guildhall_generic_style_01 = object_building_player_shared_player_guildhall_generic_style_01:new {
-	lotSize = 5,
-	baseMaintenanceRate = 12,
+	lotSize = 9,
+	baseMaintenanceRate = 171,
 	allowedZones = {"corellia", "dantooine", "lok", "naboo", "rori", "talus", "tatooine"},
 	publicStructure = 0,
 	constructionMarker = "object/building/player/construction/construction_player_guildhall_corellia_style_01.iff",
@@ -63,10 +63,10 @@ object_building_player_player_guildhall_generic_style_01 = object_building_playe
 	},
 	shopSigns = {
 			{templateFile = "object/tangible/sign/player/house_address.iff", x = 4.34, z = 3.4, y = 18.40, ox = 0, oy = 1, oz = 0, ow = 0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:house_address"},	
-			{templateFile = "object/tangible/sign/player/shop_sign_s01.iff", x = 4.34, z = 2.95, y = 19.25, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "crafting_merchant_management_01", suiItem = "@player_structure:shop_sign1"},
-			{templateFile = "object/tangible/sign/player/shop_sign_s02.iff", x = 4.34, z = 2.95, y = 19.25, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "crafting_merchant_management_02", suiItem = "@player_structure:shop_sign2"},
-			{templateFile = "object/tangible/sign/player/shop_sign_s03.iff", x = 4.34, z = 2.95, y = 19.25, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "crafting_merchant_management_03", suiItem = "@player_structure:shop_sign3"},
-			{templateFile = "object/tangible/sign/player/shop_sign_s04.iff", x = 4.34, z = 2.95, y = 19.25, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "crafting_merchant_management_04", suiItem = "@player_structure:shop_sign4"},			
+			{templateFile = "object/tangible/sign/player/shop_sign_s01.iff", x = 4.34, z = 2.95, y = 19.25, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign1"},
+			{templateFile = "object/tangible/sign/player/shop_sign_s02.iff", x = 4.34, z = 2.95, y = 19.25, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign2"},
+			{templateFile = "object/tangible/sign/player/shop_sign_s03.iff", x = 4.34, z = 2.95, y = 19.25, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign3"},
+			{templateFile = "object/tangible/sign/player/shop_sign_s04.iff", x = 4.34, z = 2.95, y = 19.25, ox = 0, oy = 0, oz = 0, ow =  1, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:shop_sign4"},			
 	},	
 }
 

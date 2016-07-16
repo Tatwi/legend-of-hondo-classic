@@ -43,8 +43,8 @@
 
 object_installation_manufacture_structure_factory = object_installation_manufacture_shared_structure_factory:new {
 	templateType = FACTORY,
-	lotSize = 1,
-	baseMaintenanceRate = 15,
+	lotSize = 0,
+	baseMaintenanceRate = 35,
 	basePowerRate = 50,
 	length = 5,
 	width = 5,
