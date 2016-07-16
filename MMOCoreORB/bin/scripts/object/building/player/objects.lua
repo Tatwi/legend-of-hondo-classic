@@ -2274,3 +2274,21 @@ object_building_player_shared_player_house_tatooine_medium_style_02 = SharedBuil
 	clientTemplateFileName = "object/building/player/shared_player_house_tatooine_medium_style_02.iff"
 }
 ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_tatooine_medium_style_02, "object/building/player/shared_player_house_tatooine_medium_style_02.iff")
+
+
+object_building_player_shared_player_salon_tent_style_01 = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_salon_tent_style_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_salon_tent_style_01, "object/building/player/shared_player_salon_tent_style_01.iff")
+
+
+object_building_player_shared_player_salon_tent_style_02 = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_salon_tent_style_02.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_salon_tent_style_02, "object/building/player/shared_player_salon_tent_style_02.iff")
+
+
+object_building_player_shared_player_salon_tent_style_03 = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_salon_tent_style_03.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_salon_tent_style_03, "object/building/player/shared_player_salon_tent_style_03.iff")

@@ -78,3 +78,6 @@ includeFile("tangible/deed/player_house_deed/tatooine_house_small_style_02_deed.
 -- Legend of Hondo
 includeFile("tangible/deed/player_house_deed/tatooine_house_large_style_02_deed.lua")
 includeFile("tangible/deed/player_house_deed/tatooine_house_medium_style_02_deed.lua")
+includeFile("tangible/deed/player_house_deed/salon_tent_style_01_deed.lua")
+includeFile("tangible/deed/player_house_deed/salon_tent_style_02_deed.lua")
+includeFile("tangible/deed/player_house_deed/salon_tent_style_03_deed.lua")

@@ -1706,3 +1706,21 @@ object_tangible_deed_player_house_deed_shared_tatooine_house_medium_style_02_dee
 	clientTemplateFileName = "object/tangible/deed/player_house_deed/shared_tatooine_house_medium_style_02_deed.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_deed_player_house_deed_shared_tatooine_house_medium_style_02_deed, "object/tangible/deed/player_house_deed/shared_tatooine_house_medium_style_02_deed.iff")
+
+
+object_tangible_deed_player_house_deed_shared_salon_tent_style_01_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/player_house_deed/shared_salon_tent_style_01_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_player_house_deed_shared_salon_tent_style_01_deed, "object/tangible/deed/player_house_deed/shared_salon_tent_style_01_deed.iff")
+
+
+object_tangible_deed_player_house_deed_shared_salon_tent_style_02_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/player_house_deed/shared_salon_tent_style_02_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_player_house_deed_shared_salon_tent_style_02_deed, "object/tangible/deed/player_house_deed/shared_salon_tent_style_02_deed.iff")
+
+
+object_tangible_deed_player_house_deed_shared_salon_tent_style_03_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/player_house_deed/shared_salon_tent_style_03_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_player_house_deed_shared_salon_tent_style_03_deed, "object/tangible/deed/player_house_deed/shared_salon_tent_style_03_deed.iff")
