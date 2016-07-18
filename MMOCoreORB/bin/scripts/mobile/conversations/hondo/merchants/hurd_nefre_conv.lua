@@ -140,8 +140,8 @@ hurdnefre_template:addScreen(hurdnefre_banter1a);
 
 hurdnefre_banter2 = ConvoScreen:new {
   id = "banter2",
-  leftDialog = "*Poke* You look the part. Good enough for me! Don't worry, the dizziness will go away and trust me, soon enough you'll be so busy living that you'll just carry on from where you left off, without looking back.",
-  customDialogText = "",
+  leftDialog = "",
+  customDialogText = "*Poke* You look the part. Good enough for me! Don't worry, the dizziness will go away and trust me, soon enough you'll be so busy living that you'll just carry on from where you left off, without looking back.",
   stopConversation = "false",
   options = {
 	{"OK. I can't help but be sad though", "banter2a"}
@@ -156,10 +156,23 @@ hurdnefre_banter2a = ConvoScreen:new {
   customDialogText = "Right, because your former self was the king of the universe, capable of leaping tall buildings in a single bound! Look buddy, just be happy you weren't a cheapskate and enjoy your new, old life.",
   stopConversation = "false",
   options = {
-	{"Good point. I'll be fine.", "start"},
+	{"Good point. I'll be fine.", "banter2b"},
   }
 }
 hurdnefre_template:addScreen(hurdnefre_banter2a);
+
+
+hurdnefre_banter2b = ConvoScreen:new {
+  id = "banter2b",
+  leftDialog = "",
+  customDialogText = "So fine that you're in the market to purchase your own personal cloning facility?",
+  stopConversation = "false",
+  options = {
+	{"Sure! Show me what you're offering!", "shop"},
+    {"Cloner? Nope", "bye"}
+  }
+}
+hurdnefre_template:addScreen(hurdnefre_banter2b);
 
 
 -- Template Footer

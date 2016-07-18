@@ -1,0 +1,179 @@
+Housing Merchant Map
+
+
+Jandy Mruks - Mos Espa
+player_merchant_tent_style_01
+player_salon_tent_style_01
+
+Aymor Imbquy - Mos Espa
+player_guildhall_tatooine_style_02
+
+Assistant Nylt - Mos Espa
+bank_corellia
+bank_naboo
+bank_tatooine
+
+Iken Wilyen - Mos Espa
+player_house_tatooine_small_style_01
+player_house_tatooine_small_style_02
+player_house_tatooine_medium_style_01
+player_house_tatooine_medium_style_02
+player_house_tatooine_large_style_01
+player_house_tatooine_large_style_02
+
+Industra Baggins - Mos Espa
+clothing_factory
+food_factory
+structure_factory
+weapon_factory
+
+Daug Hauser - Bestine
+player_house_generic_small_style_01
+player_house_generic_small_style_01_floorplan_02
+player_house_generic_small_style_02
+player_house_generic_small_style_02_floorplan_02
+
+Trooper Pihsrats - Bestine
+player_house_generic_medium_style_01
+player_house_generic_medium_style_02
+player_house_generic_large_style_01
+player_house_generic_large_style_02
+
+Devitt Talas - Bestine
+player_guildhall_corellia_style_01
+player_guildhall_generic_style_01
+player_guildhall_naboo_style_01
+player_guildhall_tatooine_style_01
+
+Doba Gurf - Mos Taike
+player_house_corellia_medium_style_01
+player_house_corellia_medium_style_02
+player_house_corellia_large_style_01
+player_house_corellia_large_style_02
+
+Mira Gurf - Mos Taike
+player_house_corellia_small_style_01
+player_house_corellia_small_style_01_floorplan_02
+player_house_corellia_small_style_02
+player_house_corellia_small_style_02_floorplan_02
+
+Mlo Lemo - Mos Entha
+player_house_naboo_small_style_01
+player_house_naboo_small_style_02
+player_house_naboo_medium_style_01
+player_house_naboo_large_style_01
+
+Piezz Egren - Anchorhead
+hospital_corellia
+hospital_naboo
+hospital_tatooine
+
+Hurd Nefre - Wayfar
+cloning_corellia
+cloning_naboo
+cloning_tatooine
+
+Jodi Benson - Mos Eisley
+theater_corellia
+theater_naboo
+theater_tatooine
+
+Aile Syndula - Mos Eisley
+cantina_corellia
+cantina_naboo
+cantina_tatooine
+
+Bel Mruks - Jawa Village
+player_merchant_tent_style_02
+player_merchant_tent_style_03
+player_salon_tent_style_02
+player_salon_tent_style_03
+
+
+
+Buildings Prices / Sizes:
+- - - - - - - - - - - - - -
+1 Lot, 11 cr/h, 5000cr
+bin/scripts/object/building/player/player_merchant_tent_style_01.lua
+bin/scripts/object/building/player/player_merchant_tent_style_02.lua
+bin/scripts/object/building/player/player_merchant_tent_style_03.lua
+
+2 Lots, 24 cr/h, 15000cr
+bin/scripts/object/building/player/player_house_naboo_small_style_01.lua
+bin/scripts/object/building/player/player_house_tatooine_small_style_01.lua
+bin/scripts/object/building/player/city/theater_corellia.lua
+bin/scripts/object/building/player/city/theater_naboo.lua
+bin/scripts/object/building/player/city/theater_tatooine.lua
+bin/scripts/object/building/player/player_salon_tent_style_01.lua -- Image Design Tent
+bin/scripts/object/building/player/player_salon_tent_style_02.lua -- Image Design Tent
+bin/scripts/object/building/player/player_salon_tent_style_03.lua -- Image Design Tent
+
+3 Lots, 39 cr/h, 29000cr
+bin/scripts/object/building/player/player_house_naboo_small_style_02.lua
+bin/scripts/object/building/player/player_house_tatooine_small_style_02.lua
+bin/scripts/object/building/player/player_house_corellia_small_style_01.lua
+bin/scripts/object/building/player/player_house_corellia_small_style_01_floorplan_02.lua
+bin/scripts/object/building/player/player_house_corellia_small_style_02.lua
+bin/scripts/object/building/player/player_house_corellia_small_style_02_floorplan_02.lua
+bin/scripts/object/building/player/player_house_generic_small_style_01.lua
+bin/scripts/object/building/player/player_house_generic_small_style_01_floorplan_02.lua
+bin/scripts/object/building/player/player_house_generic_small_style_02.lua
+bin/scripts/object/building/player/player_house_generic_small_style_02_floorplan_02.lua
+
+4 Lots, 56 cr/h, 45000cr
+bin/scripts/object/building/player/city/hospital_corellia.lua
+bin/scripts/object/building/player/city/hospital_naboo.lua
+bin/scripts/object/building/player/city/hospital_tatooine.lua
+bin/scripts/object/building/player/city/cloning_corellia.lua
+bin/scripts/object/building/player/city/cloning_naboo.lua
+bin/scripts/object/building/player/city/cloning_tatooine.lua
+
+5 Lots, 75 cr/h, 65000cr
+bin/scripts/object/building/player/player_house_corellia_medium_style_01.lua
+bin/scripts/object/building/player/player_house_corellia_medium_style_02.lua
+bin/scripts/object/building/player/player_house_generic_medium_style_01.lua
+bin/scripts/object/building/player/player_house_generic_medium_style_02.lua
+
+6 Lots, 96 cr/h, 95000cr
+bin/scripts/object/building/player/player_house_naboo_medium_style_01.lua
+bin/scripts/object/building/player/player_house_tatooine_medium_style_01.lua
+bin/scripts/object/building/player/player_house_tatooine_medium_style_02.lua -- NPC Small with elevator
+
+7 Lots, 119 cr/h, 175000cr
+bin/scripts/object/building/player/player_house_corellia_large_style_01.lua
+bin/scripts/object/building/player/player_house_corellia_large_style_02.lua
+bin/scripts/object/building/player/player_house_generic_large_style_01.lua
+bin/scripts/object/building/player/player_house_generic_large_style_02.lua
+
+8 Lots, 144 cr/h, 325000cr
+bin/scripts/object/building/player/player_house_tatooine_large_style_01.lua
+bin/scripts/object/building/player/player_house_tatooine_large_style_02.lua -- NPC Medium "Tavern"
+bin/scripts/object/building/player/player_house_naboo_large_style_01.lua
+bin/scripts/object/building/player/city/cantina_corellia.lua
+bin/scripts/object/building/player/city/cantina_naboo.lua
+bin/scripts/object/building/player/city/cantina_tatooine.lua
+
+9 Lots, 171 cr/h, 475000cr
+bin/scripts/object/building/player/player_guildhall_corellia_style_01.lua
+bin/scripts/object/building/player/player_guildhall_generic_style_01.lua
+bin/scripts/object/building/player/player_guildhall_naboo_style_01.lua
+bin/scripts/object/building/player/player_guildhall_tatooine_style_01.lua
+
+10 Lots, 200 cr/h, 625000cr
+bin/scripts/object/building/player/player_guildhall_tatooine_style_02.lua
+
+0 Lots, 35cr/h, 125000cr
+bin/scripts/object/installation/manufacture/clothing_factory.lua
+bin/scripts/object/installation/manufacture/food_factory.lua
+bin/scripts/object/installation/manufacture/structure_factory.lua
+bin/scripts/object/installation/manufacture/weapon_factory.lua
+
+0 Lots, 0cr/h, 25000cr
+bin/scripts/object/building/player/city/bank_corellia.lua
+bin/scripts/object/building/player/city/bank_naboo.lua
+bin/scripts/object/building/player/city/bank_tatooine.lua
+
+0 Lots, 0cr/h, crafted only
+bin/scripts/object/building/player/city/[all 55 gardens]
+
+

@@ -17,8 +17,8 @@ duaghauser_start = ConvoScreen:new {
   stopConversation = "false",
   options = {
   	{"I'd like to buy a housing deed.", "shop"},
-  	{"Can you tell me more about housing?", "help1"},
-    {"Nope", "nope"}
+  	{"That's an ironic name...", "banter1"},
+    {"You can't!", "nope"}
   }
 }
 duaghauser_template:addScreen(duaghauser_start);
@@ -27,7 +27,7 @@ duaghauser_template:addScreen(duaghauser_start);
 duaghauser_shop = ConvoScreen:new {
   id = "shop",
   leftDialog = "",
-  customDialogText = "Could I interest you in a star map while you're here? They're proudly sponsored by the Tatooine Travel Association and Gaffi's Stix. The star map even comes with a couple free posters from our sponsors. Your kind support will help keep Bestine a safe city for all citizens of the Empire!",
+  customDialogText = "Sure! While you're here, could I interest you in a star map? They're proudly sponsored by the Tatooine Travel Association and Gaffi's Stix. The star map even comes with a couple free posters from our sponsors. Your kind support will help Bestine remain a safe city for all citizens of the Empire!",
   options = { 
   }
 }
@@ -112,40 +112,66 @@ duaghauser_insufficient_funds = ConvoScreen:new {
 duaghauser_template:addScreen(duaghauser_insufficient_funds);
 
 
-duaghauser_help1 = ConvoScreen:new {
-  id = "help1",
+duaghauser_banter1 = ConvoScreen:new {
+  id = "banter1",
   leftDialog = "",
-  customDialogText = "There are basically two kinds of houses, those which have already been built and those which need to be built. We sell deeds that you can use to construct a new building. As for the buildings that are already in the world, many be purchased from us here at the Imperial Housing Authority.",
+  customDialogText = "Huh?",
   stopConversation = "false",
   options = {
-	{"How does that work?", "help1a"}
+	{"Nevermind", "banter1a"},
+    {"Your name, it's kind of funny", "banter1b"}
   }
 }
-duaghauser_template:addScreen(duaghauser_help1);
+duaghauser_template:addScreen(duaghauser_banter1);
 
 
-duaghauser_help1a = ConvoScreen:new {
-  id = "help1a",
+duaghauser_banter1a = ConvoScreen:new {
+  id = "banter1a",
   leftDialog = "",
-  customDialogText = "As you explore Tatooine, you'll find small, medium, and large Tatooine style homes that you may purchase by using the Structure Management Terminal within them. Many come partly decorated. In other locations you may find an Administrator Droid who is able to sell you the structure.",
+  customDialogText = "I assume you're here to purchase a deed for a small generic house? If you're looking for a large or medium, you'll need to speak to Trooper across the way. He's... well, he's Trooper!",
   stopConversation = "false",
   options = {
-	{"Are all buildings the same price?", "help1b"}
+	{"Show me what you've got!", "shop"}
   }
 }
-duaghauser_template:addScreen(duaghauser_help1a);
+duaghauser_template:addScreen(duaghauser_banter1a);
 
 
-duaghauser_help1b = ConvoScreen:new {
-  id = "help1b",
+duaghauser_banter1b = ConvoScreen:new {
+  id = "banter1b",
   leftDialog = "",
-  customDialogText = "No each building type has its own price. I sell deeds for generic style homes and you'll find other merchants in your travels who sell other types of buildings at various prices.",
+  customDialogText = "Your face is kinda funny, but you don't see me saying anything about it, do ya?",
   stopConversation = "false",
   options = {
-	{"Sounds good. Let's see what you've got.", "shop"}
+	{"You just did", "banter1c"},
+    {"So mature...", "banter1d"}
   }
 }
-duaghauser_template:addScreen(duaghauser_help1b);
+duaghauser_template:addScreen(duaghauser_banter1b);
+
+
+duaghauser_banter1c = ConvoScreen:new {
+  id = "banter1c",
+  leftDialog = "",
+  customDialogText = "Huh?",
+  stopConversation = "false",
+  options = {
+	{"Can I just buy a house now, please?", "shop"}
+  }
+}
+duaghauser_template:addScreen(duaghauser_banter1c);
+
+
+duaghauser_banter1d = ConvoScreen:new {
+  id = "banter1d",
+  leftDialog = "",
+  customDialogText = "Hey, I didn't say anything about you looking old and smelling bad too. I just said you're ugly. Like, shockingly hideous... bleh!",
+  stopConversation = "false",
+  options = {
+	{"Can I just buy a house now, please?", "shop"}
+  }
+}
+duaghauser_template:addScreen(duaghauser_banter1d);
 
 
 -- Template Footer

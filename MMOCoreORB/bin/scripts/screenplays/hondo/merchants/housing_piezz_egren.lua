@@ -19,8 +19,8 @@ PiezzEgrenSP = ScreenPlay:new {
 
 registerScreenPlay("PiezzEgrenSP", true)
 
-function PiezzEgrenSP:start() 
-	 spawnMobile("tatooine", "piezz_egren", 1, 110.95, 52, -5429.22, 37, 0) -- Anchorhead
+function PiezzEgrenSP:start()
+    spawnMobile("tatooine", "piezz_egren", 1, 124.536, 52, -5409.95, 284, 0)  -- Anchorhead
 end
 
 piezzegren_convo_handler = Object:new {

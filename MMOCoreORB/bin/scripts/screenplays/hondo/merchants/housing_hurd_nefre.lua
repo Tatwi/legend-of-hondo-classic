@@ -4,7 +4,7 @@
 
 local ObjectManager = require("managers.object.object_manager")
 
-PiezzEgrenSP = ScreenPlay:new {
+HurdNefreSP = ScreenPlay:new {
 	numberOfActs = 1, 	
 	relations = { 
 		{name="jabba", npcStanding=2500, priceAdjust=15}, -- Friend
@@ -17,24 +17,24 @@ PiezzEgrenSP = ScreenPlay:new {
 	},
 }
 
-registerScreenPlay("PiezzEgrenSP", true)
+registerScreenPlay("HurdNefreSP", true)
 
-function PiezzEgrenSP:start() 
-	 spawnMobile("tatooine", "piezz_egren", 1, -0.587116, -5.50649, -4.53444, 82, 1528384) -- Wayfar waypoint -5073 -6632
+function HurdNefreSP:start() 
+	 spawnMobile("tatooine", "hurd_nefre", 1, -0.587116, -5.50649, -4.53444, 82, 1528384) -- Wayfar waypoint -5073 -6632
 end
 
-piezzegren_convo_handler = Object:new {
+hurdnefre_convo_handler = Object:new {
 	tstring = "myconversation"
  }
 
-function piezzegren_convo_handler:getNextConversationScreen(conversationTemplate, conversingPlayer, selectedOption)
-	nextConversationScreen = MerchantSystem:nextConvoScreenInnards(conversationTemplate, conversingPlayer, selectedOption, PiezzEgrenSP.relations, PiezzEgrenSP.goods)
+function hurdnefre_convo_handler:getNextConversationScreen(conversationTemplate, conversingPlayer, selectedOption)
+	nextConversationScreen = MerchantSystem:nextConvoScreenInnards(conversationTemplate, conversingPlayer, selectedOption, HurdNefreSP.relations, HurdNefreSP.goods)
 	
 	return nextConversationScreen
 end
 
-function piezzegren_convo_handler:runScreenHandlers(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen)
-	conversationScreen = MerchantSystem:runScreenHandlerInnards(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen, PiezzEgrenSP.relations, PiezzEgrenSP.goods)
+function hurdnefre_convo_handler:runScreenHandlers(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen)
+	conversationScreen = MerchantSystem:runScreenHandlerInnards(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen, HurdNefreSP.relations, HurdNefreSP.goods)
 	
 	return conversationScreen
 end

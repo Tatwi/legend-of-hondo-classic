@@ -13,11 +13,11 @@ ailesyndula_template = ConvoTemplate:new {
 ailesyndula_start = ConvoScreen:new {
   id = "start",
   leftDialog = "",
-  customDialogText = "I know you. You're that bigshot from Mos Espa. Looking for a more vibrant night life, were ya?",
+  customDialogText = "I know you. You're that big shot from Mos Espa. Looking for a more vibrant night life, are ya?",
   stopConversation = "false",
   options = {
   	{"Actually, I was wondering if you could help me?", "banter1"},
-    {"Just passing through", "nope"}
+    {"Just passing through...", "nope"}
   }
 }
 ailesyndula_template:addScreen(ailesyndula_start);
@@ -26,7 +26,7 @@ ailesyndula_template:addScreen(ailesyndula_start);
 ailesyndula_shop = ConvoScreen:new {
   id = "shop",
   leftDialog = "",
-  customDialogText = "Now you're talkin! Anyways, these new cantina deeds are good for a whole new layout that's more cozy and cost effective the big old designs like our place here. Which one would you like?",
+  customDialogText = "Now you're talkin! Anyways, these new cantina deeds are for a whole new layout that's more cozy and cost effective than the big old designs like our place here. Should be perfect for you. Which one would you like?",
   stopConversation = "false",
   options = { 
   }
@@ -115,7 +115,7 @@ ailesyndula_template:addScreen(ailesyndula_insufficient_funds);
 ailesyndula_banter1 = ConvoScreen:new {
   id = "banter1",
   leftDialog = "",
-  customDialogText = "Then you've come to the right place. I'd be happy, ecstatic even, to set you up with a deed for a cantina.",
+  customDialogText = "If you're looking for a cantina deed, then you've come to the right place. I'd be happy, ecstatic even, to set you up.",
   stopConversation = "false",
   options = {
 	{"Really? What's in it for you?", "banter1a"},
@@ -127,7 +127,7 @@ ailesyndula_template:addScreen(ailesyndula_banter1);
 ailesyndula_banter1a = ConvoScreen:new {
   id = "banter1a",
   leftDialog = "",
-  customDialogText = "Let's just say that, anything you can do to ruffle Lady Valarian's feathers is fine by me. If you ask me, that dumpy hovel she calls a cantina has no business being in the center of your fine town. I'd tell you to buy it off her, but I hear it's got a real nasty rat problem.",
+  customDialogText = "Let's just say that anything you can do to ruffle Lady Valarian's feathers is fine by me. If you ask me, that dumpy hovel she calls a cantina has no business being in the center of your fine town. I'd tell you to buy it off her, but I hear it's got a real nasty rat problem.",
   stopConversation = "false",
   options = {
 	{"Nothing a few seismic charges can't handle, right?", "shop"},

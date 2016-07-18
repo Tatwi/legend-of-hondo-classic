@@ -146,7 +146,7 @@ dobagurf_banter2 = ConvoScreen:new {
   customDialogText = "My wife wanted to retire on a sandy beach, so I spent all our savings on some waterfront property, sight unseen. Turns out that sitting in a bog on the dark side of Gorse wasn't what she had in mind. Next thing you know, we're here selling houses for my Architect brother who's living it up back home on Corellia... At least I got the sand part right, eh?",
   stopConversation = "false",
   options = {
-    {"That's your wife, Mila, I take it?", "bye"},
+    {"That's your wife, Mila, I take it?", "banter2a"},
 	{"May I see what you're selling?", "shop"},
     {"How does this work?", "help"}
   }

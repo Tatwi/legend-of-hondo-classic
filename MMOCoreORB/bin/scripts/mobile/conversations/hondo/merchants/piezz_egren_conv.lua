@@ -141,8 +141,8 @@ piezzegren_template:addScreen(piezzegren_banter1a);
 
 piezzegren_banter2 = ConvoScreen:new {
   id = "banter2",
-  leftDialog = "Hmm, that's an old code. Let me check my book... I'm afriad that shipment has been depleted, Sir, but wasn't it your people who brought that one in for us?",
-  customDialogText = "",
+  leftDialog = "",
+  customDialogText = "Hmm, that's an old code. Let me check my book... I'm afriad that shipment has been depleted, Sir, but wasn't it your people who brought that one in for us?",
   stopConversation = "false",
   options = {
 	{"Right! I meant pigeon at dawn", "banter2a"}

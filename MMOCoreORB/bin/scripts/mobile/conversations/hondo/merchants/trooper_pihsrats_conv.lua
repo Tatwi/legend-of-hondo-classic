@@ -27,7 +27,7 @@ trooperpihsrats_template:addScreen(trooperpihsrats_start);
 trooperpihsrats_shop = ConvoScreen:new {
   id = "shop",
   leftDialog = "",
-  customDialogText = "HOUSE? *sigh* Son, I been stuck here selling housing deeds for so long even yelling at people almost ain't fun. Almost. But, I'll get that promotion... I WILL! NOW QUIT FLAPPIN YER GABBER HOLE LIKE A RUSTY CLANKER AND BUY SOMETHING WHILE MY COFFFE'S STILL HOT!",
+  customDialogText = "HOUSES? *sigh* Son, I've been stuck here selling housing deeds for so long even yelling at people almost ain't fun. Almost. But, I'll get that promotion... I WILL! NOW QUIT FLAPPIN YER GABBER HOLE LIKE A RUSTY CLANKER AND BUY SOMETHING WHILE MY COFFFE'S STILL HOT!",
   stopConversation = "false",
   options = { 
   }
@@ -105,7 +105,7 @@ trooperpihsrats_template:addScreen(trooperpihsrats_faction_too_low);
 trooperpihsrats_insufficient_funds = ConvoScreen:new {
   id = "insufficient_funds",
   leftDialog = "",
-  customDialogText = "WHO GOES SHOPPING WITHOUT THEIR WALLET??? WHAT DO YOU THINK THIS IS, ON OF THEM LOVEY DOVEY GARDEN CO-OP THINGS? OOOH, HAVE YOU TRIED THE SUN DRIED TOMA - GO TO THE BANK, YA HIPPY!",
+  customDialogText = "WHO GOES SHOPPING WITHOUT THEIR WALLET??? WHAT DO YOU THINK THIS IS, ONE OF THEM LOVEY DOVEY GARDEN CO-OP THINGS? OOOH, HAVE YOU TRIED THE SUN DRIED TOMA - GO TO THE BANK, YA HIPPY!",
   stopConversation = "true",
   options = { 
   }
