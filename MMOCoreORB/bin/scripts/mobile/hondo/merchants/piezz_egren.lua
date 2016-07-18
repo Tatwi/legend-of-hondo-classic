@@ -1,6 +1,6 @@
-duag_hauser = Creature:new {
+piezz_egren = Creature:new {
 	objectName = "@mob/creature_names:commoner",
-	customName = "Duag Hauser (Housing Merchant)",
+	customName = "Piezz Egren (Housing Merchant)",
 	socialGroup = "townsperson",
 	pvpFaction = "townsperson",
 	faction = "townsperson",
@@ -27,12 +27,12 @@ duag_hauser = Creature:new {
 	optionsBitmask = 264, --for conversation
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_imperial_soldier_m.iff"},
+	templates = {"object/mobile/dressed_rebel_specforce_pathfinder_moncal_female_01.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "duaghauser_template",
+	conversationTemplate = "piezzegren_template",
 	attacks = {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(duag_hauser, "duag_hauser")
+CreatureTemplates:addCreatureTemplate(piezz_egren, "piezz_egren")

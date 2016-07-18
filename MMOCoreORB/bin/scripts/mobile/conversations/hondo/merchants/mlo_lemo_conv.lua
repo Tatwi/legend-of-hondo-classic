@@ -105,7 +105,7 @@ mlolemo_template:addScreen(mlolemo_faction_too_low);
 mlolemo_insufficient_funds = ConvoScreen:new {
   id = "insufficient_funds",
   leftDialog = "",
-  customDialogText = "Sorry, yousa not be having enough credits on hand to maka this purchase.",
+  customDialogText = "Sorry, yousa not be having enough credits on hand to maka dis purchase.",
   stopConversation = "true",
   options = { 
   }
@@ -116,7 +116,7 @@ mlolemo_template:addScreen(mlolemo_insufficient_funds);
 mlolemo_banter1 = ConvoScreen:new {
   id = "banter1",
   leftDialog = "",
-  customDialogText = "Ooi moiday, isa very bad, it is! But wesa built us a pool downstairs and wesa gettin' by.",
+  customDialogText = "Ooi moiday, isa very bad, it is! But wesa built a pool downstairs and wesa gettin' by.",
   stopConversation = "false",
   options = {
 	{"There's a pool in your basement?", "banter1a"},

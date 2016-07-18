@@ -8,20 +8,15 @@ IkenWilyensSP = ScreenPlay:new {
 	numberOfActs = 1, 	
 	relations = { 
 		{name="townsperson", npcStanding=-9000, priceAdjust=15}, -- Adjust price only
-		{name="thug", npcStanding=-3000, priceAdjust=30}  -- Enemy
+		{name="thug", npcStanding=-3600, priceAdjust=30}  -- Enemy
 	},
 	goods = {
-		{optName="small_house01", cost=8000, itemName="Small House", items={"object/tangible/deed/player_house_deed/tatooine_house_small_deed.iff"}}, 
-		{optName="small_house02", cost=8000, itemName="Small House Style 2", items={"object/tangible/deed/player_house_deed/tatooine_house_small_style_02_deed.iff"}},
-		{optName="medium_house", cost=15000, itemName="Medium House", items={"object/tangible/deed/player_house_deed/tatooine_house_medium_deed.iff"}}, 
-		{optName="large_house", cost=20000, itemName="Large House", items={"object/tangible/deed/player_house_deed/tatooine_house_large_deed.iff"}},
-		{optName="guild_hall01", cost=30000, itemName="Guild Hall", items={"object/tangible/deed/guild_deed/tatooine_guild_deed.iff"}},
-		{optName="guild_hall02", cost=30000, itemName="Guild Hall Style 2", items={"object/tangible/deed/guild_deed/tatooine_guild_style_02_deed.iff"}},
-		{optName="cantina", cost=75000, itemName="Cantina", items={"object/tangible/deed/city_deed/cantina_tatooine_deed.iff"}},
-		{optName="cityhall", cost=125000, itemName="Cityhall", items={"object/tangible/deed/city_deed/cityhall_tatooine_deed.iff"}},
-		{optName="cloner", cost=20000, itemName="Cloning Facility", items={"object/tangible/deed/city_deed/cloning_tatooine_deed.iff"}},
-		{optName="hospital", cost=20000, itemName="Small Hospital", items={"object/tangible/deed/city_deed/hospital_tatooine_deed.iff"}},
-		{optName="theater", cost=20000, itemName="Small Theater", items={"object/tangible/deed/city_deed/theater_tatooine_deed.iff"}}
+		{optName="small_house01", cost=15000, itemName="[2L]Small", items={"object/tangible/deed/player_house_deed/tatooine_house_small_deed.iff"}}, 
+		{optName="small_house02", cost=29000, itemName="[3L]Small Style 2", items={"object/tangible/deed/player_house_deed/tatooine_house_small_style_02_deed.iff"}},
+		{optName="medium_house01", cost=95000, itemName="[6L]Medium Patio", items={"object/tangible/deed/player_house_deed/tatooine_house_medium_deed.iff"}},
+        {optName="medium_house02", cost=95000, itemName="[6L]Medium Bunker", items={"object/tangible/deed/player_house_deed/tatooine_house_medium_style_02_deed.iff"}}, 
+		{optName="large_house01", cost=325000, itemName="[8L]Large Patio", items={"object/tangible/deed/player_house_deed/tatooine_house_large_deed.iff"}},
+        {optName="large_house02", cost=325000, itemName="[8L]Large Tavern", items={"object/tangible/deed/player_house_deed/tatooine_house_large_style_02_deed.iff"}},
 	},
 }
 

@@ -1,6 +1,6 @@
-duag_hauser = Creature:new {
+jodi_benson = Creature:new {
 	objectName = "@mob/creature_names:commoner",
-	customName = "Duag Hauser (Housing Merchant)",
+	customName = "Jodi Benson (Housing Merchant)",
 	socialGroup = "townsperson",
 	pvpFaction = "townsperson",
 	faction = "townsperson",
@@ -27,12 +27,15 @@ duag_hauser = Creature:new {
 	optionsBitmask = 264, --for conversation
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_imperial_soldier_m.iff"},
+	templates = {
+            "object/mobile/dressed_dathomir_nightsister_spellweaver.iff",
+            "object/mobile/dressed_dathomir_sing_mt_clan_huntress.iff",
+            },
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "duaghauser_template",
+	conversationTemplate = "jodibenson_template",
 	attacks = {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(duag_hauser, "duag_hauser")
+CreatureTemplates:addCreatureTemplate(jodi_benson, "jodi_benson")

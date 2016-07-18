@@ -13,7 +13,7 @@ ikenwilyens_template = ConvoTemplate:new {
 ikenwilyens_start = ConvoScreen:new {
   id = "start",
   leftDialog = "",
-  customDialogText = "If you're in the market for a new Tatooine style house, I ken help you! We have many designs, ranging from single person dwellings to mansions. Would you like to see our designs?",
+  customDialogText = "If you're in the market for a new Tatooine style house, I ken help you! We have many designs, small and large. Would you like to see our designs?",
   stopConversation = "false",
   options = {
   	{"That sounds fantastic!", "shop"},
@@ -116,10 +116,10 @@ ikenwilyens_template:addScreen(ikenwilyens_insufficient_funds);
 ikenwilyens_help1 = ConvoScreen:new {
   id = "help1",
   leftDialog = "",
-  customDialogText = "There are basically two kinds of houses, those which have already been built and those which need to be built. We sell deeds that you can use to construct a new building. If you study to become an Architect, you can make these deeds yourself. As for the buildings that are already in the world, many may be purchased from the Imperial Housing Authority, provided they don't already belong to someone.",
+  customDialogText = "There are basically two kinds of houses, those which have already been built and those which need to be built. We sell deeds that you can use to construct a new building. As for the buildings that are already in the world, generally speaking, they already belong to someone else, eh.",
   stopConversation = "false",
   options = {
-	{"What is the Imperial Hosing Authority?", "help1a"},
+	{"Why can I do with a house?", "help1a"},
 	{"May I see what you're selling?", "shop"}
   }
 }
@@ -129,13 +129,26 @@ ikenwilyens_template:addScreen(ikenwilyens_help1);
 ikenwilyens_help1a = ConvoScreen:new {
   id = "help1a",
   leftDialog = "",
-  customDialogText = "The Imperial Housing Authority, located in Bestine city hall, manage the leases to many existing buildings throughout the galaxy. They can sell you a deed that will grant you ownership of virtually any building you'd like, provided that it doesn't already belong to someone else. I hear it's pretty expensive though, even for a dumpy hovel of a structure, but in fairness, you can claim lordship over some truly wonderful places too.",
+  customDialogText = "Why, you can live in it of course! Houses are great for storing your stuff, relaxing, crafting, you name it! Bigger houses may cost a lot up front and to maintain, but they give you crazy amounts of space to call your own.",
+  stopConversation = "false",
+  options = {
+    {"Storge? Maintenance?", "help1b"},
+	{"May I see what you're selling?", "shop"}
+  }
+}
+ikenwilyens_template:addScreen(ikenwilyens_help1a);
+
+
+ikenwilyens_help1b = ConvoScreen:new {
+  id = "help1b",
+  leftDialog = "",
+  customDialogText = "[1L] means the building has 1 Lot. Each lot comes with 250 storage. The bigger the building, the more it costs to buy and maintain.",
   stopConversation = "false",
   options = {
 	{"May I see what you're selling?", "shop"}
   }
 }
-ikenwilyens_template:addScreen(ikenwilyens_help1a);
+ikenwilyens_template:addScreen(ikenwilyens_help1b);
 
 
 ikenwilyens_help2 = ConvoScreen:new {

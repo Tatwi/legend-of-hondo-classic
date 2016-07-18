@@ -1,6 +1,6 @@
-duag_hauser = Creature:new {
+hurd_nefre = Creature:new {
 	objectName = "@mob/creature_names:commoner",
-	customName = "Duag Hauser (Housing Merchant)",
+	customName = "Hurd Nefre (Housing Merchant)",
 	socialGroup = "townsperson",
 	pvpFaction = "townsperson",
 	faction = "townsperson",
@@ -27,12 +27,12 @@ duag_hauser = Creature:new {
 	optionsBitmask = 264, --for conversation
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_imperial_soldier_m.iff"},
+	templates = {"object/mobile/dressed_tatooine_jabba_scout.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "duaghauser_template",
+	conversationTemplate = "hurdnefre_template",
 	attacks = {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(duag_hauser, "duag_hauser")
+CreatureTemplates:addCreatureTemplate(hurd_nefre, "hurd_nefre")

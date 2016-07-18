@@ -27,7 +27,7 @@ duaghauser_template:addScreen(duaghauser_start);
 duaghauser_shop = ConvoScreen:new {
   id = "shop",
   leftDialog = "",
-  customDialogText = "I'm sorry, but we're all out of housing deeds for now. Could I interest you in a star map instead? They're proudly sponsored by the Tatooine Travel Association and Gaffi's Stix. The star map even comes with a couple free posters from our sponsors. Your kind support will help keep Bestine a safe city for all citizens of the Empire.",
+  customDialogText = "Could I interest you in a star map while you're here? They're proudly sponsored by the Tatooine Travel Association and Gaffi's Stix. The star map even comes with a couple free posters from our sponsors. Your kind support will help keep Bestine a safe city for all citizens of the Empire!",
   options = { 
   }
 }
@@ -115,7 +115,7 @@ duaghauser_template:addScreen(duaghauser_insufficient_funds);
 duaghauser_help1 = ConvoScreen:new {
   id = "help1",
   leftDialog = "",
-  customDialogText = "There are basically two kinds of houses, those which have already been built and those which need to be built. We sell deeds that you can use to construct a new building. If you study to become an Architect, you can make these deeds yourself. As for the buildings that are already in the world, many may be purchased from us here at the Imperial Housing Authority.",
+  customDialogText = "There are basically two kinds of houses, those which have already been built and those which need to be built. We sell deeds that you can use to construct a new building. As for the buildings that are already in the world, many be purchased from us here at the Imperial Housing Authority.",
   stopConversation = "false",
   options = {
 	{"How does that work?", "help1a"}
@@ -127,7 +127,7 @@ duaghauser_template:addScreen(duaghauser_help1);
 duaghauser_help1a = ConvoScreen:new {
   id = "help1a",
   leftDialog = "",
-  customDialogText = "I can sell you a deed that will grant you ownership of virtually any building you'd like, provided that it doesn't already belong to someone else. To use the deed, simply enter the building you desire, open your inventory, and use the radial menu on the deed. It will have an option to purchase the structure if it doesn't already belong to someone else.",
+  customDialogText = "As you explore Tatooine, you'll find small, medium, and large Tatooine style homes that you may purchase by using the Structure Management Terminal within them. Many come partly decorated. In other locations you may find an Administrator Droid who is able to sell you the structure.",
   stopConversation = "false",
   options = {
 	{"Are all buildings the same price?", "help1b"}
@@ -139,10 +139,10 @@ duaghauser_template:addScreen(duaghauser_help1a);
 duaghauser_help1b = ConvoScreen:new {
   id = "help1b",
   leftDialog = "",
-  customDialogText = "No. Each building type has its own price. The deed we sell you, which is only good for a single use, will tell you the price of the structure before you accept ownership. This is nice, because it gives you the chance to tour the building before buying it.",
+  customDialogText = "No each building type has its own price. I sell deeds for generic style homes and you'll find other merchants in your travels who sell other types of buildings at various prices.",
   stopConversation = "false",
   options = {
-	{"Sounds neat! How much are these deeds?", "shop"}
+	{"Sounds good. Let's see what you've got.", "shop"}
   }
 }
 duaghauser_template:addScreen(duaghauser_help1b);

@@ -17,7 +17,11 @@ DuagHauserSP = ScreenPlay:new {
 			"object/tangible/painting/painting_starmap.iff", 
 			"object/tangible/painting/painting_tato_s04.iff", 
 			"object/tangible/painting/painting_smoking_ad.iff",
-		}}, 
+		}},
+        {optName="small_square01", cost=29000, itemName="[3L]Small Square", items={"object/tangible/deed/player_house_deed/generic_house_small_deed.iff"}},
+        {optName="small_square02", cost=29000, itemName="[3L]Small Square Style 2", items={"object/tangible/deed/player_house_deed/generic_house_small_floor_02_deed.iff"}},
+        {optName="small_rounded01", cost=29000, itemName="[3L]Small Rounded", items={"object/tangible/deed/player_house_deed/generic_house_small_style_02_deed.iff"}},
+        {optName="small_rounded02", cost=29000, itemName="[3L]Small Rounded Style 2", items={"object/tangible/deed/player_house_deed/generic_house_small_style_02_floor_02_deed.iff"}},
 	},
 }
 
