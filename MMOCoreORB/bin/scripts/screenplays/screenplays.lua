@@ -408,3 +408,4 @@ includeFile("hondo/travel/planetary_travel_tatooine.lua")
 
 -- Bread Crumb Quests
 includeFile("hondo/quest_breadcrumb/helper_trainers.lua")
+includeFile("hondo/quest_breadcrumb/helper_city_tour.lua")

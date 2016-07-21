@@ -186,3 +186,4 @@ includeFile("conversations/hondo/travel/tatooine_shuttle_conv.lua")
 
 -- Bread Crumb Quests
 includeFile("conversations/hondo/quest_breadcrumb/helper_trainers_conv.lua")
+includeFile("conversations/hondo/quest_breadcrumb/helper_city_tour_conv.lua")

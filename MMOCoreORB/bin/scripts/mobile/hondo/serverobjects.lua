@@ -37,3 +37,4 @@ includeFile("hondo/travel/tatooine_shuttle_pilot.lua")
 
 -- Bread Crumb Quests
 includeFile("hondo/quest_breadcrumb/helper_trainers.lua")
+includeFile("hondo/quest_breadcrumb/helper_city_tour.lua")
