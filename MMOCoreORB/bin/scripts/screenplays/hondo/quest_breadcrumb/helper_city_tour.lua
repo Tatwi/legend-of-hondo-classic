@@ -33,10 +33,10 @@ CivicInspectorScreenPlay = ScreenPlay:new {
         cashReward = 1500, -- set to 0 for no cash reward
         giveItems = "true", -- set false if there isn't an item reward.
         rewardType = "lootgroup", -- Pick One: myListAll = give whole list, myListRNG = pick one item from the list, lootgroup = item from the lootGroups
-        lootGroups = {"junk", "loot_kit_parts"}, -- loot groups
-        lootQuantity = 1, -- number of items to give
+        lootGroups = {"junk", "recycler_parts", "loot_kit_parts"}, -- loot groups
+        lootQuantity = 2, -- number of items to give
         lootLevelMin = 10, -- range 1 - 300. Set same as lootLevelMax for highest chance of good loot.
-        lootLevelMax = 80, -- range 1 - 300. This is not a gaurantee the player will always get top end loot.
+        lootLevelMax = 100, -- range 1 - 300. This is not a gaurantee the player will always get top end loot.
         lootMaxCondition = "false", -- set true for item to have full hitpoints
         myList = {
             "object/tangible/dice/eqp_chance_cube.iff",
@@ -340,9 +340,28 @@ function CivicInspectorScreenPlay:giveReward(creature)
             -- Give loot group items
             local levelRNG = 0
             local groupRNG  = 0
+            local usedGroups = ""
+            local usedGroupCount = 0
+            local uniqueGroup = 0
+            
             for itemCount = 1, pieces do
-                groupRNG = getRandomNumber(1, #CivicInspectorScreenPlay.questConfig.lootGroups)
-                
+                -- if we haven't already used all the loot groups, pick a unique one
+                if (usedGroupCount < #CivicInspectorScreenPlay.questConfig.lootGroups) then
+                    while (uniqueGroup == 0) do
+                        groupRNG = getRandomNumber(1, #CivicInspectorScreenPlay.questConfig.lootGroups)
+                        
+                        if not (string.find(usedGroups, groupRNG)) then
+                            -- if the generated group isn't in the string, then it's unique!
+                            uniqueGroup = 1
+                            usedGroupCount = usedGroupCount + 1 -- prevent infinite loop
+                        end
+                    end
+                    uniqueGroup = 0 -- reset for next item
+                    usedGroups = usedGroups .. groupRNG .. " " -- add this loot group to the ones that have been used.
+                else
+                    groupRNG = getRandomNumber(1, #CivicInspectorScreenPlay.questConfig.lootGroups)
+                end
+
                 if (CivicInspectorScreenPlay.questConfig.lootLevelMin == CivicInspectorScreenPlay.questConfig.lootLevelMax) then
                     levelRNG = CivicInspectorScreenPlay.questConfig.lootLevelMax
                 else 
