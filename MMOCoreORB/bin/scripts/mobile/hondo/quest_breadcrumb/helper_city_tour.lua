@@ -1,6 +1,6 @@
 helper_civic_inspector = Creature:new {
 	objectName = "@mob/creature_names:artisan",
-	customName = "Civic Inspector (Quest)",
+	customName = "Jorip Igta (Quest)",
 	socialGroup = "townsperson",
 	faction = "townsperson",
 	level = 4,

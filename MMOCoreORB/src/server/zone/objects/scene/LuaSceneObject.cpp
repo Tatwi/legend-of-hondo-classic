@@ -20,6 +20,7 @@ Luna<LuaSceneObject>::RegType LuaSceneObject::Register[] = {
 		{ "_getObject", &LuaSceneObject::_getObject },
 		{ "getParent", &LuaSceneObject::getParent },
 		{ "getObjectID", &LuaSceneObject::getObjectID },
+        { "getObjectIDAsString", &LuaSceneObject::getObjectIDAsString },
 		{ "getPositionX", &LuaSceneObject::getPositionX },
 		{ "getPositionY", &LuaSceneObject::getPositionY },
 		{ "getPositionZ", &LuaSceneObject::getPositionZ },
@@ -231,6 +232,15 @@ int LuaSceneObject::getPositionY(lua_State* L) {
 
 int LuaSceneObject::getObjectID(lua_State* L) {
 	lua_pushinteger(L, realObject->getObjectID());
+
+	return 1;
+}
+
+// Legend of Hondo - for 64bit numbers that Lua can't handle
+int LuaSceneObject::getObjectIDAsString(lua_State* L) {
+	String oid = String::valueOf(realObject->getObjectID());
+
+	lua_pushstring(L, oid.toCharArray());
 
 	return 1;
 }

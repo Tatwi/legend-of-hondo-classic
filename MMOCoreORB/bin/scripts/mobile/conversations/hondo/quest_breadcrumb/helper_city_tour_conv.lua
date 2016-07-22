@@ -109,10 +109,10 @@ helpercivicinspector_template:addScreen(helpercivicinspector_quest_reset);
 helpercivicinspector_quest_complete = ConvoScreen:new {
   id = "quest_complete",
   leftDialog = "",
-  customDialogText = "Hey, that looks great. You're a natural with this stuff. Here's the reward I spoke of. It's not much, but the city won't miss it.",
+  customDialogText = "You made it back! Not that I thought a sinkhole would swallow you alive or anything, beacause I totally didn't think that at all, but the council... Hey, so here's the reward I spoke of. I know it's not much, but the city won't miss it. Thanks again for helping me out.",
   stopConversation = "false",
   options = { 
-    {"Will do, thanks.", "give_rewards"}
+    {"No problem, man!", "give_rewards"}
   }
 }
 helpercivicinspector_template:addScreen(helpercivicinspector_quest_complete);
@@ -120,7 +120,7 @@ helpercivicinspector_template:addScreen(helpercivicinspector_quest_complete);
 helpercivicinspector_give_rewards = ConvoScreen:new {
   id = "give_rewards",
   leftDialog = "",
-  customDialogText = "I may need your help again later if you're interested. Take care.",
+  customDialogText = "I may need your help again later if you're interested. Until then, take care of yourself.",
   stopConversation = "true",
   options = { 
   }

@@ -2,7 +2,7 @@
 -- R. Bassett Jr. www.tpot.ca
 -- July 2016
 --
--- This file can be used a template for other "bread crumb quests" that takes place on the same planet as its quest giver.
+-- This file can be used a template for other "bread crumb quests" that take place on the same planet as its quest giver.
 -- 1. Replace all instances of CivicInspectorScreenPlay and helpercivicinspector_convo_handler, and change the value of questName, className, with something unique.
 -- 2. Make a custom character and conversation for that character. Keep in mind the important convo steps that trigger the quest actions.
 -- 3. Spawn your character in the spawnMobiles() function.
@@ -25,24 +25,25 @@ CivicInspectorScreenPlay = ScreenPlay:new {
         planetName = "tatooine",
         questName="CivicInspector",  -- Internal quest , should be unique to the quest
         className="CivicInspectorScreenPlay", -- Class name of this class
-        questGiverName="Civic Inspector",
+        questGiverName="Jorip Igta",
         timeResolution=0, -- number of decimal places to use for the time updates 0 = none
-        expiryTime = 3600, -- Amount of time in SECONDS that the player has to finish the quest 
-        cooldown = 30, -- Amount of time in SECONDS until the player can repeat the quest
-        waypointRadius=3, -- size of the waypoint observer. 3 is good for on foot, 10 for when in a vehicle. 1 makes it kind of annoying to trigger.
+        expiryTime = 900, -- (15 minutes) Amount of time in SECONDS that the player has to finish the quest 
+        cooldown = 28800, -- (8 hours) Amount of time in SECONDS until the player can repeat the quest
+        waypointRadius=6, -- size of the waypoint observer. 3 is good for on foot, 10 for when in a vehicle. 1 makes it kind of annoying to trigger.
         cashReward = 1500, -- set to 0 for no cash reward
         giveItems = "true", -- set false if there isn't an item reward.
         rewardType = "lootgroup", -- Pick One: myListAll = give whole list, myListRNG = pick one item from the list, lootgroup = item from the lootGroups
-        lootGroups = {"chitin_armor", "bone_armor"}, -- loot groups
-        lootQuantity = 12, -- number of items to give
-        lootLevelMin = 300, -- range 1 - 300
-        lootLevelMax = 300, -- range 1 - 300
+        lootGroups = {"junk", "loot_kit_parts"}, -- loot groups
+        lootQuantity = 1, -- number of items to give
+        lootLevelMin = 10, -- range 1 - 300. Set same as lootLevelMax for highest chance of good loot.
+        lootLevelMax = 80, -- range 1 - 300. This is not a gaurantee the player will always get top end loot.
+        lootMaxCondition = "false", -- set true for item to have full hitpoints
         myList = {
-            "object/tangible/treasure_map/treasure_map_pirate1.iff",
-            "object/tangible/treasure_map/treasure_map_pirate2.iff",
+            "object/tangible/dice/eqp_chance_cube.iff",
+            "object/tangible/dice/eqp_twenty_sided_dice_set.iff",
         },
     },
-    waypointSpecialType = 12, -- Any int 12 and up will do. Use a unique number per quest so they don't over-write eachother if the player takes more than one at time. 
+    waypointSpecialType = 12, -- Any int 12 and up will do. Use a unique number per quest so they don't over-write eachother if the player takes more than one quest at time. 
     waypoints = { 
         {x = -2795, y = 2155, wpName = "Zone A", wpDesc = ""}, -- Old Shuttle A
         {x = -2873, y = 1915, wpName = "Zone B", wpDesc = ""}, -- Old Shuttle B
@@ -53,24 +54,16 @@ CivicInspectorScreenPlay = ScreenPlay:new {
         {x = -3004, y = 2480, wpName = "Zone G", wpDesc = ""}, -- North Pass
         {x = -2897, y = 2512, wpName = "Zone H", wpDesc = ""}, -- Bad end of town
         {x = -2868, y = 2253, wpName = "Zone I", wpDesc = ""}, -- Center where medium house was
-        {x = -2869, y = 2159, wpName = "Return To Civic Inspector", wpDesc = ""}, -- Quest Giver
+        {x = -2869, y = 2159, wpName = "Return To Jorip Igta", wpDesc = ""}, -- Quest Giver
     },
 }
 
 registerScreenPlay("CivicInspectorScreenPlay", true)
 
 function CivicInspectorScreenPlay:start()
-    if (isZoneEnabled("tatooine")) then
+    if (isZoneEnabled(self.questConfig.planetName)) then
         -- Spawn character
-        local pCoord = spawnMobile("tatooine", "helper_civic_inspector", 1, -2869.82, 5, 2159.27, 337, 0) 
-
-        -- Create trigger points
-        for lc = 1, table.getn(self.waypoints) , 1 do
-            local pWaypointAA = spawnActiveArea(self.questConfig.planetName, "object/active_area.iff", self.waypoints[lc].x, 0, self.waypoints[lc].y, self.questConfig.waypointRadius, 0)
-            if (pWaypointAA ~= nil) then
-              createObserver(ENTEREDAREA, self.questConfig.className, "triggerPoint" , pWaypointAA)
-            end
-        end
+        local pCoord = spawnMobile(self.questConfig.planetName, "helper_civic_inspector", 1, -2869.82, 5, 2159.27, 337, 0) 
     end
 end
 
@@ -91,36 +84,24 @@ function CivicInspectorScreenPlay:startQuesting(pObject)
         -- Inform player
         creatureObject:sendSystemMessage("You have " .. (self:roundNumber(self.questConfig.expiryTime/60)) .. " minutes to complete your mission.")
         creatureObject:playMusicMessage("sound/music_themequest_acc_criminal.snd")
-        
-        -- Additionally, you can tell them what the first destination will be...
-        --creatureObject:sendSystemMessage(self.waypoints[1].wpName) 
     end)
 end
 
--- Create waypoint
+-- Create active area and waypoint
 function CivicInspectorScreenPlay:createPoint(pObject, wpIndex)
     ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
+        -- Create active area
+        local pWaypointAA = spawnActiveArea(self.questConfig.planetName, "object/active_area.iff", self.waypoints[wpIndex].x, 0, self.waypoints[wpIndex].y, self.questConfig.waypointRadius, 0)
+        if (pWaypointAA ~= nil) then
+          createObserver(ENTEREDAREA, self.questConfig.className, "triggerPoint" , pWaypointAA)
+          writeScreenPlayData(pObject, self.questConfig.questName, "activeAreaID", SceneObject(pWaypointAA):getObjectIDAsString()) -- Newer SWGEmu code users can just use getObjectID
+        end
+        
+        -- Create waypoint
 		local waypointID = playerObject:addWaypoint(self.questConfig.planetName, self.waypoints[wpIndex].wpName, "", self.waypoints[wpIndex].x, self.waypoints[wpIndex].y, WAYPOINTGREEN, true, true, self.waypointSpecialType, 0)
         writeScreenPlayData(pObject, self.questConfig.questName, "activeWaypoint", tostring(wpIndex))
     end)
 end
-
-
-function CivicInspectorScreenPlay:waypointAtPlayer(pActiveArea)
-	local index = 0
-	local wpX = SceneObject(pActiveArea):getPositionX()
-	local wpY = SceneObject(pActiveArea):getPositionY()
-
-	for lc = 1, table.getn(self.waypoints) , 1 do
-    
-		if tonumber(self.waypoints[lc].x) == wpX and tonumber(self.waypoints[lc].y) == wpY then
-			index = lc
-			break
-		end
-	end
-	return index
-end
-
 
 -- Process arrival at waypoint
 function CivicInspectorScreenPlay:triggerPoint(pActiveArea, pObject)
@@ -133,34 +114,20 @@ function CivicInspectorScreenPlay:triggerPoint(pActiveArea, pObject)
     return ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
         local questActive = creatureObject:hasScreenPlayState(CivicInspectorScreenPlay.states.active, CivicInspectorScreenPlay.screenplayName)
         if not (questActive) then
-            -- Player is not the quest
+            -- Player is not on the quest
             return 0
         end
-    
-        local wpIndex =  tonumber(readScreenPlayData(pObject, self.questConfig.questName, "activeWaypoint"))
         
+        local wpIndex =  tonumber(readScreenPlayData(pObject, self.questConfig.questName, "activeWaypoint"))
         if (wpIndex == nil) then
             -- Shouldn't happen, but if it does it will crash server without this check.
             self:resetQuest(pObject, 2)
             return 0
         end
-        
-        local wherePlayerIs = 0
-        local aaX = self:roundNumber(SceneObject(pActiveArea):getPositionX())
-        local aaY = self:roundNumber(SceneObject(pActiveArea):getPositionY())
-
-        for lc = 1, table.getn(self.waypoints) , 1 do         
-            if self.waypoints[lc].x == aaX and self.waypoints[lc].y == aaY then
-                wherePlayerIs = lc
-                break
-            end
-        end
-
-        if not (wpIndex == wherePlayerIs) then
-            -- Player is at the wrong waypoint
-            return 0
-        end
 -- END VERIFICATION STEPS
+    
+        -- Remove current active area
+        SceneObject(pActiveArea):destroyObjectFromWorld()
         
         -- Remove current waypoint
         playerObject:removeWaypointBySpecialType(self.waypointSpecialType) 
@@ -200,7 +167,7 @@ function CivicInspectorScreenPlay:triggerPoint(pActiveArea, pObject)
             
             -- Describe the waypoint the player arrived at...
             if (self.waypoints[wpIndex].wpDesc ~= nil) then
-                creatureObject:sendSystemMessage(self.waypoints[wpIndex].wpDesc)
+                creatureObject:sendSystemMessage(self.waypoints[wpIndex-1].wpDesc) -- remove -1 to describe the next waypoint instead of the one the player arrived at.
             end
             
             --creatureObject:playMusicMessage("sound/ui_select_info.snd")
@@ -214,6 +181,13 @@ end
 -- Reset quest
 function CivicInspectorScreenPlay:resetQuest(pObject, reason)
   ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
+    -- Remove current active area
+    local activeAreaID = readScreenPlayData(pObject, self.questConfig.questName, "activeAreaID")
+    local pActiveArea = getSceneObject(activeAreaID)
+    if (pActiveArea ~= nil) then
+        SceneObject(pActiveArea):destroyObjectFromWorld()
+    end
+  
     -- Remove current waypoint
     playerObject:removeWaypointBySpecialType(self.waypointSpecialType)
 
@@ -236,7 +210,15 @@ end
 
 -- Timeout quest
 function CivicInspectorScreenPlay:resetPlayerUnfinishedEventHandler(pObject)
-    self:resetQuest(pObject, 0)
+    ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
+        local questActive = creatureObject:hasScreenPlayState(CivicInspectorScreenPlay.states.active, CivicInspectorScreenPlay.screenplayName)
+        if not (questActive) then
+            -- Player has already completed the quest
+            return
+        end
+        
+        self:resetQuest(pObject, 0)
+    end)
 end
 
 -- End quest and start cooldown
@@ -266,6 +248,25 @@ function CivicInspectorScreenPlay:cooldownEventHandler(pObject)
     end)
 end
 
+-- Failsafe end cooldown
+function CivicInspectorScreenPlay:failsafeEndCooldown(pObject)
+    ObjectManager.withCreatureAndPlayerObject(pObject, function(creatureObject, playerObject)
+        local onCooldown = creatureObject:hasScreenPlayState(CivicInspectorScreenPlay.states.cooldown, CivicInspectorScreenPlay.screenplayName)
+        if not (onCooldown) then
+            -- Player is not on the quest or it's not on cooldown
+            return
+        end
+        
+        local startTime = readScreenPlayData(pObject, self.questConfig.questName, "starttime")
+        local timePassed = (getTimestampMilli() - tonumber(startTime)) / 1000 -- miliseconds to seconds
+    
+        if (timePassed > self.questConfig.cooldown) then
+            clearScreenPlayData(pObject,self.questConfig.questName)
+            creatureObject:removeScreenPlayState(CivicInspectorScreenPlay.states.cooldown, CivicInspectorScreenPlay.screenplayName)
+        end
+    end)
+end
+
 
 -- Helper functions
 
@@ -289,7 +290,7 @@ function CivicInspectorScreenPlay:checkSpace(creature)
     if (CivicInspectorScreenPlay.questConfig.rewardType == "lootgroup") then
         pieces = CivicInspectorScreenPlay.questConfig.lootQuantity
     else
-        pieces = #CivicInspectorScreenPlay.questConfig.itemRewards -- gets # of items in the reward list
+        pieces = #CivicInspectorScreenPlay.questConfig.myList -- gets # of items in the reward list
     end
     
     -- Check for room in inventory
@@ -313,7 +314,7 @@ function CivicInspectorScreenPlay:giveReward(creature)
     if (CivicInspectorScreenPlay.questConfig.rewardType == "lootgroup") then
         pieces = CivicInspectorScreenPlay.questConfig.lootQuantity
     else
-        pieces = #CivicInspectorScreenPlay.questConfig.itemRewards -- gets # of items in the reward list
+        pieces = #CivicInspectorScreenPlay.questConfig.myList -- gets # of items in the reward list
     end
     
     -- Grant cash reward, if there is one
@@ -327,22 +328,20 @@ function CivicInspectorScreenPlay:giveReward(creature)
         if (CivicInspectorScreenPlay.questConfig.rewardType == "myListRNG") then
             -- Give 1 random list item
             local rndNum = getRandomNumber(1, pieces)
-            local pItem = giveItem(pInventory, CivicInspectorScreenPlay.questConfig.itemRewards[rndNum], -1)
+            local pItem = giveItem(pInventory, CivicInspectorScreenPlay.questConfig.myList[rndNum], -1)
             creature:sendSystemMessage("A reward was placed into your inventory!") 
         elseif (CivicInspectorScreenPlay.questConfig.rewardType == "myListAll") then
             -- Give all list items
             for itemCount = 1, pieces do
-                local pItem = giveItem(pInventory, CivicInspectorScreenPlay.questConfig.itemRewards[itemCount], -1)
+                local pItem = giveItem(pInventory, CivicInspectorScreenPlay.questConfig.myList[itemCount], -1)
             end
             creature:sendSystemMessage("Rewards were placed into your inventory!") 
         elseif (CivicInspectorScreenPlay.questConfig.rewardType == "lootgroup") then
             -- Give loot group items
             local levelRNG = 0
-            local groups = 0
             local groupRNG  = 0
             for itemCount = 1, pieces do
-                groups = getRandomNumber(1, #CivicInspectorScreenPlay.questConfig.lootGroups)
-                groupRNG = getRandomNumber(1, groups)
+                groupRNG = getRandomNumber(1, #CivicInspectorScreenPlay.questConfig.lootGroups)
                 
                 if (CivicInspectorScreenPlay.questConfig.lootLevelMin == CivicInspectorScreenPlay.questConfig.lootLevelMax) then
                     levelRNG = CivicInspectorScreenPlay.questConfig.lootLevelMax
@@ -350,7 +349,7 @@ function CivicInspectorScreenPlay:giveReward(creature)
                     levelRNG = getRandomNumber(CivicInspectorScreenPlay.questConfig.lootLevelMin, CivicInspectorScreenPlay.questConfig.lootLevelMax)
                 end
                 
-                createLoot(pInventory, CivicInspectorScreenPlay.questConfig.lootGroups[groupRNG], levelRNG, true)
+                createLoot(pInventory, CivicInspectorScreenPlay.questConfig.lootGroups[groupRNG], levelRNG, CivicInspectorScreenPlay.questConfig.lootMaxCondition)
             end
             creature:sendSystemMessage("Loot was placed into your inventory!")
         end
@@ -388,6 +387,7 @@ function helpercivicinspector_convo_handler:getNextConversationScreen(conversati
         
         if ( lastConversationScreen == nil ) then 
             -- Player clicked NPC for first time to start conversation
+            CivicInspectorScreenPlay:failsafeEndCooldown(conversingPlayer) -- in case of server crash before cooldown state was removed
             local questActive = creature:hasScreenPlayState(CivicInspectorScreenPlay.states.active, CivicInspectorScreenPlay.screenplayName)
             local questComplete = creature:hasScreenPlayState(CivicInspectorScreenPlay.states.complete, CivicInspectorScreenPlay.screenplayName)
             local questCooldown = creature:hasScreenPlayState(CivicInspectorScreenPlay.states.cooldown, CivicInspectorScreenPlay.screenplayName)

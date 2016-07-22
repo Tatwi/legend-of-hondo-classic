@@ -115,6 +115,16 @@ helpertrainers_give_rewards = ConvoScreen:new {
 }
 helpertrainers_template:addScreen(helpertrainers_give_rewards);
 
+helpertrainers_quest_cooldown = ConvoScreen:new {
+  id = "quest_cooldown",
+  leftDialog = "",
+  customDialogText = "I'm a little busy right now. Come see me again in a while.",
+  stopConversation = "true",
+  options = { 
+  }
+}
+helpertrainers_template:addScreen(helpertrainers_quest_cooldown);
+
 helpertrainers_no_space = ConvoScreen:new {
   id = "no_space",
   leftDialog = "",
