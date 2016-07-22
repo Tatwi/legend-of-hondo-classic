@@ -11,18 +11,25 @@ why I did or didn't make something, go to www.tpot.ca.
 ________________________________________________________
 
 
-Housing and Structure Changes
+Enter the Set Designer
+(And exit Architect and Shipwright)
 = = = = = = = = = = = = = = = = = 
-- I decided against using existing structures, so reworking player structures a bit.
-- Give each character 250 lots, essentially removing the lot limitation, because it's not really useful in a single player situation.
-- House storage = lots * 250. Adjust all plauyer structures so their lot count matches with their usable internal space.
-- Maint rate will be used, but houses will never be removed from the world if it's not paid.
-- Restrict building to the Mos Espa region of Tatooine, but allow all building types to placed there.
-- Increase the Mos Espa city region to account for the new districts on the west side.
-- Add all house deeds that I want available in the game to NPC Merchants.
-- Remove structure deeds from Architect crafting, making the profession into an "Industrial Designer" profession that is focused on decor. This is to allow structure deeds to only be purchased as a "money sink". I'll add more decorative items to be crafted and I'll leave the building parts as industial themed decor.
-- Add a quest to show some nice build locations and deed merchants.
+- Remove structure deeds from Architect crafting, making the profession into an "Set Designer" profession that is focused on decor, both inside and outside. This is to allow structure deeds to only be purchased as a "money sink".
+- Remove Shipwright, as Legend of Hondo will not be getting Jump to Lightspeed.
+- Add craftable versions of many Tatooine style static walls, gates, trees, etc. and treat them as city decorations. This will also include large debris, generators, mock up harvesters, etc. Mock up of ships too, if I can figure that out.
+- Add a decoration version of each ship part to the Set Designer.
+- Add virtually all targetable tangible objects that aren't otherwise accessable to the player as craftable decorations. 
+- Add all "Event Promoter" items as craftable city decoration type objects and remove the "Event Promoter" system. Consolidating systems for consistency and ease of use.
 
+
+Active Resource Acquisition
+= = = = = = = = = = = = = = = = = 
+- Nerf hand sampling to 1 unit per type per day, to make it for research rather than AFK "winning the game"...
+- Add new Destroy Mission theaters that have mock harvesters and lootable resource containers.
+- Add a resource payout to Survey Missions, with diminishing returns to the same location.
+- Add a resource payout to Artisan crafting missions.
+- Add an NPC merchant at Nado's shop who sells recycled quality resources for 10cpu.
+- 500 unit resource deeds are already in the custom, massive, junk loot table.
 
 
 Pirate Legacy System

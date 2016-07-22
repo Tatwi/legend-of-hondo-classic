@@ -11,6 +11,102 @@ existing features where it made sense.
 ________________________________________________________
 
 
+Feature: Housing and City Changes
+= = = = = = = = = = = = = = = = = 
+WARNING: Some portions of this update change player city functionality and character permissions. Do not use some of these features on a multiplayer server.
+
+- I decided against using existing structures, so reworked player structures a bit.
+- Not using the player city system, so worked around it a bit.
+
+src/server/zone/objects/player/PlayerObjectImplementation.cpp
+src/server/zone/objects/creature/commands/PlaceStructureModeCommand.h
+- - - - -
+- Removed the lot limitation, because it's not really useful in a single player situation.
+- Note: "Lots Remaining:" was not a value stored in the database for the character, rather it was calculated by the server each time it was referenced. As such, I made PlayerObjectImplementation::getLotsRemaining() report 10 all the time to cover any checks I may have missed.
+- Note: The display of "Lots Remaining:" on the character sheet is handled by the client in ui/ui_pda_char_sheet.inc (the server just sends the number), so I left it in the game even though it's pointless. Just seemed like more work than it was worth to remove it. :)
+
+src/server/zone/objects/tangible/deed/structure/StructureDeedImplementation.cpp
+src/server/zone/managers/structure/StructureManager.cpp
+- - - - -
+- Restricted building to the Mos Espa region of Tatooine, but buildings can be placed without profession or planet restrictions. Zone is large enough to allow building inside all areas of the city and a good bit beyond in the empty area to the east.
+- All deeds read... "Can be built on: Tatooine in Mos Espa"
+
+src/server/zone/managers/structure/StructureManager.cpp
+src/server/zone/objects/tangible/terminal/components/StructureTerminalMenuComponent.cpp
+- - - - -
+- Player may remove maintenance from any of his structures.
+- Condemned fees are capped at 3 months of maint fees. 
+- Structure Status menu now shows how many items are in the building like so, 78/250
+
+src/server/zone/objects/structure/events/StructureMaintenanceTask.cpp
+- - - - -
+- Structures are no longer destroyed when they have fully decayed due to lack of maint fees being collected. 
+
+src/server/zone/managers/city/CityManagerImplementation.cpp
+src/server/zone/managers/city/CityDecorationTask.h
+src/server/zone/objects/tangible/components/CityDecorationMenuComponent.cpp
+src/server/zone/objects/creature/commands/RotateFurnitureCommand.h
+src/server/zone/objects/creature/commands/MoveFurnitureCommand.h
+- - - - -
+- Using "City Decoration" type objects as the basis for objects the player may decorate outside with (in Mos Espa).
+- Objects considered "City Decorations: All below object/tangible/furniture/city and object/building/player/city/garden
+- Any character can place/remove/move/rotate decorations and gardens in the city.
+- Removed the limit on how many decorations can be placed (as NPC cities were considered the same as player cities in this regard).
+- Made city decorations persist through server reboots without needing a player city (by storing them in the player structures database).
+- In a later update I will add more items such as walls, pillars, arches, plants, etc.
+
+src/server/zone/objects/building/BuildingObjectImplementation.cpp
+- - - - -
+- Storage space = lots * 250.
+- Any building that doesn't have lots in its lua template (world default structures) will have 250 storage.
+
+bin/scripts/object/building/player/[most houses]
+bin/scripts/object/building/player/city/[most houses]
+- - - - -
+- All player buildings (that I am using in LoH) have a lot count to match their usable interior space, between 1 and 10. 
+- All player buildings have maint rates that get exponentially more expensive per lot (lots * (1 + lots/10) * 10)
+- Civic Structures: cityMaintenanceBase = 0 treats like player house, cityMaintenanceBase > 0 treats like Civic structure.
+- Removed Merchant skill requirement for changing signs.
+- City Decorations (Gardens, fountains, statues, etc) do not have maint fees.
+
+bin/scripts/object/installation/manufacture/[4 factories]
+- - - - -
+- Adjusted maint fees and set lots to 0.
+
+bin/scripts/object/tangible/deed/player_house_deed/[deeds]
+bin/scripts/object/building/player/[houses/tents]
+- - - - -
+- Added player housing versions of two different style Tatooine houses and 3 salon (large) style merchant tents.
+
+bin/scripts/screenplays/hondo/merchants/[housing merchants]
+bin/scripts/mobile/hondo/merchants/[housing merchants]
+bin/scripts/mobile/conversations/hondo/merchants/[housing merchants]
+- - - - -
+- Added 16 merchants who sell all structure deeds the game will use.
+
+bin/scripts/mobile/conversations/hondo/merchants/u8l7_conv.lua
+- - - - -
+- Rebuilt the dialog for the New Player Helper droid (in part to include housing information).
+
+bin/scripts/screenplays/hondo/quest_breadcrumb/helper_city_tour.lua
+bin/scripts/mobile/hondo/quest_breadcrumb/helper_city_tour.lua
+bin/scripts/mobile/conversations/hondo/quest_breadcrumb/helper_city_tour_conv.lua
+- - - - -
+- Added a quest to show some nice build locations in Mos Espa.
+- This is a complete rebuild of the bread crumb quest design, with more efficient use of Active Areas, bug fixes, and other additional or improved functionality.
+- Converted the Wherma Traynr quest to the improved design as well.
+
+src/server/zone/objects/scene/LuaSceneObject.cpp
+src/server/zone/objects/scene/LuaSceneObject.h
+- - - - -
+- Added Lua call to get an object ID as string.
+- This enables me to save, recall, and use specific objects of all types in screenplays.
+- Used in this update to delete the active area when a bread crumb quest is abandoned.
+- This was required because Lua 5.1.5 would convert 64bit long int values into scientific notation, which doesn't produce proper results when the number, an Object ID, is in reality a name that just happens to be a number.
+
+
+
+
 Feature: Setting the Stage
 = = = = = = = = = = = = = = = = = 
 tre/snapshot/tatooine.ws
