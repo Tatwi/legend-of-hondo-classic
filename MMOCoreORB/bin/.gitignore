@@ -5,4 +5,5 @@ databases/
 log/
 terrain/
 scripts/managers/resource_manager_spawns.lua
+scripts/screenplays/hondo/resource_list.lua
 conf/config.lua

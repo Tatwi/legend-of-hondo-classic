@@ -11,6 +11,7 @@ import server.zone.ZoneServer;
 import server.zone.Zone;
 import server.zone.ZoneProcessServer;
 import server.zone.managers.object.ObjectManager;
+import server.zone.objects.scene.SceneObject;
 import server.zone.objects.creature.CreatureObject;
 import server.zone.objects.creature.CreatureObject;
 import server.zone.objects.resource.ResourceContainer;
@@ -80,6 +81,7 @@ class ResourceManager extends Observer implements Logger {
 	
 	public native void createResourceSpawn(CreatureObject playerCreature, final string restype);
 	public native void givePlayerResource(CreatureObject playerCreature, final string restype, final int quantity);
+    public native void addResourceToContainer(SceneObject container, final string restype, final int quantity);
 
 	public native ResourceSpawn getCurrentSpawn(final string restype, final string zoneName);
 	public native ResourceSpawn getResourceSpawn(final string spawnName);

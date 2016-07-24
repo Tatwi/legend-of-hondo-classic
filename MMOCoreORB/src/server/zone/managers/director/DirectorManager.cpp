@@ -39,6 +39,7 @@
 #include "server/chat/ChatManager.h"
 #include "server/chat/ChatMessage.h"
 #include "server/zone/managers/loot/LootManager.h"
+#include "server/zone/managers/resource/ResourceManager.h"
 #include "server/zone/objects/scene/ObserverEventType.h"
 #include "server/zone/objects/creature/CreatureAttribute.h"
 #include "server/zone/objects/creature/CreatureState.h"
@@ -280,6 +281,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	// call for createLoot(SceneObject* container, const String& lootGroup, int level)
 	lua_register(luaEngine->getLuaState(), "createLoot", createLoot);
 	lua_register(luaEngine->getLuaState(), "createLootFromCollection", createLootFromCollection);
+    lua_register(luaEngine->getLuaState(), "addResourceToContainer", addResourceToContainer);
 
 	lua_register(luaEngine->getLuaState(), "getRegion", getRegion);
 	lua_register(luaEngine->getLuaState(), "writeScreenPlayData", writeScreenPlayData);
@@ -2757,4 +2759,27 @@ int DirectorManager::playClientEffectLoc(lua_State* L) {
 	creature->broadcastMessage(effectLoc, true);
 
 	return 1;
+}
+
+// Legend of Hondo
+// addResourceToContainer(containerObject, string name, int quanity)
+// For player inventory in lua, containerObject = creature:getSlottedObject("inventory")
+int DirectorManager::addResourceToContainer(lua_State* L) {
+    if (checkArgumentCount(L, 3) == 1) {
+		instance()->error("incorrect number of arguments passed to ResourceManager::addResourceToContainer");
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	SceneObject* container = (SceneObject*)lua_touserdata(L, -3);
+	String resName = lua_tostring(L, -2);
+	int quantity = lua_tonumber(L, -1);
+
+	if (container == NULL)
+		return 0;
+    
+	ResourceManager* resMan = ServerCore::getZoneServer()->getResourceManager();
+    resMan->addResourceToContainer(container, resName.toLowerCase(), quantity);
+
+	return 0;
 }

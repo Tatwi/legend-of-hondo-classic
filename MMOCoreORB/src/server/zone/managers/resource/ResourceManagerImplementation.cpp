@@ -13,6 +13,7 @@
 #include "server/zone/objects/resource/ResourceContainer.h"
 #include "server/zone/packets/resource/ResourceContainerObjectDeltaMessage3.h"
 #include "server/zone/objects/player/sui/listbox/SuiListBox.h"
+#include "server/zone/objects/scene/SceneObject.h"
 
 void ResourceManagerImplementation::initialize() {
 	lua = new Lua();
@@ -428,4 +429,32 @@ String ResourceManagerImplementation::despawnResource(String& resourceName) {
 	resourceSpawner->shiftResources();
 
 	return resourceName + " despawned.";
+}
+
+// Legend of Hondo
+// Add resources to a container or use with Lua scripting
+void ResourceManagerImplementation::addResourceToContainer(SceneObject* container, const String& restype, const int quantity) {
+    if(container == NULL)
+        return;
+    
+	ManagedReference<ResourceSpawn* > spawn = getResourceSpawn(restype);
+
+	if(spawn == NULL) 
+		return;
+
+    Locker locker(spawn);
+
+    Reference<ResourceContainer*> newResource = spawn->createResource(quantity);
+
+    if(newResource != NULL) {
+        spawn->extractResource("", quantity);
+
+        Locker rlocker(newResource);
+
+        if (container->transferObject(newResource, -1, true)) {
+            container->broadcastObject(newResource, true);
+        } else {
+            newResource->destroyObjectFromDatabase(true);
+        }
+    }
 }

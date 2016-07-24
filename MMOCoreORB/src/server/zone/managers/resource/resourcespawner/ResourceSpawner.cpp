@@ -282,14 +282,21 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 		//	delete file;
 		//	return;
 		//}
-
+        
+        // Legend of Hondo - Added simple version for faster use in scripts
+        File* fileSimple = new File("scripts/screenplays/hondo/resource_list.lua");
+        FileWriter* writerSimple = new FileWriter(fileSimple);
+        writerSimple->writeLine("resourceList = {");
+        
 		FileWriter* writer = new FileWriter(file);
-
 		writer->writeLine("resources = {");
-
+       
 		for(int i = 0; i < resourceMap->size(); ++i) {
 
 			ManagedReference<ResourceSpawn*> spawn = resourceMap->get(i);
+            
+            // Legend of Hondo
+            writerSimple->writeLine("	{type = \"" + spawn->getType() + "\", name = \"" + spawn->getName() + "\"},");
 
 			writer->writeLine("	{");
 
@@ -326,11 +333,17 @@ bool ResourceSpawner::writeAllSpawnsToScript() {
 		}
 
 		writer->writeLine("}");
-
+        
 		writer->close();
-
-		delete file;
+        
+        delete file;
 		delete writer;
+        
+        // Legend of Hondo
+        writerSimple->writeLine("}");
+        writerSimple->close();
+		delete fileSimple;
+		delete writerSimple;
 
 		return true;
 	} catch (Exception& e) {
