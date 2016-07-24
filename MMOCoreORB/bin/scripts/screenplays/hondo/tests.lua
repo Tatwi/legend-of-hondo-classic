@@ -31,6 +31,8 @@ function HondoTestSP:start()
 	if (isZoneEnabled("tatooine")) then
         createEvent(10*1000, "HondoTestSP", "createLootContainers", nil)
         --self:spawnSceneObjects()
+        printf(getResourceSummary("Nohi") .. "\n")
+        printf("The Decay Resistance was..." .. LoH:getResourceStat("Nohi", "DR"))
     end
 end
 
@@ -44,27 +46,19 @@ function HondoTestSP:createLootContainers()
     SceneObject(pContainer):setContainerDefaultAllowPermission(MOVEOUT + OPEN)
     SceneObject(pContainer):setContainerComponent("PlaceableLootContainerComponent")
 
-    createEvent(10*1000, "HondoTestSP", "addTheLoot", pContainer)
+    createEvent(10*1000, "HondoTestSP", "addTheLootTest", pContainer)
 end
 
-function HondoTestSP:addTheLoot(pContainer)
-    local timePassed = getTimestampMilli()
-    local rndNum = getRandomNumber(1, #resourceList)
-    local targetType = "wood_deciduous_corellia"
-    local resourceGuessed = resourceList[rndNum].type
+function HondoTestSP:addTheLootTest(pContainer)
+    resourceIndex = LoH:getRandomResourceOfType("beans")
     
-    while not (string.find(targetType, resourceGuessed)) do
-        rndNum = getRandomNumber(1, #resourceList)
-        resourceGuessed = resourceList[rndNum].type
+    if (resourceIndex == 0) then
+        return
     end
     
-    timePassed = (timePassed - getTimestampMilli()) / 1000
-    printf("Resource found after ... " .. timePassed .. " seconds of searching")
-    
-    addResourceToContainer(pContainer, resourceList[rndNum].name, 250)
-    
+    addResourceToContainer(pContainer, resourceList[resourceIndex].name, getRandomNumber(123, 487))
     --createLootFromCollection(pContainer, self.lootGroups, self.lootLevel)
-    createEvent(self.lootContainerRespawn*1000, "HondoTestSP", "addTheLoot", pContainer)
+    createEvent(self.lootContainerRespawn*1000, "HondoTestSP", "addTheLootTest", pContainer)
 end
 
 function HondoTestSP:spawnSceneObjects()

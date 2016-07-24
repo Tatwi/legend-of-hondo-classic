@@ -304,6 +304,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	lua_register(luaEngine->getLuaState(), "removeQuestStatus", removeQuestStatus);
 	lua_register(luaEngine->getLuaState(), "getControllingFaction", getControllingFaction);
 	lua_register(luaEngine->getLuaState(), "playClientEffectLoc", playClientEffectLoc);
+    lua_register(luaEngine->getLuaState(), "getResourceSummary", getResourceSummary);
 
 	luaEngine->setGlobalInt("POSITIONCHANGED", ObserverEventType::POSITIONCHANGED);
 	luaEngine->setGlobalInt("CLOSECONTAINER", ObserverEventType::CLOSECONTAINER);
@@ -2782,4 +2783,23 @@ int DirectorManager::addResourceToContainer(lua_State* L) {
     resMan->addResourceToContainer(container, resName.toLowerCase(), quantity);
 
 	return 0;
+}
+
+// Legend of Hondo
+// Returns human readable name, class, and stats.
+// Usage: getResourceSummary("resourceName")
+int DirectorManager::getResourceSummary(lua_State* L) {
+    String resName = lua_tostring(L, -1);
+    resName = resName.toLowerCase();
+    
+    if (resName == ""){
+		lua_pushnil(L);
+	} else {
+        ResourceManager* resMan = ServerCore::getZoneServer()->getResourceManager();
+
+        String str = resMan->getResourceSummary(resName);
+		lua_pushstring(L, str.toCharArray());
+    }
+        
+	return 1;
 }

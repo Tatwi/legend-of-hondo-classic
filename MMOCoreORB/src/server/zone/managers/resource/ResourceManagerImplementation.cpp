@@ -458,3 +458,45 @@ void ResourceManagerImplementation::addResourceToContainer(SceneObject* containe
         }
     }
 }
+
+// Legend of Hondo
+// Generate a handy list of information about a resource
+String ResourceManagerImplementation::getResourceSummary(String& resourceName) {
+    StringBuffer text;
+    
+    ManagedReference<ResourceSpawn* > spawn = getResourceSpawn(resourceName);
+    
+    text << "Name: " << spawn->getName() << "\n";
+    text << "Type: " << spawn->getFinalClass() << "\n";
+    
+    for(int i = 0; i < 12; ++i) {
+        String attribute = "";
+        int value = spawn->getAttributeAndValue(attribute, i);
+        if(attribute != "") {
+            if(attribute == "res_cold_resist"){
+                attribute = "CR";
+            } else if(attribute == "res_conductivity"){
+                attribute = "CD";
+            } else if(attribute == "res_decay_resist"){
+                attribute = "DR";
+            } else if(attribute == "res_heat_resist"){
+                attribute = "HR";
+            } else if(attribute == "res_flavor"){
+                attribute = "FL";
+            } else if(attribute == "res_malleability"){
+                attribute = "MA";
+            } else if(attribute == "res_potential_energy"){
+                attribute = "PE";
+            } else if(attribute == "res_quality"){
+                attribute = "OQ";
+            } else if(attribute == "res_shock_resistance"){
+                attribute = "SR";
+            } else if(attribute == "res_toughness"){
+                attribute = "UT";
+            }
+           text << attribute << ": " << value << "\n";
+        }
+    }
+ 
+    return text.toString();
+}

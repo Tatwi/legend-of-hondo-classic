@@ -367,7 +367,7 @@ includeFile("record_keepers/record_keepers.lua")
 
 
 -- Legend of Hondo ----------------
-
+includeFile("hondo/hondo_common_functions.lua")
 includeFile("hondo/tests.lua") -- the scratchpad of screenplays! :)
 
 -- Buff Terminals

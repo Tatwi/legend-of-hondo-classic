@@ -116,6 +116,7 @@ class ResourceManager extends Observer implements Logger {
 	public ResourceSpawner getResourceSpawner() {
 		return resourceSpawner;
 	}
-
+    
+	public native string getResourceSummary(string resourceName);
 }
 
