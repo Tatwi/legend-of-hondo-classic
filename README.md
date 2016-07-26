@@ -1,13 +1,21 @@
-# Legend of Hondo
-A unique single player Star Wars experience, based on SWGEmu and Star Wars Galaxies. Enjoy a player centric world where your characters are members of a pirate gang based out of Mos Espa, Tatooine. Adventure on Dantooine, Dathomir, Endor, Lok, and Tatooine, with your band of 10 pirates and their supporting NPC community!
+NOTICE: As of July 26th, 2016 I have decided to rebuild Legend of Hondo in such a way that it can remain up to date with the progress of SWGEmu. As such, I have renamed this version Legend of Hondo Classic.
 
-Due to the single player nature of this game, it's significantly different than normal SWG and as a result, I absolutely DO NOT recomend using LoH as the base for a multi-player server. 
+For the current version see, 
+https://github.com/Tatwi/legend-of-hondo
+
+Some aspects of the new Legend of Hondo will likely be different, but ultimately the goal is the same: To make a fun single player, space-pirate themed experience based on SWG/SWGEmu, because I feel like doing it.
+
+
+#Legend of Hondo Classic
+
+Legend of Hondo is a project I started back in 2014 for something creative to enjoy on my own. The initial code base for the this repo was pulled from the unstable branch of the SWGEmu Gerrit in June, 2015, when I restarted the project.
+
+--
+A unique single player Star Wars experience, based on SWGEmu and Star Wars Galaxies that is significantly different than normal SWG. As a result, I absolutely DO NOT recomend using Legend of Hondo as the base for a multi-player server. 
 
 Legend of Hondo has heavily modified functionality to combat, housing, and other systems that I am sure many die hard SWG fans will utterly despise, but more importantly, some functionality absolutely WILL cause issues in a multiplayer environment. I don't care, because this is a single player game, but as a server admin, you will care when the complaints start rolling in! 
 
 It must be kept in mind that Legend of Hondo is not intended to be a "live" or "production" SWGEmu sever. Not at all. It's simply a personal project I am doing for the sake of doing so and sharing for the sake of helping those who may want to modify their own servers. Therefore, should you choose to use any of the code in this repo for any purpose, you do so entirely at your own risk and with absolutely no suggested or implied warranty or support from R. Bassett Jr. (Tatwi). That said, you're welcome to use any code or concepts you find here in your own projects - that's why this repo is here! There's lots of stuff in here that can, at the very least, give you an idea of how you could do something similar on your own server.
-
-This is a project I started back in 2014 for something creative to enjoy on my own. The initial code base for the current repo was pulled from the unstable branch of the SWGEmu Gerrit in June, 2015, when I restarted the project. I am going to use this code base until the SWGEmu project reaches its 1.0 release, at which point I will start working on Legend of Hondo 2 that will be based on SWGEmu 1.0.
 
 
 # Design Points
