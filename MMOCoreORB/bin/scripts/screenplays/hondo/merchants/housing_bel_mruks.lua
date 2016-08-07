@@ -15,7 +15,7 @@ BelMruksSP = ScreenPlay:new {
         {optName="tent_01", cost=5000, itemName="[1L]Small Grey", items={"object/tangible/deed/player_house_deed/merchant_tent_style_02_deed.iff"}}, 
         {optName="tent_02", cost=5000, itemName="[1L]Small Green", items={"object/tangible/deed/player_house_deed/merchant_tent_style_03_deed.iff"}},
         {optName="tent_03", cost=15000, itemName="[2L]Large Grey", items={"object/tangible/deed/player_house_deed/salon_tent_style_02_deed.iff"}},
-        {optName="tent_04", cost=15000, itemName="[2L]Large Green", items={"object/tangible/deed/player_house_deed/salon_tent_style_02_deed.iff"}},
+        {optName="tent_04", cost=15000, itemName="[2L]Large Green", items={"object/tangible/deed/player_house_deed/salon_tent_style_03_deed.iff"}},
 	},
 }
 
