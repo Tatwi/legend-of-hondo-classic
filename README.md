@@ -1,4 +1,4 @@
-NOTICE: As of July 26th, 2016 I have decided to rebuild Legend of Hondo in such a way that it can remain up to date with the progress of SWGEmu. As such, I have renamed this version Legend of Hondo Classic.
+NOTICE: On July 26th, 2016 I decided to restart Legend of Hondo one last time. As such, I renamed this version Legend of Hondo Classic and I probably won't be developing it further.
 
 For the current version see, 
 https://github.com/Tatwi/legend-of-hondo
@@ -6,7 +6,7 @@ https://github.com/Tatwi/legend-of-hondo
 Some aspects of the new Legend of Hondo will likely be different, but ultimately the goal is the same: To make a fun single player, space-pirate themed experience based on SWG/SWGEmu, because I feel like doing it.
 
 
-#Legend of Hondo Classic
+# Legend of Hondo Classic
 
 Legend of Hondo is a project I started back in 2014 for something creative to enjoy on my own. The initial code base for the this repo was pulled from the unstable branch of the SWGEmu Gerrit in June, 2015, when I restarted the project.
 
